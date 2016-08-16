@@ -1,0 +1,134 @@
+exit|512|665|512|50|south|Saves\\Save01\\Maps\\Map0-1.map
+customObst|5|5|file:Images\\Nature\\Tree.png
+customObst|5|656|file:Images\\Nature\\Tree.png
+customObst|50|5|file:Images\\Nature\\Tree.png
+customObst|50|656|file:Images\\Nature\\Tree.png
+customObst|95|5|file:Images\\Nature\\Tree.png
+customObst|95|656|file:Images\\Nature\\Tree.png
+customObst|140|5|file:Images\\Nature\\Tree.png
+customObst|140|656|file:Images\\Nature\\Tree.png
+customObst|185|5|file:Images\\Nature\\Tree.png
+customObst|185|656|file:Images\\Nature\\Tree.png
+customObst|230|5|file:Images\\Nature\\Tree.png
+customObst|230|656|file:Images\\Nature\\Tree.png
+customObst|275|5|file:Images\\Nature\\Tree.png
+customObst|275|656|file:Images\\Nature\\Tree.png
+customObst|320|5|file:Images\\Nature\\Tree.png
+customObst|320|656|file:Images\\Nature\\Tree.png
+customObst|365|5|file:Images\\Nature\\Tree.png
+customObst|365|656|file:Images\\Nature\\Tree.png
+customObst|410|5|file:Images\\Nature\\Tree.png
+customObst|410|656|file:Images\\Nature\\Tree.png
+customObst|455|5|file:Images\\Nature\\Tree.png
+customObst|455|656|file:Images\\Nature\\Tree.png
+customObst|500|5|file:Images\\Nature\\Tree.png
+customObst|545|5|file:Images\\Nature\\Tree.png
+customObst|545|656|file:Images\\Nature\\Tree.png
+customObst|590|5|file:Images\\Nature\\Tree.png
+customObst|590|656|file:Images\\Nature\\Tree.png
+customObst|635|5|file:Images\\Nature\\Tree.png
+customObst|635|656|file:Images\\Nature\\Tree.png
+customObst|680|5|file:Images\\Nature\\Tree.png
+customObst|680|656|file:Images\\Nature\\Tree.png
+customObst|725|5|file:Images\\Nature\\Tree.png
+customObst|725|656|file:Images\\Nature\\Tree.png
+customObst|770|5|file:Images\\Nature\\Tree.png
+customObst|770|656|file:Images\\Nature\\Tree.png
+customObst|815|5|file:Images\\Nature\\Tree.png
+customObst|815|656|file:Images\\Nature\\Tree.png
+customObst|860|5|file:Images\\Nature\\Tree.png
+customObst|860|656|file:Images\\Nature\\Tree.png
+customObst|905|5|file:Images\\Nature\\Tree.png
+customObst|905|656|file:Images\\Nature\\Tree.png
+customObst|950|5|file:Images\\Nature\\Tree.png
+customObst|950|656|file:Images\\Nature\\Tree.png
+customObst|995|5|file:Images\\Nature\\Tree.png
+customObst|995|656|file:Images\\Nature\\Tree.png
+customObst|5|47|file:Images\\Nature\\Tree.png
+customObst|5|87|file:Images\\Nature\\Tree.png
+customObst|5|127|file:Images\\Nature\\Tree.png
+customObst|5|167|file:Images\\Nature\\Tree.png
+customObst|5|207|file:Images\\Nature\\Tree.png
+customObst|5|247|file:Images\\Nature\\Tree.png
+customObst|5|287|file:Images\\Nature\\Tree.png
+customObst|5|327|file:Images\\Nature\\Tree.png
+customObst|5|367|file:Images\\Nature\\Tree.png
+customObst|5|407|file:Images\\Nature\\Tree.png
+customObst|5|447|file:Images\\Nature\\Tree.png
+customObst|5|487|file:Images\\Nature\\Tree.png
+customObst|5|527|file:Images\\Nature\\Tree.png
+customObst|5|567|file:Images\\Nature\\Tree.png
+customObst|5|607|file:Images\\Nature\\Tree.png
+customObst|995|47|file:Images\\Nature\\Tree.png
+customObst|995|87|file:Images\\Nature\\Tree.png
+customObst|995|127|file:Images\\Nature\\Tree.png
+customObst|995|167|file:Images\\Nature\\Tree.png
+customObst|995|207|file:Images\\Nature\\Tree.png
+customObst|995|247|file:Images\\Nature\\Tree.png
+customObst|995|287|file:Images\\Nature\\Tree.png
+customObst|995|327|file:Images\\Nature\\Tree.png
+customObst|995|367|file:Images\\Nature\\Tree.png
+customObst|995|407|file:Images\\Nature\\Tree.png
+customObst|995|447|file:Images\\Nature\\Tree.png
+customObst|995|487|file:Images\\Nature\\Tree.png
+customObst|995|527|file:Images\\Nature\\Tree.png
+customObst|995|567|file:Images\\Nature\\Tree.png
+customObst|995|614|file:Images\\Nature\\Tree.png
+customObst|409|396|file:Images\\Buildings\\WoodWall32.png
+customObst|409|428|file:Images\\Buildings\\WoodWall32.png
+customObst|441|396|file:Images\\Buildings\\WoodWall32.png
+customObst|441|428|file:Images\\Buildings\\WoodWall32.png
+customObst|409|460|file:Images\\Buildings\\WoodWall32.png
+over|409|364|file:Images\\Buildings\\WoodRoofLeft32.png
+over|537|364|file:Images\\Buildings\\WoodRoofRight32.png
+over|441|364|file:Images\\Buildings\\WoodWall32.png
+over|473|364|file:Images\\Buildings\\WoodWall32.png
+over|505|364|file:Images\\Buildings\\WoodWall32.png
+customObst|441|460|file:Images\\Buildings\\WoodWall32.png
+customObst|473|396|file:Images\\Buildings\\WoodWall32.png
+customObst|505|396|file:Images\\Buildings\\WoodWall32.png
+under|473|428|file:Images\\Buildings\\DarkDoorwayTall.png
+exit|476|438|468|421|north|Saves\\Save01\\Maps\\TestHouseLarge.map
+customObst|505|428|file:Images\\Buildings\\WoodWall32.png
+customObst|505|460|file:Images\\Buildings\\WoodWall32.png
+customObst|537|396|file:Images\\Buildings\\WoodWall32.png
+customObst|537|428|file:Images\\Buildings\\WoodWall32.png
+customObst|537|460|file:Images\\Buildings\\WoodWall32.png
+over|569|428|file:Images\\Buildings\\WoodRoofRight32.png
+customObst|569|460|file:Images\\Buildings\\WoodWall32.png
+customObst|131|149|file:Images\Nature\Tree.png
+customObst|859|356|file:Images\Nature\Tree.png
+customObst|550|70|file:Images\Nature\Tree50x50.png
+customObst|75|247|file:Images\Nature\Tree.png
+item|dagger|258|67|4|1|0|1|1.0|0|0|33|junk|stone|file:Images\Weapons\stone\dagger\Dagger.png|stone dagger|A stone dagger
+customObst|365|219|file:Images\Nature\Tree50x50.png
+customObst|867|262|file:Images\Nature\Tree.png
+customObst|453|54|file:Images\Nature\Tree.png
+customObst|176|94|file:Images\Nature\Tree.png
+item|shield|672|565|3|0|9|2|5.0|0|0|120|common|bronze|file:Images\Armors\bronze\Shield.png|bronze shield|A bronze shield
+customObst|831|148|file:Images\Nature\Tree.png
+customObst|783|281|file:Images\Nature\Tree.png
+customObst|921|120|file:Images\Nature\Tree.png
+customObst|375|111|file:Images\Nature\Tree.png
+customObst|832|453|file:Images\Nature\Tree.png
+customObst|59|369|file:Images\Nature\Tree.png
+customObst|262|245|file:Images\Nature\Tree.png
+customObst|480|540|file:Images\Nature\Tree.png
+customObst|898|458|file:Images\Nature\Tree.png
+item|potion|789|543|0|0|0|0|0.1|0|0|95|common|health|75|file:Images\Consumables\Potions\Health Potion.png
+customObst|310|361|file:Images\Nature\Tree.png
+customObst|544|278|file:Images\Nature\Tree.png
+loot|279|422|file:Images\Lootables\ChestArea.png
+item|boots|0|0|0|0|3|1|2.0|0|0|48|common|wood|file:Images\Armors\wood\Boots.png|wood boots|A pair of wood boots
+item|axe|0|0|20|1|0|3|12.0|0|0|343|common|steel|file:Images\Weapons\steel\axe\Axe.png|steel axe|A steel axe
+item|sword|0|0|9|1|0|2|4.0|0|0|167|common|bronze|file:Images\Weapons\bronze\sword\Sword.png|bronze sword|A bronze sword
+item|chest|0|0|0|0|6|4|7.0|0|0|107|common|wood|file:Images\Armors\wood\Chest.png|wood chestpiece|A wood chestpiece
+endloot
+loot|108|95|file:Images\Lootables\ChestArea.png
+item|sword|0|0|4|0|0|2|2.0|0|0|84|common|stone|file:Images\Weapons\stone\sword\Sword.png|stone sword|A stone sword
+item|axe|0|0|3|0|0|3|1.0|0|0|51|common|wood|file:Images\Weapons\wood\axe\Axe.png|wood axe|A wood axe
+item|boots|0|0|0|0|3|1|2.0|0|0|48|common|wood|file:Images\Armors\wood\Boots.png|wood boots|A pair of wood boots
+item|gloves|0|0|0|0|3|1|2.0|0|0|44|junk|leather|file:Images\Armors\leather\Gloves.png|leather gloves|A pair of leather gloves
+endloot
+neutral|579|516|John Gimbut|Images\Characters\GenericNeutral\GenericNeutralNorth.png|Images\Characters\GenericNeutral\GenericNeutralSouth.png|Images\Characters\GenericNeutral\GenericNeutralEast.png|Images\Characters\GenericNeutral\GenericNeutralWest.png|how the fuck did i get here???
+neutral|632|142|Daniel Johnson|Images\Characters\GenericNeutral\GenericNeutralNorth.png|Images\Characters\GenericNeutral\GenericNeutralSouth.png|Images\Characters\GenericNeutral\GenericNeutralEast.png|Images\Characters\GenericNeutral\GenericNeutralWest.png|This message is being read from the second line.|This is a test of the generic dialogue system.|Hello, how are you?

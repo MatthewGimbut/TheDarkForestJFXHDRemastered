@@ -1,0 +1,46 @@
+#menu {
+    -fx-text-fill: #006464;
+    -fx-background-color: rgb(198, 153, 86);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}
+
+#standardPane {
+    -fx-text-fill: #000000;
+    -fx-background-color: rgb(198, 153, 86);
+    -fx-border-radius: 9;
+    -fx-border-color: rgb(104, 72, 39);
+    -fx-background-radius: 11;
+    -fx-border-width: 2;
+    -fx-padding: 5;
+
+}
+
+#menu GameButton {
+    -fx-text-color: #FF0000;
+
+}
+
+#grass {
+    -fx-background-image: url("file:Images/GrassBackground.png");
+}
+
+
+#interior-black {
+    -fx-background-image: url("file:Images/BlackBackground.png");
+}
+
+#mainmenu {
+    -fx-background-image: url("file:Images/MainMenu.png");
+}
+
+.tooltip {
+    -fx-border-color: rgb(104, 72, 39);
+    -fx-border-radius: 5.0 5.0 5.0 5.0;
+    -fx-background-radius: 5.0 5.0 5.0 5.0;
+    -fx-background-color:  rgb(198, 153, 86);
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+
+}
