@@ -669,12 +669,12 @@ public class MapParser {
 		sb.append(determineRarityTag(i));
 
 		if(i instanceof Weapon) {
-            sb.append(determineWeaponTag((Weapon) i)).append("file:" + i.getImageLocation()).append(DELIMITER_STRING).append(i.getSimpleName())
+            sb.append(determineWeaponTag((Weapon) i)).append(i.getImageLocation()).append(DELIMITER_STRING).append(i.getSimpleName())
                     .append(DELIMITER_STRING).append(i.getItemToolTipText());
 		} else if(i instanceof Potion) {
-            sb.append(determinePotionTypeTag((Potion) i)).append(((Potion) i).getAmount()).append(DELIMITER_STRING).append("file:" + i.getImageLocation());
+            sb.append(determinePotionTypeTag((Potion) i)).append(((Potion) i).getAmount()).append(DELIMITER_STRING).append(i.getImageLocation());
 		} else if(i instanceof Armor) {
-            sb.append(determineArmorTag((Armor) i)).append("file:" + i.getImageLocation()).append(DELIMITER_STRING).append(i.getSimpleName())
+            sb.append(determineArmorTag((Armor) i)).append(i.getImageLocation()).append(DELIMITER_STRING).append(i.getSimpleName())
                     .append(DELIMITER_STRING).append(i.getItemToolTipText());
 		}
 		sb.append("\n");
@@ -699,12 +699,12 @@ public class MapParser {
 		sb.append(determineRarityTag(i));
 
 		if(i instanceof Weapon) {
-            sb.append(determineWeaponTag((Weapon) i)).append("file:" + i.getImageLocation()).append(DELIMITER_STRING)
+            sb.append(determineWeaponTag((Weapon) i)).append(i.getImageLocation()).append(DELIMITER_STRING)
                     .append(i.getSimpleName()).append(DELIMITER_STRING).append(i.getItemToolTipText());
 		} else if(i instanceof Potion) {
-            sb.append(determinePotionTypeTag((Potion) i)).append(((Potion) i).getAmount()).append(DELIMITER_STRING).append("file:" + i.getImageLocation());
+            sb.append(determinePotionTypeTag((Potion) i)).append(((Potion) i).getAmount()).append(DELIMITER_STRING).append(i.getImageLocation());
 		} else if(i instanceof Armor) {
-            sb.append(determineArmorTag((Armor) i)).append("file:" + i.getImageLocation()).append(DELIMITER_STRING)
+            sb.append(determineArmorTag((Armor) i)).append(i.getImageLocation()).append(DELIMITER_STRING)
                     .append(i.getSimpleName()).append(DELIMITER_STRING).append(i.getItemToolTipText());
 		}
 		sb.append("\n");

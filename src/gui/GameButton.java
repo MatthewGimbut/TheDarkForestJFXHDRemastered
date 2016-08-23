@@ -1,10 +1,8 @@
 package gui;
 
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 
-/**
- * Created by Matthew on 8/13/2016.
- */
 public class GameButton extends Button {
 
     public GameButton() {
@@ -17,9 +15,13 @@ public class GameButton extends Button {
     }
 
     public GameButton(String text, String idName) {
-        this();
-        this.setText(text);
+        this(text);
         this.setId(idName);
+    }
+
+    public GameButton(String text, int fontSize) {
+        this(text);
+        this.setFont(new Font("Cambria", fontSize));
     }
 
 }

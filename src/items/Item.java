@@ -31,7 +31,9 @@ public abstract class Item implements Serializable {
 	private int manaBoost;
 	private String simpleName;
 	private String toolTipText;
-	
+	private boolean isCurrentlyEquipped;
+	private boolean isFavorite;
+
 	/**
 	 * Constructor for item that takes all the stats for the specific item, usually set in the subclass
 	 * @param atk
@@ -46,6 +48,7 @@ public abstract class Item implements Serializable {
 		this.r = new Random();
 		random = r.nextInt(2);
 		this.howRare = howRare;
+		this.isFavorite = false;
 		if(this instanceof Weapon) {
 			this.atk = (int) Math.round((atk * (Item.rarityMultiplier(howRare)))) + random;
 			this.magic = (int) Math.round((magic * (Item.rarityMultiplier(howRare)))) + random;
@@ -66,6 +69,7 @@ public abstract class Item implements Serializable {
 		this.weight = weight;
 		this.hpBoost = hpBoost;
 		this.manaBoost = manaBoost;
+		this.isCurrentlyEquipped = false;
 	}
 	
 	public int getAtk() {
@@ -81,7 +85,7 @@ public abstract class Item implements Serializable {
 	}
 
 	public String getImageLocation() {
-		if(imageLocation.startsWith("file:")) return imageLocation;
+		if(this.imageLocation.startsWith("file:")) return imageLocation;
 		else return "file:" + imageLocation;
 	}
 	
@@ -237,5 +241,22 @@ public abstract class Item implements Serializable {
 	
 	public void setItemToolTipText(String text) {
 		this.toolTipText = text;
+	}
+
+	public boolean isCurrentlyEquipped() {
+		return isCurrentlyEquipped;
+	}
+
+	public void setCurrentlyEquipped(boolean currentlyEquipped) {
+		isCurrentlyEquipped = currentlyEquipped;
+	}
+
+
+	public boolean isFavorite() {
+		return isFavorite;
+	}
+
+	public void setFavorite(boolean favorite) {
+		isFavorite = favorite;
 	}
 }

@@ -23,7 +23,7 @@ public class LootPane extends BorderPane {
         this.currentView = currentView;
         this.lootContainer = lootContainer;
         this.player = player;
-        itemBox = new HBox();
+        itemBox = new HBox(15);
         this.setId("standardPane");
 
         takeAll = new GameButton("Take All");
@@ -38,9 +38,10 @@ public class LootPane extends BorderPane {
             currentView.removeLootPane(this);
         });
 
-        hb = new HBox();
+        hb = new HBox(5);
         hb.setAlignment(Pos.CENTER);
         hb.getChildren().addAll(takeAll, exit);
+
 
         drawItems();
         checkIfEmpty();
@@ -48,7 +49,7 @@ public class LootPane extends BorderPane {
         this.setCenter(itemBox);
         hb.setMargin(itemBox, new Insets(5,0,0,0));
         if(lootContainer.getItems().size() > 0) {
-            this.setMaxWidth(100 + 90*lootContainer.getItems().size());
+            this.setMaxWidth(100 + 80*lootContainer.getItems().size());
         } else {
             this.setMaxWidth(150);
         }

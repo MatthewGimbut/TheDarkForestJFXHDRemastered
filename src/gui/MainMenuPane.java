@@ -3,24 +3,42 @@ package gui;
 
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.GameStage;
+import main.MapContainer;
+import main.SaveManager;
+import sprites.PlayerSprite;
+
+import java.util.ArrayList;
 
 public class MainMenuPane extends AnchorPane {
 
     public MainMenuPane(Stage primaryStage) {
 
-        GameButton start = new GameButton("Start");
-        start.setPadding(new Insets(10, 100, 10, 100));
-        this.setId("mainmenu");
-        this.setBottomAnchor(start, 50.0);
-        this.setLeftAnchor(start, 400.0);
+        VBox pane = new VBox(5);
+        pane.setAlignment(Pos.CENTER);
+        GameButton start = new GameButton("New Game");
+        GameButton load = new GameButton("Continue");
+        GameButton quit = new GameButton("Quit");
 
+        start.setMinWidth(200);
+        load.setMinWidth(200);
+        quit.setMinWidth(200);
+        this.setId("mainmenu");
+
+        pane.getChildren().addAll(start, load, quit);
+        pane.setAlignment(Pos.CENTER);
+
+        this.setBottomAnchor(pane, 50.0);
+        this.setLeftAnchor(pane, 425.0);
 
         Group g = new Group();
         Rectangle rekt = new Rectangle(GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
@@ -32,7 +50,7 @@ public class MainMenuPane extends AnchorPane {
         g.getChildren().addAll(rekt);
         this.getChildren().add(g);
         ft.play();
-        this.getChildren().addAll(start);
+        this.getChildren().addAll(pane);
 
 
         start.setOnAction(event -> {
@@ -41,6 +59,31 @@ public class MainMenuPane extends AnchorPane {
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
             primaryStage.setScene(scene);
+        });
+
+        load.setOnAction(event -> {
+            GamePane gp = new GamePane(primaryStage);
+
+            ArrayList<Object> newMap = SaveManager.deserialize();
+            gp.setCurrentMapFile((String) newMap.get(1));
+            gp.setPlayer((PlayerSprite) newMap.get(0));
+            gp.getPlayer().setImage(gp.getPlayer().getImageLocation());
+            try {
+               MapContainer map = new MapContainer(gp.getPlayer(), (String) newMap.get(1));
+                gp.setMapContainer(map);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            gp.setId((String) newMap.get(2));
+
+            GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
+            gp.requestFocus();
+            scene.getStylesheets().add(GameStage.STYLESHEET);
+            primaryStage.setScene(scene);
+        });
+
+        quit.setOnAction(event -> {
+            System.exit(0);
         });
     }
 }

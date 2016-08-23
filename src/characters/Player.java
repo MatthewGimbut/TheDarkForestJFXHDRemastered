@@ -5,6 +5,8 @@ import items.Consumables.Potion;
 import items.Item;
 import items.Weapons.Weapon;
 import main.Records;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Player extends Character {
@@ -44,7 +46,7 @@ public class Player extends Character {
         super(username , STARTING_LEVEL, STARTING_MAX_HP, STARTING_MAX_HP, STARTING_MAX_MANA, STARTING_MAX_MANA, STARTING_ATK, STARTING_MAGIC, STARTING_DEF, STARTING_SPD, 0, STARTING_MAX_CARRY);
         xp = 0;
         gold = 0;
-        textScrollingSpeed = 35; //Milliseconds
+        textScrollingSpeed = 45; //Milliseconds
         inventory = new LinkedList<Item>();
         records = new Records();
     }
@@ -84,7 +86,6 @@ public class Player extends Character {
      * @param i The item to unequip
      */
     public void unequip(Item i) {
-        inventory.add(i);
         if (i instanceof Weapon) {
             weaponHandR = null;
         } else if (i instanceof Shield) {
@@ -100,6 +101,7 @@ public class Player extends Character {
         } else{
             boots = null;
         }
+        i.setCurrentlyEquipped(false);
         unequipUpdateStats(i);
     }
 
@@ -108,16 +110,17 @@ public class Player extends Character {
      * @param w The weapon to equip
      */
     public void equip(Weapon w) {
-        if(this.weaponHandR == null) {
-            weaponHandR = w;
-            inventory.remove(w);
-        } else {
-            inventory.add(this.weaponHandR);
-            unequipUpdateStats(this.weaponHandR);
-            weaponHandR = w;
-            inventory.remove(w);
+        if(!w.isCurrentlyEquipped()) {
+            if(this.weaponHandR == null) {
+                weaponHandR = w;
+            } else {
+                unequipUpdateStats(this.weaponHandR);
+                this.weaponHandR.setCurrentlyEquipped(false);
+                weaponHandR = w;
+            }
+            w.setCurrentlyEquipped(true);
+            equipUpdateStats(w);
         }
-        equipUpdateStats(w);
     }
 
     /**
@@ -125,68 +128,59 @@ public class Player extends Character {
      * @param a The armor to be equipped
      */
     public void equip(Armor a) {
-        if (a instanceof Boots) {
-            if(boots == null) {
-                boots = (Boots) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(boots);
-                unequipUpdateStats(boots);
-                boots = (Boots) a;
-                inventory.remove(a);
+        if(!a.isCurrentlyEquipped()) {
+            a.setCurrentlyEquipped(true);
+            if (a instanceof Boots) {
+                if(boots == null) {
+                    boots = (Boots) a;
+                } else {
+                    boots.setCurrentlyEquipped(false);
+                    unequipUpdateStats(boots);
+                    boots = (Boots) a;
+                }
+            } else if (a instanceof ChestPiece) {
+                if(chestPiece == null) {
+                    chestPiece = (ChestPiece) a;
+                } else {
+                    chestPiece.setCurrentlyEquipped(false);
+                    unequipUpdateStats(chestPiece);
+                    chestPiece = (ChestPiece) a;
+                }
+            } else if (a instanceof Gloves) {
+                if(gloves == null) {
+                    gloves = (Gloves) a;
+                } else {
+                    gloves.setCurrentlyEquipped(false);
+                    unequipUpdateStats(gloves);
+                    gloves = (Gloves) a;
+                }
+            } else if (a instanceof Helmet) {
+                if(helmet == null) {
+                    helmet = (Helmet) a;
+                } else {
+                    helmet.setCurrentlyEquipped(false);
+                    unequipUpdateStats(helmet);
+                    helmet = (Helmet) a;
+                }
+            } else if (a instanceof Legs) {
+                if(leggings == null) {
+                    leggings = (Legs) a;
+                } else {
+                    leggings.setCurrentlyEquipped(false);
+                    unequipUpdateStats(leggings);
+                    leggings = (Legs) a;
+                }
+            } else if(a instanceof Shield) {
+                if(leftHand == null) {
+                    leftHand = (Shield) a;
+                } else {
+                    leftHand.setCurrentlyEquipped(false);
+                    unequipUpdateStats(leftHand);
+                    leftHand = (Shield) a;
+                }
             }
-        } else if (a instanceof ChestPiece) {
-            if(chestPiece == null) {
-                chestPiece = (ChestPiece) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(chestPiece);
-                unequipUpdateStats(chestPiece);
-                chestPiece = (ChestPiece) a;
-                inventory.remove(a);
-            }
-        } else if (a instanceof Gloves) {
-            if(gloves == null) {
-                gloves = (Gloves) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(gloves);
-                unequipUpdateStats(gloves);
-                gloves = (Gloves) a;
-                inventory.remove(a);
-            }
-        } else if (a instanceof Helmet) {
-            if(helmet == null) {
-                helmet = (Helmet) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(helmet);
-                unequipUpdateStats(helmet);
-                helmet = (Helmet) a;
-                inventory.remove(a);
-            }
-        } else if (a instanceof Legs) {
-            if(leggings == null) {
-                leggings = (Legs) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(leggings);
-                unequipUpdateStats(leggings);
-                leggings = (Legs) a;
-                inventory.remove(a);
-            }
-        } else if(a instanceof Shield) {
-            if(leftHand == null) {
-                leftHand = (Shield) a;
-                inventory.remove(a);
-            } else {
-                inventory.add(leftHand);
-                unequipUpdateStats(leftHand);
-                leftHand = (Shield) a;
-                inventory.remove(a);
-            }
+            equipUpdateStats(a);
         }
-        equipUpdateStats(a);
     }
 
     public void consume(Potion p) {

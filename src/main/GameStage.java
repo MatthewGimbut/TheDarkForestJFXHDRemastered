@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
 import java.util.Random;
 
 public class GameStage extends Application {
@@ -78,6 +79,12 @@ public class GameStage extends Application {
         return rand.nextInt(50);
     }
 
+    public static void playSound(String fileLocation) {
+        sound = new Media(Paths.get(fileLocation).toUri().toString());
+        soundPlayer = new MediaPlayer(sound);
+        soundPlayer.setVolume(effectVolume);
+        soundPlayer.play();
+    }
 
     public static void main(String[] args) {
         launch(args);

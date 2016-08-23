@@ -2,7 +2,6 @@ package gui;
 
 import characters.Enemy;
 import characters.Player;
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
@@ -12,10 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
-import main.GameStage;
 import sprites.NPC;
-
 import java.util.ArrayList;
 
 public class MessagePane extends BorderPane {
@@ -33,6 +29,7 @@ public class MessagePane extends BorderPane {
     private boolean processing;
     private Timeline t;
     private boolean keyHasBeenReleased;
+    private int millis;
 
     private MessagePane(Player player, GamePane currentView) {
         keyHasBeenReleased = true;
@@ -43,6 +40,7 @@ public class MessagePane extends BorderPane {
         this.displayedMessage = new Label("");
         this.displayedMessage.setFont(new Font("Cambria", 34));
         this.displayedMessage.setAlignment(Pos.BASELINE_LEFT);
+        this.millis = player.getTextScrollingSpeed();
 
         this.setOnKeyPressed(event -> {
             if(event.getCode().toString().equals("E") && keyHasBeenReleased) {
@@ -110,7 +108,7 @@ public class MessagePane extends BorderPane {
         scrollIndex = 0;
         messageChars = toScroll.toCharArray();
         t = new Timeline(new KeyFrame(
-                Duration.millis(50), event -> {
+                Duration.millis(this.millis), event -> {
             try {
                 processing = true;
                 currentDisplay += messageChars[scrollIndex];

@@ -32,8 +32,9 @@ import java.util.ArrayList;
 public class GamePane extends StackPane {
 
     private Stage primaryStage;
-    private boolean menuCurrentlyDisplayed, battleCurrentlyDisplayed, statsCurrentlyDisplayed, inventoryCurrentlyDisplayed,
-            lootCurrentlyDisplayed, settingsCurrentlyDisplayed, messageCurrentlyDisplayed, equipmentCurrentlyDisplayed;
+    private boolean menuCurrentlyDisplayed, battleCurrentlyDisplayed, statsCurrentlyDisplayed,
+            inventoryCurrentlyDisplayed, lootCurrentlyDisplayed, settingsCurrentlyDisplayed,
+            messageCurrentlyDisplayed, equipmentCurrentlyDisplayed;
     private PlayerSprite player;
     private ArrayList<String> input;
     private MapContainer map;
@@ -52,7 +53,7 @@ public class GamePane extends StackPane {
         Canvas canvas = new Canvas(GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
         this.getChildren().add(canvas);
 
-        player = new PlayerSprite(200, 100, new Player("Matt"));
+        player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
 
         gc = canvas.getGraphicsContext2D();
 
@@ -103,7 +104,7 @@ public class GamePane extends StackPane {
             String code = event.getCode().toString();
             switch(code) {
                 case "ESCAPE":
-                    if(!engaged()) toggleMenuPane();
+                    if(!engagedMinusMenu()) toggleMenuPane();
                     break;
                 case "SHIFT":
                     player.setPlayerSpeed(2);
@@ -143,23 +144,25 @@ public class GamePane extends StackPane {
      * @param y The y coordinate of where to set the Rectangle2D.
      */
     private void interact(int x, int y) {
-        Sprite interact = new Sprite(x, y, "file:Images\\Blank32x32.png");
+        Sprite interact = new Sprite(x, y, "file:Images\\Blank24x24.png");
         interact.setObstacle(false);
         DisplayItem remove = null;
         interact.render(gc);
 
-        for (Sprite obstacle : map.getMapItems()) {
-            if (interact.getBounds().intersects(obstacle.getBounds())) {
-                if (obstacle instanceof Lootable) {
-                    displayLootPane(((Lootable) obstacle));
-                } else if (obstacle instanceof Save) {
+        boolean found = false; //We separate it this way to prevent two actions from firing at once and conflicting if two obstacles are within range
+        for(int i = 0; i < map.getMapItems().size() && !found; i++) {
+            if (interact.getBounds().intersects(map.getMapItems().get(i).getBounds())) {
+                found = true;
+                if (map.getMapItems().get(i) instanceof Lootable) {
+                    displayLootPane(((Lootable) map.getMapItems().get(i)));
+                } else if (map.getMapItems().get(i) instanceof Save) {
                     SaveManager.serialize(currentMapFile, player, this.getId());
                     displayMessagePane("Save succeeded!");
-                } else if (obstacle instanceof NPC) {
-                    npcInteraction(obstacle);
-                } else if (obstacle instanceof DisplayItem) {
-                    itemInteraction((DisplayItem) obstacle);
-                    remove = (DisplayItem) obstacle;
+                } else if (map.getMapItems().get(i) instanceof NPC) {
+                    npcInteraction(map.getMapItems().get(i));
+                } else if (map.getMapItems().get(i) instanceof DisplayItem) {
+                    boolean pickedUp = itemInteraction((DisplayItem) map.getMapItems().get(i));
+                    if(pickedUp) remove = (DisplayItem) map.getMapItems().get(i);
                 }
             }
         }
@@ -173,14 +176,14 @@ public class GamePane extends StackPane {
      * Right now, the only action is to allow them to pick it up and add it to their inventory.
      * @param item The Sprite of the item to be added to the inventory.
      */
-    private void itemInteraction(DisplayItem item) {
+    private boolean itemInteraction(DisplayItem item) {
         player.setDx(0); //Sets the player's x and y movement to 0 so that they don't begin moving on their own after finished with dialogue.
         player.setDy(0);
-        displayMessagePane("You have picked up a " + item.getItem().getSimpleName() + ".");
-        player.getPlayer().addItem(item.getItem());
+        if(player.getPlayer().addItem(item.getItem())) {
+            displayMessagePane("You have picked up a " + item.getItem().getSimpleName() + ".");
 
-        //Below segment is commented out for testing reasons.
-        //It works perfectly, but I don't want items being removed from file while testing.
+            //Below segment is commented out for testing reasons.
+            //It works perfectly, but I don't want items being removed from file while testing.
 
 		/*try {
 			MapParser.removeItem("item", currentMapFile, item.getX(), item.getY());
@@ -189,6 +192,11 @@ public class GamePane extends StackPane {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}*/
+            return true;
+        } else {
+            displayMessagePane("You don't currently have the inventory space to carry that!");
+            return false;
+        }
     }
 
     /**
@@ -227,7 +235,7 @@ public class GamePane extends StackPane {
         }
 
     }
-    
+
     private void initCollections() {
         try {
             String mapLoc = "Saves\\Save01\\Maps\\Map0-0.map";
@@ -300,7 +308,8 @@ public class GamePane extends StackPane {
                     player.setY(((Exit) obstacle).getNextY());
                     if(((Exit) obstacle).getNextMapLocation().equals("random")) {
                         try {
-                            map.randomize("Saves\\Default Maps\\Maps\\tempMap.map", currentMapFile, (Exit) obstacle);
+                            map.randomize("Saves\\Default Maps\\Maps\\tempMap.map", currentMapFile,
+                                    (Exit) obstacle);
                             ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.map");
                         } catch (Exception e) {
                             System.out.println("Failed to generate random map.");
@@ -335,6 +344,13 @@ public class GamePane extends StackPane {
      */
     boolean engaged() {
         return (menuCurrentlyDisplayed || battleCurrentlyDisplayed
+                || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
+                || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
+                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed);
+    }
+
+    boolean engagedMinusMenu() {
+        return (battleCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
                 || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed);
@@ -380,6 +396,36 @@ public class GamePane extends StackPane {
             menuCurrentlyDisplayed = false;
             this.requestFocus();
         }
+    }
+
+    /*void displayEquipmentPane() {
+        if(!equipmentCurrentlyDisplayed) {
+            EquipmentPane pane = new EquipmentPane(this, player.getPlayer());
+            this.getChildren().add(pane);
+            equipmentCurrentlyDisplayed = true;
+            pane.requestFocus();
+        }
+    }
+
+    void removeEquipmentPane(EquipmentPane pane) {
+        this.getChildren().remove(pane);
+        equipmentCurrentlyDisplayed = false;
+        this.requestFocus();
+    }*/
+
+    void displayInventoryPane() {
+        if(!inventoryCurrentlyDisplayed) {
+            InventoryPane ip = new InventoryPane(this, player.getPlayer());
+            this.getChildren().add(ip);
+            inventoryCurrentlyDisplayed = true;
+            ip.requestFocus();
+        }
+    }
+
+    void removeInventoryPane(InventoryPane pane) {
+        this.getChildren().remove(pane);
+        inventoryCurrentlyDisplayed = false;
+        this.requestFocus();
     }
 
     void displayLootPane(Lootable loot) {

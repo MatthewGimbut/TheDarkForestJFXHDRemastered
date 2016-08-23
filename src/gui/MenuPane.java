@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MenuPane extends VBox {
 
-    private GameButton options, stats, inventory, exit, quit, equipment, load;
+    private GameButton options, stats, inventory, exit, quit, load;
     private MapContainer map;
 
 
@@ -20,7 +20,6 @@ public class MenuPane extends VBox {
         options = new GameButton("Options");
         stats = new GameButton("Stats");
         inventory = new GameButton("Inventory");
-        equipment = new GameButton("Equipment");
         load = new GameButton("Load");
         quit = new GameButton("Quit");
         exit = new GameButton("Exit");
@@ -54,10 +53,15 @@ public class MenuPane extends VBox {
             currentView.displayOptionsPane();
         });
 
+        inventory.setOnAction(event -> {
+            currentView.toggleMenuPane();
+            currentView.displayInventoryPane();
+        });
+
         this.setSpacing(7.5);
-        this.setMaxWidth(100);
+        this.setMaxWidth(125);
         this.setMaxHeight(300);
-        this.getChildren().addAll(inventory, equipment, stats, options, load, exit,  quit);
+        this.getChildren().addAll(inventory, stats, options, load, exit,  quit);
         this.requestFocus();
     }
 }
