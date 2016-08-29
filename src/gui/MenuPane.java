@@ -2,7 +2,10 @@ package gui;
 
 
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import main.GameStage;
 import main.MapContainer;
 import main.SaveManager;
 import sprites.PlayerSprite;
@@ -45,7 +48,10 @@ public class MenuPane extends VBox {
         });
 
         quit.setOnAction(event -> {
-            System.exit(0);
+            Stage stage = currentView.getPrimaryStage();
+            MainMenuPane pane = new MainMenuPane(stage);
+            Scene newScene = new GameScene(pane, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
+            stage.setScene(newScene);
         });
 
         options.setOnAction( event -> {
@@ -56,6 +62,11 @@ public class MenuPane extends VBox {
         inventory.setOnAction(event -> {
             currentView.toggleMenuPane();
             currentView.displayInventoryPane();
+        });
+
+        stats.setOnAction(event -> {
+            currentView.toggleMenuPane();
+            currentView.displayStatsPane();
         });
 
         this.setSpacing(7.5);

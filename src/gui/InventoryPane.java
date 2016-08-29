@@ -32,7 +32,7 @@ public class InventoryPane extends BorderPane {
     private GameButton nextPage, prevPage;
     private GameLabel gold, page, weight, info;
     private final int FONT_SIZE = 12;
-    private final int ITEMS_PER_ROW = 4;
+    private final int ITEMS_PER_ROW = 3;
     private final int ITEMS_PER_PAGE = ITEMS_PER_ROW * 3;
     private int currentWeaponIndex, currentArmorIndex, currentFavoriteIndex = 0, currentConsumableIndex, currentMiscIndex;
     private int wepPages, armorPages, consumablePages, miscPages, favoritesPages;
@@ -148,8 +148,11 @@ public class InventoryPane extends BorderPane {
         tabbedPane.getTabs().addAll(favorites, weapons, armor, consumables, misc);
 
         favoritesPane = new TilePane();
+        VBox wrapperPane = new VBox();
         weaponsPane = new TilePane();
+        wrapperPane.setFillWidth(false);
         armorPane = new TilePane();
+        wrapperPane.getChildren().add(armorPane);
         consumablesPane = new TilePane();
         miscPane = new TilePane();
 
@@ -162,14 +165,14 @@ public class InventoryPane extends BorderPane {
         for(TilePane pane : panes) {
             pane.setHgap(10);
             pane.setVgap(15);
-            pane.setPrefColumns(4);
+            pane.setPrefColumns(3);
             pane.setPrefRows(3);
             pane.setAlignment(Pos.TOP_LEFT);
         }
 
         favorites.setContent(favoritesPane);
         weapons.setContent(weaponsPane);
-        armor.setContent(armorPane);
+        armor.setContent(wrapperPane);
         consumables.setContent(consumablesPane);
         misc.setContent(miscPane);
 
@@ -199,9 +202,9 @@ public class InventoryPane extends BorderPane {
 
         VBox left = new VBox(5);
         left.setAlignment(Pos.CENTER_LEFT);
-        left.setFillWidth(false);
         equipmentPane = new EquipmentPane(player, this);
         left.getChildren().add(equipmentPane);
+        left.setFillWidth(false);
 
         centerPane.getChildren().addAll(tabbedPane, page, sp);
         centerPane.setAlignment(Pos.CENTER);
@@ -432,6 +435,7 @@ public class InventoryPane extends BorderPane {
             displayFavorites();
             checkItemIndices();
             updatePageNumbers();
+            equipmentPane.redraw();
         });
 
         VBox box = new VBox(3);
@@ -510,6 +514,7 @@ public class InventoryPane extends BorderPane {
             displayFavorites();
             checkItemIndices();
             updatePageNumbers();
+            equipmentPane.redraw();
         });
         VBox box = new VBox(3);
         box.setAlignment(Pos.CENTER);

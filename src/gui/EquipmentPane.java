@@ -13,10 +13,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
-public class EquipmentPane extends BorderPane {
+public class EquipmentPane extends VBox {
 
     private GameLabel title;
     private Player player;
@@ -30,7 +31,7 @@ public class EquipmentPane extends BorderPane {
         this.player = player;
         title = new GameLabel(player.getName()+"'s equipment", 16);
 
-        this.setId("neonTest");
+        //this.setId("neonTest");
 
         HBox topAlign = new HBox();
         topAlign.getChildren().add(title);
@@ -42,14 +43,14 @@ public class EquipmentPane extends BorderPane {
 
         center = new TilePane(10, 40);
         initPanes();
-
         //this.setTop(topAlign);
         //this.setBottom(bottomAlign);
-        this.setCenter(center);
-        this.setMaxWidth(330);
-        this.setMaxHeight(330);
-        this.setMinHeight(330);
-        this.setMinWidth(330);
+        this.setFillWidth(false);
+        this.getChildren().add(center);
+        this.setMaxWidth(350);
+        this.setMaxHeight(300);
+        this.setMinHeight(300);
+        this.setMinWidth(350);
     }
 
     private void initPanes() {

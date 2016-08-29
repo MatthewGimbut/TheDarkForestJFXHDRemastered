@@ -492,9 +492,24 @@ public class GamePane extends StackPane {
         this.requestFocus();
     }
 
+    void displayStatsPane() {
+        if(!statsCurrentlyDisplayed) {
+            statsCurrentlyDisplayed = true;
+            StatsPane pane = new StatsPane(this, player);
+            this.getChildren().add(pane);
+            pane.requestFocus();
+        }
+    }
+
+    void removeStatsPane(StatsPane pane) {
+        this.getChildren().remove(pane);
+        statsCurrentlyDisplayed = false;
+        this.requestFocus();
+    }
 
     public PlayerSprite getPlayer() {
         return this.player;
     }
     public void setPlayer(PlayerSprite player) { this.player = player; }
+    public Stage getPrimaryStage() { return primaryStage; }
 }

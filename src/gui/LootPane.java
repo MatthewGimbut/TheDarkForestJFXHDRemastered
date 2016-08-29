@@ -1,6 +1,7 @@
 package gui;
 
 import characters.Player;
+import items.Item;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,7 @@ import sprites.Lootable;
 
 public class LootPane extends BorderPane {
 
+    private GameLabel title;
     private GamePane currentView;
     private Lootable lootContainer;
     private Player player;
@@ -25,12 +27,23 @@ public class LootPane extends BorderPane {
         this.player = player;
         itemBox = new HBox(15);
         this.setId("standardPane");
+        this.title = new GameLabel(lootContainer.getItems().size() + (lootContainer.getItems().size() == 1 ? " item" : " items"));
 
         takeAll = new GameButton("Take All");
         takeAll.setOnAction(event -> {
-            lootContainer.getItems().forEach(i -> player.addItem(i));
-            lootContainer.getItems().removeAll(lootContainer.getItems());
-            currentView.removeLootPane(this);
+            int totalWeight = 0;
+
+            for(Item i : lootContainer.getItems()) {
+                totalWeight += i.getWeight();
+            }
+
+            if((player.getCarryCap() - player.getCurrentCarry() > totalWeight)) {
+                lootContainer.getItems().forEach(i -> player.addItem(i));
+                lootContainer.getItems().removeAll(lootContainer.getItems());
+                currentView.removeLootPane(this);
+            } else {
+                title.setText("Not enough space!");
+            }
         });
 
         exit = new GameButton("Exit");
@@ -42,9 +55,13 @@ public class LootPane extends BorderPane {
         hb.setAlignment(Pos.CENTER);
         hb.getChildren().addAll(takeAll, exit);
 
+        HBox titleWrapper = new HBox();
+        titleWrapper.setAlignment(Pos.CENTER);
+        titleWrapper.getChildren().add(title);
 
         drawItems();
         checkIfEmpty();
+        this.setTop(title);
         this.setBottom(hb);
         this.setCenter(itemBox);
         hb.setMargin(itemBox, new Insets(5,0,0,0));
