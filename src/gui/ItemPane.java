@@ -48,13 +48,17 @@ public class ItemPane extends BorderPane {
             name += " ★";
         }
 
-        itemName = new GameLabel(name, 13);
+        itemName = new GameLabel(name);
         setRarityColor(i);
         vb.getChildren().add(itemName);
         this.setTop(vb);
 
         itemName.setTooltip(tp);
         this.setPadding(new Insets(5, 1, 1, 0));
+
+        itemName.setOnMouseEntered(event -> {
+            //itemName.setTextFill(Color.MAGENTA);
+        });
 
     }
 

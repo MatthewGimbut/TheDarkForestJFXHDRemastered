@@ -61,7 +61,7 @@ public class LootPane extends BorderPane {
 
         drawItems();
         checkIfEmpty();
-        this.setTop(title);
+        this.setTop(titleWrapper);
         this.setBottom(hb);
         this.setCenter(itemBox);
         hb.setMargin(itemBox, new Insets(5,0,0,0));
@@ -100,7 +100,7 @@ public class LootPane extends BorderPane {
     private void checkIfEmpty() {
         if(lootContainer.getItems().size() == 0) {
             GameLabel GameLabel = new GameLabel("Empty");
-            GameLabel.setFont(new Font("Cambria", 18));
+            //GameLabel.setFont(new Font("Cambria", 18));
             this.setAlignment(GameLabel, Pos.CENTER);
             this.setTop(GameLabel);
             takeAll.setDisable(true);
