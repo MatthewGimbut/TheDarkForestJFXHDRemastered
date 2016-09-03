@@ -426,7 +426,7 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeInventoryPane(InventoryPane pane) {
+    void removeInventoryPane(ScrollingInventoryPane pane) {
         this.getChildren().remove(pane);
         inventoryCurrentlyDisplayed = false;
         this.requestFocus();

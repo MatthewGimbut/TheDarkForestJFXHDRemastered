@@ -4,6 +4,7 @@ import characters.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +24,7 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private Label title;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
+    @FXML private Button exit;
 
 
     public ScrollingInventoryPane(GamePane currentView, Player player) {
@@ -44,8 +46,11 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML
     void initialize() {
         assert title != null : "fx:id=\"title\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        System.out.println("test");
-        System.out.println(title.getText());
+        title.setText(player.getName() + "'s Inventory");
+        exit.setOnAction(event -> {
+            currentView.removeInventoryPane(this);
+        });
+
         this.setCenter(pane);
     }
 }

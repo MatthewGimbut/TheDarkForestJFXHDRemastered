@@ -186,7 +186,7 @@ public class InventoryPane extends BorderPane {
         bottomButtons.setAlignment(Pos.CENTER);
         GameButton exit = new GameButton("Exit");
         exit.setOnAction(event -> {
-            currentView.removeInventoryPane(this);
+            //currentView.removeInventoryPane(this);
             currentView.requestFocus();
         });
         bottomButtons.getChildren().addAll(prevPage, exit, nextPage);

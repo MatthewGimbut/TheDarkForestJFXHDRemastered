@@ -79,7 +79,7 @@
         </Tab>
       </tabs>
     </TabPane>
-    <Button id="" disable="false" layoutX="761.0" layoutY="5.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" />
+    <Button id="" fx:id="exit" disable="false" layoutX="761.0" layoutY="5.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" />
     <Label fx:id="title" layoutX="14.0" layoutY="23.0" text="Inventory" />
   </children>
 </AnchorPane>
