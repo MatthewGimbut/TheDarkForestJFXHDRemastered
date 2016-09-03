@@ -4,26 +4,18 @@ import characters.Enemy;
 import characters.Neutral;
 import characters.Player;
 import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Insets;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.GameStage;
 import main.MapContainer;
 import main.SaveManager;
 import sprites.*;
-import sun.plugin2.message.Message;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -105,6 +97,9 @@ public class GamePane extends StackPane {
             switch(code) {
                 case "ESCAPE":
                     if(!engagedMinusMenu()) toggleMenuPane();
+                    break;
+                case "I":
+                    if(!inventoryCurrentlyDisplayed) displayInventoryPane();
                     break;
                 case "SHIFT":
                     player.setPlayerSpeed(2);
@@ -415,10 +410,19 @@ public class GamePane extends StackPane {
 
     void displayInventoryPane() {
         if(!inventoryCurrentlyDisplayed) {
-            InventoryPane ip = new InventoryPane(this, player.getPlayer());
-            this.getChildren().add(ip);
+            /*AnchorPane pane = null;
+            try {
+                pane = (AnchorPane) FXMLLoader.load(GameStage.class.getClassLoader().getResource("gui\\ScrollingInventoryPane.fxml"));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+            //InventoryPane ip = new InventoryPane(this, player.getPlayer());*/
+
+            ScrollingInventoryPane pane = new ScrollingInventoryPane(this,  player.getPlayer());
+            this.getChildren().add(pane);
             inventoryCurrentlyDisplayed = true;
-            ip.requestFocus();
+            pane.requestFocus();
         }
     }
 

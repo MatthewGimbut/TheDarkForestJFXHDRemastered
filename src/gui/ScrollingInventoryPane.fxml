@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet themes.css?>
+
+<AnchorPane id="standardPane" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="486.0" layoutY="57.0" prefHeight="429.0" prefWidth="300.0" />
+    <TabPane layoutX="14.0" layoutY="57.0" prefHeight="429.0" prefWidth="459.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Favorites">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="431.0" vbarPolicy="ALWAYS">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Weapons">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="472.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="431.0" vbarPolicy="ALWAYS">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Armor">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="431.0" vbarPolicy="ALWAYS">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Consumables">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="431.0" vbarPolicy="ALWAYS">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Miscellaneous">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="456.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="431.0" vbarPolicy="ALWAYS">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <Button id="" disable="false" layoutX="761.0" layoutY="5.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" />
+    <Label fx:id="title" layoutX="14.0" layoutY="23.0" text="Inventory" />
+  </children>
+</AnchorPane>
