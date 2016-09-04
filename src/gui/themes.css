@@ -14,6 +14,25 @@
     -fx-font-size: 14
 }
 
+#inventoryItem {
+    -fx-font-family: "Cambria";
+    -fx-border-color: rgb(198, 153, 86);
+    -fx-font-size: 20;
+    -fx-border-radius: 5;
+    -fx-min-width: 400;
+    -fx-max-width: 400;
+    -fx-padding: 1;
+    -fx-background-radius: 5;
+}
+
+#inventoryItem:hover {
+    -fx-border-color: rgb(104, 72, 39);
+    -fx-background-color: rgb(251, 237, 191);
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+}
+
 #menu {
     -fx-text-fill: #006464;
     -fx-background-color: rgb(198, 153, 86);

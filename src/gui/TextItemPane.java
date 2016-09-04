@@ -3,13 +3,14 @@ package gui;
 import characters.Player;
 import items.Item;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class TextItemPane extends HBox {
 
-    private GameLabel itemName;
+    private Label itemName;
     private Image itemImage;
     private ImageView imageView;
     private Item i;
@@ -24,7 +25,7 @@ public class TextItemPane extends HBox {
 
         this.setAlignment(Pos.CENTER_LEFT);
 
-        itemName = new GameLabel(i.getSimpleName());
+        itemName = new Label(i.getSimpleName());
 
         this.getChildren().add(itemName);
     }
@@ -45,11 +46,15 @@ public class TextItemPane extends HBox {
         this.itemImage = itemImage;
     }
 
-    public GameLabel getItemName() {
+    public Label getItemName() {
         return itemName;
     }
 
-    public void setItemName(GameLabel itemName) {
+    public void setItemName(Label itemName) {
         this.itemName = itemName;
+    }
+
+    public Item getItem() {
+        return i;
     }
 }
