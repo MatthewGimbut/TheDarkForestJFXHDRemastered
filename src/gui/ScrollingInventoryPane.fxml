@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?scenebuilder-stylesheet themes.css?>
 
-<AnchorPane id="standardPane" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="standardPane" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
     <TabPane layoutX="14.0" layoutY="57.0" prefHeight="429.0" prefWidth="459.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
@@ -90,5 +90,6 @@
     <Label fx:id="itemMessage" alignment="TOP_CENTER" layoutX="506.0" layoutY="384.0" prefHeight="102.0" prefWidth="269.0" text="" textAlignment="LEFT" wrapText="true" />
     <Label fx:id="stat2" alignment="CENTER" layoutX="625.0" layoutY="299.0" prefWidth="60.0" text="" wrapText="true" />
     <Label fx:id="stat5" alignment="CENTER" layoutX="624.0" layoutY="335.0" prefWidth="60.0" text="" wrapText="true" />
+    <Label fx:id="info" layoutX="30.0" layoutY="495.0" text="" />
   </children>
 </AnchorPane>

@@ -20,6 +20,7 @@ import sprites.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class GamePane extends StackPane {
 
@@ -141,23 +142,31 @@ public class GamePane extends StackPane {
     private void interact(int x, int y) {
         Sprite interact = new Sprite(x, y, "file:Images\\Blank24x24.png");
         interact.setObstacle(false);
+        //map.getMapItems().add(interact);
+        //map.updateLayers();
         DisplayItem remove = null;
         interact.render(gc);
 
         boolean found = false; //We separate it this way to prevent two actions from firing at once and conflicting if two obstacles are within range
-        for(int i = 0; i < map.getMapItems().size() && !found; i++) {
-            if (interact.getBounds().intersects(map.getMapItems().get(i).getBounds())) {
+
+        ArrayList<Sprite> items = (ArrayList<Sprite>) map.getMapItems().stream()
+                .filter(i -> !(i instanceof LowerLayer))
+                .collect(Collectors.toList());
+
+        for(int i = 0; i < items.size() && !found; i++) {
+            if (interact.getBounds().intersects(items.get(i).getBounds())) {
                 found = true;
-                if (map.getMapItems().get(i) instanceof Lootable) {
-                    displayLootPane(((Lootable) map.getMapItems().get(i)));
-                } else if (map.getMapItems().get(i) instanceof Save) {
+                if (items.get(i) instanceof Lootable) {
+                    displayLootPane(((Lootable) items.get(i)));
+                } else if (items.get(i) instanceof Save) {
                     SaveManager.serialize(currentMapFile, player, this.getId());
                     displayMessagePane("Save succeeded!");
-                } else if (map.getMapItems().get(i) instanceof NPC) {
-                    npcInteraction(map.getMapItems().get(i));
-                } else if (map.getMapItems().get(i) instanceof DisplayItem) {
-                    boolean pickedUp = itemInteraction((DisplayItem) map.getMapItems().get(i));
-                    if(pickedUp) remove = (DisplayItem) map.getMapItems().get(i);
+                } else if (items.get(i) instanceof NPC) {
+                    System.out.println("reached");
+                    npcInteraction(items.get(i));
+                } else if (items.get(i) instanceof DisplayItem) {
+                    boolean pickedUp = itemInteraction((DisplayItem) items.get(i));
+                    if(pickedUp) remove = (DisplayItem) items.get(i);
                 }
             }
         }

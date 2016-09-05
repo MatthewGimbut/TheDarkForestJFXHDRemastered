@@ -1,8 +1,10 @@
 package gui;
 
 import characters.Player;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import items.Armor.Armor;
 import items.Consumables.Consumable;
+import items.Consumables.Potion;
 import items.Item;
 import items.Weapons.Weapon;
 import javafx.event.Event;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.GameStage;
@@ -36,6 +39,11 @@ public class ScrollingInventoryPane extends BorderPane {
 
     private GamePane currentView;
     private Player player;
+    private ArrayList<Item> miscList, favoritesList;
+    private ArrayList<Armor> armorList;
+    private ArrayList<Weapon> weaponList;
+    private ArrayList<Consumable> consumableList;
+    private ArrayList<TextItemPane> favLabels, wepLabels, armorLabels, consumableLabels, miscLabels;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private ScrollPane armorScroll;
@@ -60,11 +68,24 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private Label title;
     @FXML private ScrollPane weaponsScroll;
     @FXML private Tab weaponsTab;
+    @FXML private Label info;
 
 
     public ScrollingInventoryPane(GamePane currentView, Player player) {
         this.currentView = currentView;
         this.player = player;
+
+        miscList = new ArrayList<>();
+        weaponList = new ArrayList<>();
+        armorList = new ArrayList<>();
+        consumableList = new ArrayList<>();
+        favoritesList = new ArrayList<>();
+
+        favLabels = new ArrayList<>();
+        wepLabels = new ArrayList<>();
+        armorLabels = new ArrayList<>();
+        consumableLabels = new ArrayList<>();
+        miscLabels = new ArrayList<>();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\ScrollingInventoryPane.fxml"));
@@ -80,27 +101,6 @@ public class ScrollingInventoryPane extends BorderPane {
 
     @FXML
     void initialize() {
-        /*assert armorScroll != null : "fx:id=\"armorScroll\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert armorTab != null : "fx:id=\"armorTab\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert consumablesScroll != null : "fx:id=\"consumablesScroll\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert consumablesTab != null : "fx:id=\"consumablesTab\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert exit != null : "fx:id=\"exit\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert favoritesScroll != null : "fx:id=\"favoritesScroll\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert favoritesTab != null : "fx:id=\"favoritesTab\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert itemImage != null : "fx:id=\"itemImage\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert itemMessage != null : "fx:id=\"itemMessage\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert itemName != null : "fx:id=\"itemName\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert miscScroll != null : "fx:id=\"miscScroll\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert miscTab != null : "fx:id=\"miscTab\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert stat1 != null : "fx:id=\"stat1\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert stat2 != null : "fx:id=\"stat2\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert stat3 != null : "fx:id=\"stat3\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert stat4 != null : "fx:id=\"stat4\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert title != null : "fx:id=\"title\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert weaponsScroll != null : "fx:id=\"weaponsScroll\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";
-        assert weaponsTab != null : "fx:id=\"weaponsTab\" was not injected: check your FXML file 'ScrollingInventoryPane.fxml'.";*/
-
         title.setText(player.getName() + "'s Inventory");
         title.setFont(new Font("Cambria", 20));
 
@@ -108,29 +108,52 @@ public class ScrollingInventoryPane extends BorderPane {
             currentView.removeInventoryPane(this);
         });
 
+        sortItems();
+
         favoritesScroll.setContent(drawFavorites());
+        drawColors(favLabels);
         weaponsScroll.setContent(drawWeapons());
+        drawColors(wepLabels);
         armorScroll.setContent(drawArmors());
+        drawColors(armorLabels);
         consumablesScroll.setContent(drawConsumables());
         miscScroll.setContent(drawMisc());
 
         this.setCenter(pane);
     }
 
-    VBox drawFavorites() {
-        favoritesScroll.setContent(null);
-        VBox favoritesBox = new VBox(15);
-        ArrayList<Item> favorites = new ArrayList<>();
+    private void sortItems() {
+        weaponList.clear();
+        armorList.clear();
+        consumableList.clear();
+        favoritesList.clear();
+        miscList.clear();
+
+        favoritesList = (ArrayList<Item>) player.getInventory().stream()
+                .filter(Item::isFavorite)
+                .collect(Collectors.toList());
+
         player.getInventory().forEach(item -> {
-            if(item.isFavorite()) {
-                favorites.add(item);
+            if (item instanceof Weapon) {
+                weaponList.add((Weapon) item);
+            } else if (item instanceof Armor) {
+                armorList.add((Armor) item);
+            } else if (item instanceof Consumable) {
+                consumableList.add((Consumable) item);
+            } else {
+                miscList.add(item);
             }
         });
+    }
 
-        for(Item i : favorites) {
+    VBox drawFavorites() {
+        favoritesScroll.setContent(null);
+        VBox favoritesBox = new VBox(5);
+
+        for(Item i : favoritesList) {
             TextItemPane label = new TextItemPane(i, player);
-            label.setOnMouseEntered(new ItemDisplayHandler(label));
-            label.setId("inventoryItem");
+            addHandlers(label);
+            favLabels.add(label);
             favoritesBox.setMargin(label, new Insets(2, 0, 2, 5));
             favoritesBox.getChildren().add(label);
         }
@@ -140,22 +163,13 @@ public class ScrollingInventoryPane extends BorderPane {
 
     VBox drawWeapons() {
         weaponsScroll.setContent(null);
-        VBox weaponsBox = new VBox(15);
-        ArrayList<Weapon> weapons = new ArrayList<>();
-        player.getInventory().forEach(item -> {
-            if(item instanceof Weapon) {
-                weapons.add((Weapon) item);
-            }
-        } );
+        VBox weaponsBox = new VBox(5);
 
-        for(Weapon w : weapons) {
+        for(Weapon w : weaponList) {
             TextItemPane label = new TextItemPane(w, player);
-            label.setOnMouseEntered(new ItemDisplayHandler(label));
-            label.setOnMouseExited(new ItemRemovalHandler(label));
-
-
+            addHandlers(label);
+            wepLabels.add(label);
             weaponsBox.setMargin(label, new Insets(2, 0, 2, 5));
-            label.setId("inventoryItem");
             weaponsBox.getChildren().add(label);
         }
 
@@ -164,18 +178,12 @@ public class ScrollingInventoryPane extends BorderPane {
 
     VBox drawArmors() {
         armorScroll.setContent(null);
-        VBox armorsBox = new VBox(15);
-        ArrayList<Armor> armors = new ArrayList<>();
-        player.getInventory().forEach(item -> {
-            if(item instanceof Armor) {
-                armors.add((Armor) item);
-            }
-        });
+        VBox armorsBox = new VBox(5);
 
-        for(Armor a : armors) {
+        for(Armor a : armorList) {
             TextItemPane label = new TextItemPane(a, player);
-            label.setOnMouseEntered(new ItemDisplayHandler(label));
-            label.setId("inventoryItem");
+            addHandlers(label);
+            armorLabels.add(label);
             armorsBox.setMargin(label, new Insets(2, 0, 2, 5));
             armorsBox.getChildren().add(label);
         }
@@ -185,18 +193,11 @@ public class ScrollingInventoryPane extends BorderPane {
 
     VBox drawConsumables() {
         consumablesScroll.setContent(null);
-        VBox consumablesBox = new VBox(15);
-        ArrayList<Consumable> consumables = new ArrayList<>();
-        player.getInventory().forEach(item -> {
-            if(item instanceof Consumable) {
-                consumables.add((Consumable) item);
-            }
-        });
+        VBox consumablesBox = new VBox(5);
 
-        for(Consumable c : consumables) {
+        for(Consumable c : consumableList) {
             TextItemPane label = new TextItemPane(c, player);
-            label.setOnMouseEntered(new ItemDisplayHandler(label));
-            label.setId("inventoryItem");
+            addHandlers(label);
             consumablesBox.setMargin(label, new Insets(2, 0, 2, 5));
             consumablesBox.getChildren().add(label);
         }
@@ -206,12 +207,29 @@ public class ScrollingInventoryPane extends BorderPane {
 
     VBox drawMisc() {
         miscScroll.setContent(null);
-        VBox miscBox = new VBox(15);
+        VBox miscBox = new VBox(5);
 
         //TODO implement miscellaneous items???
 
         return miscBox;
     }
+
+    private void addHandlers(TextItemPane label) {
+        label.setOnMouseEntered(new ItemDisplayHandler(label));
+        label.setOnMouseClicked(new EquipHandler(label));
+        label.setId("inventoryItem");
+    }
+
+    private void drawColors(ArrayList<TextItemPane> labels) {
+        labels.forEach(label -> {
+            if(label.getItem().isCurrentlyEquipped()) {
+                label.setColor(Color.RED);
+            } else {
+                label.setColor(Color.BLACK);
+            }
+        });
+    }
+
 
     private class ItemDisplayHandler implements EventHandler {
 
@@ -235,18 +253,44 @@ public class ScrollingInventoryPane extends BorderPane {
         }
     }
 
-    private class ItemRemovalHandler implements EventHandler {
+    private class EquipHandler implements EventHandler {
 
-        private TextItemPane label;
+        private TextItemPane equip;
 
-        public ItemRemovalHandler(TextItemPane label) {
-            this.label = label;
-        }
+        public EquipHandler(TextItemPane i) { this.equip = i; }
 
         @Override
         public void handle(Event event) {
-
+            if(equip.getItem().isCurrentlyEquipped()) { //Unequip
+                if(equip.getItem() instanceof Armor) {
+                    player.unequip(equip.getItem());
+                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                    drawColors(armorLabels);
+                } else if(equip.getItem() instanceof Weapon) {
+                    player.unequip(equip.getItem());
+                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                    drawColors(wepLabels);
+                } else {
+                    player.unequip(equip.getItem());
+                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                }
+                info.setText("Unequipped " + equip.getItem().getSimpleName() + ". ");
+            } else { //Equip
+                if(equip.getItem() instanceof Armor) {
+                    player.equip((Armor) equip.getItem());
+                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                    drawColors(armorLabels);
+                    info.setText("Equipped " + equip.getItem().getSimpleName() + ". ");
+                } else if(equip.getItem() instanceof Weapon) {
+                    player.equip((Weapon) equip.getItem());
+                    info.setText("Equipped " + equip.getItem().getSimpleName() + ". ");
+                    drawColors(wepLabels);
+                } else {
+                    player.consume((Potion) equip.getItem());
+                    info.setText("Consumed" + equip.getItem().getSimpleName());
+                }
+            }
+            if(equip.getItem().isFavorite()) drawColors(favLabels);
         }
     }
-
 }

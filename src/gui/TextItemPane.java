@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 public class TextItemPane extends HBox {
 
@@ -15,10 +16,12 @@ public class TextItemPane extends HBox {
     private ImageView imageView;
     private Item i;
     private Player player;
+    private Color color;
 
     public TextItemPane(Item i, Player player) {
         this.i = i;
         this.player = player;
+        this.color = Color.BLACK;
 
         itemImage = new Image(i.getImageLocation());
         imageView = new ImageView(itemImage);
@@ -26,6 +29,7 @@ public class TextItemPane extends HBox {
         this.setAlignment(Pos.CENTER_LEFT);
 
         itemName = new Label(i.getSimpleName());
+        itemName.setTextFill(color);
 
         this.getChildren().add(itemName);
     }
@@ -57,4 +61,11 @@ public class TextItemPane extends HBox {
     public Item getItem() {
         return i;
     }
+
+    public void setColor(Color color) {
+        this.color = color;
+        itemName.setTextFill(this.color);
+    }
+
+    public Color getColor() { return this.color; }
 }
