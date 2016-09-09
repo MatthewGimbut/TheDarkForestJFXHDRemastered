@@ -130,6 +130,22 @@ public class GamePane extends StackPane {
         animate.start();
     }
 
+    //TODO add Quest object as parameter to this method and to the QuestSuccess pane
+    void displayQuestSuccessPane() {
+        if(!messageCurrentlyDisplayed) {
+            messageCurrentlyDisplayed = true;
+            QuestSuccess qs = new QuestSuccess(player, this);
+            this.getChildren().add(qs);
+            qs.requestFocus();
+        }
+    }
+
+    void removeQuestSuccessPane(QuestSuccess qs) {
+        this.getChildren().remove(qs);
+        messageCurrentlyDisplayed = false;
+        this.requestFocus();
+    }
+
     /**
      * Method for determining interactions.
      * Creates an invisible Rectangle2D in the direction the player is facing.

@@ -17,7 +17,7 @@
       <bottom>
         <AnchorPane prefHeight="50.0" prefWidth="586.0">
           <children>
-            <Button fx:id="save" layoutX="242.0" layoutY="13.0" mnemonicParsing="false" text="Save and exit" />
+            <Button fx:id="save" layoutX="267.0" layoutY="13.0" mnemonicParsing="false" text="Save" />
           </children>
         </AnchorPane>
       </bottom>
