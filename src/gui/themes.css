@@ -74,16 +74,6 @@
     -fx-background-image: url("file:Images/MainMenu.png");
 }
 
-/*.tooltip {
-    -fx-border-color: rgb(104, 72, 39);
-    -fx-border-radius: 5.0 5.0 5.0 5.0;
-    -fx-background-radius: 5.0 5.0 5.0 5.0;
-    -fx-background-color:  rgb(198, 153, 86);
-    -fx-text-fill: black;
-    -fx-wrap-text: true;
-
-}*/
-
 .tab-pane:focused {
     -fx-focus-color: rgb(104, 72, 39);
 }
@@ -96,6 +86,10 @@
     -fx-tab-border-color:  rgb(198, 153, 86);
 }
 
-.tab-pane {
+/*.tab-pane {
     -fx-background-color:  rgb(198, 153, 86);
+}*/
+
+.tab .tab-label {
+    -fx-font-size: 12px;
 }

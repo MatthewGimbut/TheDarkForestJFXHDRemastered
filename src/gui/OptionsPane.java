@@ -1,76 +1,68 @@
 package gui;
 
 import characters.Player;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class OptionsPane extends BorderPane {
 
     private Player player;
     private GamePane currentView;
-    private GameButton exitWithoutSave, saveAndExit;
-    private GameLabel title;
-    private GameLabel textSpeedLabel;
-    private VBox centerBox;
-    private Slider textSpeedSlider;
+    @FXML private ResourceBundle resources;
+    @FXML private URL location;
+    @FXML private AnchorPane anchor;
+    @FXML private ComboBox<?> colorComboBox;
+    @FXML private Button exit;
+    @FXML private Label textSpeedLabel;
+    @FXML private Slider textSpeedSlider;
+    @FXML private Button save;
 
     public OptionsPane(GamePane currentView, Player player) {
         this.player = player;
         this.currentView = currentView;
-        this.setId("standardPane");
-        centerBox = new VBox(5);
 
-        exitWithoutSave = new GameButton("Exit without saving");
-        saveAndExit = new GameButton("Save and exit");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
+                "gui\\OptionsPane.fxml"));
+        fxmlLoader.setController(this);
 
-        exitWithoutSave.setOnAction(event -> {
-            currentView.removeOptionsPane(this);
-            currentView.requestFocus();
-        });
 
-        saveAndExit.setOnAction(event -> {
-            //TODO assign settings to player variables
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    @FXML
+    void initialize() {
+
+        exit.setOnAction(event -> currentView.removeOptionsPane(this));
+
+        save.setOnAction(event -> {
             player.setTextScrollingSpeed((int) textSpeedSlider.getValue());
-
             currentView.removeOptionsPane(this);
-            currentView.requestFocus();
         });
 
-        HBox textSpeedBox = new HBox(100);
-        textSpeedBox.setAlignment(Pos.CENTER_LEFT);
-        textSpeedLabel = new GameLabel("Text speed: " + player.getTextScrollingSpeed() + " ms");
-        textSpeedBox.getChildren().add(textSpeedLabel);
+        textSpeedSlider.setValue(player.getTextScrollingSpeed());
 
-        textSpeedSlider = new Slider(10, 90, player.getTextScrollingSpeed());
-        textSpeedSlider.setShowTickLabels(true);
-        textSpeedSlider.setShowTickMarks(true);
+        textSpeedLabel.setText("Text speed: " + player.getTextScrollingSpeed() + " ms");
+
         textSpeedSlider.valueProperty().addListener(event -> {
             textSpeedLabel.setText("Text speed: " + (int) textSpeedSlider.getValue() + " ms");
         });
 
-        textSpeedBox.getChildren().add(textSpeedSlider);
-
-        centerBox.getChildren().add(textSpeedBox);
-
-        HBox top = new HBox();
-        top.setAlignment(Pos.CENTER);
-        title = new GameLabel("Options", 24);
-        top.getChildren().add(title);
-        this.setTop(top);
-
-        HBox hb = new HBox(5);
-        hb.setAlignment(Pos.CENTER);
-        hb.getChildren().addAll(saveAndExit, exitWithoutSave);
-
-        this.setBottom(hb);
-        this.setCenter(centerBox);
-        this.setMaxWidth(400);
-        this.setMaxHeight(200);
+        this.setCenter(anchor);
     }
 
 }

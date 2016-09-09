@@ -121,10 +121,8 @@ public class GamePane extends StackPane {
         });
 
         initCollections();
-        final long startNanoTime = System.nanoTime();
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
-                double t = (currentNanoTime - startNanoTime) / 1000000000.0;
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
                 drawLayers(gc);
             }
@@ -402,32 +400,8 @@ public class GamePane extends StackPane {
         }
     }
 
-    /*void displayEquipmentPane() {
-        if(!equipmentCurrentlyDisplayed) {
-            EquipmentPane pane = new EquipmentPane(this, player.getPlayer());
-            this.getChildren().add(pane);
-            equipmentCurrentlyDisplayed = true;
-            pane.requestFocus();
-        }
-    }
-
-    void removeEquipmentPane(EquipmentPane pane) {
-        this.getChildren().remove(pane);
-        equipmentCurrentlyDisplayed = false;
-        this.requestFocus();
-    }*/
-
     void displayInventoryPane() {
         if(!inventoryCurrentlyDisplayed) {
-            /*AnchorPane pane = null;
-            try {
-                pane = (AnchorPane) FXMLLoader.load(GameStage.class.getClassLoader().getResource("gui\\ScrollingInventoryPane.fxml"));
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-                e.printStackTrace();
-            }
-            //InventoryPane ip = new InventoryPane(this, player.getPlayer());*/
-
             ScrollingInventoryPane pane = new ScrollingInventoryPane(this,  player.getPlayer());
             this.getChildren().add(pane);
             inventoryCurrentlyDisplayed = true;

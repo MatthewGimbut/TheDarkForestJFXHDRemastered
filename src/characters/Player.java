@@ -1,6 +1,7 @@
 package characters;
 
 import items.Armor.*;
+import items.Consumables.Consumable;
 import items.Consumables.Potion;
 import items.Item;
 import items.Weapons.Weapon;
@@ -183,9 +184,9 @@ public class Player extends Character {
         }
     }
 
-    public void consume(Potion p) {
+    public void consume(Consumable p) {
         removeSingleItem(p);
-        modifyCurrentHP(p.getAmount());
+        modifyCurrentHP(((Potion) p).getAmount());
     }
 
     public LinkedList<Item> getInventory() {

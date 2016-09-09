@@ -27,8 +27,11 @@ public class TextItemPane extends HBox {
         imageView = new ImageView(itemImage);
 
         this.setAlignment(Pos.CENTER_LEFT);
-
-        itemName = new Label(i.getSimpleName());
+        String name = i.getSimpleName();
+        if(i.isFavorite()) {
+            name += " ★";
+        }
+        itemName = new Label(name);
         itemName.setTextFill(color);
 
         this.getChildren().add(itemName);
@@ -65,6 +68,10 @@ public class TextItemPane extends HBox {
     public void setColor(Color color) {
         this.color = color;
         itemName.setTextFill(this.color);
+    }
+
+    public Label getLabel() {
+        return this.itemName;
     }
 
     public Color getColor() { return this.color; }

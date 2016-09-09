@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet themes.css?>
+
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane id="standardPane" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+      <bottom>
+        <AnchorPane prefHeight="50.0" prefWidth="586.0">
+          <children>
+            <Button fx:id="save" layoutX="242.0" layoutY="13.0" mnemonicParsing="false" text="Save and exit" />
+          </children>
+        </AnchorPane>
+      </bottom>
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+          <children>
+            <AnchorPane prefHeight="50.0" prefWidth="586.0">
+              <children>
+                <Label fx:id="textSpeedLabel" alignment="CENTER_LEFT" layoutX="14.0" layoutY="17.0" prefWidth="158.0" text="Text speed:">
+                  <font>
+                    <Font name="Cambria" size="14.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <Slider fx:id="textSpeedSlider" layoutX="253.0" layoutY="10.0" min="5.0" prefWidth="319.0000999999975" showTickLabels="false" showTickMarks="true" value="45.0" />
+              </children>
+            </AnchorPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="49.9998779296875" prefWidth="586.0">
+              <children>
+                <Label font="$x1" prefWidth="83.0" text="Color theme:" />
+                <Separator prefWidth="163.0" visible="false" />
+                <ComboBox id="colorComboBox" minHeight="20.0" prefWidth="319.0" promptText="Choose a color">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+              <padding>
+                <Insets left="10.0" />
+              </padding>
+            </HBox>
+          </children>
+        </VBox>
+      </center>
+      <top>
+        <AnchorPane prefHeight="50.0" prefWidth="586.0">
+          <children>
+            <Label layoutX="253.0" layoutY="11.0" text="Options">
+              <font>
+                <Font name="Cambria" size="24.0" />
+              </font>
+            </Label>
+            <Button id="" fx:id="exit" cancelButton="false" defaultButton="false" disable="false" layoutX="540.0" layoutY="11.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" prefWidth="32.0" text="X" textAlignment="LEFT" textFill="#990000" underline="false" />
+          </children>
+        </AnchorPane>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

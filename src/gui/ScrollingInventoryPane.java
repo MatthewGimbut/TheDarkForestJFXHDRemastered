@@ -14,11 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -29,8 +28,10 @@ import main.GameStage;
 import sun.plugin.javascript.navig.Anchor;
 import sun.plugin.javascript.navig.Array;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -44,6 +45,7 @@ public class ScrollingInventoryPane extends BorderPane {
     private ArrayList<Weapon> weaponList;
     private ArrayList<Consumable> consumableList;
     private ArrayList<TextItemPane> favLabels, wepLabels, armorLabels, consumableLabels, miscLabels;
+    private DecimalFormat format;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private ScrollPane armorScroll;
@@ -69,6 +71,8 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private ScrollPane weaponsScroll;
     @FXML private Tab weaponsTab;
     @FXML private Label info;
+    @FXML private Label weight;
+
 
 
     public ScrollingInventoryPane(GamePane currentView, Player player) {
@@ -87,6 +91,8 @@ public class ScrollingInventoryPane extends BorderPane {
         consumableLabels = new ArrayList<>();
         miscLabels = new ArrayList<>();
 
+        format = new DecimalFormat("#.#");
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\ScrollingInventoryPane.fxml"));
         fxmlLoader.setController(this);
@@ -103,6 +109,8 @@ public class ScrollingInventoryPane extends BorderPane {
     void initialize() {
         title.setText(player.getName() + "'s Inventory");
         title.setFont(new Font("Cambria", 20));
+        weight.setText("(" + format.format(player.getCurrentCarry()) + " / " + player.getCarryCap() + ")");
+        weight.setFont(new Font("Cambria", 18));
 
         exit.setOnAction(event -> {
             currentView.removeInventoryPane(this);
@@ -118,6 +126,7 @@ public class ScrollingInventoryPane extends BorderPane {
         drawColors(armorLabels);
         consumablesScroll.setContent(drawConsumables());
         miscScroll.setContent(drawMisc());
+        drawColors(miscLabels);
 
         this.setCenter(pane);
     }
@@ -250,47 +259,80 @@ public class ScrollingInventoryPane extends BorderPane {
             stat5.setText("Magic: " + label.getItem().getMagic());
             stat6.setText("HP: +" + label.getItem().getHpBoost());
             itemMessage.setText(label.getItem().getItemToolTipText());
+            Tooltip tp = new Tooltip(label.getItem().getItemToolTipText());
+            tp.setOpacity(.85);
+            tp.setAutoHide(false);
+            tp.setFont(new Font("Cambria", 15));
+            Tooltip.install(label, tp);
         }
     }
 
-    private class EquipHandler implements EventHandler {
+    private class EquipHandler implements EventHandler<MouseEvent> {
 
-        private TextItemPane equip;
+        private TextItemPane itemPane;
 
-        public EquipHandler(TextItemPane i) { this.equip = i; }
+        public EquipHandler(TextItemPane i) { this.itemPane = i; }
 
         @Override
-        public void handle(Event event) {
-            if(equip.getItem().isCurrentlyEquipped()) { //Unequip
-                if(equip.getItem() instanceof Armor) {
-                    player.unequip(equip.getItem());
-                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
-                    drawColors(armorLabels);
-                } else if(equip.getItem() instanceof Weapon) {
-                    player.unequip(equip.getItem());
-                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
-                    drawColors(wepLabels);
-                } else {
-                    player.unequip(equip.getItem());
-                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+        public void handle(MouseEvent event) {
+            if(event.getButton() == MouseButton.PRIMARY) { //Left Click
+                if (itemPane.getItem().isCurrentlyEquipped()) { //Unequip
+                    if (itemPane.getItem() instanceof Armor) {
+                        player.unequip(itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(armorLabels);
+                    } else if (itemPane.getItem() instanceof Weapon) {
+                        player.unequip(itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(wepLabels);
+                    } else {
+                        player.unequip(itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                    }
+                    info.setText("Unequipped " + itemPane.getItem().getSimpleName() + ". ");
+                } else { //Equip
+                    if (itemPane.getItem() instanceof Armor) {
+                        player.equip((Armor) itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(armorLabels);
+                        info.setText("Equipped " + itemPane.getItem().getSimpleName() + ". ");
+                    } else if (itemPane.getItem() instanceof Weapon) {
+                        player.equip((Weapon) itemPane.getItem());
+                        info.setText("Equipped " + itemPane.getItem().getSimpleName() + ". ");
+                        drawColors(wepLabels);
+                    } else {
+                        player.consume((Consumable) itemPane.getItem());
+                        info.setText("Consumed " + itemPane.getItem().getSimpleName());
+                        sortItems();
+                        consumablesScroll.setContent(drawConsumables());
+                        favoritesScroll.setContent(drawFavorites());
+                    }
                 }
-                info.setText("Unequipped " + equip.getItem().getSimpleName() + ". ");
-            } else { //Equip
-                if(equip.getItem() instanceof Armor) {
-                    player.equip((Armor) equip.getItem());
-                    GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
-                    drawColors(armorLabels);
-                    info.setText("Equipped " + equip.getItem().getSimpleName() + ". ");
-                } else if(equip.getItem() instanceof Weapon) {
-                    player.equip((Weapon) equip.getItem());
-                    info.setText("Equipped " + equip.getItem().getSimpleName() + ". ");
-                    drawColors(wepLabels);
+                if (itemPane.getItem().isFavorite()) drawColors(favLabels);
+            } else if(event.getButton() == MouseButton.SECONDARY){ //Right Click
+                if(itemPane.getItem().isFavorite()) {
+                    itemPane.getItem().setFavorite(false);
+                    if(itemPane.getItem() instanceof Armor) {
+                        armorScroll.setContent(drawArmors());
+                        drawColors(armorLabels);
+                    }
+                    else if(itemPane.getItem() instanceof Weapon) {
+                        weaponsScroll.setContent(drawWeapons());
+                        drawColors(wepLabels);
+                    }
+                    else if(itemPane.getItem() instanceof Consumable) {
+                        consumablesScroll.setContent(drawConsumables());
+                        drawColors(consumableLabels);
+                    }
                 } else {
-                    player.consume((Potion) equip.getItem());
-                    info.setText("Consumed" + equip.getItem().getSimpleName());
+                    itemPane.getItem().setFavorite(true);
+                    itemPane.getLabel().setText(itemPane.getLabel().getText() + " ★");
                 }
+
+                sortItems();
+                favoritesScroll.setContent(drawFavorites());
+                drawColors(favLabels);
             }
-            if(equip.getItem().isFavorite()) drawColors(favLabels);
         }
     }
 }
