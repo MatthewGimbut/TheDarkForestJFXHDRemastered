@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import quests.QuestHandler;
 import sprites.PlayerSprite;
 
 import java.io.IOException;
@@ -47,7 +48,20 @@ public class QuestSuccess extends BorderPane {
 
         exit.setOnAction(event -> System.out.println("test"));
 
-        //TODO All code to initialize the pane goes here, names of variables should be pretty self-explanatory
+        quests.Quest priority = QuestHandler.priorityQuest;
+
+        goldLabel.setText("" + priority.getMoneyReward());
+        questDescription.setText(priority.getDescription());
+        questTitle.setText(priority.getQuestName());
+        xpLabel.setText("" + priority.getExpReward());
+        priority.getReward().forEach(i -> {
+            rewardsPane.getChildren().add(new ItemPane(i, null));
+        }); //I hope this works?
+
+        playerSprite.getPlayer().increaseXP(priority.getExpReward());
+        //add money when it is included as a feature in player
+        priority.getReward().forEach(playerSprite.getPlayer()::addItem);
+
 
         this.setCenter(anchor);
     }
