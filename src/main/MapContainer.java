@@ -18,6 +18,7 @@ public class MapContainer {
     private String location;
 
     public MapContainer(PlayerSprite player, String location) {
+        System.out.println(location);
         this.location = location;
         map = new MapParser(player, this);
         try {

@@ -121,6 +121,7 @@ public class GamePane extends StackPane {
         });
 
         initCollections();
+
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
@@ -256,7 +257,8 @@ public class GamePane extends StackPane {
 
     private void initCollections() {
         try {
-            String mapLoc = "Saves\\Save01\\Maps\\Map0-0.map";
+            //String mapLoc = "Saves\\Save01\\Maps\\Map0-0.map";
+            String mapLoc = "Saves\\Save01\\Maps\\TestMap.map";
             map = new MapContainer(player, mapLoc);
             this.setId(map.getIdName());
             //mapItems = mapParser.parseMap(map);

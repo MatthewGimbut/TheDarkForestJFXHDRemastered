@@ -74,65 +74,60 @@ customObst|995|487|file:Images\\Nature\\Tree.png
 customObst|995|527|file:Images\\Nature\\Tree.png
 customObst|995|567|file:Images\\Nature\\Tree.png
 customObst|995|614|file:Images\\Nature\\Tree.png
-customObst|391|176|file:Images\\Buildings\\WoodWall32.png
-customObst|391|208|file:Images\\Buildings\\WoodWall32.png
-customObst|423|176|file:Images\\Buildings\\WoodWall32.png
-customObst|423|208|file:Images\\Buildings\\WoodWall32.png
-customObst|391|240|file:Images\\Buildings\\WoodWall32.png
-over|391|144|file:Images\\Buildings\\WoodRoofLeft32.png
-over|519|144|file:Images\\Buildings\\WoodRoofRight32.png
-over|423|144|file:Images\\Buildings\\WoodWall32.png
-over|455|144|file:Images\\Buildings\\WoodWall32.png
-over|487|144|file:Images\\Buildings\\WoodWall32.png
-customObst|423|240|file:Images\\Buildings\\WoodWall32.png
-customObst|455|176|file:Images\\Buildings\\WoodWall32.png
-customObst|487|176|file:Images\\Buildings\\WoodWall32.png
-under|455|208|file:Images\\Buildings\\DarkDoorwayTall.png
-exit|458|218|468|421|north|Saves\\Save01\\Maps\\TestHouseLarge.map
-customObst|487|208|file:Images\\Buildings\\WoodWall32.png
-customObst|487|240|file:Images\\Buildings\\WoodWall32.png
-customObst|519|176|file:Images\\Buildings\\WoodWall32.png
-customObst|519|208|file:Images\\Buildings\\WoodWall32.png
-customObst|519|240|file:Images\\Buildings\\WoodWall32.png
-over|551|208|file:Images\\Buildings\\WoodRoofRight32.png
-customObst|551|240|file:Images\\Buildings\\WoodWall32.png
-customObst|529|54|file:Images\Nature\Tree.png
-customObst|806|394|file:Images\Nature\Tree.png
-customObst|255|65|file:Images\Nature\Tree.png
-customObst|277|576|file:Images\Nature\Tree.png
-customObst|413|487|file:Images\Nature\Tree50x50.png
-customObst|682|132|file:Images\Nature\Tree.png
-customObst|890|547|file:Images\Nature\Tree50x50.png
-customObst|224|458|file:Images\Nature\Tree.png
-customObst|765|122|file:Images\Nature\Tree50x50.png
-customObst|308|290|file:Images\Nature\Tree.png
-customObst|396|276|file:Images\Nature\Tree50x50.png
-customObst|194|51|file:Images\Nature\Tree.png
-customObst|287|240|file:Images\Nature\Tree50x50.png
-customObst|348|388|file:Images\Nature\Tree.png
-customObst|646|244|file:Images\Nature\Tree.png
-customObst|228|544|file:Images\Nature\Tree.png
-customObst|872|257|file:Images\Nature\Tree.png
-customObst|592|165|file:Images\Nature\Tree.png
-customObst|473|78|file:Images\Nature\Tree.png
-item|helmet|663|502|0|0|6|1|2.0|0|0|58|common|wood|file:Images\Armors\wood\Helmet.png|wood helmet|A wood helmet
-customObst|367|82|file:Images\Nature\Tree50x50.png
-customObst|229|198|file:Images\Nature\Tree.png
-item|shield|173|471|2|0|5|2|3.0|0|0|71|common|wood|file:Images\Armors\wood\Shield.png|wood shield|A wood shield
-customObst|537|543|file:Images\Nature\Tree.png
-customObst|923|229|file:Images\Nature\Tree.png
-customObst|819|441|file:Images\Nature\Tree.png
-loot|765|425|file:Images\Lootables\ChestArea.png
+customObst|373|138|file:Images\\Buildings\\WoodWall32.png
+customObst|373|170|file:Images\\Buildings\\WoodWall32.png
+customObst|405|138|file:Images\\Buildings\\WoodWall32.png
+customObst|405|170|file:Images\\Buildings\\WoodWall32.png
+customObst|373|202|file:Images\\Buildings\\WoodWall32.png
+over|373|106|file:Images\\Buildings\\WoodRoofLeft32.png
+over|501|106|file:Images\\Buildings\\WoodRoofRight32.png
+over|405|106|file:Images\\Buildings\\WoodWall32.png
+over|437|106|file:Images\\Buildings\\WoodWall32.png
+over|469|106|file:Images\\Buildings\\WoodWall32.png
+customObst|405|202|file:Images\\Buildings\\WoodWall32.png
+customObst|437|138|file:Images\\Buildings\\WoodWall32.png
+customObst|469|138|file:Images\\Buildings\\WoodWall32.png
+under|437|170|file:Images\\Buildings\\DarkDoorwayTall.png
+exit|440|180|468|421|north|Saves\\Save01\\Maps\\TestHouseLarge.map
+customObst|469|170|file:Images\\Buildings\\WoodWall32.png
+customObst|469|202|file:Images\\Buildings\\WoodWall32.png
+customObst|501|138|file:Images\\Buildings\\WoodWall32.png
+customObst|501|170|file:Images\\Buildings\\WoodWall32.png
+customObst|501|202|file:Images\\Buildings\\WoodWall32.png
+over|533|170|file:Images\\Buildings\\WoodRoofRight32.png
+customObst|533|202|file:Images\\Buildings\\WoodWall32.png
+customObst|565|435|file:Images\Nature\Tree.png
+customObst|592|291|file:Images\Nature\Tree.png
+customObst|652|230|file:Images\Nature\Tree50x50.png
+customObst|843|210|file:Images\Nature\Tree.png
+customObst|680|478|file:Images\Nature\Tree.png
+customObst|908|204|file:Images\Nature\Tree.png
+customObst|457|343|file:Images\Nature\Tree.png
+customObst|753|471|file:Images\Nature\Tree50x50.png
+customObst|812|490|file:Images\Nature\Tree.png
+customObst|295|420|file:Images\Nature\Tree.png
+customObst|304|470|file:Images\Nature\Tree.png
+customObst|352|512|file:Images\Nature\Tree.png
+customObst|195|77|file:Images\Nature\Tree.png
+customObst|502|412|file:Images\Nature\Tree.png
+customObst|862|82|file:Images\Nature\Tree.png
+customObst|459|298|file:Images\Nature\Tree.png
+customObst|92|273|file:Images\Nature\Tree.png
+customObst|172|407|file:Images\Nature\Tree.png
+customObst|430|537|file:Images\Nature\Tree.png
+customObst|108|614|file:Images\Nature\Tree.png
+customObst|324|135|file:Images\Nature\Tree.png
+customObst|432|241|file:Images\Nature\Tree.png
+loot|515|548|file:Images\Lootables\ChestArea.png
+item|mace|0|0|7|1|0|4|3.0|0|0|86|common|stone|file:Images\Weapons\stone\mace\Mace.png|stone mace|A stone mace
+item|legs|0|0|0|0|6|2|4.0|0|0|71|very_rare|wood|file:Images\Armors\wood\Legs.png|wood legs|A pair of wood leggings
+item|helmet|0|0|0|0|6|1|2.0|0|0|58|common|wood|file:Images\Armors\wood\Helmet.png|wood helmet|A wood helmet
 item|potion|0|0|0|0|0|0|0.1|0|0|96|common|health|75|file:Images\Consumables\Potions\Health Potion.png
-item|potion|0|0|0|0|0|0|0.1|0|0|95|common|health|75|file:Images\Consumables\Potions\Health Potion.png
-item|helmet|0|0|0|0|4|1|2.0|0|0|39|common|cloth|file:Images\Armors\cloth\Helmet.png|cloth hood|A cloth hood
-item|axe|0|0|4|1|0|3|1.0|0|0|52|common|wood|file:Images\Weapons\wood\axe\Axe.png|wood axe|A wood axe
 endloot
-loot|793|537|file:Images\Lootables\ChestArea.png
-item|potion|0|0|0|0|0|0|0.1|0|0|95|common|health|80|file:Images\Consumables\Potions\Health Potion.png
-item|boots|0|0|0|0|2|1|2.0|0|0|28|junk|cloth|file:Images\Armors\cloth\Boots.png|cloth boots|A pair of cloth boots
-item|shield|0|0|2|0|5|2|3.0|0|0|71|common|wood|file:Images\Armors\wood\Shield.png|wood shield|A wood shield
+loot|659|420|file:Images\Lootables\ChestArea.png
 item|potion|0|0|0|0|0|0|0.1|0|0|96|common|health|80|file:Images\Consumables\Potions\Health Potion.png
+item|shield|0|0|1|0|3|2|2.0|0|0|53|uncommon|cloth|file:Images\Armors\cloth\Shield.png|cloth shield|A cloth shield
+item|dagger|0|0|12|1|0|1|4.0|0|0|144|common|steel|file:Images\Weapons\steel\dagger\Dagger.png|steel dagger|A steel dagger
+item|sword|0|0|4|0|0|2|2.0|0|0|84|common|stone|file:Images\Weapons\stone\sword\Sword.png|stone sword|A stone sword
 endloot
-neutral|92|580|Dennis Bell|Images\Characters\GenericNeutral\GenericNeutralNorth.png|Images\Characters\GenericNeutral\GenericNeutralSouth.png|Images\Characters\GenericNeutral\GenericNeutralEast.png|Images\Characters\GenericNeutral\GenericNeutralWest.png|how the fuck did i get here???
-neutral|322|57|Mark Bailey|Images\Characters\GenericNeutral\GenericNeutralNorth.png|Images\Characters\GenericNeutral\GenericNeutralSouth.png|Images\Characters\GenericNeutral\GenericNeutralEast.png|Images\Characters\GenericNeutral\GenericNeutralWest.png|This message is being read from the second line.|This is a test of the generic dialogue system.|Hello, how are you?
+neutral|98|230|Jack Wood|Images\Characters\GenericNeutral\GenericNeutralNorth.png|Images\Characters\GenericNeutral\GenericNeutralSouth.png|Images\Characters\GenericNeutral\GenericNeutralEast.png|Images\Characters\GenericNeutral\GenericNeutralWest.png|Give me some fucking coffee.|If you don't give me a coffee, I'm going to fuck you up.|....Alright, that's how its going to be.

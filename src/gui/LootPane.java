@@ -68,13 +68,11 @@ public class LootPane extends BorderPane {
         });
 
         drawItems();
-
-        numItems.setText(lootContainer.getItems().size() + " Items");
-
         this.setCenter(anchor);
     }
 
     private void drawItems() {
+        numItems.setText(lootContainer.getItems().size() + " Items");
         if(lootContainer.getItems().size() > 0) {
             lootContainer.getItems().forEach(i -> {
                 VBox vb = new VBox();
