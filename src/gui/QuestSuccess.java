@@ -1,5 +1,6 @@
 package gui;
 
+import main.GameStage;
 import quests.Quest;
 
 import javafx.fxml.FXML;
@@ -50,14 +51,14 @@ public class QuestSuccess extends BorderPane {
     @FXML
     void initialize() {
 
-        exit.setOnAction(event -> System.out.println("test"));
+        exit.setOnAction(event -> GameStage.gamePane.removeQuestSuccessPane(this));
 
         goldLabel.setText("" + quest.getMoneyReward());
         questDescription.setText(quest.getDescription());
         questTitle.setText(quest.getQuestName());
         xpLabel.setText("" + quest.getExpReward());
         quest.getReward().forEach(i -> {
-            rewardsPane.getChildren().add(new ItemPane(i, null));
+            rewardsPane.getChildren().add(new ItemPane(i, GameStage.gamePane.getPlayer().getPlayer()));
         }); //I hope this works?
 
         playerSprite.getPlayer().increaseXP(quest.getExpReward());

@@ -139,7 +139,7 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeQuestSuccessPane(QuestSuccess qs) {
+    public void removeQuestSuccessPane(QuestSuccess qs) {
         this.getChildren().remove(qs);
         messageCurrentlyDisplayed = false;
         this.requestFocus();
@@ -249,6 +249,7 @@ public class GamePane extends StackPane {
             }
         } else if (((NPC) obstacle).getNPC() instanceof Neutral) {
             displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
+            ((NPC) obstacle).questInteraction();
         }
 
     }

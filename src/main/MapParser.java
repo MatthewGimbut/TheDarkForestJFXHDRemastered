@@ -448,6 +448,11 @@ public class MapParser {
 		}
 	}
 
+	public void removeQuestTrigger(String tag, String currentMapFile, String NPC) throws IOException {
+		//TODO STUFF
+		//WAIT UNTIL ACTUALLY ADDING THE TAGS TO THE MAP FILES
+	}
+
     /**
      * Creates random NPCs to be placed in a random map
      * @return An ArrayList of type Sprite that contains the random NPCs

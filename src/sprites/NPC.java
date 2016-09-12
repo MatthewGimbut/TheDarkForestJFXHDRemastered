@@ -37,6 +37,7 @@ public class NPC extends Sprite {
 		map, this will remove any already used triggers from the Npc before the user can interact with it.
 		Not very efficient, but it is the best solution I can come up with. Hopefully it isn't too bad.
 		 */
+		//TODO implement a way to remove the trigger from the .map file
 		Iterator<Trigger> it = questActivationTriggers.iterator();
 		Trigger t = null;
 		while(it.hasNext()) {
@@ -70,7 +71,7 @@ public class NPC extends Sprite {
 
 	/**
 	 * Runs the private helper methods to determine if any quest interaction has occurred, if it has,
-	 * activate it.
+	 * activate it. Called upon NPC interaction.
 	 */
 	public void questInteraction() {
 		interactNormalQuestTriggers();

@@ -2,6 +2,7 @@ package quests;
 
 import characters.EnemyTypes;
 import items.Item;
+import main.GameStage;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -118,8 +119,7 @@ public class QuestHandler {
      */
     private static void checkQuestCompletion(Quest q) {
         if(q.getActive() && q.getComplete()) {
-            //TODO give out rewards (WHERE THE FUCK IS THE PLAYER SPRITE REFERENCE AT)
-
+            GameStage.gamePane.displayQuestSuccessPane(q); //gives out rewards for quest completion
             q.setActive(false);
             activeQuests.remove(q);
             completeQuests.add(q);
@@ -144,10 +144,16 @@ public class QuestHandler {
         return false;
     }
 
+    /**
+     * A Quest is acceptable if the given trigger is the accept trigger, and the quest is
+     * not currently active.
+     * @param t The trigger to test
+     * @return If the quest is acceptable (correct trigger & not currently active)
+     */
     public static boolean isAcceptable(Trigger t) {
         for(Quest quest: inActiveQuests) {
-            if(quest.getQuestAcceptanceTrigger() != null &&
-                    t.equals(quest.getQuestAcceptanceTrigger())) {
+            if(t.equals(quest.getQuestAcceptanceTrigger()) &&
+                    !quest.getActive()) {
                 return quest.isAcceptable();
             }
         }
@@ -155,20 +161,12 @@ public class QuestHandler {
     }
 
     /**
-     * Check if the given quest is active or not.
-     */
-    public static boolean isActive(Quest q) {
-        return activeQuests.contains(q);
-    }
-
-    /**
      * Check if the given quest activation trigger is associated with an active quest.
      */
     public static boolean isActive(Trigger t) {
         for(Quest quest: inActiveQuests) {
-            if(quest.getQuestAcceptanceTrigger() != null &&
-                    t.equals(quest.getQuestAcceptanceTrigger())) {
-                return isActive(quest);
+            if(t.equals(quest.getQuestAcceptanceTrigger())) {
+                return quest.getActive();
             }
         }
         return false;
@@ -214,7 +212,7 @@ public class QuestHandler {
         });
         q.setPriority(true);
         priorityQuest = q;
-        //TODO gui refresh to display the new priority quest
+        //TODO gui refresh to display the new priority quest (if not done automatically)
     }
 
     /**
@@ -223,5 +221,5 @@ public class QuestHandler {
      */
     public static List<Quest> fillQuests() {
         return null;
-    } //TODO
+    } //TODO fill for testing
 }

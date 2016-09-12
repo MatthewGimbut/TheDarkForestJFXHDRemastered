@@ -30,7 +30,7 @@ public class Quest {
 
     private Task currentTask;
 
-    private Trigger questAcceptanceTrigger;
+    private Trigger questAcceptanceTrigger; //a quest MUST have an acceptance trigger
 
     public Quest(boolean isStory, int exp, int money, List<Item> reward,
                  List<Quest> prerequisites, List<Task> tasks,
