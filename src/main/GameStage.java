@@ -1,5 +1,6 @@
 package main;
 
+import gui.GamePane;
 import gui.GameScene;
 import gui.MainMenuPane;
 import javafx.application.Application;
@@ -36,6 +37,12 @@ public class GameStage extends Application {
     public static final int WINDOW_HEIGHT = 730;
     public static final String STYLESHEET = "gui/themes.css";
 
+    public static GamePane gamePane;
+
+
+    public static void setGamePane(GamePane gamePane) {
+        GameStage.gamePane = gamePane;
+    }
 
     public static final String[] FEMALE_FIRST_NAMES = { "Mary", "Elizabeth", "Jennifer", "Maria", "Nancy", "Michelle", "Sarah", "Kim",
             "Amy", "Melissa", "Jessica", "Anna", "Kathleen", "Amanda", "Stephanie", "Diana", "Heather", "Gloria",

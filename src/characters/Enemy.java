@@ -14,7 +14,9 @@ public class Enemy extends Character {
 
 	private String customMusic;
 	private boolean isSelected;
-	
+	private EnemyTypes type = EnemyTypes.TestEnemy; //placeholder for now
+	//TODO have all constructors take an EnemyTypes
+
 	public Enemy(String name, int lvl, int currentHP, int maxHP, int currentMana, int maxMana, int atk, int magic, int def, int speed) {
 		super(name, lvl, currentHP, maxHP, currentMana, maxMana, atk, magic, def, speed, 0, 0);
 		this.isSelected = false;
@@ -88,5 +90,7 @@ public class Enemy extends Character {
 	public void setCustomMusic(String customMusic) {
 		this.customMusic = customMusic;
 	}
+
+	public EnemyTypes enemyType() { return this.type; }
 		
 }
