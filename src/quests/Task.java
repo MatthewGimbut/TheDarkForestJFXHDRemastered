@@ -12,7 +12,10 @@ public abstract class Task {
     protected String description;
     protected Trigger trigger;
 
-    //check if the task is complete, is so switch isComplete and return true
+    /**
+     * Checks if the task is complete, if so switch isComplete and return true.
+     * @return if the Task is complete
+     */
     public abstract boolean checkTaskComplete();
 
     public boolean isComplete() { return this.isComplete; }

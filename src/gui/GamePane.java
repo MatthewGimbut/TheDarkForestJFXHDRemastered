@@ -130,11 +130,10 @@ public class GamePane extends StackPane {
         animate.start();
     }
 
-    //TODO add Quest object as parameter to this method and to the QuestSuccess pane
-    void displayQuestSuccessPane() {
+    public void displayQuestSuccessPane(quests.Quest quest) {
         if(!messageCurrentlyDisplayed) {
             messageCurrentlyDisplayed = true;
-            QuestSuccess qs = new QuestSuccess(player, this);
+            QuestSuccess qs = new QuestSuccess(player, this, quest);
             this.getChildren().add(qs);
             qs.requestFocus();
         }

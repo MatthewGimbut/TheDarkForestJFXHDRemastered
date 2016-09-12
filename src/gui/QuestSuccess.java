@@ -1,5 +1,7 @@
 package gui;
 
+import quests.Quest;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -27,10 +29,12 @@ public class QuestSuccess extends BorderPane {
     @FXML private AnchorPane anchor;
     private PlayerSprite playerSprite;
     private GamePane currentView;
+    private Quest quest;
 
-    public QuestSuccess(PlayerSprite playerSprite, GamePane currentView) {
+    public QuestSuccess(PlayerSprite playerSprite, GamePane currentView, Quest quest) {
         this.playerSprite = playerSprite;
         this.currentView = currentView;
+        this.quest = quest;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\QuestSuccess.fxml"));
@@ -48,19 +52,17 @@ public class QuestSuccess extends BorderPane {
 
         exit.setOnAction(event -> System.out.println("test"));
 
-        quests.Quest priority = QuestHandler.priorityQuest;
-
-        goldLabel.setText("" + priority.getMoneyReward());
-        questDescription.setText(priority.getDescription());
-        questTitle.setText(priority.getQuestName());
-        xpLabel.setText("" + priority.getExpReward());
-        priority.getReward().forEach(i -> {
+        goldLabel.setText("" + quest.getMoneyReward());
+        questDescription.setText(quest.getDescription());
+        questTitle.setText(quest.getQuestName());
+        xpLabel.setText("" + quest.getExpReward());
+        quest.getReward().forEach(i -> {
             rewardsPane.getChildren().add(new ItemPane(i, null));
         }); //I hope this works?
 
-        playerSprite.getPlayer().increaseXP(priority.getExpReward());
+        playerSprite.getPlayer().increaseXP(quest.getExpReward());
         //add money when it is included as a feature in player
-        priority.getReward().forEach(playerSprite.getPlayer()::addItem);
+        quest.getReward().forEach(playerSprite.getPlayer()::addItem);
 
 
         this.setCenter(anchor);

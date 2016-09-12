@@ -119,6 +119,7 @@ public class QuestHandler {
     private static void checkQuestCompletion(Quest q) {
         if(q.getActive() && q.getComplete()) {
             //TODO give out rewards (WHERE THE FUCK IS THE PLAYER SPRITE REFERENCE AT)
+
             q.setActive(false);
             activeQuests.remove(q);
             completeQuests.add(q);
@@ -129,6 +130,18 @@ public class QuestHandler {
         } else {
             //TODO task complete animation and fade into next task
         }
+    }
+
+    /**
+     * Check is a quest with the given Acceptance Trigger has been completed already.
+     */
+    public static boolean checkQuestCompletion(Trigger t) {
+        for(Quest q: completeQuests) {
+            if(q.getQuestAcceptanceTrigger().equals(t)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isAcceptable(Trigger t) {

@@ -55,6 +55,7 @@ public class MainMenuPane extends AnchorPane {
 
         start.setOnAction(event -> {
             GamePane gp = new GamePane(primaryStage);
+            GameStage.setGamePane(gp);
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
