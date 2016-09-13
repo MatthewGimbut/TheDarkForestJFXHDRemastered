@@ -148,11 +148,11 @@ public class MapParser {
                                 parseInt(info[3]), parseInt(info[4]), determineCardinal(info[5]), info[6]));
 					break;
 
-				case "over":
+				case "upper":
 					objects.add(new UpperLayer(parseInt(info[1]), parseInt(info[2]), info[3]));
 					break;
 
-				case "under":
+				case "lower":
 					objects.add(new LowerLayer(parseInt(info[1]), parseInt(info[2]), info[3]));
 					break;
 
@@ -347,12 +347,12 @@ public class MapParser {
 
 					case "UpperLayer":
 						UpperLayer o = (UpperLayer) sprite;
-						osw.append("over"+ DELIMITER_STRING +o.getX()+ DELIMITER_STRING +o.getY()+ DELIMITER_STRING +o.getImageLocation()+"\n");
+						osw.append("upper"+ DELIMITER_STRING +o.getX()+ DELIMITER_STRING +o.getY()+ DELIMITER_STRING +o.getImageLocation()+"\n");
 						break;
 
 					case "LowerLayer":
 						LowerLayer u = (LowerLayer) sprite;
-						osw.append("under"+ DELIMITER_STRING +u.getX()+ DELIMITER_STRING +u.getY()+ DELIMITER_STRING +u.getImageLocation()+"\n");
+						osw.append("lower"+ DELIMITER_STRING +u.getX()+ DELIMITER_STRING +u.getY()+ DELIMITER_STRING +u.getImageLocation()+"\n");
 						break;
 
 					case "Lootable":
@@ -374,12 +374,12 @@ public class MapParser {
 						if (npc.getNPC() instanceof Enemy) {
 							Enemy enemy = (Enemy) npc.getNPC();
 							osw.append("enemy" + DELIMITER_STRING + npc.getX() + DELIMITER_STRING + npc.getY() + DELIMITER_STRING +
-                                    enemy.getName() + DELIMITER_STRING + enemy.getLvl() + DELIMITER_STRING + enemy.getCurrentHP() + DELIMITER_STRING +
-                                    enemy.getMaxHP() + DELIMITER_STRING + enemy.getCurrentMana() + DELIMITER_STRING + enemy.getMaxMana() +
-                                    DELIMITER_STRING + enemy.getAtk() + DELIMITER_STRING + enemy.getMagic() + DELIMITER_STRING + enemy.getDef() +
-                                    DELIMITER_STRING + enemy.getSpeed() + DELIMITER_STRING + npc.getNPC().getNorthImage() + DELIMITER_STRING +
-									npc.getNPC().getSouthImage() + DELIMITER_STRING +  npc.getNPC().getEastImage() + DELIMITER_STRING +
-									npc.getNPC().getWestImage() + DELIMITER_STRING + enemy.getCustomMusic());
+									enemy.getName() + DELIMITER_STRING + enemy.getLvl() + DELIMITER_STRING + enemy.getCurrentHP() + DELIMITER_STRING +
+									enemy.getMaxHP() + DELIMITER_STRING + enemy.getCurrentMana() + DELIMITER_STRING + enemy.getMaxMana() +
+									DELIMITER_STRING + enemy.getAtk() + DELIMITER_STRING + enemy.getMagic() + DELIMITER_STRING + enemy.getDef() +
+									DELIMITER_STRING + enemy.getSpeed() + DELIMITER_STRING + "file:" + npc.getNPC().getNorthImage() + DELIMITER_STRING +
+									"file:" +npc.getNPC().getSouthImage() + DELIMITER_STRING +  "file:" +npc.getNPC().getEastImage() + DELIMITER_STRING +
+									"file:" +npc.getNPC().getWestImage() + DELIMITER_STRING + enemy.getCustomMusic());
 							for (String dialogue : npc.getMessage()) {
 								osw.append(DELIMITER_STRING + dialogue);
 							}

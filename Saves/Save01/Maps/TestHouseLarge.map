@@ -49,10 +49,10 @@ customObst|304|176|file:Images\\Buildings\\WoodWall32.png
 customObst|272|176|file:Images\\Buildings\\WoodWall32.png
 customObst|240|176|file:Images\\Buildings\\WoodWall32.png
 customObst|250|210|file:Images\\TorchTest.gif
-under|464|464|file:Images\\Buildings\\WoodFloor32.png
-under|224|336|file:Images\\Buildings\\WoodFloor256x128.png
-under|480|336|file:Images\\Buildings\\WoodFloor256x128.png
-under|224|208|file:Images\\Buildings\\WoodFloor256x128.png
-under|480|208|file:Images\\Buildings\\WoodFloor256x128.png
+lower|464|464|file:Images\\Buildings\\WoodFloor32.png
+lower|224|336|file:Images\\Buildings\\WoodFloor256x128.png
+lower|480|336|file:Images\\Buildings\\WoodFloor256x128.png
+lower|224|208|file:Images\\Buildings\\WoodFloor256x128.png
+lower|480|208|file:Images\\Buildings\\WoodFloor256x128.png
 neutral|464|240|Shrek|file:Images\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|GET OUT OF MY SWAMP
 background|interior-black

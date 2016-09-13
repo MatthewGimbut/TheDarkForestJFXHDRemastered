@@ -27,7 +27,7 @@ public class Mace extends Weapon {
 	
 	public Mace() {
 		super(12, 0, 0, 4, 7, 0, 0, 178, Item.randomRareness(), Weapon.getRandomWeaponType());
-		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\mace\\Mace.png");
+		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Mace.png");
 		this.setSimpleName(this.getWeaponType() + " mace");
 		this.setItemToolTipText("A " + this.getWeaponType() + " mace");
 	}

@@ -28,7 +28,7 @@ public class Sword extends Weapon {
 	
 	public Sword() {
 		super(8, 0, 0, 2, 4, 0, 0, 175, Item.randomRareness(), Weapon.getRandomWeaponType());
-		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\sword\\Sword.png");
+		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Sword.png");
 		this.setSimpleName(this.getWeaponType() + " sword");
 		this.setItemToolTipText("A " + this.getWeaponType() + " sword");
 	}

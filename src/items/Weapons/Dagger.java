@@ -28,7 +28,7 @@ public class Dagger extends Weapon {
 	
 	public Dagger() {
 		super(6, 0, 0, 1, 2, 0, 0, 75, Item.randomRareness(), Weapon.getRandomWeaponType());
-		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\dagger\\Dagger.png");
+		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Dagger.png");
 		this.setSimpleName(this.getWeaponType() + " dagger");
 		this.setItemToolTipText("A " + this.getWeaponType() + " dagger");
 	}	
