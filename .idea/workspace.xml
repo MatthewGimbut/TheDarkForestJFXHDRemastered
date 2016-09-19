@@ -2,17 +2,132 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e7314be-cc46-46d3-b58f-eaa020bd30b4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/quests/InteractTask.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar/TheDarkForestJFXHDRemastered.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/AttackType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/AttackType$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/AttackType$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/AttackType$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/AttackType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/attacks/Other/StatChange.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Character.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Enemy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/EnemyTypes$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/EnemyTypes.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Neutral.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ConfirmPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane$UnequipHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GameButton.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GameLabel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GameScene.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$DropHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$EquipHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$UnequipHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ItemPane$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ItemPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/LootPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MainMenuPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MenuPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MessagePane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/OptionsPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/OptionsPane.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/QuestSuccess.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/QuestSuccess.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane$EquipHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane$ItemDisplayHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/TextItemPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/themes.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Armor$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Armor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType$6.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ArmorType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Boots.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ChestPiece.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Gloves.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Helmet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Legs.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Shield.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/Consumable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/Potion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Consumables/PotionType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Rarity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Axe.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Cleaver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Dagger.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Mace.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/RustyKnife.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Spear.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Sword.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Weapon$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Weapon.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/WeaponType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/GameStage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapContainer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/Records.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/SaveManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/Quest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/QuestHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllOtherQuestAcceptanceTriggers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllOtherQuests.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllOtherTasks.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllOtherTriggers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllStoryQuestAcceptanceTriggers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllStoryQuests.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllStoryTasks.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/AllStoryTriggers.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/MasterQuests$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/MasterQuests$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/master/MasterQuests.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/task/GatherTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/task/InteractTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/task/KillTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/task/Task.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/trigger/LocationTrigger.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/trigger/Trigger.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Cardinal$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Cardinal$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Cardinal$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Cardinal$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Cardinal.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/DisplayItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Exit.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/GenericObstacle.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Lootable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/LowerLayer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/NPC.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/PlayerSprite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Save.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/Sprite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/sprites/UpperLayer.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePane.java" afterPath="$PROJECT_DIR$/src/gui/GamePane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainMenuPane.java" afterPath="$PROJECT_DIR$/src/gui/MainMenuPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/QuestSuccess.java" afterPath="$PROJECT_DIR$/src/gui/QuestSuccess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/GameStage.java" afterPath="$PROJECT_DIR$/src/main/GameStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/quests/LocationTrigger.java" afterPath="$PROJECT_DIR$/src/quests/LocationTrigger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/quests/QuestHandler.java" afterPath="$PROJECT_DIR$/src/quests/QuestHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/quests/Task.java" afterPath="$PROJECT_DIR$/src/quests/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/quests/Trigger.java" afterPath="$PROJECT_DIR$/src/quests/Trigger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sprites/NPC.java" afterPath="$PROJECT_DIR$/src/sprites/NPC.java" />
     </list>
     <ignored path="TheDarkForestJFXHDRemastered.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,61 +151,12 @@
     <splitter split-orientation="horizontal" split-proportion="0.4788173">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MapContainer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/MapContainer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="871">
-                  <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#2959#2960#0" expanded="true" />
-                    <element signature="e#2995#2996#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="QuestHandler.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/quests/QuestHandler.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="323">
-                  <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
+                  <caret line="112" column="54" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Trigger.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quests/Trigger.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LocationTrigger.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quests/LocationTrigger.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#380#381#0" expanded="true" />
-                    <element signature="e#423#424#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="InteractTask.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quests/InteractTask.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-                  <folding>
-                    <element signature="e#657#658#0" expanded="true" />
-                    <element signature="e#697#698#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,41 +165,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GatherTask.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quests/GatherTask.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="KillTask.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quests/KillTask.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Quest.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Quest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/quests/Quest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="136">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Task.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/quests/Task.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+                  <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -142,8 +178,8 @@
           <file leaf-file-name="NPC.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/sprites/NPC.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="701">
-                  <caret line="111" column="59" selection-start-line="111" selection-start-column="59" selection-end-line="111" selection-end-column="59" />
+                <state relative-caret-position="1802">
+                  <caret line="115" column="48" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
                   <folding />
                 </state>
               </provider>
@@ -152,11 +188,9 @@
           <file leaf-file-name="QuestSuccess.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/QuestSuccess.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
-                  <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="170">
+                  <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -164,8 +198,8 @@
           <file leaf-file-name="GamePane.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="132" column="11" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
+                <state relative-caret-position="1887">
+                  <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -236,6 +270,7 @@
         <option value="$PROJECT_DIR$/src/gui/QuestSuccess.java" />
         <option value="$PROJECT_DIR$/src/quests/InteractTask.java" />
         <option value="$PROJECT_DIR$/src/quests/Task.java" />
+        <option value="$PROJECT_DIR$/src/quests/Quest.java" />
       </list>
     </option>
   </component>
@@ -248,9 +283,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="22" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="y" value="32" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -279,7 +314,6 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -462,6 +496,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -772,8 +807,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="32" width="2576" height="1416" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -785,7 +820,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.117803834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11764706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -940,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,9 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,7 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1019,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,9 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1044,9 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="967">
           <caret line="205" column="46" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,9 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1088,10 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="871">
           <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
-          <folding>
-            <element signature="e#2959#2960#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,9 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1126">
           <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1109,7 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,7 +1125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1135,96 +1142,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="132" column="11" selection-start-line="132" selection-start-column="11" selection-end-line="132" selection-end-column="11" />
+        <state relative-caret-position="1887">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/QuestSuccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/GatherTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/KillTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quests/GatherTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/quests/KillTask.java" />
     <entry file="file://$PROJECT_DIR$/src/quests/Quest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sprites/NPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="111" column="59" selection-start-line="111" selection-start-column="59" selection-end-line="111" selection-end-column="59" />
+        <state relative-caret-position="1802">
+          <caret line="115" column="48" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/InteractTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-          <folding>
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#697#698#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/LocationTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/Trigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quests/InteractTask.java" />
+    <entry file="file://$PROJECT_DIR$/src/quests/Task.java" />
+    <entry file="file://$PROJECT_DIR$/src/quests/LocationTrigger.java" />
+    <entry file="file://$PROJECT_DIR$/src/quests/Trigger.java" />
     <entry file="file://$PROJECT_DIR$/src/quests/QuestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="101" column="59" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
+          <caret line="112" column="54" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
           <folding />
         </state>
       </provider>
