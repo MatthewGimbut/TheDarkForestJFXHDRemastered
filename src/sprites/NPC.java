@@ -92,13 +92,10 @@ public class NPC extends Sprite {
 					//do nothing (dialog or something maybe)
 				}
 			} else { //lastActivatedTrigger != null
-				if(!QuestHandler.isActive(lastActivatedTrigger)) { //previous quest is done
-					if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) { //next quest is ready
-						acceptQuest();
-					}
-					//otherwise, do nothing until next quest is ready
+				if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) { //next quest is ready
+					acceptQuest();
 				}
-				//otherwise, do nothing until last quest is done
+				//otherwise, do nothing until next quest is ready
 			}
 		}
 	}
