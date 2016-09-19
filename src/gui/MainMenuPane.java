@@ -64,7 +64,7 @@ public class MainMenuPane extends AnchorPane {
 
         load.setOnAction(event -> {
             GamePane gp = new GamePane(primaryStage);
-
+            GameStage.setGamePane(gp);
             ArrayList<Object> newMap = SaveManager.deserialize();
             gp.setCurrentMapFile((String) newMap.get(1));
             gp.setPlayer((PlayerSprite) newMap.get(0));

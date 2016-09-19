@@ -121,7 +121,7 @@ public abstract class Item implements Serializable {
 	 * Generates a certain number of random items.
 	 * Really just calls the generateRandomItem
 	 * method a bunch of times in a loop.
-	 * @param howMany
+	 * @param howMany one less than the amount of generated items (wtf Matt)
 	 * @return
 	 */
 	public static LinkedList<Item> generateRandomItem(int howMany) {

@@ -54,5 +54,5 @@ under|224|336|file:Images\\Buildings\\WoodFloor256x128.png
 under|480|336|file:Images\\Buildings\\WoodFloor256x128.png
 under|224|208|file:Images\\Buildings\\WoodFloor256x128.png
 under|480|208|file:Images\\Buildings\\WoodFloor256x128.png
-neutral|464|240|Shrek|file:Images\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|GET OUT OF MY SWAMP
+neutral|464|240|Shrek|file:Images\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|file:Images\\Characters\\Sherk.png|GET OUT OF MY SWAMP|questtriggers|quest001_01|quest002_01
 background|interior-black

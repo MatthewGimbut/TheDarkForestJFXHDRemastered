@@ -248,8 +248,8 @@ public class GamePane extends StackPane {
                 //displayBattlePanel(enemy, obstacle);
             }
         } else if (((NPC) obstacle).getNPC() instanceof Neutral) {
-            displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
             ((NPC) obstacle).questInteraction();
+            displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
         }
 
     }

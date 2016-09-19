@@ -141,4 +141,4 @@ endloot
 
 background|grass
 
-neutral|96|101|Kevin Dunphy|file:Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralEast.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralWest.png|This is a test message.|There should be four separate dialogue boxes to pop up total.|This message is a test of the maximum length of the dialogue box.|This is the last one.
+neutral|96|101|Kevin Dunphy|file:Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralEast.png|file:Images\\Characters\\GenericNeutral\\GenericNeutralWest.png|This is a test message.|There should be four separate dialogue boxes to pop up total.|This message is a test of the maximum length of the dialogue box.|This is the last one.|activationtriggers|quest001|quest002|questtriggers|quest001_02

@@ -130,7 +130,7 @@ public class MapParser {
 					String[] neutralMessage = new String[MAX_NPC_MESSAGE_SIZE];
 					int j = 8;
 					int neutralMessageCounter = 0;
-					while(j < info.length && info[j].equals("activationtriggers") &&
+					while(j < info.length && !info[j].equals("activationtriggers") &&
 							!info[j].equals("questtriggers")) { //Copies all array locations that contain dialogue into a new array to send to the NPC
 						neutralMessage[neutralMessageCounter] = info[j];
 						j++;
@@ -146,6 +146,8 @@ public class MapParser {
 								//add the activation trigger to the list
 								activationTriggers.add(m.getQuest().getQuestAcceptanceTrigger());
 								System.out.println("Parse Activation Trigger Success *Map Parser*"); //TODO delete this
+							} else {
+								System.out.println("Parse failed *Map Parser*");
 							}
 							j++;
 						}
@@ -167,7 +169,10 @@ public class MapParser {
 							if(m != null) { //also hope this works
 								questTriggers.add(m.getQuest().getAllTasks().get(taskNum).getTrigger());
 								System.out.println("Parse Quest Trigger Success *Map Parser*"); //TODO delete this
+							} else {
+								System.out.println("Parse failed *Map Parser*");
 							}
+							j++;
 						}
 					}
 
