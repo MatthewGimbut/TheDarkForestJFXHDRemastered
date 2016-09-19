@@ -1,6 +1,8 @@
 package quests;
 
 import items.Item;
+import quests.task.Task;
+import quests.trigger.Trigger;
 
 import java.util.List;
 /**
@@ -23,6 +25,7 @@ public class Quest {
 
     private List<Item> reward;
     private List<Quest> prerequisites;
+    private List<Task> allTasks;
     private List<Task> tasks;
 
     private String questName;
@@ -44,6 +47,7 @@ public class Quest {
         this.questName = questName;
         this.description = description;
         this.questAcceptanceTrigger = questAcceptanceTrigger;
+        this.allTasks = tasks;
 
         currentTask = tasks.get(0); //the current task defaults to the first in the list
     }
@@ -55,6 +59,8 @@ public class Quest {
         } else { //move onto the next task
             currentTaskIndex++;
             currentTask = tasks.get(currentTaskIndex);
+            //TODO REMOVE THE QUEST TRIGGER FROM THE MAP TEXT FILE (this will be difficult probably)
+            //probably actually don't need to worry about the above one
             //TODO some sort of display for the next task of the quest
         }
     }
@@ -74,9 +80,7 @@ public class Quest {
             }
         }
 
-        if(acceptable) {
-            isAcceptable = true;
-        }
+        isAcceptable = acceptable;
     }
 
     public String getQuestName() {
@@ -104,6 +108,8 @@ public class Quest {
     public Task getCurrentTask() {
         return currentTask;
     }
+
+    public List<Task> getAllTasks() { return this.allTasks; }
 
     public boolean isAcceptable() {
         updateAcceptable();

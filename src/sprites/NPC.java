@@ -1,7 +1,7 @@
 package sprites;
 
 import quests.QuestHandler;
-import quests.Trigger;
+import quests.trigger.Trigger;
 
 import java.util.Iterator;
 import java.util.List;
@@ -36,6 +36,7 @@ public class NPC extends Sprite {
 		Npc's are created on map load so they will always retain the same set of triggers as long as you are in the
 		map, this will remove any already used triggers from the Npc before the user can interact with it.
 		Not very efficient, but it is the best solution I can come up with. Hopefully it isn't too bad.
+		Should be fine since NPCs will not hold that many triggers.
 		 */
 		//TODO implement a way to remove the trigger from the .map file
 		Iterator<Trigger> it = questActivationTriggers.iterator();
@@ -85,18 +86,14 @@ public class NPC extends Sprite {
 		if(questActivationTriggers.size() != 0) {
 			if(lastActivatedTrigger == null) {
 				if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) {
-					lastActivatedTrigger = questActivationTriggers.get(0);
-					questActivationTriggers.remove(0);
-					QuestHandler.acceptQuest(lastActivatedTrigger);
+					acceptQuest();
 				} else {
 					//nothing for now (dialog of something)
 				}
 			} else { //lastActivatedTrigger != null
 				if(!QuestHandler.isActive(lastActivatedTrigger)) { //previous quest is done
 					if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) { //next quest is ready
-						lastActivatedTrigger = questActivationTriggers.get(0);
-						questActivationTriggers.remove(0);
-						QuestHandler.acceptQuest(lastActivatedTrigger);
+						acceptQuest();
 					}
 					//otherwise, do nothing until next quest is ready
 				}
@@ -106,13 +103,20 @@ public class NPC extends Sprite {
 	}
 
 	/**
-	 *
+	 * Private helper method which accepts the next quest from this NPC.
+	 */
+	private void acceptQuest() {
+		lastActivatedTrigger = questActivationTriggers.get(0);
+		questActivationTriggers.remove(0);
+		QuestHandler.acceptQuest(lastActivatedTrigger);
+		System.out.println("Quest Activation Success! *NPO*"); //TODO delete this
+	}
+
+	/**
+	 * Tests interaction with all of the quests on this NPC
 	 */
 	private void interactNormalQuestTriggers() {
-		if(questTriggers.size() != 0) { //ensures there are triggers
-			//check if any triggers are attached to an active task or not
-			questTriggers.forEach(QuestHandler::checkForTrigger);
-			//QuestHandler.checkForTrigger(Trigger t) handles actual completion of the task it is attached to
-		}
+		questTriggers.forEach(QuestHandler::checkForTrigger);
+		//QuestHandler.checkForTrigger(Trigger t) handles actual completion of the task it is attached to
 	}
 }

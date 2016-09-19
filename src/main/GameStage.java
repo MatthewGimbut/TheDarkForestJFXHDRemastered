@@ -94,6 +94,7 @@ public class GameStage extends Application {
     }
 
     public static void main(String[] args) {
+        //quests.QuestHandler.fillQuests(); not sure if this is needed
         launch(args);
     }
 }

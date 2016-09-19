@@ -3,6 +3,12 @@ package quests;
 import characters.EnemyTypes;
 import items.Item;
 import main.GameStage;
+import quests.master.AllOtherQuests;
+import quests.master.AllStoryQuests;
+import quests.task.GatherTask;
+import quests.task.KillTask;
+import quests.task.Task;
+import quests.trigger.Trigger;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -31,6 +37,10 @@ public class QuestHandler {
             q.setActive(true);
             inActiveQuests.remove(q);
             activeQuests.add(q);
+            System.out.println("Quest Accept Success! *Quest Handler*"); //TODO delete this
+            if(priorityQuest == null) {
+                setPriorityQuest(q);
+            }
             //TODO begin quest popup menu (display name and description of the quest)
         }
         //else nothing
@@ -42,12 +52,11 @@ public class QuestHandler {
      * @param t The quest acceptance trigger
      */
     public static void acceptQuest(Trigger t) {
-        for(Quest quest: inActiveQuests) {
-            if(quest.getQuestAcceptanceTrigger() != null &&
-                    t.equals(quest.getQuestAcceptanceTrigger())) {
-                acceptQuest(quest);
+        inActiveQuests.forEach(q -> {
+            if(q.getQuestAcceptanceTrigger() != null && t.equals(q.getQuestAcceptanceTrigger())) {
+                acceptQuest(q);
             }
-        }
+        });
     }
 
     /**
@@ -102,6 +111,7 @@ public class QuestHandler {
         for (Quest q: activeQuests) {
             Trigger trigger = q.getCurrentTask().getTrigger();
             if(trigger != null && t.equals(trigger)) {
+                System.out.println("Trigger Check Successful! *Quest Handler*"); //TODO delete this
                 q.currentTaskComplete();
                 checkQuestCompletion(q);
             }
@@ -119,6 +129,7 @@ public class QuestHandler {
      */
     private static void checkQuestCompletion(Quest q) {
         if(q.getActive() && q.getComplete()) {
+            System.out.println("Quest Complete Success! *Quest Handler*"); //TODO delete this
             GameStage.gamePane.displayQuestSuccessPane(q); //gives out rewards for quest completion
             q.setActive(false);
             activeQuests.remove(q);
@@ -207,9 +218,11 @@ public class QuestHandler {
      * @param q The new Priority Quest
      */
     public static void setPriorityQuest(Quest q) {
-        activeQuests.forEach(quest -> {
-            quest.setPriority(false);
-        });
+        if(priorityQuest != null) { //priorityQuest.setPriority(false) would probably also work
+            activeQuests.forEach(quest -> { //if there is efficiency problems try it
+                quest.setPriority(false);
+            });
+        }
         q.setPriority(true);
         priorityQuest = q;
         //TODO gui refresh to display the new priority quest (if not done automatically)
@@ -220,6 +233,11 @@ public class QuestHandler {
      * @return A LinkedList of all the quests in the game
      */
     public static List<Quest> fillQuests() {
-        return null;
-    } //TODO fill for testing
+        List<Quest> result = new LinkedList<Quest>();
+        result.addAll(AllStoryQuests.initialize());
+        result.addAll(AllOtherQuests.initialize());
+        System.out.println("Fill Quests Successful! *Quest Handler*");
+
+        return result;
+    }
 }
