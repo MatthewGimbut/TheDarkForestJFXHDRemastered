@@ -156,8 +156,8 @@ public class QuestHandler {
     }
 
     /**
-     * A Quest is acceptable if the given trigger is the accept trigger, and the quest is
-     * not currently active.
+     * A Quest is acceptable if the given trigger is the accept trigger, the quest is
+     * not currently active, and all prerequisites have been met.
      * @param t The trigger to test
      * @return If the quest is acceptable (correct trigger & not currently active)
      */

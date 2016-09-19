@@ -35,6 +35,7 @@ public class NPC extends Sprite {
 		/*
 		Npc's are created on map load so they will always retain the same set of triggers as long as you are in the
 		map, this will remove any already used triggers from the Npc before the user can interact with it.
+		Triggers will be removed for already completed and already activated quests.
 		Not very efficient, but it is the best solution I can come up with. Hopefully it isn't too bad.
 		Should be fine since NPCs will not hold that many triggers.
 		 */
@@ -43,7 +44,7 @@ public class NPC extends Sprite {
 		Trigger t = null;
 		while(it.hasNext()) {
 			t = it.next();
-			if(QuestHandler.checkQuestCompletion(t)) {
+			if(QuestHandler.isActive(t) || QuestHandler.checkQuestCompletion(t)) {
 				it.remove();
 			}
 		}
@@ -51,7 +52,7 @@ public class NPC extends Sprite {
 		it = questTriggers.iterator();
 		while(it.hasNext()) {
 			t = it.next();
-			if(QuestHandler.checkQuestCompletion(t)) {
+			if(QuestHandler.isActive(t) || QuestHandler.checkQuestCompletion(t)) {
 				it.remove();
 			}
 		}
@@ -88,7 +89,7 @@ public class NPC extends Sprite {
 				if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) {
 					acceptQuest();
 				} else {
-					//nothing for now (dialog of something)
+					//do nothing (dialog or something maybe)
 				}
 			} else { //lastActivatedTrigger != null
 				if(!QuestHandler.isActive(lastActivatedTrigger)) { //previous quest is done
