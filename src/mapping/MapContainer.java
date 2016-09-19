@@ -1,4 +1,4 @@
-package main;
+package mapping;
 
 import sprites.Exit;
 import sprites.LowerLayer;
@@ -14,13 +14,14 @@ public class MapContainer {
     private ArrayList<Sprite> mapItems, underLayer, overLayer, collisions;
     private String idName;
     private boolean hostile;
-    private MapParser map;
+    private JSONMapParser map;
+    private JSONMapTemplate template;
     private String location;
 
     public MapContainer(PlayerSprite player, String location) {
         System.out.println(location);
         this.location = location;
-        map = new MapParser(player, this);
+        map = new JSONMapParser(player);
         try {
             loadNewFile(location);
         } catch (IOException e) {
@@ -51,7 +52,10 @@ public class MapContainer {
     public void randomize(String newFile, String currentFile, Exit prevExit) {
         try {
             map.generateRandomMap(newFile, currentFile, prevExit);
-            mapItems = map.parseMap(newFile);
+            template = map.parseMap(newFile);
+            idName = template.getId();
+            location = newFile;
+            mapItems = template.getMapItems();
             updateLayers();
         } catch (IOException e) {
             System.out.println("couldn't read random file");
@@ -59,7 +63,10 @@ public class MapContainer {
     }
 
     public void loadNewFile(String loc) throws IOException {
-        mapItems = map.parseMap(loc);
+        template = map.parseMap(loc);
+        idName = template.getId();
+        location = loc;
+        mapItems = template.getMapItems();
         updateLayers();
     }
 
