@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import items.Item;
 import javafx.geometry.Rectangle2D;
 import main.GameStage;
+import quests.trigger.Trigger;
 import sprites.*;
 
 import java.io.*;

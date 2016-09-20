@@ -138,7 +138,7 @@ public class MapParser {
 						neutralMessageCounter++;
 					}
 
-					List<Trigger> activationTriggers = new ArrayList<Trigger>();
+					LinkedList<Trigger> activationTriggers = new LinkedList<Trigger>();
 					if(info[j].equals("activationtriggers")) {
 						j++; //go to next index (not activationtriggers)
 						while(j < info.length && !info[j].equals("questtriggers")) {
@@ -154,7 +154,7 @@ public class MapParser {
 						}
 					}
 
-					List<Trigger> questTriggers = new ArrayList<Trigger>();
+					LinkedList<Trigger> questTriggers = new LinkedList<Trigger>();
 					if(info[j].equals("questtriggers")) {
 						j++; //go to next index (not questtriggers)
 						while(j < info.length) {
