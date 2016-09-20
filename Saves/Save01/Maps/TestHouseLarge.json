@@ -556,7 +556,7 @@
   "displayItems": [],
   "exits": [
     {
-      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.json",
+      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.map",
       "nextX": 468,
       "nextY": 485,
       "placement": "South",
@@ -656,7 +656,10 @@
         }
       },
       "questActivationTriggers": [],
-      "questTriggers": [],
+      "questTriggers": [
+        {},
+        {}
+      ],
       "x": 464,
       "y": 240,
       "dx": 0,

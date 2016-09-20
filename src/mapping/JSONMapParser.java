@@ -45,14 +45,13 @@ public class JSONMapParser {
                     .setLenient()
                     .disableHtmlEscaping()
                     .registerTypeAdapter(Item.class, new InterfaceAdapter<Item>())
-                    .registerTypeAdapter(Character.class, new InterfaceAdapter<Class>());
+                    .registerTypeAdapter(Character.class, new InterfaceAdapter<Character>());
 
             m = gson.create().fromJson(json, JSONMapTemplate.class);
 
             m.getMapItems().forEach(sprite -> {
                 if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
-                if(sprite.getImageLocation().contains("C:\\Users\\Matthew\\workspace\\MapBuilder\\")) sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
-                sprite.setImage(sprite.getImageLocation());
+                sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
             });
             return m;
         } catch (IOException e) {
@@ -72,7 +71,7 @@ public class JSONMapParser {
                     .setLenient()
                     .disableHtmlEscaping()
                     .registerTypeAdapter(Item.class, new InterfaceAdapter<Item>())
-                    .registerTypeAdapter(Character.class, new InterfaceAdapter<Class>());
+                    .registerTypeAdapter(Character.class, new InterfaceAdapter<Character>());
 
             JSONMapTemplate m = gson.create().fromJson(json, JSONMapTemplate.class);
 
@@ -358,7 +357,7 @@ public class JSONMapParser {
         Rectangle2D playerBounds = player.getBounds();
         for(Sprite sprite : mapItems) {
             if(testSprite.getBounds().intersects(sprite.getBounds()) || testSprite.getBounds().intersects(playerBounds)) {
-                return true;
+                return !(testSprite instanceof LowerLayer);
             }
         }
         return false;

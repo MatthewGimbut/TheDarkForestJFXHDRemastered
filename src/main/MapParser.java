@@ -10,6 +10,7 @@ import items.Item;
 import items.Rarity;
 import items.Weapons.*;
 import javafx.geometry.Rectangle2D;
+import mapping.MapContainer;
 import sprites.*;
 import java.io.*;
 import java.util.List;

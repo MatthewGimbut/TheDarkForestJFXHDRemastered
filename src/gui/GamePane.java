@@ -176,7 +176,6 @@ public class GamePane extends StackPane {
                     SaveManager.serialize(currentMapFile, player, this.getId());
                     displayMessagePane("Save succeeded!");
                 } else if (items.get(i) instanceof NPC) {
-                    System.out.println("reached");
                     npcInteraction(items.get(i));
                 } else if (items.get(i) instanceof DisplayItem) {
                     boolean pickedUp = itemInteraction((DisplayItem) items.get(i));
