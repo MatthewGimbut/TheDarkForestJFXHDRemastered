@@ -27,7 +27,7 @@ public class Spear extends Weapon {
 	
 	public Spear() {
 		super(14, 0, 0, 5, 8, 0, 0, 200, Item.randomRareness(), Weapon.getRandomWeaponType());
-		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\spear\\Spear.png");
+		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Spear.png");
 		this.setSimpleName(this.getWeaponType() + " spear");
 		this.setItemToolTipText("A " + this.getWeaponType() + " spear");
 	}

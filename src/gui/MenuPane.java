@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.GameStage;
-import main.MapContainer;
+import mapping.MapContainer;
 import main.SaveManager;
 import sprites.PlayerSprite;
 import java.util.ArrayList;

@@ -2,18 +2,16 @@ package gui;
 
 
 import javafx.animation.FadeTransition;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.GameStage;
-import main.MapContainer;
+import mapping.MapContainer;
 import main.SaveManager;
 import sprites.PlayerSprite;
 

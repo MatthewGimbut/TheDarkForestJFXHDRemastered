@@ -13,7 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.GameStage;
-import main.MapContainer;
+import mapping.MapContainer;
 import main.SaveManager;
 import sprites.*;
 
@@ -121,6 +121,7 @@ public class GamePane extends StackPane {
         });
 
         initCollections();
+
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
@@ -256,7 +257,8 @@ public class GamePane extends StackPane {
 
     private void initCollections() {
         try {
-            String mapLoc = "Saves\\Save01\\Maps\\Map0-0.map";
+            String mapLoc = "Saves\\Save01\\Maps\\Map0-0.json";
+            //String mapLoc = "Saves\\Save01\\Maps\\JSONTest.map";
             map = new MapContainer(player, mapLoc);
             this.setId(map.getIdName());
             //mapItems = mapParser.parseMap(map);
@@ -326,9 +328,9 @@ public class GamePane extends StackPane {
                     player.setY(((Exit) obstacle).getNextY());
                     if(((Exit) obstacle).getNextMapLocation().equals("random")) {
                         try {
-                            map.randomize("Saves\\Default Maps\\Maps\\tempMap.map", currentMapFile,
+                            map.randomize("Saves\\Default Maps\\Maps\\tempMap.json", currentMapFile,
                                     (Exit) obstacle);
-                            ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.map");
+                            ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.json");
                         } catch (Exception e) {
                             System.out.println("Failed to generate random map.");
                             e.printStackTrace();

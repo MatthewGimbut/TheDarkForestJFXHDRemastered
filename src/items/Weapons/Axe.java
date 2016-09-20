@@ -27,7 +27,7 @@ public class Axe extends Weapon {
 	
 	public Axe() {
 		super(10, 0, 0, 3, 6, 0, 0, 180, Item.randomRareness(), Weapon.getRandomWeaponType());
-		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\axe\\Axe.png");
+		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Axe.png");
 		this.setSimpleName(this.getWeaponType() + " axe");
 		this.setItemToolTipText("A " + this.getWeaponType() + " axe");
 	}

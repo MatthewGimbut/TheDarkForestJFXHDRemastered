@@ -90,7 +90,7 @@ customObst,432,464,Images\\Buildings\\WoodWall32.png
 customObst,464,400,Images\\Buildings\\WoodWall32.png
 customObst,496,400,Images\\Buildings\\WoodWall32.png
 under,464,432,Images\\Buildings\\DarkDoorwayTall.png
-exit,464,445,468,420,Saves\\Save01\\Maps\\TestHouseLarge.map
+exit,464,445,468,420,Saves\\Save01\\Maps\\TestHouseLarge.json
 customObst,496,432,Images\\Buildings\\WoodWall32.png
 customObst,496,464,Images\\Buildings\\WoodWall32.png
 customObst,528,400,Images\\Buildings\\WoodWall32.png

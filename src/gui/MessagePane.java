@@ -48,11 +48,16 @@ public class MessagePane extends BorderPane {
                 if (!processing) {
                     if (messages != null) {
                         messageCounter++;
-                        if(messages[messageCounter] == null) {
+                        try {
+                            if(messages[messageCounter] == null) {
+                                checkForBattle();
+                                currentView.removeMessagePane(this);
+                            } else {
+                                scrollMessage(messages[messageCounter]);
+                            }
+                        } catch (ArrayIndexOutOfBoundsException e) {
                             checkForBattle();
                             currentView.removeMessagePane(this);
-                        } else {
-                            scrollMessage(messages[messageCounter]);
                         }
                     } else {
                         checkForBattle();

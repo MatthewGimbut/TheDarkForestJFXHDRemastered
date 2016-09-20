@@ -25,6 +25,7 @@ public class ItemPane extends BorderPane {
         this.player = player;
 
         itemImage = new Image(i.getImageLocation());
+        System.out.println(i.getImageLocation());
 
         ImageView iv = new ImageView(itemImage);
         VBox box = new VBox();

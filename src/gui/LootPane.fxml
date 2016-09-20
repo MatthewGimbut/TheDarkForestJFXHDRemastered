@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet themes.css?>
+
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="441.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="300.0" prefWidth="441.0">
+      <bottom>
+        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="441.0">
+          <children>
+            <Button fx:id="takeAll" mnemonicParsing="false" text="Take All" />
+          </children>
+        </HBox>
+      </bottom>
+      <center>
+        <FlowPane fx:id="itemPane" alignment="CENTER" hgap="10.0" prefHeight="207.0" prefWidth="441.0" vgap="10.0">
+          <padding>
+            <Insets left="10.0" right="10.0" />
+          </padding>
+        </FlowPane>
+      </center>
+      <top>
+        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="441.0">
+          <children>
+            <Label fx:id="numItems" prefHeight="36.0" style="-fx-font-size: 18;&#10;" text="x Items" />
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+    <Button id="" fx:id="exit" cancelButton="false" defaultButton="false" disable="false" layoutX="397.0" layoutY="11.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" prefWidth="32.0" text="X" textAlignment="LEFT" textFill="#990000" underline="false" />
+  </children>
+</AnchorPane>
