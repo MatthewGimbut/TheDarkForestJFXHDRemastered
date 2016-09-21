@@ -54,7 +54,7 @@
         </BorderPane>
       </bottom>
       <center>
-        <FlowPane fx:id="rewardsPane" prefHeight="294.0" prefWidth="225.0">
+        <FlowPane fx:id="rewardsPane" hgap="5.0" prefHeight="294.0" prefWidth="225.0" vgap="10.0">
           <padding>
             <Insets left="5.0" right="5.0" />
           </padding>

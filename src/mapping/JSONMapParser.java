@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import items.Item;
 import javafx.geometry.Rectangle2D;
 import main.GameStage;
+import quests.master.MasterQuests;
 import quests.trigger.Trigger;
 import sprites.*;
 
@@ -53,7 +54,40 @@ public class JSONMapParser {
             m.getMapItems().forEach(sprite -> {
                 if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
                 sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
+                if(sprite instanceof NPC) {
+                    NPC npc = (NPC) sprite;
+                    LinkedList<Trigger> activationTriggerTemp = new LinkedList<>();
+                    LinkedList<Trigger> questTriggerTemp = new LinkedList<>();
+
+                    for(Trigger t : npc.getQuestActivationTriggers()) {
+                        MasterQuests master = MasterQuests.valueOf(t.getAssociatedWith());
+                        if(master != null) {
+                            activationTriggerTemp.add(master.getQuest().getQuestAcceptanceTrigger());
+                        } else {
+                            System.out.println("Failed to parse quest " + t.getAssociatedWith());
+                        }
+                    }
+
+                    for(Trigger t : npc.getQuestTriggers()) {
+                        String[] data = t.getAssociatedWith().split("_");
+                        MasterQuests master = MasterQuests.valueOf(data[0]);
+                        int taskNum = Integer.parseInt(data[1], 10);
+                        taskNum--;
+                        if(master != null) {
+                            questTriggerTemp.add(master.getQuest().getAllTasks().get(taskNum).getTrigger());
+                        } else {
+                            System.out.println("Failed to parse quest " + t.getAssociatedWith());
+                        }
+                    }
+
+                    npc.getQuestActivationTriggers().clear();
+                    npc.getQuestTriggers().clear();
+
+                    npc.setQuestActivationTriggers(activationTriggerTemp);
+                    npc.setQuestTriggers(questTriggerTemp);
+                }
             });
+
             return m;
         } catch (IOException e) {
             System.out.println("Error loading JSON!");

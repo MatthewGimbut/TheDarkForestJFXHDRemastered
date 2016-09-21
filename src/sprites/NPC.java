@@ -117,4 +117,21 @@ public class NPC extends Sprite {
 		questTriggers.forEach(QuestHandler::checkForTrigger);
 		//QuestHandler.checkForTrigger(Trigger t) handles actual completion of the task it is attached to
 	}
+
+
+	public LinkedList<Trigger> getQuestTriggers() {
+		return questTriggers;
+	}
+
+	public void setQuestTriggers(LinkedList<Trigger> questTriggers) {
+		this.questTriggers = questTriggers;
+	}
+
+	public LinkedList<Trigger> getQuestActivationTriggers() {
+		return questActivationTriggers;
+	}
+
+	public void setQuestActivationTriggers(LinkedList<Trigger> questActivationTriggers) {
+		this.questActivationTriggers = questActivationTriggers;
+	}
 }

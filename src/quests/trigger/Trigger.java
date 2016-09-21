@@ -12,11 +12,15 @@ public class Trigger {
 
     private String associatedWith;
 
-    public Trigger(String associatedWith) { }
+    public Trigger(String associatedWith) {
+        this.associatedWith = associatedWith;
+    }
 
     public String getAssociatedWith() {
         return associatedWith;
     }
+
+    public void setAssociatedWith(String associatedWith) { this.associatedWith = associatedWith; }
 
     public void setTrigger(String trigger) {
         this.associatedWith = trigger;
