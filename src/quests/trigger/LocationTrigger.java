@@ -11,7 +11,8 @@ public class LocationTrigger extends Trigger {
 
     private Sprite triggerSprite;
 
-    public LocationTrigger(Sprite sprite) {
+    public LocationTrigger(String associatedWith, Sprite sprite) {
+        super(associatedWith);
         this.triggerSprite = sprite;
     }
 }
