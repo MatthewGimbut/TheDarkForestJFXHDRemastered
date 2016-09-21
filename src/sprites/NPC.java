@@ -90,7 +90,6 @@ public class NPC extends Sprite {
 					acceptQuest();
 				} else {
 					//do nothing (dialog or something maybe)
-					System.out.println("Fail");
 				}
 			} else { //lastActivatedTrigger != null
 				if(QuestHandler.isAcceptable(questActivationTriggers.get(0))) { //next quest is ready
