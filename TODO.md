@@ -34,7 +34,7 @@
 - [ ] Explore Tasks
 
 # GUI
-- [ ]
+- [ ] Create priority quest overlay which displays the current task of the current quest
 
 # Known bugs
 - [ ] Map loads twice? Syso statements load twice, investigate
