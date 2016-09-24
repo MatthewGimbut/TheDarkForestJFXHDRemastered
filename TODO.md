@@ -2,7 +2,7 @@
 - [ ] Make battle system
 
 # Character Info Screen
-- [ ] Add gold count
+- [x] Add gold count
 - [x] Fix XP not showing
 - [ ] Continue to organize and format the screen
 
@@ -34,9 +34,9 @@
 - [ ] Explore Tasks
 
 # GUI
-- [ ] Create priority quest overlay which displays the current task of the current quest
+- [x] Create priority quest overlay which displays the current task of the current quest
 
 # Known bugs
-- [ ] Map loads twice? Syso statements load twice, investigate
+- [x] Map loads twice? Syso statements load twice, investigate
 - [x] XP doesn't update in character stat screen
 - [ ] Messages get cut off sometimes in the MessagePane class
