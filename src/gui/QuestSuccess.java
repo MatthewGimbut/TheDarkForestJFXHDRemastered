@@ -61,7 +61,7 @@ public class QuestSuccess extends BorderPane {
         });
 
         playerSprite.getPlayer().increaseXP(quest.getExpReward());
-        //add money when it is included as a feature in player
+        playerSprite.getPlayer().modifyGold(quest.getMoneyReward());
         quest.getReward().forEach(playerSprite.getPlayer()::addItem);
 
 
