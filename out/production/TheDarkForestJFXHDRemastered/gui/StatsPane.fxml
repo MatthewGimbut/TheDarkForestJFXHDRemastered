@@ -78,7 +78,7 @@
       </children>
     </AnchorPane>
     <Label fx:id="playerName" layoutX="353.0" layoutY="28.0" text="Name" />
-    <VBox layoutX="353.0" layoutY="60.0" prefHeight="90.0" prefWidth="196.0" spacing="5.0">
+    <VBox layoutX="353.0" layoutY="51.0" prefHeight="90.0" prefWidth="196.0" spacing="5.0">
       <children>
         <Label fx:id="playerLevel" text="Level:" />
         <Label fx:id="playerAttack" text="Attack:" />
@@ -108,5 +108,10 @@
         </AnchorPane>
       </children>
     </VBox>
+    <HBox alignment="CENTER" layoutX="100.0" layoutY="193.0" prefHeight="25.0" prefWidth="128.0">
+      <children>
+        <Label fx:id="gold" text="x gold" />
+      </children>
+    </HBox>
   </children>
 </AnchorPane>

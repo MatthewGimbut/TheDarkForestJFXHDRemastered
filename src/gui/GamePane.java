@@ -35,6 +35,7 @@ public class GamePane extends StackPane {
     private MenuPane menu;
     private GraphicsContext gc;
     private Timeline t;
+    private QuestSummary qs;
 
     public GamePane(Stage primaryStage) {
 
@@ -120,6 +121,10 @@ public class GamePane extends StackPane {
         });
 
         initCollections();
+
+        qs = new QuestSummary(this);
+        this.setMargin(qs, new Insets(5, 5, 0, 795));
+        this.getChildren().add(qs);
 
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
@@ -354,7 +359,7 @@ public class GamePane extends StackPane {
      * Checks to see if the player is currently engaged in some menu.
      * @return Whether or not the player is engaged.
      */
-    boolean engaged() {
+    public boolean engaged() {
         return (menuCurrentlyDisplayed || battleCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
@@ -362,7 +367,7 @@ public class GamePane extends StackPane {
                 || questCurrentlyDisplayed);
     }
 
-    boolean engagedMinusMenu() {
+    public boolean engagedMinusMenu() {
         return (battleCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
@@ -518,7 +523,20 @@ public class GamePane extends StackPane {
     void removeNewQuestPane(NewQuestPane pane) {
         this.getChildren().remove(pane);
         questCurrentlyDisplayed = false;
-        this.requestFocus();
+    }
+
+    public void resetMessagePaneFocus() {
+        MessagePane pane = null;
+
+        for(Object o : this.getChildren()) {
+            if(o instanceof MessagePane) {
+                pane = (MessagePane) o;
+            }
+        }
+
+        if(pane != null) {
+            pane.requestFocus();
+        }
     }
 
     public PlayerSprite getMainPlayerSprite() {
@@ -526,4 +544,7 @@ public class GamePane extends StackPane {
     }
     public void setPlayer(PlayerSprite player) { this.player = player; }
     public Stage getPrimaryStage() { return primaryStage; }
+    public QuestSummary getQuestSummaryPane() {
+        return this.qs;
+    }
 }

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import quests.Quest;
@@ -29,6 +30,7 @@ public class NewQuestPane extends BorderPane {
     @FXML private Label questTitle;
     @FXML private FlowPane rewardsPane;
     @FXML private Label xp;
+    @FXML private AnchorPane anchor;
 
     public NewQuestPane(GamePane currentView, Quest quest) {
         this.currentView = currentView;
@@ -62,18 +64,26 @@ public class NewQuestPane extends BorderPane {
                 QuestHandler.setPriorityQuest(quest);
             }
 
+            currentView.getQuestSummaryPane().setQuest(quest);
             currentView.removeNewQuestPane(this);
+            currentView.resetMessagePaneFocus();
         });
 
         decline.setOnAction(event -> {
             //Nothing happens, decline quest
             currentView.removeNewQuestPane(this);
+            currentView.resetMessagePaneFocus();
         });
 
+        if(quest.isStory()) {
+            decline.setDisable(true);
+        }
 
         quest.getReward().forEach(item -> {
             //TODO Make it so that items are hidden if we don't want the user to see the reward yet, maybe display "?" for each item?
             rewardsPane.getChildren().add(new ItemPane(item, currentView.getMainPlayerSprite().getPlayer()));
         });
+
+        this.setCenter(anchor);
     }
 }

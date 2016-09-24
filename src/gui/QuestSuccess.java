@@ -50,7 +50,10 @@ public class QuestSuccess extends BorderPane {
     @FXML
     void initialize() {
 
-        exit.setOnAction(event -> GameStage.gamePane.removeQuestSuccessPane(this));
+        exit.setOnAction(event -> {
+            GameStage.gamePane.removeQuestSuccessPane(this);
+            currentView.resetMessagePaneFocus();
+        });
 
         goldLabel.setText("" + quest.getMoneyReward() + " gold");
         questDescription.setText(quest.getDescription());
@@ -63,6 +66,7 @@ public class QuestSuccess extends BorderPane {
         playerSprite.getPlayer().increaseXP(quest.getExpReward());
         //add money when it is included as a feature in player
         quest.getReward().forEach(playerSprite.getPlayer()::addItem);
+        playerSprite.getPlayer().modifyGold(quest.getMoneyReward());
 
 
         this.setCenter(anchor);

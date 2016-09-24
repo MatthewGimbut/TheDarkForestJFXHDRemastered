@@ -45,6 +45,7 @@ public class StatsPane extends BorderPane {
     @FXML private ImageView shieldImage;
     @FXML private ImageView spellImage;
     @FXML private ImageView weaponImage;
+    @FXML private Label gold;
 
     public StatsPane(GamePane currentView, PlayerSprite playerSprite) {
         this.currentView = currentView;
@@ -83,6 +84,8 @@ public class StatsPane extends BorderPane {
         xpBar.setProgress(player.getXp()/100.0);
         manaLabel.setText("Mana: " + player.getCurrentMana() + "/" + player.getMaxMana());
         manaBar.setProgress(player.getCurrentMana()/player.getMaxMana());
+
+        gold.setText(player.getGold() + " gold");
 
         if(player.getWeaponHandR() != null) {
             weaponImage.setImage(new Image(player.getWeaponHandR().getImageLocation()));

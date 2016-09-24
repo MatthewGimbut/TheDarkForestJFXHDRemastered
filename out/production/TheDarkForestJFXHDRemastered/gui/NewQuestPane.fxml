@@ -9,11 +9,11 @@
 <?import javafx.scene.text.*?>
 <?scenebuilder-stylesheet themes.css?>
 
-<AnchorPane id="standardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="537.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="537.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
-    <BorderPane layoutX="16.0" layoutY="52.0" prefHeight="372.0" prefWidth="240.0" style="-fx-border-color: rgb(104, 72, 39);&#10;-fx-border-width: 1.5;&#10;">
+    <BorderPane layoutX="16.0" layoutY="48.0" prefHeight="340.0" prefWidth="240.0" style="-fx-border-color: rgb(104, 72, 39);&#10;-fx-border-width: 1.5;&#10;">
       <center>
-        <Label fx:id="questDescription" alignment="TOP_CENTER" prefHeight="300.0" prefWidth="225.0" text="Quest description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true">
+        <Label fx:id="questDescription" alignment="TOP_CENTER" prefHeight="282.0" prefWidth="225.0" text="Quest description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true">
           <font>
             <Font size="14.0" />
           </font>
@@ -31,7 +31,7 @@
         </HBox>
       </top>
     </BorderPane>
-    <BorderPane layoutX="282.0" layoutY="52.0" prefHeight="372.0" prefWidth="240.0" style="-fx-border-color: rgb(104, 72, 39);&#10;-fx-border-width: 1.5;&#10;">
+    <BorderPane layoutX="282.0" layoutY="48.0" prefHeight="340.0" prefWidth="240.0" style="-fx-border-color: rgb(104, 72, 39);&#10;-fx-border-width: 1.5;&#10;">
       <bottom>
         <BorderPane prefHeight="31.0" prefWidth="237.0">
           <left>
@@ -46,7 +46,7 @@
             </HBox>
           </left>
           <right>
-            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="111.0">
+            <HBox alignment="CENTER" prefHeight="30.9998779296875" prefWidth="111.0001220703125">
               <children>
                 <Label id="xpLabel" fx:id="xp" alignment="CENTER" font="$x1" text="x xp" />
               </children>
@@ -55,7 +55,7 @@
         </BorderPane>
       </bottom>
       <right>
-        <FlowPane fx:id="rewardsPane" hgap="5.0" prefHeight="294.0" prefWidth="225.0" vgap="10.0">
+        <FlowPane fx:id="rewardsPane" hgap="5.0" prefHeight="287.0" prefWidth="237.0" vgap="10.0">
           <padding>
             <Insets left="5.0" right="5.0" />
           </padding>
@@ -72,12 +72,12 @@
         </HBox>
       </top>
     </BorderPane>
-    <Label layoutX="205.0" layoutY="14.0" text="New Quest">
+    <Label layoutX="205.0" layoutY="10.0" text="New Quest">
       <font>
         <Font name="Cambria Bold" size="26.0" />
       </font>
     </Label>
-    <Button fx:id="accept" layoutX="19.0" layoutY="437.0" mnemonicParsing="false" prefWidth="237.0" text="Accept" />
-    <Button fx:id="decline" layoutX="282.0" layoutY="437.0" mnemonicParsing="false" prefWidth="237.0" text="Decline" />
+    <Button fx:id="accept" layoutX="16.0" layoutY="394.0" mnemonicParsing="false" prefWidth="240.0" text="Accept" />
+    <Button fx:id="decline" layoutX="282.0" layoutY="394.0" mnemonicParsing="false" prefWidth="240.0" text="Decline" />
   </children>
 </AnchorPane>

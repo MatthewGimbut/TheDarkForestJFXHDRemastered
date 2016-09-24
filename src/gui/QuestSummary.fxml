@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet themes.css?>
+
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="50.0" prefWidth="250.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label fx:id="title" layoutX="12.0" layoutY="7.0" text="Title" />
+    <Label fx:id="description" layoutX="12.0" layoutY="26.0" text="Description" />
+  </children>
+</AnchorPane>
