@@ -3,7 +3,7 @@
 
 # Character Info Screen
 - [ ] Add gold count
-- [ ] Fix XP not showing
+- [x] Fix XP not showing
 - [ ] Continue to organize and format the screen
 
 # Inventory Screen
@@ -38,5 +38,5 @@
 
 # Known bugs
 - [ ] Map loads twice? Syso statements load twice, investigate
-- [ ] XP doesn't update in character stat screen
+- [x] XP doesn't update in character stat screen
 - [ ] Messages get cut off sometimes in the MessagePane class
