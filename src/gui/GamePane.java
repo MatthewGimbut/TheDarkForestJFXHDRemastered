@@ -506,7 +506,7 @@ public class GamePane extends StackPane {
         this.requestFocus();
     }
 
-    void displayNewQuestPane(Quest quest) {
+    public void displayNewQuestPane(Quest quest) {
         if(!questCurrentlyDisplayed) {
             questCurrentlyDisplayed = true;
             NewQuestPane nqp = new NewQuestPane(this, quest);

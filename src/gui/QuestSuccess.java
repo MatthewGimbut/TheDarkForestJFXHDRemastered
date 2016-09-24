@@ -52,13 +52,13 @@ public class QuestSuccess extends BorderPane {
 
         exit.setOnAction(event -> GameStage.gamePane.removeQuestSuccessPane(this));
 
-        goldLabel.setText("" + quest.getMoneyReward());
+        goldLabel.setText("" + quest.getMoneyReward() + " gold");
         questDescription.setText(quest.getDescription());
         questTitle.setText(quest.getQuestName());
-        xpLabel.setText("" + quest.getExpReward());
+        xpLabel.setText("" + quest.getExpReward() + " xp");
         quest.getReward().forEach(i -> {
             rewardsPane.getChildren().add(new ItemPane(i, GameStage.gamePane.getMainPlayerSprite().getPlayer()));
-        }); //I hope this works?
+        });
 
         playerSprite.getPlayer().increaseXP(quest.getExpReward());
         //add money when it is included as a feature in player

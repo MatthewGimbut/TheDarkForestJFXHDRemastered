@@ -1,6 +1,7 @@
 package quests;
 
 import characters.EnemyTypes;
+import gui.GamePane;
 import items.Item;
 import main.GameStage;
 import quests.master.AllOtherQuests;
@@ -34,13 +35,7 @@ public class QuestHandler {
      */
     public static void acceptQuest(Quest q) {
         if(q.isAcceptable()) {
-            q.setActive(true);
-            inActiveQuests.remove(q);
-            activeQuests.add(q);
-            System.out.println("Quest Accept Success! *Quest Handler*"); //TODO delete this
-            if(priorityQuest == null) {
-                setPriorityQuest(q);
-            }
+            GameStage.gamePane.displayNewQuestPane(q);
             //TODO begin quest popup menu (display name and description of the quest)
         }
         //else nothing

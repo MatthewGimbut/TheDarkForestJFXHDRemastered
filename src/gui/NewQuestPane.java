@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import quests.Quest;
+import quests.QuestHandler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,14 +53,20 @@ public class NewQuestPane extends BorderPane {
         questDescription.setText(quest.getDescription());
 
         accept.setOnAction(event -> {
-            //TODO accept quest
+            //Accept quest
+            quest.setActive(true);
+            QuestHandler.inActiveQuests.remove(quest);
+            QuestHandler.activeQuests.add(quest);
+            System.out.println("Quest Accept Success! *Quest Handler*"); //TODO delete this
+            if(QuestHandler.priorityQuest == null) {
+                QuestHandler.setPriorityQuest(quest);
+            }
 
             currentView.removeNewQuestPane(this);
         });
 
         decline.setOnAction(event -> {
-            //TODO decline quest
-
+            //Nothing happens, decline quest
             currentView.removeNewQuestPane(this);
         });
 
