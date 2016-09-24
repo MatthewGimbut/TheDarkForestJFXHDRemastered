@@ -37,6 +37,6 @@
 - [x] Create priority quest overlay which displays the current task of the current quest
 
 # Known bugs
-- [x] Map loads twice? Syso statements load twice, investigate
+- [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
 - [x] XP doesn't update in character stat screen
 - [ ] Messages get cut off sometimes in the MessagePane class
