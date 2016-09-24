@@ -19,8 +19,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Created by Matthew on 9/18/2016.
+ *
+ * Replacement class for the old MapParser. This one generates and reads JSON files.
+ * This class does all the dirty work for parsing, writing, and creating maps.
+ *
+ * @author Matthew Gimbut
+ *
  */
+
 public class JSONMapParser {
 
     private int currentHouses = 0;
@@ -31,17 +37,27 @@ public class JSONMapParser {
     public String background;
     private PlayerSprite player;
 
+    /**
+     * Constructor for the JSONMapParser class.
+     * @param player The current player object in the game.
+     */
     public JSONMapParser(PlayerSprite player) {
         this.player = player;
         rand = new Random();
     }
 
+    /**
+     * Parses a map from JSON given a file location.
+     * @param loc The location of the JSON file.
+     * @return A JSONMapTemplate object containing the map items, file location, and CSS ID property.
+     */
     public JSONMapTemplate parseMap(String loc) {
-        loc = loc.replace(".map", ".json");
+        loc = loc.replace(".map", ".json"); //TODO Remove this workaround, only here temporarily in case and files are still incorrectly named with ".map" after the switch
         JSONMapTemplate m = null;
         try {
             String json = new Scanner(new File(loc)).useDelimiter("\\Z").next(); //"\\Z" Delimiter is the end of file character, loading the entire file into the String with one call to next().
 
+            //Creates a new GsonBuilder objects and sets all required properties right away.
             GsonBuilder gson = new GsonBuilder()
                     .setPrettyPrinting()
                     .setLenient()
@@ -51,41 +67,14 @@ public class JSONMapParser {
 
             m = gson.create().fromJson(json, JSONMapTemplate.class);
 
+            /*
+                Refreshes some important information that cannot/is not serialized properly by the JSON format.
+                This includes proper escaping for file locations and the quest triggers.
+             */
             m.getMapItems().forEach(sprite -> {
                 if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
                 sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
-                if(sprite instanceof NPC) {
-                    NPC npc = (NPC) sprite;
-                    LinkedList<Trigger> activationTriggerTemp = new LinkedList<>();
-                    LinkedList<Trigger> questTriggerTemp = new LinkedList<>();
-
-                    for(Trigger t : npc.getQuestActivationTriggers()) {
-                        MasterQuests master = MasterQuests.valueOf(t.getAssociatedWith());
-                        if(master != null) {
-                            activationTriggerTemp.add(master.getQuest().getQuestAcceptanceTrigger());
-                        } else {
-                            System.out.println("Failed to parse quest " + t.getAssociatedWith());
-                        }
-                    }
-
-                    for(Trigger t : npc.getQuestTriggers()) {
-                        String[] data = t.getAssociatedWith().split("_");
-                        MasterQuests master = MasterQuests.valueOf(data[0]);
-                        int taskNum = Integer.parseInt(data[1], 10);
-                        taskNum--;
-                        if(master != null) {
-                            questTriggerTemp.add(master.getQuest().getAllTasks().get(taskNum).getTrigger());
-                        } else {
-                            System.out.println("Failed to parse quest " + t.getAssociatedWith());
-                        }
-                    }
-
-                    npc.getQuestActivationTriggers().clear();
-                    npc.getQuestTriggers().clear();
-
-                    npc.setQuestActivationTriggers(activationTriggerTemp);
-                    npc.setQuestTriggers(questTriggerTemp);
-                }
+                if(sprite instanceof NPC) loadNPC((NPC) sprite);
             });
 
             return m;
@@ -96,6 +85,48 @@ public class JSONMapParser {
         return null;
     }
 
+    /**
+     * Reloads any quest trigger related material in the JSON for an npc.
+     * @param npc
+     */
+    private void loadNPC(NPC npc) {
+        LinkedList<Trigger> activationTriggerTemp = new LinkedList<>();
+        LinkedList<Trigger> questTriggerTemp = new LinkedList<>();
+
+        for(Trigger t : npc.getQuestActivationTriggers()) {
+            MasterQuests master = MasterQuests.valueOf(t.getAssociatedWith());
+            if(master != null) {
+                activationTriggerTemp.add(master.getQuest().getQuestAcceptanceTrigger());
+            } else {
+                System.out.println("Failed to parse quest " + t.getAssociatedWith());
+            }
+        }
+
+        for(Trigger t : npc.getQuestTriggers()) {
+            String[] data = t.getAssociatedWith().split("_");
+            MasterQuests master = MasterQuests.valueOf(data[0]);
+            int taskNum = Integer.parseInt(data[1], 10);
+            taskNum--;
+            if(master != null) {
+                questTriggerTemp.add(master.getQuest().getAllTasks().get(taskNum).getTrigger());
+            } else {
+                System.out.println("Failed to parse quest " + t.getAssociatedWith());
+            }
+        }
+
+        npc.getQuestActivationTriggers().clear();
+        npc.getQuestTriggers().clear();
+
+        npc.setQuestActivationTriggers(activationTriggerTemp);
+        npc.setQuestTriggers(questTriggerTemp);
+    }
+
+    /**
+     * Responsible for parsing "simple" maps. This includes structures that do not require a background change or anything.
+     * Examples include the tree border around maps or the simple buildings you can place.
+     * @param loc The file location of the simple structure's JSON.
+     * @return An ArrayList containing the Sprites for the structure.
+     */
     public ArrayList<Sprite> parseSimpleMap(String loc) {
         ArrayList<Sprite> sprites = new ArrayList<>();
         try {
@@ -123,6 +154,12 @@ public class JSONMapParser {
         return sprites;
     }
 
+    /**
+     * Clears any information currently in the files, then writes the JSON based on the information given.
+     * @param file The file being written to.
+     * @param mapItems The Sprite objects to write.
+     * @param background The CSS ID for the background image of the map area.
+     */
     public void writeMap(String file, ArrayList<Sprite> mapItems, String background) {
         JSONMapTemplate m = new JSONMapTemplate(mapItems, background, file);
 

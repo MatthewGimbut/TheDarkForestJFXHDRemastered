@@ -15,10 +15,9 @@ import javafx.util.Duration;
 import main.GameStage;
 import mapping.MapContainer;
 import main.SaveManager;
+import quests.Quest;
 import sprites.*;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -27,7 +26,7 @@ public class GamePane extends StackPane {
     private Stage primaryStage;
     private boolean menuCurrentlyDisplayed, battleCurrentlyDisplayed, statsCurrentlyDisplayed,
             inventoryCurrentlyDisplayed, lootCurrentlyDisplayed, settingsCurrentlyDisplayed,
-            messageCurrentlyDisplayed, equipmentCurrentlyDisplayed;
+            messageCurrentlyDisplayed, equipmentCurrentlyDisplayed, questCurrentlyDisplayed;
     private PlayerSprite player;
     private ArrayList<String> input;
     private MapContainer map;
@@ -132,8 +131,8 @@ public class GamePane extends StackPane {
     }
 
     public void displayQuestSuccessPane(quests.Quest quest) {
-        if(!messageCurrentlyDisplayed) {
-            messageCurrentlyDisplayed = true;
+        if(!questCurrentlyDisplayed) {
+            questCurrentlyDisplayed = true;
             QuestSuccess qs = new QuestSuccess(player, this, quest);
             this.getChildren().add(qs);
             qs.requestFocus();
@@ -142,7 +141,7 @@ public class GamePane extends StackPane {
 
     public void removeQuestSuccessPane(QuestSuccess qs) {
         this.getChildren().remove(qs);
-        messageCurrentlyDisplayed = false;
+        questCurrentlyDisplayed = false;
         this.requestFocus();
     }
 
@@ -273,16 +272,10 @@ public class GamePane extends StackPane {
      * @param exit The invisible Exit sprite that contains the next map and next player coordinates.
      */
     private void updateMapItems(Exit exit) {
-        try {
-            String nextMap = exit.getNextMapLocation();
-            map.loadNewFile(nextMap);
-            setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
-            this.setId(map.getIdName());
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found???");
-        } catch (IOException e) {
-            System.out.println("Something broke I/O");
-        }
+        String nextMap = exit.getNextMapLocation();
+        map.loadNewFile(nextMap);
+        setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
+        this.setId(map.getIdName());
     }
 
     private void drawLayers(GraphicsContext gc) {
@@ -365,14 +358,16 @@ public class GamePane extends StackPane {
         return (menuCurrentlyDisplayed || battleCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
-                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed);
+                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
+                || questCurrentlyDisplayed);
     }
 
     boolean engagedMinusMenu() {
         return (battleCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
-                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed);
+                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
+                || questCurrentlyDisplayed);
     }
 
     public String getCurrentMapFile() {
@@ -511,7 +506,22 @@ public class GamePane extends StackPane {
         this.requestFocus();
     }
 
-    public PlayerSprite getPlayer() {
+    void displayNewQuestPane(Quest quest) {
+        if(!questCurrentlyDisplayed) {
+            questCurrentlyDisplayed = true;
+            NewQuestPane nqp = new NewQuestPane(this, quest);
+            this.getChildren().add(nqp);
+            nqp.requestFocus();
+        }
+    }
+
+    void removeNewQuestPane(NewQuestPane pane) {
+        this.getChildren().remove(pane);
+        questCurrentlyDisplayed = false;
+        this.requestFocus();
+    }
+
+    public PlayerSprite getMainPlayerSprite() {
         return this.player;
     }
     public void setPlayer(PlayerSprite player) { this.player = player; }

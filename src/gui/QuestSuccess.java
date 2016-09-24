@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import quests.QuestHandler;
 import sprites.PlayerSprite;
 
 import java.io.IOException;
@@ -58,7 +57,7 @@ public class QuestSuccess extends BorderPane {
         questTitle.setText(quest.getQuestName());
         xpLabel.setText("" + quest.getExpReward());
         quest.getReward().forEach(i -> {
-            rewardsPane.getChildren().add(new ItemPane(i, GameStage.gamePane.getPlayer().getPlayer()));
+            rewardsPane.getChildren().add(new ItemPane(i, GameStage.gamePane.getMainPlayerSprite().getPlayer()));
         }); //I hope this works?
 
         playerSprite.getPlayer().increaseXP(quest.getExpReward());

@@ -4,6 +4,15 @@ import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
+/**
+ *
+ * Used to help the Gson library write classes with Abstract superclasses or interfaces to JSON files.
+ *
+ * @param <T> The interface/abstract class type the collection needs to adapt for.
+ * @author Matthew Gimbut
+ *
+ */
+
 public class InterfaceAdapter<T> implements JsonSerializer<T>, JsonDeserializer<T> {
 
     @Override
@@ -40,5 +49,4 @@ public class InterfaceAdapter<T> implements JsonSerializer<T>, JsonDeserializer<
         }
         return elem;
     }
-
 }

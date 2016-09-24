@@ -1073,7 +1073,7 @@
             "atk": 1354,
             "magic": 1,
             "def": 0,
-            "imageLocation": "file:Images\\\\Weapons\\\\iron\\\\axe\\\\Axe.png",
+            "imageLocation": "file:Images\\\\Weapons\\\\iron\\\\Axe.png",
             "value": 55,
             "howRare": "LEGENDARY",
             "r": {
@@ -1125,7 +1125,7 @@
             "atk": 5,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\axe\\Axe.png",
+            "imageLocation": "Images\\Weapons\\stone\\Axe.png",
             "value": 86,
             "howRare": "COMMON",
             "r": {
@@ -1178,7 +1178,7 @@
             "atk": 11,
             "magic": 1,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\bronze\\axe\\Axe.png",
+            "imageLocation": "Images\\Weapons\\bronze\\Axe.png",
             "value": 172,
             "howRare": "COMMON",
             "r": {
@@ -1217,7 +1217,7 @@
             "atk": 3,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\wood\\axe\\Axe.png",
+            "imageLocation": "Images\\Weapons\\wood\\Axe.png",
             "value": 51,
             "howRare": "COMMON",
             "r": {
@@ -1243,7 +1243,7 @@
             "atk": 3,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\dagger\\Dagger.png",
+            "imageLocation": "Images\\Weapons\\stone\\Dagger.png",
             "value": 36,
             "howRare": "COMMON",
             "r": {
@@ -1388,7 +1388,7 @@
             "atk": 5,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\axe\\Axe.png",
+            "imageLocation": "Images\\Weapons\\stone\\Axe.png",
             "value": 95,
             "howRare": "UNCOMMON",
             "r": {
@@ -1414,7 +1414,7 @@
             "atk": 7,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\spear\\Spear.png",
+            "imageLocation": "Images\\Weapons\\stone\\Spear.png",
             "value": 95,
             "howRare": "COMMON",
             "r": {
@@ -1597,7 +1597,7 @@
             "atk": 21,
             "magic": 1,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\iron\\spear\\Spear.png",
+            "imageLocation": "Images\\Weapons\\iron\\Spear.png",
             "value": 286,
             "howRare": "COMMON",
             "r": {
@@ -1623,7 +1623,7 @@
             "atk": 6,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\mace\\Mace.png",
+            "imageLocation": "Images\\Weapons\\stone\\Mace.png",
             "value": 85,
             "howRare": "COMMON",
             "r": {

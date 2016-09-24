@@ -80,7 +80,7 @@ public class StatsPane extends BorderPane {
         healthLabel.setText("Health: " + player.getCurrentHP() + "/" + player.getMaxHP());
         healthBar.setProgress(player.getCurrentHP()/player.getMaxHP());
         xpLabel.setText("XP: " + player.getXp() + "/100");
-        xpBar.setProgress(player.getXp()/100);
+        xpBar.setProgress(player.getXp()/100.0);
         manaLabel.setText("Mana: " + player.getCurrentMana() + "/" + player.getMaxMana());
         manaBar.setProgress(player.getCurrentMana()/player.getMaxMana());
 

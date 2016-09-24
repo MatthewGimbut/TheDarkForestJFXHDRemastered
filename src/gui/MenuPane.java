@@ -37,9 +37,9 @@ public class MenuPane extends VBox {
             ArrayList<Object> newMap = SaveManager.deserialize();
             currentView.setCurrentMapFile((String) newMap.get(1));
             currentView.setPlayer((PlayerSprite) newMap.get(0));
-            currentView.getPlayer().setImage(currentView.getPlayer().getImageLocation());
+            currentView.getMainPlayerSprite().setImage(currentView.getMainPlayerSprite().getImageLocation());
             try {
-                map = new MapContainer(currentView.getPlayer(), (String) newMap.get(1));
+                map = new MapContainer(currentView.getMainPlayerSprite(), (String) newMap.get(1));
                 currentView.setMapContainer(map);
             } catch (Exception e) {
                 e.printStackTrace();

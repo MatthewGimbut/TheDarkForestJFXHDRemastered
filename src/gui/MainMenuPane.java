@@ -66,9 +66,9 @@ public class MainMenuPane extends AnchorPane {
             ArrayList<Object> newMap = SaveManager.deserialize();
             gp.setCurrentMapFile((String) newMap.get(1));
             gp.setPlayer((PlayerSprite) newMap.get(0));
-            gp.getPlayer().setImage(gp.getPlayer().getImageLocation());
+            gp.getMainPlayerSprite().setImage(gp.getMainPlayerSprite().getImageLocation());
             try {
-               MapContainer map = new MapContainer(gp.getPlayer(), (String) newMap.get(1));
+               MapContainer map = new MapContainer(gp.getMainPlayerSprite(), (String) newMap.get(1));
                 gp.setMapContainer(map);
             } catch (Exception e) {
                 e.printStackTrace();
