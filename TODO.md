@@ -1,5 +1,5 @@
 # Battle System
-- [ ] Make battle system
+- [ ] Make battle system (do we still want multiple attack types?)
 
 # Character Info Screen
 - [x] Add gold count
@@ -22,6 +22,8 @@
 
 # Save System
 - [ ] Make temporary files to store map changes, overwrite old map files on save
+- [ ] Update SerialVersionUIDs
+- [ ] Test Serializing for Quests
 
 # Crafting System
 - [ ] Add crafting system
@@ -29,12 +31,15 @@
 
 # Quest System
 - [x] Add quest system
-- [ ] Serializing
+- [x] Serializing (I hope it works at least, haven't been able to test it.)
 - [ ] Implement location triggers
 - [ ] Explore Tasks
+- [ ] Have quests be read from .txt files instead of current setup(?)
 
 # GUI
 - [x] Create priority quest overlay which displays the current task of the current quest
+- [x] If a quest menu tries to launch while another is open it is pushed to a queue and loaded after the blocking menu is closed. 
+- [ ] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
 
 # Known bugs
 - [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
