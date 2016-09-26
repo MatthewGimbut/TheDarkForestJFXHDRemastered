@@ -35,11 +35,13 @@
 - [ ] Implement location triggers
 - [ ] Explore Tasks
 - [ ] Have quests be read from .txt files instead of current setup(?)
+- [ ] Have dialog be associated with tasks
 
 # GUI
 - [x] Create priority quest overlay which displays the current task of the current quest
 - [x] If a quest menu tries to launch while another is open it is pushed to a queue and loaded after the blocking menu is closed. 
 - [ ] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
+- [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?
 
 # Known bugs
 - [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
