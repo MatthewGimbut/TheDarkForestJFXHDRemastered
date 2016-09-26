@@ -119,6 +119,8 @@ public class JSONMapParser {
 
         npc.setQuestActivationTriggers(activationTriggerTemp);
         npc.setQuestTriggers(questTriggerTemp);
+
+        npc.removeUsedTriggers();
     }
 
     /**

@@ -17,6 +17,9 @@ import mapping.MapContainer;
 import main.SaveManager;
 import quests.Quest;
 import sprites.*;
+import java.util.Queue;
+import java.util.LinkedList;
+import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -36,6 +39,7 @@ public class GamePane extends StackPane {
     private GraphicsContext gc;
     private Timeline t;
     private QuestSummary qs;
+    private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
 
     public GamePane(Stage primaryStage) {
 
@@ -136,11 +140,13 @@ public class GamePane extends StackPane {
     }
 
     public void displayQuestSuccessPane(quests.Quest quest) {
+        QuestSuccess qs = new QuestSuccess(player, this, quest);
         if(!questCurrentlyDisplayed) {
             questCurrentlyDisplayed = true;
-            QuestSuccess qs = new QuestSuccess(player, this, quest);
             this.getChildren().add(qs);
             qs.requestFocus();
+        } else {
+            questPanelStack.add(qs);
         }
     }
 
@@ -148,6 +154,9 @@ public class GamePane extends StackPane {
         this.getChildren().remove(qs);
         questCurrentlyDisplayed = false;
         this.requestFocus();
+        if(questPanelStack.size() != 0) {
+            popQuestPanelStack();
+        }
     }
 
     /**
@@ -512,17 +521,23 @@ public class GamePane extends StackPane {
     }
 
     public void displayNewQuestPane(Quest quest) {
+        NewQuestPane nqp = new NewQuestPane(this, quest);
         if(!questCurrentlyDisplayed) {
             questCurrentlyDisplayed = true;
-            NewQuestPane nqp = new NewQuestPane(this, quest);
             this.getChildren().add(nqp);
             nqp.requestFocus();
+        } else {
+            questPanelStack.add(nqp);
         }
     }
 
     void removeNewQuestPane(NewQuestPane pane) {
         this.getChildren().remove(pane);
         questCurrentlyDisplayed = false;
+        this.requestFocus();
+        if(questPanelStack.size() != 0) {
+            popQuestPanelStack();
+        }
     }
 
     public void resetMessagePaneFocus() {
@@ -537,6 +552,13 @@ public class GamePane extends StackPane {
         if(pane != null) {
             pane.requestFocus();
         }
+    }
+
+    public void popQuestPanelStack() {
+        BorderPane bp = questPanelStack.remove();
+        questCurrentlyDisplayed = true;
+        this.getChildren().add(bp);
+        bp.requestFocus();
     }
 
     public PlayerSprite getMainPlayerSprite() {

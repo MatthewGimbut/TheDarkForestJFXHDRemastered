@@ -10,6 +10,7 @@ public interface SaveManager {
 	public final static boolean DO_NOT_APPEND = false;
 	
 	public static void serialize(String currentMapLocation, PlayerSprite currentPlayer, String backgroundId) {
+		currentPlayer.getPlayer().prepareSerializeQuests(); //serializes the quests
 		try(FileOutputStream fs = new FileOutputStream("Saves\\save01.ser", DO_NOT_APPEND);
 			ObjectOutputStream os = new ObjectOutputStream(fs)) {
 			ArrayList<Object> items = new ArrayList<Object>();
@@ -30,7 +31,9 @@ public interface SaveManager {
 		try(FileInputStream fs = new FileInputStream("Saves\\save01.ser");
 				ObjectInputStream os = new ObjectInputStream(fs)) {
 				ArrayList<Object> mapstuff = (ArrayList<Object>) os.readObject();
-				
+
+				((PlayerSprite) mapstuff.get(0)).getPlayer().deserializeQuests(); //deserialize the quests
+
 			return mapstuff;
 		} catch (IOException e) {
 			e.printStackTrace();

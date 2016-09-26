@@ -44,6 +44,7 @@ public class QuestSummary extends AnchorPane {
     }
 
     public void setQuest(Quest quest) {
+        //TODO add animation here in some fashion to avoid harsh transition (cross fade?)
         this.quest = quest;
         title.setText(quest.getQuestName());
         description.setText(quest.getCurrentTask().toString());

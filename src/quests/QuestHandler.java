@@ -36,9 +36,7 @@ public class QuestHandler {
     public static void acceptQuest(Quest q) {
         if(q.isAcceptable()) {
             GameStage.gamePane.displayNewQuestPane(q);
-            //TODO begin quest popup menu (display name and description of the quest)
         }
-        //else nothing
     }
 
     /**
@@ -125,16 +123,23 @@ public class QuestHandler {
     private static void checkQuestCompletion(Quest q) {
         if(q.getActive() && q.getComplete()) {
             System.out.println("Quest Complete Success! *Quest Handler*"); //TODO delete this
-            GameStage.gamePane.displayQuestSuccessPane(q); //gives out rewards for quest completion
             q.setActive(false);
             activeQuests.remove(q);
             completeQuests.add(q);
+            GameStage.gamePane.displayQuestSuccessPane(q); //gives out rewards for quest completion
             if(q.getPriority()) {
-                priorityQuest = nextActiveStoryQuest();
+                Quest next = nextActiveStoryQuest();
+                if(next != null) {
+                    setPriorityQuest(next);
+                }
             }
             q.setPriority(false);
         } else {
-            //TODO task complete animation and fade into next task
+            //for a brief moment set the current quest to the displayed one to update the task for the
+            //player, need to add a timer to wait to set it back to the old one
+            GameStage.gamePane.getQuestSummaryPane().setQuest(q);
+            //TODO add a timer here (time not certain yet)
+            GameStage.gamePane.getQuestSummaryPane().setQuest(priorityQuest);
         }
     }
 
@@ -160,6 +165,7 @@ public class QuestHandler {
         for(Quest quest: inActiveQuests) {
             if(t.equals(quest.getQuestAcceptanceTrigger()) &&
                     !quest.getActive()) {
+                System.out.println("Check");
                 return quest.isAcceptable();
             }
         }
@@ -194,7 +200,7 @@ public class QuestHandler {
         }
         //no story quests active, grab the next one from inactive quests
         for(Quest q: inActiveQuests) {
-            if(q.isStory()) {
+            if(q.isStory() && q.isAcceptable()) {
                 next = q;
                 acceptQuest(q);
                 return next;
@@ -220,7 +226,7 @@ public class QuestHandler {
         }
         q.setPriority(true);
         priorityQuest = q;
-        //TODO gui refresh to display the new priority quest (if not done automatically)
+        GameStage.gamePane.getQuestSummaryPane().setQuest(priorityQuest);
     }
 
     /**

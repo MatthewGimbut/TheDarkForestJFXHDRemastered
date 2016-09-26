@@ -1,5 +1,7 @@
 package quests.trigger;
 
+import java.io.Serializable;
+
 /**
  * quests.trigger.Trigger represents an object which has a special interaction when player collision is detected
  * or when player interaction with an NPC holding a trigger occurs.
@@ -8,8 +10,9 @@ package quests.trigger;
  * the default .equals() method to make sure the same trigger is used.
  * @author Sean Zimmerman
  */
-public class Trigger {
+public class Trigger implements Serializable {
 
+    private static final long serialVersionUID = 4735257576229117614L;
     private String associatedWith;
 
     public Trigger(String associatedWith) {

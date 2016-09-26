@@ -4,14 +4,16 @@ import items.Item;
 import quests.task.Task;
 import quests.trigger.Trigger;
 
+import java.io.Serializable;
 import java.util.List;
 /**
  * quests.Quest represents a Quest. A Quest contains a list of tasks that the player must
  * complete to finish the quest.
  * @author Sean Zimmerman
  */
-public class Quest {
+public class Quest implements Serializable {
 
+    private static final long serialVersionUID = -2507111830047253068L;
     private boolean isAcceptable = false;
     private boolean isActive = false;
     private boolean isComplete = false; //a quest must be complete and active to be turned in

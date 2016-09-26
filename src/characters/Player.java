@@ -7,7 +7,10 @@ import items.Item;
 import items.Weapons.Weapon;
 import main.Records;
 
-import java.util.ArrayList;
+import quests.Quest;
+import quests.QuestHandler;
+
+import java.util.List;
 import java.util.LinkedList;
 
 public class Player extends Character {
@@ -35,6 +38,10 @@ public class Player extends Character {
     private Gloves gloves;
     private Helmet helmet;
     private Records records;
+
+    private List<Quest> activeQuestsSer;
+    private List<Quest> completeQuestsSer;
+    private List<Quest> inActiveQuestsSer;
 
     //Player settings
     private int textScrollingSpeed;
@@ -246,6 +253,18 @@ public class Player extends Character {
     public void modifyGold(int gold) {
         records.increaseTotalGold(gold);
         this.gold += gold;
+    }
+
+    public void prepareSerializeQuests() {
+        this.activeQuestsSer = QuestHandler.activeQuests;
+        this.completeQuestsSer = QuestHandler.completeQuests;
+        this.inActiveQuestsSer = QuestHandler.inActiveQuests;
+    }
+
+    public void deserializeQuests() {
+        QuestHandler.activeQuests = this.activeQuestsSer;
+        QuestHandler.completeQuests = this.completeQuestsSer;
+        QuestHandler.inActiveQuests = this.inActiveQuestsSer;
     }
 
     public int getTextScrollingSpeed() {
