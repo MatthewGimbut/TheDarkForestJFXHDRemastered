@@ -21,6 +21,7 @@ import java.util.Queue;
 import java.util.List;
 import java.util.LinkedList;
 import javafx.scene.layout.BorderPane;
+import java.util.Iterator;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -41,6 +42,8 @@ public class GamePane extends StackPane {
     private Timeline t;
     private QuestSummary qs;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
+    private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
+    private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 3;
 
     public GamePane(Stage primaryStage) {
 
@@ -107,6 +110,22 @@ public class GamePane extends StackPane {
                                 break;
                             case Player.FACING_WEST:
                                 physicalAttack(player.getX() - player.getWidth() - 5, player.getY(), 24);
+                                break;
+                        }
+                        break;
+                    case "L": //Projectile attack for demo purposes until they are added to player
+                        switch (player.getImageLocation()) {
+                            case Player.FACING_NORTH:
+                                projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -3);
+                                break;
+                            case Player.FACING_SOUTH:
+                                projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 3);
+                                break;
+                            case Player.FACING_EAST:
+                                projectileAttack(player.getX() + player.getWidth(), player.getY(), 3, 0);
+                                break;
+                            case Player.FACING_WEST:
+                                projectileAttack(player.getX() - player.getWidth(), player.getY(), -3, 0);
                                 break;
                         }
                         break;
@@ -262,9 +281,92 @@ public class GamePane extends StackPane {
      * @param dy y speed of the projectile
      */
     private void projectileAttack(int x, int y, int dx, int dy) {
-        //TODO stuff
-        //Figure out how to detect if the projectile hits at any point in the game
-        //Instead of just after firing the projectile
+        if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
+            Sprite interact = new Sprite(x, y, "file:Images\\NotBlank32x32.png");
+            interact.setVelocity(dx, dy);
+            interact.setObstacle(false);
+            interact.render(gc);
+            playerProjectiles.add(interact);
+        } else {
+            System.out.println("Max playerProjectiles");
+        }
+    }
+
+    /**
+     * Method which calls move and then renders every projectile on screen.
+     */
+    private void updateProjectiles(GraphicsContext gc) {
+        if(!engaged()) {
+            moveProjectiles();
+        }
+        playerProjectiles.forEach(s -> s.render(gc));
+    }
+
+    /**
+     * Method which iterates the movement of all the playerProjectiles on the screen.
+     * Projectiles will continuously move until colliding with an object or exiting game bounds.
+     * If a projectile goes outside of the game window bounds it is despawned.
+     * If a projectile collides with an enemy damage is done and the projectile is removed.
+     * If a projectile collides with a non-enemy the projectile is removed.
+     */
+    private void moveProjectiles() {
+        Iterator<Sprite> it = playerProjectiles.iterator();
+        Sprite s;
+        while(it.hasNext()) {
+            s = it.next();
+
+            s.modifyX(s.getDx());
+            s.modifyY(s.getDy());
+
+            if(s.getX() < 1 || s.getY() < 1 || s.getX() > GameStage.WINDOW_WIDTH - 35 ||
+                    s.getY() > GameStage.WINDOW_HEIGHT - 70) {
+                it.remove(); // if the projectile hits the edge of the screen despawn it
+            }
+
+            int collision = projectileCollision(s);
+
+            if(collision == 1) { //Collision with enemy
+                //BattleHandler.attack(player.getPlayer(), e);
+                it.remove();
+                System.out.println("Test: Collision with enemy success");
+            } else if(collision == -1) {
+                it.remove();
+                System.out.println("Test: Collision with non-enemy success");
+            }
+        }
+    }
+
+    /**
+     * Detects projectile collision for a given sprite.
+     * A projectile can collide with anything but we only care if it collides with an enemy.
+     * Collision is checked after the projectile movement is updated.
+     * @param s The sprite of the projectile
+     * @return 0 for no collision, 1 for enemy collision, -1 for non-enemy collision
+     */
+    private int projectileCollision(Sprite s) {
+        for(Sprite obstacle : map.getCollisions()) {
+            if(s.getBounds().intersects(obstacle.getBounds())) {
+                if(obstacle instanceof NPC) { // NPC can be an enemy
+                    NPC np = (NPC) obstacle;
+                    if(np.getNPC() instanceof Enemy) { // if it is an enemy return true
+                        return 1; // enemy collision
+                    } else {
+                        return -1; // non-enemy collision
+                    }
+                } else {
+                    return -1; // non-enemy collision
+                }
+            }
+        }
+        return 0; // no collisions
+    }
+
+    /**
+     * A method to despawn all the player playerProjectiles on the map.
+     * Used when the player switches from a projectile weapon to a non-projectile weapon.
+     */
+    public void despawnPlayerProjectiles() {
+        playerProjectiles.clear();
     }
 
     /**
@@ -371,6 +473,7 @@ public class GamePane extends StackPane {
     private void drawLayers(GraphicsContext gc) {
         map.getUnderLayer().forEach(sprite -> sprite.render(gc));
         updatePlayer(gc);
+        updateProjectiles(gc);
         map.getOverLayer().forEach(sprite -> sprite.render(gc));
     }
 
