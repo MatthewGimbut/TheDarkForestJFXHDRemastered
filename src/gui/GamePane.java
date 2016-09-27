@@ -730,6 +730,8 @@ public class GamePane extends StackPane {
 
         if(pane != null) {
             pane.requestFocus();
+        } else {
+            this.requestFocus();
         }
     }
 
