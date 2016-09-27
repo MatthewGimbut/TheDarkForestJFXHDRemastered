@@ -13,6 +13,7 @@ import java.lang.*;
 public class Enemy extends Character {
 
 	private String customMusic;
+	private boolean isActive = true; //for testing
 	private boolean isSelected;
 	private EnemyTypes type = EnemyTypes.TestEnemy; //placeholder for now
 	//TODO have all constructors take an EnemyTypes
@@ -81,6 +82,14 @@ public class Enemy extends Character {
 	
 	public boolean getSelected() {
 		return isSelected;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public boolean isActive() {
+		return this.isActive;
 	}
 
 	public String getCustomMusic() {

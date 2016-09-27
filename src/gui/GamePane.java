@@ -18,6 +18,7 @@ import main.SaveManager;
 import quests.Quest;
 import sprites.*;
 import java.util.Queue;
+import java.util.List;
 import java.util.LinkedList;
 import javafx.scene.layout.BorderPane;
 
@@ -92,6 +93,25 @@ public class GamePane extends StackPane {
                     case "D":
                         player.setImage(Player.FACING_EAST);
                         player.setDx(player.getPlayerSpeed());
+                        break;
+                    case "J": //Physical attack
+                        switch (player.getImageLocation()) {
+                            case Player.FACING_NORTH:
+                                physicalAttack(player.getX(), player.getY() - player.getHeight(), 24);
+                                break;
+                            case Player.FACING_SOUTH:
+                                physicalAttack(player.getX(), player.getY() + player.getHeight(), 24);
+                                break;
+                            case Player.FACING_EAST:
+                                physicalAttack(player.getX() + player.getWidth(), player.getY(), 24);
+                                break;
+                            case Player.FACING_WEST:
+                                physicalAttack(player.getX() - player.getWidth() - 5, player.getY(), 24);
+                                break;
+                        }
+                        break;
+                    case "K": //Magic attack
+                        //TODO magic attack
                         break;
                 }
             }
@@ -199,6 +219,62 @@ public class GamePane extends StackPane {
         if (remove != null) { //Removes an item from the map if it is tagged for removal.
             map.removeSprite(remove);
         }
+    }
+
+    /**
+     * Method for determining physical attack interactions.
+     * Creates an invisible Rectangle2D in the direction the player is facing.
+     * If that Rectangle2D hits an active enemy damage is done
+     * @param x The x coordinate of where to set the Rectangle2D
+     * @param y The y coordinate of where to set the Rectangle2D
+     * @param size The size of the Rectangle2D (pre determined values)
+     */
+    private void physicalAttack(int x, int y, int size) {
+        Sprite interact = new Sprite(x, y, "file:Images\\Blank24x24.png"); //TODO make this variable sized
+        interact.setObstacle(false);
+        interact.render(gc);
+
+        ArrayList<Sprite> items = (ArrayList<Sprite>) map.getMapItems().stream()
+                .filter(i -> !(i instanceof LowerLayer))
+                .collect(Collectors.toList());
+
+        for(int i = 0; i < items.size(); i++) {
+            if (interact.getBounds().intersects(items.get(i).getBounds())) {
+                if(items.get(i) instanceof  NPC && ((NPC)items.get(i)).getNPC() instanceof Enemy) {
+                    Enemy e = ((Enemy)(((NPC)items.get(i))).getNPC());
+                    if(e.isActive()) { //if the enemy is not active then do nothing
+                        //TODO deal damage
+                        //BattleHandler.attack(player.getPlayer(), e);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Method for determining projectile attack interactions.
+     * Creates an invisible Rectangle2D for hitbox detection.
+     * Creates a visible sprite to represent the projectile.
+     * If the Rectangle2D collides with an enemy damage is done.
+     * @param x Initial x coordinate of the projectile
+     * @param y Initial y coordinate of the projectile
+     * @param dx x speed of the projectile
+     * @param dy y speed of the projectile
+     */
+    private void projectileAttack(int x, int y, int dx, int dy) {
+        //TODO stuff
+        //Figure out how to detect if the projectile hits at any point in the game
+        //Instead of just after firing the projectile
+    }
+
+    /**
+     * Method for controlling the enemy AI.
+     * Enemies will walk in random directions but tend towards the player.
+     * Enemies will attack randomly when in range and when facing the player.
+     * @param enemies The enemies which need AI on the screen (all active enemies)
+     */
+    private void enemyAI(List<Enemy> enemies) {
+        //TODO lots of shit
     }
 
     /**
