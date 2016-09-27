@@ -1,8 +1,11 @@
 # Battle System
 - [ ] Attacking
    - [ ] 'J' Physical Attack
-      - [ ] Spawn Insivible Hitbox of specific range (field in weapon), if projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
+      - [x] Spawn Insivible Hitbox of specific range (field in weapon)
+      - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
       - [ ] If hitbox collides with an active enemy, do damage (battle handler)
+         - [x] Normal weapons
+         - [ ] Projectiles
    - [ ] 'K' Magic Attack
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
