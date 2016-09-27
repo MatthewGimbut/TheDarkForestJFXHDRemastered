@@ -3,16 +3,17 @@
    - [ ] 'J' Physical Attack
       - [x] Spawn Insivible Hitbox of specific range (field in weapon)
       - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
-      - [ ] If hitbox collides with an active enemy, do damage (battle handler)
+      - [x] If hitbox collides with an active enemy, do damage (battle handler)
          - [x] Normal weapons
-         - [ ] Projectiles
+         - [x] Projectiles
    - [ ] 'K' Magic Attack
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
+- [ ] Battle Handler Class
 
 # Weapons
 - [ ] Put range field in for weapons
-- [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to weapon or ammo?)
+- [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
 
 # Attacks
 - [ ] Finish developing magic attacks
