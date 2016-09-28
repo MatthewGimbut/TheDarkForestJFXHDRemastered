@@ -9,11 +9,12 @@
    - [ ] 'K' Magic Attack
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
-- [ ] Battle Handler Class
+- [ ] Battle Handler Class + functionality
 
 # Weapons
 - [ ] Put range field in for weapons
 - [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
+- [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
 
 # Attacks
 - [ ] Finish developing magic attacks
