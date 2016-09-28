@@ -1,3 +1,6 @@
+# General
+- [ ] Restructure files in the GUI package to be more organized
+
 # Battle System
 - [ ] Attacking
    - [ ] 'J' Physical Attack
