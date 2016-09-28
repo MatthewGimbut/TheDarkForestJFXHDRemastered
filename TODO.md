@@ -3,6 +3,7 @@
    - [ ] 'J' Physical Attack
       - [x] Spawn Insivible Hitbox of specific range (field in weapon)
       - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
+      - [ ] Put rate of fire cap on (weapon speed?)
       - [x] If hitbox collides with an active enemy, do damage (battle handler)
          - [x] Normal weapons
          - [x] Projectiles
@@ -15,6 +16,7 @@
 - [ ] Put range field in for weapons
 - [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
 - [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
+- [ ] Max rate of fire (attack) field.
 
 # Attacks
 - [ ] Finish developing magic attacks
