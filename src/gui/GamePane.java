@@ -329,7 +329,9 @@ public class GamePane extends StackPane {
                 NPC np = (NPC) collision;
                 Enemy e = (Enemy) np.getNPC();
 
-                BattleHandler.attack(player.getPlayer(), e);
+                if(e.isActive()) {
+                    BattleHandler.attack(player.getPlayer(), e);
+                }
 
                 it.remove();
                 System.out.println("Test: Collision with enemy success");
