@@ -6,6 +6,7 @@ import java.util.Map;
  * @author Sean Zimmerman
  *
  */
+@Deprecated
 public abstract class StatChange {
 
 	private int numTurns;
