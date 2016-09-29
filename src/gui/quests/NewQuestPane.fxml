@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<?scenebuilder-stylesheet themes.css?>
+<?scenebuilder-stylesheet ../themes.css?>
 
 <AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="537.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
@@ -22,7 +22,7 @@
       <top>
         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="237.0">
           <children>
-            <Label fx:id="questTitle" contentDisplay="TOP" text="Quest Title">
+            <Label id="" fx:id="questTitle" contentDisplay="TOP" text="Quest Title">
               <font>
                 <Font name="Cambria Bold" size="22.0" fx:id="x2" />
               </font>

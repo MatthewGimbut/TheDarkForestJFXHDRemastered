@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<?scenebuilder-stylesheet themes.css?>
+<?scenebuilder-stylesheet ../themes.css?>
 
 <AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
@@ -17,6 +17,18 @@
           <children>
             <Accordion layoutX="0.0" layoutY="-2.0" prefHeight="455.0" prefWidth="271.0">
               <expandedPane>
+                <TitledPane fx:id="x3" animated="false" prefHeight="431.9999000000025" prefWidth="269.0001220703125" text="Main Quests">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <VBox fx:id="mainBox" layoutX="0.0" layoutY="2.0" prefHeight="398.0" prefWidth="267.0" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </TitledPane>
+              </expandedPane>
+              <panes>
+                <fx:reference source="x3" />
                 <TitledPane fx:id="x1" animated="false" prefHeight="432.0" prefWidth="269.0000999999975" text="Side Quests">
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -26,31 +38,19 @@
                     </AnchorPane>
                   </content>
                 </TitledPane>
-              </expandedPane>
-              <panes>
-                <TitledPane animated="false" prefHeight="431.9999000000025" prefWidth="269.0001220703125" text="Main Quests">
-                  <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                      <children>
-                        <VBox fx:id="mainBox" layoutX="0.0" layoutY="2.0" prefHeight="398.0" prefWidth="267.0" />
-                      </children>
-                    </AnchorPane>
-                  </content>
-                </TitledPane>
-                <fx:reference source="x1" />
               </panes>
             </Accordion>
           </children>
         </AnchorPane>
       </content>
     </ScrollPane>
-    <BorderPane layoutX="320.0" layoutY="15.0" prefHeight="454.0" prefWidth="298.0" style="&#10;&#10;">
+    <BorderPane layoutX="320.0" layoutY="29.0" prefHeight="440.0" prefWidth="298.0" style="&#10;&#10;">
       <bottom>
         <BorderPane prefHeight="31.0" prefWidth="237.0">
           <left>
             <HBox alignment="CENTER" prefHeight="31.0" prefWidth="111.0">
               <children>
-                <Label id="goldLabel" fx:id="gold" alignment="CENTER" prefWidth="73.9998779296875" text="x gold" wrapText="false">
+                <Label id="goldLabel" fx:id="gold" alignment="CENTER" prefWidth="73.9998779296875" text="" wrapText="false">
                   <font>
                     <Font name="Cambria" size="14.0" fx:id="x2" />
                   </font>
@@ -61,14 +61,14 @@
           <right>
             <HBox alignment="CENTER" prefHeight="31.0" prefWidth="111.0">
               <children>
-                <Label id="xpLabel" fx:id="xp" alignment="CENTER" font="$x2" text="x xp" />
+                <Label id="xpLabel" fx:id="xp" alignment="CENTER" font="$x2" text="" />
               </children>
             </HBox>
           </right>
         </BorderPane>
       </bottom>
       <center>
-        <Label id="questDescription" fx:id="description" alignment="TOP_CENTER" prefHeight="359.0" prefWidth="225.0" text="Quest description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true">
+        <Label id="questDescription" fx:id="description" alignment="TOP_CENTER" prefHeight="359.0" prefWidth="225.0" text="" wrapText="true">
           <font>
             <Font size="14.0" />
           </font>
@@ -77,7 +77,7 @@
       <top>
         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="237.0" BorderPane.alignment="BOTTOM_CENTER">
           <children>
-            <Label id="questTitle" fx:id="title" alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="44.0" text="Quest Title">
+            <Label id="" fx:id="title" alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="44.0" text="">
               <font>
                 <Font name="Cambria Bold" size="22.0" />
               </font>

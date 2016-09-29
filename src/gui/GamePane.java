@@ -125,16 +125,16 @@ public class GamePane extends StackPane {
                     case "L": //Projectile attack for demo purposes until they are added to player
                         switch (player.getImageLocation()) {
                             case Player.FACING_NORTH:
-                                projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -3);
+                                projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -5);
                                 break;
                             case Player.FACING_SOUTH:
-                                projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 3);
+                                projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 5);
                                 break;
                             case Player.FACING_EAST:
-                                projectileAttack(player.getX() + player.getWidth(), player.getY(), 3, 0);
+                                projectileAttack(player.getX() + player.getWidth(), player.getY(), 5, 0);
                                 break;
                             case Player.FACING_WEST:
-                                projectileAttack(player.getX() - player.getWidth(), player.getY(), -3, 0);
+                                projectileAttack(player.getX() - player.getWidth(), player.getY(), -5, 0);
                                 break;
                         }
                         break;
@@ -290,7 +290,7 @@ public class GamePane extends StackPane {
      */
     private void projectileAttack(int x, int y, int dx, int dy) {
         if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
-            Sprite interact = new Sprite(x, y, "file:Images\\NotBlank32x32.png");
+            Sprite interact = new Sprite(x, y, "file:Images\\fire.png");
             interact.setVelocity(dx, dy);
             interact.setObstacle(false);
             interact.render(gc);
