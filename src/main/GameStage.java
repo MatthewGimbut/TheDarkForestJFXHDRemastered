@@ -2,7 +2,7 @@ package main;
 
 import gui.GamePane;
 import gui.GameScene;
-import gui.MainMenuPane;
+import gui.menus.MainMenuPane;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;

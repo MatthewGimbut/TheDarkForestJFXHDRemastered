@@ -1,21 +1,19 @@
-package gui;
+package gui.items;
 
 import characters.Player;
+import gui.GameButton;
+import gui.GameLabel;
 import items.Armor.*;
 import items.Item;
 import items.Weapons.Weapon;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-
-import java.util.ArrayList;
 
 public class EquipmentPane extends VBox {
 

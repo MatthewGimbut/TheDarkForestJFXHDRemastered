@@ -1,6 +1,7 @@
-package gui;
+package gui.menus;
 
 import characters.Player;
+import gui.GamePane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -33,7 +34,7 @@ public class OptionsPane extends BorderPane {
         this.currentView = currentView;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\OptionsPane.fxml"));
+                "gui\\menus\\OptionsPane.fxml"));
         fxmlLoader.setController(this);
 
 

@@ -1,4 +1,4 @@
-package gui;
+package gui.items;
 
 import characters.Player;
 import items.Item;

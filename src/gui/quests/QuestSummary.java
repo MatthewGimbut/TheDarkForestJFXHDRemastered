@@ -1,5 +1,6 @@
-package gui;
+package gui.quests;
 
+import gui.GamePane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -25,7 +26,7 @@ public class QuestSummary extends AnchorPane {
         this.currentView = currentView;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\QuestSummary.fxml"));
+                "gui\\quests\\QuestSummary.fxml"));
         fxmlLoader.setController(this);
 
         try {

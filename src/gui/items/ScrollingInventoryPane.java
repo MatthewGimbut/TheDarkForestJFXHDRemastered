@@ -1,19 +1,16 @@
-package gui;
+package gui.items;
 
 import characters.Player;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+import gui.GamePane;
 import items.Armor.Armor;
 import items.Consumables.Consumable;
-import items.Consumables.Potion;
 import items.Item;
 import items.Weapons.Weapon;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -23,12 +20,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import main.GameStage;
-import sun.plugin.javascript.navig.Anchor;
-import sun.plugin.javascript.navig.Array;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -94,7 +87,7 @@ public class ScrollingInventoryPane extends BorderPane {
         format = new DecimalFormat("#.#");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\ScrollingInventoryPane.fxml"));
+                "gui\\items\\ScrollingInventoryPane.fxml"));
         fxmlLoader.setController(this);
 
 

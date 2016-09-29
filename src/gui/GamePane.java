@@ -3,6 +3,14 @@ package gui;
 import characters.Enemy;
 import characters.Neutral;
 import characters.Player;
+import gui.items.LootPane;
+import gui.items.ScrollingInventoryPane;
+import gui.menus.MenuPane;
+import gui.menus.OptionsPane;
+import gui.quests.JournalPane;
+import gui.quests.NewQuestPane;
+import gui.quests.QuestSuccess;
+import gui.quests.QuestSummary;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -591,7 +599,7 @@ public class GamePane extends StackPane {
     }
 
 
-    void toggleMenuPane() {
+    public void toggleMenuPane() {
         if(!menuCurrentlyDisplayed) {
             this.getChildren().add(menu);
             this.setMargin(menu, new Insets(10, 940, 470, 10));
@@ -605,7 +613,7 @@ public class GamePane extends StackPane {
         }
     }
 
-    void displayInventoryPane() {
+    public void displayInventoryPane() {
         if(!inventoryCurrentlyDisplayed) {
             ScrollingInventoryPane pane = new ScrollingInventoryPane(this,  player.getPlayer());
             this.getChildren().add(pane);
@@ -614,13 +622,13 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeInventoryPane(ScrollingInventoryPane pane) {
+    public void removeInventoryPane(ScrollingInventoryPane pane) {
         this.getChildren().remove(pane);
         inventoryCurrentlyDisplayed = false;
         this.requestFocus();
     }
 
-    void displayLootPane(Lootable loot) {
+    public void displayLootPane(Lootable loot) {
         if(!lootCurrentlyDisplayed) {
             LootPane lp = new LootPane(this, loot, player.getPlayer());
             this.getChildren().add(lp);
@@ -629,13 +637,13 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeLootPane(LootPane pane) {
+    public void removeLootPane(LootPane pane) {
         this.getChildren().remove(pane);
         lootCurrentlyDisplayed = false;
         this.requestFocus();
     }
 
-    void displayOptionsPane() {
+    public void displayOptionsPane() {
         if(!settingsCurrentlyDisplayed) {
             OptionsPane op = new OptionsPane(this, player.getPlayer());
             this.getChildren().add(op);
@@ -644,19 +652,19 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeOptionsPane(OptionsPane pane) {
+    public void removeOptionsPane(OptionsPane pane) {
         this.getChildren().remove(pane);
         settingsCurrentlyDisplayed = false;
         this.requestFocus();
     }
 
-    void displayMessagePane(String message) {
+    public void displayMessagePane(String message) {
         MessagePane mp = new MessagePane(message, player.getPlayer(), this);
         messageInfo(mp);
 
     }
 
-    void displayMessagePane(String[] message, NPC npc) {
+    public void displayMessagePane(String[] message, NPC npc) {
         MessagePane mp = new MessagePane(message, player.getPlayer(), this, npc);
         messageInfo(mp);
     }
@@ -675,7 +683,7 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeMessagePane(MessagePane pane) {
+    public void removeMessagePane(MessagePane pane) {
         t = new Timeline(new KeyFrame(Duration.millis(150), event -> {}));
         t.setOnFinished(event -> messageCurrentlyDisplayed = false);
         t.play();
@@ -684,7 +692,7 @@ public class GamePane extends StackPane {
         this.requestFocus();
     }
 
-    void displayStatsPane() {
+    public void displayStatsPane() {
         if(!statsCurrentlyDisplayed) {
             statsCurrentlyDisplayed = true;
             StatsPane pane = new StatsPane(this, player);
@@ -693,7 +701,7 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeStatsPane(StatsPane pane) {
+    public void removeStatsPane(StatsPane pane) {
         this.getChildren().remove(pane);
         statsCurrentlyDisplayed = false;
         this.requestFocus();
@@ -710,13 +718,28 @@ public class GamePane extends StackPane {
         }
     }
 
-    void removeNewQuestPane(NewQuestPane pane) {
+    public void removeNewQuestPane(NewQuestPane pane) {
         this.getChildren().remove(pane);
         questCurrentlyDisplayed = false;
         this.requestFocus();
         if(questPanelStack.size() != 0) {
             popQuestPanelStack();
         }
+    }
+
+    public void displayJournal() {
+        if(!questCurrentlyDisplayed) {
+            questCurrentlyDisplayed = true;
+            JournalPane journal = new JournalPane(this);
+            this.getChildren().add(journal);
+            journal.requestFocus();
+        }
+    }
+
+    public void removeJournalPane(JournalPane journal) {
+        this.getChildren().remove(journal);
+        questCurrentlyDisplayed = false;
+        this.requestFocus();
     }
 
     public void resetMessagePaneFocus() {

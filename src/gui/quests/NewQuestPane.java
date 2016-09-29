@@ -1,7 +1,7 @@
-package gui;
+package gui.quests;
 
 import gui.GamePane;
-import gui.ItemPane;
+import gui.items.ItemPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -37,7 +37,7 @@ public class NewQuestPane extends BorderPane {
         this.quest = quest;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\NewQuestPane.fxml"));
+                "gui\\quests\\NewQuestPane.fxml"));
         fxmlLoader.setController(this);
 
         try {

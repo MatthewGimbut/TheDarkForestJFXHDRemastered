@@ -1,6 +1,9 @@
-package gui;
+package gui.menus;
 
 
+import gui.GameButton;
+import gui.GamePane;
+import gui.GameScene;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Group;

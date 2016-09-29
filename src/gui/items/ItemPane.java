@@ -1,6 +1,7 @@
-package gui;
+package gui.items;
 
 import characters.Player;
+import gui.GameLabel;
 import items.Item;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

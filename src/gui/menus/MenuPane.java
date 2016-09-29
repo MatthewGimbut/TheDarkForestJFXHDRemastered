@@ -1,8 +1,11 @@
-package gui;
+package gui.menus;
 
 
+import gui.GamePane;
+import gui.GameScene;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.GameStage;
@@ -13,19 +16,20 @@ import java.util.ArrayList;
 
 public class MenuPane extends VBox {
 
-    private GameButton options, stats, inventory, exit, quit, load;
+    private Button options, stats, inventory, exit, quit, load, log;
     private MapContainer map;
 
 
     public MenuPane(GamePane currentView) {
         this.setId("standardPane");
         this.setAlignment(Pos.CENTER);
-        options = new GameButton("Options");
-        stats = new GameButton("Stats");
-        inventory = new GameButton("Inventory");
-        load = new GameButton("Load");
-        quit = new GameButton("Quit");
-        exit = new GameButton("Exit");
+        options = new Button("Options");
+        stats = new Button("Stats");
+        inventory = new Button("Inventory");
+        load = new Button("Load");
+        quit = new Button("Quit");
+        exit = new Button("Exit");
+        log = new Button("Journal");
 
 
         exit.setOnAction(event -> {
@@ -69,10 +73,15 @@ public class MenuPane extends VBox {
             currentView.displayStatsPane();
         });
 
+        log.setOnAction(event -> {
+            currentView.toggleMenuPane();
+            currentView.displayJournal();
+        });
+
         this.setSpacing(7.5);
         this.setMaxWidth(125);
-        this.setMaxHeight(300);
-        this.getChildren().addAll(inventory, stats, options, load, exit,  quit);
+        this.setMaxHeight(375);
+        this.getChildren().addAll(inventory, stats, log, options, load, exit,  quit);
         this.requestFocus();
     }
 }

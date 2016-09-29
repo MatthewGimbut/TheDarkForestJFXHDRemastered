@@ -1,6 +1,9 @@
-package gui;
+package gui.items;
 
 import characters.Player;
+import gui.GameButton;
+import gui.GameLabel;
+import gui.GamePane;
 import items.Armor.Armor;
 import items.Consumables.Consumable;
 import items.Consumables.Potion;
@@ -14,9 +17,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.*;
 import main.GameStage;
-import sprites.Sprite;
 
-import java.text.DecimalFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.stream.Collectors;

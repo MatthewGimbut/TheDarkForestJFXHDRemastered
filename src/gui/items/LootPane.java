@@ -1,15 +1,14 @@
-package gui;
+package gui.items;
 
 import characters.Player;
+import gui.GamePane;
 import items.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import sprites.Lootable;
 
 import java.io.IOException;
@@ -35,7 +34,7 @@ public class LootPane extends BorderPane {
         this.player = player;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\LootPane.fxml"));
+                "gui\\items\\LootPane.fxml"));
         fxmlLoader.setController(this);
 
 

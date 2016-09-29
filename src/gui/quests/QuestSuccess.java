@@ -1,5 +1,7 @@
-package gui;
+package gui.quests;
 
+import gui.GamePane;
+import gui.items.ItemPane;
 import main.GameStage;
 import quests.Quest;
 
@@ -37,7 +39,7 @@ public class QuestSuccess extends BorderPane {
         this.quest = quest;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
-                "gui\\QuestSuccess.fxml"));
+                "gui\\quests\\QuestSuccess.fxml"));
         fxmlLoader.setController(this);
 
         try {
