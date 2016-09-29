@@ -1,19 +1,25 @@
+# General
+- [ ] Restructure files in the GUI package to be more organized
+
 # Battle System
 - [ ] Attacking
    - [ ] 'J' Physical Attack
       - [x] Spawn Insivible Hitbox of specific range (field in weapon)
       - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
+      - [ ] Put rate of fire cap on (weapon speed?)
       - [x] If hitbox collides with an active enemy, do damage (battle handler)
          - [x] Normal weapons
          - [x] Projectiles
    - [ ] 'K' Magic Attack
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
-- [ ] Battle Handler Class
+- [ ] Battle Handler Class + functionality
 
 # Weapons
 - [ ] Put range field in for weapons
 - [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
+- [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
+- [ ] Max rate of fire (attack) field.
 
 # Attacks
 - [ ] Finish developing magic attacks
@@ -59,7 +65,7 @@
 - [x] Create priority quest overlay which displays the current task of the current quest
 - [x] If a quest menu tries to launch while another is open it is pushed to a queue and loaded after the blocking menu is closed. 
 - [ ] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
-- [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?
+- [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?)
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
 - [ ] Have player health and mana bars displayed on screen
 

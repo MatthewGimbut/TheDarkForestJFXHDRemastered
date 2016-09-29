@@ -1,5 +1,6 @@
 package gui;
 
+import battle.BattleHandler;
 import characters.Enemy;
 import characters.Neutral;
 import characters.Player;
@@ -37,7 +38,7 @@ import java.util.stream.Collectors;
 public class GamePane extends StackPane {
 
     private Stage primaryStage;
-    private boolean menuCurrentlyDisplayed, battleCurrentlyDisplayed, statsCurrentlyDisplayed,
+    private boolean menuCurrentlyDisplayed, statsCurrentlyDisplayed,
             inventoryCurrentlyDisplayed, lootCurrentlyDisplayed, settingsCurrentlyDisplayed,
             messageCurrentlyDisplayed, equipmentCurrentlyDisplayed, questCurrentlyDisplayed;
     private PlayerSprite player;
@@ -270,8 +271,7 @@ public class GamePane extends StackPane {
                 if(items.get(i) instanceof  NPC && ((NPC)items.get(i)).getNPC() instanceof Enemy) {
                     Enemy e = ((Enemy)(((NPC)items.get(i))).getNPC());
                     if(e.isActive()) { //if the enemy is not active then do nothing
-                        //TODO deal damage
-                        //BattleHandler.attack(player.getPlayer(), e);
+                        BattleHandler.attack(player.getPlayer(), e);
                     }
                 }
             }
@@ -331,13 +331,19 @@ public class GamePane extends StackPane {
                 it.remove(); // if the projectile hits the edge of the screen despawn it
             }
 
-            int collision = projectileCollision(s);
+            Sprite collision = projectileCollision(s);
 
-            if(collision == 1) { //Collision with enemy
-                //BattleHandler.attack(player.getPlayer(), e);
+            if(collision instanceof NPC && ((NPC) collision).getNPC() instanceof Enemy) { //Collision with enemy
+                NPC np = (NPC) collision;
+                Enemy e = (Enemy) np.getNPC();
+
+                if(e.isActive()) {
+                    BattleHandler.attack(player.getPlayer(), e);
+                }
+
                 it.remove();
                 System.out.println("Test: Collision with enemy success");
-            } else if(collision == -1) {
+            } else if(collision != null) {
                 it.remove();
                 System.out.println("Test: Collision with non-enemy success");
             }
@@ -349,24 +355,15 @@ public class GamePane extends StackPane {
      * A projectile can collide with anything but we only care if it collides with an enemy.
      * Collision is checked after the projectile movement is updated.
      * @param s The sprite of the projectile
-     * @return 0 for no collision, 1 for enemy collision, -1 for non-enemy collision
+     * @return The collided obstacle, or null if no obstacle
      */
-    private int projectileCollision(Sprite s) {
+    private Sprite projectileCollision(Sprite s) {
         for(Sprite obstacle : map.getCollisions()) {
             if(s.getBounds().intersects(obstacle.getBounds())) {
-                if(obstacle instanceof NPC) { // NPC can be an enemy
-                    NPC np = (NPC) obstacle;
-                    if(np.getNPC() instanceof Enemy) { // if it is an enemy return true
-                        return 1; // enemy collision
-                    } else {
-                        return -1; // non-enemy collision
-                    }
-                } else {
-                    return -1; // non-enemy collision
-                }
+                return obstacle;
             }
         }
-        return 0; // no collisions
+        return null; // no collisions
     }
 
     /**
@@ -444,7 +441,6 @@ public class GamePane extends StackPane {
                 //TODO inefficient/pointless, find better way to do this
                 ArrayList<Enemy> enemy = new ArrayList<>();
                 enemy.add((Enemy) ((NPC) obstacle).getNPC());
-                //displayBattlePanel(enemy, obstacle);
             }
         } else if (((NPC) obstacle).getNPC() instanceof Neutral) {
             ((NPC) obstacle).questInteraction();
@@ -542,7 +538,6 @@ public class GamePane extends StackPane {
 
     private void initFlags() {
         menuCurrentlyDisplayed = false;
-        battleCurrentlyDisplayed = false;
         statsCurrentlyDisplayed = false;
         inventoryCurrentlyDisplayed = false;
         lootCurrentlyDisplayed = false;
@@ -556,7 +551,7 @@ public class GamePane extends StackPane {
      * @return Whether or not the player is engaged.
      */
     public boolean engaged() {
-        return (menuCurrentlyDisplayed || battleCurrentlyDisplayed
+        return (menuCurrentlyDisplayed
                 || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
                 || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
@@ -564,8 +559,7 @@ public class GamePane extends StackPane {
     }
 
     public boolean engagedMinusMenu() {
-        return (battleCurrentlyDisplayed
-                || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
+        return (statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
                 || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
                 || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
                 || questCurrentlyDisplayed);
