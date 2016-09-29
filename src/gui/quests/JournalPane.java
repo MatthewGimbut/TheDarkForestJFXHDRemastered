@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
 import quests.Quest;
 import quests.QuestHandler;
 
@@ -32,6 +33,7 @@ public class JournalPane extends BorderPane {
     @FXML private VBox sideBox;
     @FXML private Label title;
     @FXML private Label xp;
+    @FXML private WebView video;
 
 
     public JournalPane(GamePane currentView) {
@@ -55,6 +57,11 @@ public class JournalPane extends BorderPane {
         });
 
         drawQuests();
+
+        video.getEngine().load(
+                "https://www.youtube.com/watch?v=dpjFcLIm6mc?autoplay=1"
+        );
+        //video.setPrefSize(640, 390);
 
         this.setCenter(anchor);
     }

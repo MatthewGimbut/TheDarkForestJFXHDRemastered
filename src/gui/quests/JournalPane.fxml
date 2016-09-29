@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
 <?scenebuilder-stylesheet ../themes.css?>
 
 <AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
@@ -17,18 +18,6 @@
           <children>
             <Accordion layoutX="0.0" layoutY="-2.0" prefHeight="455.0" prefWidth="271.0">
               <expandedPane>
-                <TitledPane fx:id="x3" animated="false" prefHeight="431.9999000000025" prefWidth="269.0001220703125" text="Main Quests">
-                  <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                      <children>
-                        <VBox fx:id="mainBox" layoutX="0.0" layoutY="2.0" prefHeight="398.0" prefWidth="267.0" />
-                      </children>
-                    </AnchorPane>
-                  </content>
-                </TitledPane>
-              </expandedPane>
-              <panes>
-                <fx:reference source="x3" />
                 <TitledPane fx:id="x1" animated="false" prefHeight="432.0" prefWidth="269.0000999999975" text="Side Quests">
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -38,6 +27,18 @@
                     </AnchorPane>
                   </content>
                 </TitledPane>
+              </expandedPane>
+              <panes>
+                <TitledPane animated="false" prefHeight="431.9999000000025" prefWidth="269.0001220703125" text="Main Quests">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <VBox fx:id="mainBox" layoutX="0.0" layoutY="2.0" prefHeight="398.0" prefWidth="267.0" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </TitledPane>
+                <fx:reference source="x1" />
               </panes>
             </Accordion>
           </children>
@@ -86,5 +87,6 @@
         </HBox>
       </top>
     </BorderPane>
+    <WebView fx:id="video" layoutX="-42.0" layoutY="-15.0" prefHeight="558.0" prefWidth="710.0" />
   </children>
 </AnchorPane>
