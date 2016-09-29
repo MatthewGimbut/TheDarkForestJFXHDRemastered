@@ -35,6 +35,7 @@
 - [x] Add favorites
 - [ ] Ability to sort items
 - [ ] Add magic tab
+- [ ] Add way to drop items
 
 # Map Builder/System
 - [ ] Add more areas in general
