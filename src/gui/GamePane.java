@@ -343,7 +343,7 @@ public class GamePane extends StackPane {
 
                 it.remove();
                 System.out.println("Test: Collision with enemy success");
-            } else if(collision != null) {
+            } else if(collision != null && !(collision instanceof LowerLayer)) {
                 it.remove();
                 System.out.println("Test: Collision with non-enemy success");
             }

@@ -45,7 +45,8 @@ public class JournalPane extends BorderPane {
 
         try {
             fxmlLoader.load();
-        } catch (IOException exception) {
+        } catch (IOException exception)
+        {
             throw new RuntimeException(exception);
         }
     }
@@ -58,9 +59,7 @@ public class JournalPane extends BorderPane {
 
         drawQuests();
 
-        video.getEngine().load(
-                "https://www.youtube.com/watch?v=dpjFcLIm6mc?autoplay=1"
-        );
+        video.getEngine().load("https://www.youtube.com/watch?v=dpjFcLIm6mc?autoplay=1");
         //video.setPrefSize(640, 390);
 
         this.setCenter(anchor);

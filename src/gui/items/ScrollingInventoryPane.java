@@ -37,7 +37,7 @@ public class ScrollingInventoryPane extends BorderPane {
     private ArrayList<Armor> armorList;
     private ArrayList<Weapon> weaponList;
     private ArrayList<Consumable> consumableList;
-    private ArrayList<TextItemPane> favLabels, wepLabels, armorLabels, consumableLabels, miscLabels;
+    private ArrayList<TextItemPane> favLabels, wepLabels, armorLabels, consumableLabels, miscLabels, allLabels;
     private DecimalFormat format;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
@@ -65,6 +65,8 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private Tab weaponsTab;
     @FXML private Label info;
     @FXML private Label weight;
+    @FXML private ScrollPane allScroll;
+    @FXML private Tab allTab;
 
 
 
@@ -78,6 +80,7 @@ public class ScrollingInventoryPane extends BorderPane {
         consumableList = new ArrayList<>();
         favoritesList = new ArrayList<>();
 
+        allLabels = new ArrayList<>();
         favLabels = new ArrayList<>();
         wepLabels = new ArrayList<>();
         armorLabels = new ArrayList<>();
@@ -111,6 +114,8 @@ public class ScrollingInventoryPane extends BorderPane {
 
         sortItems();
 
+        allScroll.setContent(drawAll());
+        drawColors(allLabels);
         favoritesScroll.setContent(drawFavorites());
         drawColors(favLabels);
         weaponsScroll.setContent(drawWeapons());
@@ -146,6 +151,21 @@ public class ScrollingInventoryPane extends BorderPane {
                 miscList.add(item);
             }
         });
+    }
+
+    VBox drawAll() {
+        allScroll.setContent(null);
+        VBox allBox = new VBox(5);
+
+        for(Item i : player.getInventory()) {
+            TextItemPane label = new TextItemPane(i, player);
+            addHandlers(label);
+            allLabels.add(label);
+            allBox.setMargin(label, new Insets(2, 0, 2, 5));
+            allBox.getChildren().add(label);
+        }
+
+        return allBox;
     }
 
     VBox drawFavorites() {
@@ -301,6 +321,7 @@ public class ScrollingInventoryPane extends BorderPane {
                         favoritesScroll.setContent(drawFavorites());
                     }
                 }
+                drawColors(allLabels);
                 if (itemPane.getItem().isFavorite()) drawColors(favLabels);
             } else if(event.getButton() == MouseButton.SECONDARY){ //Right Click
                 if(itemPane.getItem().isFavorite()) {
@@ -324,7 +345,9 @@ public class ScrollingInventoryPane extends BorderPane {
 
                 sortItems();
                 favoritesScroll.setContent(drawFavorites());
+                allScroll.setContent(drawAll());
                 drawColors(favLabels);
+                drawColors(allLabels);
             }
         }
     }

@@ -72,8 +72,9 @@ public class JSONMapParser {
                 This includes proper escaping for file locations and the quest triggers.
              */
             m.getMapItems().forEach(sprite -> {
-                if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
+                sprite.setImage(sprite.getImageLocation().replace("C:\\\\Users\\\\Matthew\\\\workspace\\\\MapBuilder\\\\", ""));
                 sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
+                if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
                 if(sprite instanceof NPC) loadNPC((NPC) sprite);
             });
 
