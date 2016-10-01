@@ -18,11 +18,13 @@ import quests.QuestHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class JournalPane extends BorderPane {
 
     private GamePane currentView;
+    private Random rand;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private AnchorPane anchor;
@@ -38,6 +40,7 @@ public class JournalPane extends BorderPane {
 
     public JournalPane(GamePane currentView) {
         this.currentView = currentView;
+        this.rand = new Random();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\quests\\JournalPane.fxml"));
@@ -59,8 +62,12 @@ public class JournalPane extends BorderPane {
 
         drawQuests();
 
-        video.getEngine().load("https://www.youtube.com/watch?v=dpjFcLIm6mc?autoplay=1");
-        //video.setPrefSize(640, 390);
+        if(rand.nextInt(100) < 95) { //5% chance to get Lit Lizards? I'll take it.
+            anchor.getChildren().remove(video);
+        } else {
+            video.getEngine().load("https://www.youtube.com/watch?v=dpjFcLIm6mc?autoplay=1");
+            //video.setPrefSize(640, 390);
+        }
 
         this.setCenter(anchor);
     }
