@@ -1,5 +1,5 @@
 # General
-- [ ] Restructure files in the GUI package to be more organized
+- [x] Restructure files in the GUI package to be more organized
 
 # Battle System
 - [ ] Attacking
@@ -35,6 +35,7 @@
 - [x] Add favorites
 - [ ] Ability to sort items
 - [ ] Add magic tab
+- [ ] Add way to drop items
 
 # Map Builder/System
 - [ ] Add more areas in general
@@ -64,7 +65,7 @@
 # GUI
 - [x] Create priority quest overlay which displays the current task of the current quest
 - [x] If a quest menu tries to launch while another is open it is pushed to a queue and loaded after the blocking menu is closed. 
-- [ ] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
+- [x] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
 - [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?)
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
 - [ ] Have player health and mana bars displayed on screen
