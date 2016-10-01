@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+@Deprecated
 public class InventoryPane extends BorderPane {
 
     private Player player;

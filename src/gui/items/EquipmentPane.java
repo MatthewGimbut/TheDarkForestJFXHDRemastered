@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
+@Deprecated
 public class EquipmentPane extends VBox {
 
     private GameLabel title;

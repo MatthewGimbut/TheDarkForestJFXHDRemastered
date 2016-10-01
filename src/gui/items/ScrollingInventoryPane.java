@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -88,6 +89,11 @@ public class ScrollingInventoryPane extends BorderPane {
         miscLabels = new ArrayList<>();
 
         format = new DecimalFormat("#.#");
+
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) exit.fire();
+        });
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\items\\ScrollingInventoryPane.fxml"));

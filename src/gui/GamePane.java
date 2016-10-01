@@ -141,6 +141,12 @@ public class GamePane extends StackPane {
                     case "K": //Magic attack
                         //TODO magic attack
                         break;
+                    case "ESCAPE":
+                        if(!engagedMinusMenu()) toggleMenuPane();
+                        break;
+                    case "I":
+                        if(!inventoryCurrentlyDisplayed) displayInventoryPane();
+                        break;
                 }
             }
         });
@@ -148,12 +154,6 @@ public class GamePane extends StackPane {
         this.setOnKeyReleased(event -> {
             String code = event.getCode().toString();
             switch(code) {
-                case "ESCAPE":
-                    if(!engagedMinusMenu()) toggleMenuPane();
-                    break;
-                case "I":
-                    if(!inventoryCurrentlyDisplayed) displayInventoryPane();
-                    break;
                 case "SHIFT":
                     player.setPlayerSpeed(2);
                     break;
@@ -544,6 +544,7 @@ public class GamePane extends StackPane {
         settingsCurrentlyDisplayed = false;
         messageCurrentlyDisplayed = false;
         equipmentCurrentlyDisplayed = false;
+        questCurrentlyDisplayed = false;
     }
 
     /**
