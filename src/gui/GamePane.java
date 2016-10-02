@@ -469,6 +469,7 @@ public class GamePane extends StackPane {
      */
     private void updateMapItems(Exit exit) {
         String nextMap = exit.getNextMapLocation();
+        this.despawnPlayerProjectiles();
         map.loadNewFile(nextMap);
         setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
         this.setId(map.getIdName());
