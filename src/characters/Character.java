@@ -35,6 +35,7 @@ public abstract class Character implements Serializable {
 	private double carryCap;
 	private double currentCarry;
 	private boolean isDead;
+	private boolean isAttacking = false;
 	private String image;
 	protected String south;
 	protected String north;
@@ -189,6 +190,14 @@ public abstract class Character implements Serializable {
 
 	public void modifySpd(int speed) {
 		this.speed += speed;
+	}
+
+	public void setAttacking(boolean isAttacking) {
+		this.isAttacking = isAttacking;
+	}
+
+	public boolean getAttacking() {
+		return this.isAttacking;
 	}
 	
 	

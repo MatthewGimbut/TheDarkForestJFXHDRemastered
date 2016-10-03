@@ -26,10 +26,15 @@ import mapping.MapContainer;
 import main.SaveManager;
 import quests.Quest;
 import sprites.*;
+import java.util.Random;
+
+import java.lang.reflect.Array;
 import java.util.Queue;
 import java.util.List;
 import java.util.LinkedList;
 import javafx.scene.layout.BorderPane;
+import sun.awt.image.ImageWatched;
+
 import java.util.Iterator;
 
 import java.util.ArrayList;
@@ -52,6 +57,7 @@ public class GamePane extends StackPane {
     private QuestSummary qs;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
+    private ArrayList<Sprite> enemies = new ArrayList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 3;
 
     public GamePane(Stage primaryStage) {
@@ -374,14 +380,108 @@ public class GamePane extends StackPane {
         playerProjectiles.clear();
     }
 
+    private void updateEnemies(GraphicsContext gc) {
+        if(!engaged()) {
+            moveEnemies(); // in future use enemyAI to determine individual AI
+        }
+        enemies.forEach(s -> s.render(gc));
+    }
+
+    private void moveEnemies() {
+        Iterator<Sprite> it = enemies.iterator();
+        Random random = new Random();
+        Enemy e;
+        Sprite s;
+        int playerX = player.getX();
+        int playerY = player.getY();
+        int deltaX, deltaY;
+        while(it.hasNext()) {
+            s = it.next();
+            e = ((Enemy) ((NPC)s).getNPC());
+
+            e.setActive(true); // TODO remove once it works properly
+
+            if(e.isActive()) { // only do movement if the enemy is active
+                deltaX = s.getX() - playerX; // positive means enemy is father right than player
+                deltaY = s.getY() - playerY; // positive means enemy is father down than player
+
+                s.setDx(20);
+                s.setDy(20);
+
+                double ratio = 1.0; // ratio of deltaX / deltaY
+                if(deltaY != 0) {
+                    ratio = Math.abs((1.0*deltaX) / (1.0*(deltaY+deltaX)));
+                }
+
+                double num = random.nextDouble();
+                if(num <= ratio) { // move in x direction
+                    if(deltaX > 0) {
+                        System.out.println(s.getX());
+                        s.modifyX(-s.getDx());
+                        System.out.println(s.getX());
+                    } else {
+                        s.modifyX(s.getDx());
+                    }
+                    s.modifyY(0);
+                } else { // move in y direction
+                    if(deltaY > 0) {
+                        s.modifyY(-s.getDy());
+                    } else {
+                        s.modifyY(s.getDy());
+                    }
+                    s.modifyX(0);
+                }
+
+                if (s.getX() < 1) s.setX(1);
+                if (s.getY() < 1) s.setY(1);
+                if (s.getX() > GameStage.WINDOW_WIDTH - 35) s.setX(GameStage.WINDOW_WIDTH - 35);
+                if (s.getY() > GameStage.WINDOW_HEIGHT - 70) s.setY(GameStage.WINDOW_HEIGHT - 70);
+
+                if(enemyCollision(s)) { // back the enemy up if it collides with something
+                    if(num <= ratio) { // move in x direction
+                        if(deltaX > 0) {
+                            s.modifyX(s.getDx());
+                        } else {
+                            s.modifyX(-s.getDx());
+                        }
+                        s.modifyY(0);
+                    } else { // move in y direction
+                        if(deltaY > 0) {
+                            s.modifyY(s.getDy());
+                        } else {
+                            s.modifyY(-s.getDy());
+                        }
+                        s.modifyX(0);
+                    }
+                }
+
+                deltaX = s.getX() - playerX;
+                deltaY = s.getY() - playerY;
+                if(deltaX < 32 && deltaY < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely
+                    System.out.println("Enemy attack");
+                }
+            }
+        }
+    }
+
+    private boolean enemyCollision(Sprite s) {
+        for(Sprite obstacle : map.getCollisions()) {
+            if(s.getBounds().intersects(obstacle.getBounds())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Method for controlling the enemy AI.
-     * Enemies will walk in random directions but tend towards the player.
+     * Enemies will walk towards the player.
      * Enemies will attack randomly when in range and when facing the player.
-     * @param enemies The enemies which need AI on the screen (all active enemies)
+     * Applies on the list of all enemies on screen.
      */
-    private void enemyAI(List<Enemy> enemies) {
+    private void enemyAI() {
         //TODO lots of shit
+
     }
 
     /**
@@ -457,6 +557,7 @@ public class GamePane extends StackPane {
             this.setId(map.getIdName());
             //mapItems = mapParser.parseMap(map);
             setCurrentMapFile(mapLoc);
+            fillEnemies();
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -470,15 +571,44 @@ public class GamePane extends StackPane {
     private void updateMapItems(Exit exit) {
         String nextMap = exit.getNextMapLocation();
         this.despawnPlayerProjectiles();
+        fillEnemies();
         map.loadNewFile(nextMap);
         setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
         this.setId(map.getIdName());
+    }
+
+    /**
+     * Fills the enemies list with all the enemies in the current map.
+     */
+    private void fillEnemies() {
+        this.enemies.clear();
+        ArrayList<Sprite> temp = map.getMapItems();
+        temp.forEach(s -> {
+            if(s instanceof NPC) {
+                NPC np = (NPC) s;
+                if(np.getNPC() instanceof Enemy) {
+                    enemies.add(s);
+                }
+            }
+        });
+        System.out.println(enemies.size());
+    }
+
+    /**
+     * Removes the enemy from the current enemies when it is killed.
+     * @param s The killed enemy
+     */
+    public void enemyKilled(Sprite s) {
+        enemies.remove(s);
+        // TODO drop items and shit
+        drawLayers(gc);
     }
 
     private void drawLayers(GraphicsContext gc) {
         map.getUnderLayer().forEach(sprite -> sprite.render(gc));
         updatePlayer(gc);
         updateProjectiles(gc);
+        updateEnemies(gc);
         map.getOverLayer().forEach(sprite -> sprite.render(gc));
     }
 
