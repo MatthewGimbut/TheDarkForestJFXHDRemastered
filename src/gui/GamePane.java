@@ -518,6 +518,7 @@ public class GamePane extends StackPane {
                     player.setY(((Exit) obstacle).getNextY());
                     if(((Exit) obstacle).getNextMapLocation().equals("random")) {
                         try {
+                            this.despawnPlayerProjectiles();
                             map.randomize("Saves\\Default Maps\\Maps\\tempMap.json", currentMapFile,
                                     (Exit) obstacle);
                             ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.json");
