@@ -405,20 +405,18 @@ public class GamePane extends StackPane {
                 deltaX = s.getX() - playerX; // positive means enemy is father right than player
                 deltaY = s.getY() - playerY; // positive means enemy is father down than player
 
-                s.setDx(20);
-                s.setDy(20);
+                s.setDx(2);
+                s.setDy(2);
 
                 double ratio = 1.0; // ratio of deltaX / deltaY
                 if(deltaY != 0) {
-                    ratio = Math.abs((1.0*deltaX) / (1.0*(deltaY+deltaX)));
+                    ratio = Math.abs((1.0*deltaX) / (1.0*(Math.abs(deltaY)+Math.abs(deltaX))));
                 }
 
                 double num = random.nextDouble();
                 if(num <= ratio) { // move in x direction
                     if(deltaX > 0) {
-                        System.out.println(s.getX());
                         s.modifyX(-s.getDx());
-                        System.out.println(s.getX());
                     } else {
                         s.modifyX(s.getDx());
                     }
@@ -457,7 +455,7 @@ public class GamePane extends StackPane {
 
                 deltaX = s.getX() - playerX;
                 deltaY = s.getY() - playerY;
-                if(deltaX < 32 && deltaY < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely
+                if(Math.abs(deltaX) < 32 && Math.abs(deltaY) < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely
                     System.out.println("Enemy attack");
                 }
             }
@@ -465,8 +463,12 @@ public class GamePane extends StackPane {
     }
 
     private boolean enemyCollision(Sprite s) {
+        if(s.intersects(player)) {
+            return true;
+        }
+
         for(Sprite obstacle : map.getCollisions()) {
-            if(s.getBounds().intersects(obstacle.getBounds())) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
                 return true;
             }
         }
@@ -571,10 +573,10 @@ public class GamePane extends StackPane {
     private void updateMapItems(Exit exit) {
         String nextMap = exit.getNextMapLocation();
         this.despawnPlayerProjectiles();
-        fillEnemies();
         map.loadNewFile(nextMap);
         setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
         this.setId(map.getIdName());
+        fillEnemies();
     }
 
     /**
@@ -591,7 +593,6 @@ public class GamePane extends StackPane {
                 }
             }
         });
-        System.out.println(enemies.size());
     }
 
     /**
