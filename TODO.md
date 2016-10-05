@@ -20,6 +20,8 @@
 - [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
 - [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
 - [ ] Max rate of fire (attack) field.
+- [ ] Add Spell Tome as a weapon type (but have it take up left hand slot, alternative to shield?)
+- [ ] Add different elemental spells depending on equipped spell tome
 
 # Attacks
 - [ ] Finish developing magic attacks
