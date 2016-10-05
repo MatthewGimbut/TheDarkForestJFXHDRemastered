@@ -144,9 +144,9 @@ public class JSONMapParser {
             JSONMapTemplate m = gson.create().fromJson(json, JSONMapTemplate.class);
 
             m.getMapItems().forEach(sprite -> {
+                sprite.setImage(sprite.getImageLocation().replaceAll("(.+(MapBuilder\\\\))", "file:"));
                 if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
-                if(sprite.getImageLocation().contains("C:\\Users\\Matthew\\workspace\\MapBuilder\\")) sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
-                sprite.setImage(sprite.getImageLocation());
+                if(sprite instanceof NPC) loadNPC((NPC) sprite);
                 sprites.add(sprite);
             });
         } catch (IOException e) {

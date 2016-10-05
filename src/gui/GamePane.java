@@ -290,7 +290,7 @@ public class GamePane extends StackPane {
      */
     private void projectileAttack(int x, int y, int dx, int dy) {
         if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
-            Sprite interact = new Sprite(x, y, "file:Images\\fire.png");
+            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\earth24x24.png");
             interact.setVelocity(dx, dy);
             interact.setObstacle(false);
             interact.render(gc);
