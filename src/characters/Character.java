@@ -78,7 +78,7 @@ public abstract class Character implements Serializable {
 		this.def += i.getDef();
 		this.maxHP += i.getHpBoost();
 		this.maxMana += i.getManaBoost(); //TODO
-		this.speed -= i.getSpeedModifier();	
+		this.speed -= i.getCooldown();
 	}
 	
 	
@@ -92,7 +92,7 @@ public abstract class Character implements Serializable {
 		this.def -= i.getDef();
 		this.maxHP -= i.getHpBoost();
 		this.maxMana -= i.getManaBoost(); 
-		this.speed += i.getSpeedModifier();	
+		this.speed += i.getCooldown();
 	}
 	
 	/**

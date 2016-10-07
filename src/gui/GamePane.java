@@ -12,6 +12,8 @@ import gui.quests.JournalPane;
 import gui.quests.NewQuestPane;
 import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
+import items.Weapons.SpellTome;
+import items.SpellType;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -69,7 +71,7 @@ public class GamePane extends StackPane {
 
         this.setOnKeyPressed(event -> {
             String code = event.getCode().toString();
-            if(!engaged()) {
+            if(!engagedMinusMenu()) {
                 switch(code) {
                     case "E":
                         switch (player.getImageLocation()) {
@@ -139,10 +141,33 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "K": //Magic attack
-                        //TODO magic attack
+                        if(player.getPlayer().getLeftHand() instanceof SpellTome) { ///TODO or player has staff equipped
+                            SpellType st = ((SpellTome) player.getPlayer().getLeftHand()).getSpellType();
+                            switch (player.getImageLocation()) {
+                                case Player.FACING_NORTH:
+                                    magicAttack(player.getX(), player.getY() - player.getHeight(),
+                                            0, -st.getBaseProjectileSpeed(), st.northCastImageLocation());
+                                    break;
+                                case Player.FACING_SOUTH:
+                                    magicAttack(player.getX(), player.getY() + player.getHeight(),
+                                            0, st.getBaseProjectileSpeed(), st.southCastImageLocation());
+                                    break;
+                                case Player.FACING_EAST:
+                                    magicAttack(player.getX() + player.getWidth(), player.getY(),
+                                            st.getBaseProjectileSpeed(), 0, st.eastCastImageLocation());
+                                    break;
+                                case Player.FACING_WEST:
+                                    magicAttack(player.getX() - player.getWidth(), player.getY(),
+                                            -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
+                                    break;
+                            }
+                        }
                         break;
                     case "ESCAPE":
-                        if(!engagedMinusMenu()) toggleMenuPane();
+                        if(!engagedMinusMenu()) {
+                            toggleMenuPane();
+                            System.out.println(":");
+                        }
                         break;
                     case "I":
                         if(!inventoryCurrentlyDisplayed) displayInventoryPane();
@@ -290,7 +315,30 @@ public class GamePane extends StackPane {
      */
     private void projectileAttack(int x, int y, int dx, int dy) {
         if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
-            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\earth24x24.png");
+            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\corna.png");
+            interact.setVelocity(dx, dy);
+            interact.setObstacle(false);
+            interact.render(gc);
+            playerProjectiles.add(interact);
+        } else {
+            System.out.println("Max playerProjectiles");
+        }
+    }
+
+    /**
+     * Method for determining magic attack interactions.
+     * Slightly modified projectile attack for testing. In the future, change so this isn't repeated code? //TODO
+     * Creates an invisible Rectangle2D for hitbox detection.
+     * Creates a visible sprite to represent the projectile.
+     * If the Rectangle2D collides with an enemy damage is done.
+     * @param x Initial x coordinate of the projectile
+     * @param y Initial y coordinate of the projectile
+     * @param dx x speed of the projectile
+     * @param dy y speed of the projectile
+     */
+    private void magicAttack(int x, int y, int dx, int dy, String imageLoc) {
+        if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
+            Sprite interact = new Sprite(x, y, imageLoc);
             interact.setVelocity(dx, dy);
             interact.setObstacle(false);
             interact.render(gc);

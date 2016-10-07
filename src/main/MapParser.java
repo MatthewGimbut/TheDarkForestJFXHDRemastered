@@ -13,12 +13,10 @@ import javafx.geometry.Rectangle2D;
 import mapping.MapContainer;
 import sprites.*;
 import java.io.*;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 import quests.master.MasterQuests;
-import quests.Quest;
 import quests.trigger.Trigger;
 import static java.lang.Integer.parseInt;
 
@@ -28,6 +26,7 @@ import static java.lang.Integer.parseInt;
  * @author Matthew Gimbut
  *
  */
+@Deprecated
 public class MapParser {
 	
 	private  int currentHouses = 0;
@@ -628,37 +627,37 @@ public class MapParser {
 	private  Item parseItem(String[] info) {
 		Item item = null;
 		switch (info[1]) { //info[1] is the item type, 2 and 3 are x and y
-		case "sword":
-			item = new Sword(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
-					parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
-					parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
-					determineWeaponType(info[13]), info[14], info[15], info[16]);
-			break;
-		case "axe":
-            item = new Axe(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
-                    parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
-                    parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
-                    determineWeaponType(info[13]), info[14], info[15], info[16]);
-			break;
-		case "dagger":
-            item = new Dagger(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
-                    parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
-                    parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
-                    determineWeaponType(info[13]), info[14], info[15], info[16]);
-			break;
-		case "mace":
-            item = new Mace(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
-                    parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
-                    parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
-                    determineWeaponType(info[13]), info[14], info[15], info[16]);
-			break;
-		case "spear":
-            item = new Spear(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
-                    parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
-                    parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
-                    determineWeaponType(info[13]), info[14], info[15], info[16]);
-			break;
-		case "boots":
+			case "sword":
+				item = new Sword(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
+						parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
+						parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
+						determineWeaponType(info[13]), info[14], info[15], info[16]);
+				break;
+			case "axe":
+				item = new Axe(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
+						parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
+						parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
+						determineWeaponType(info[13]), info[14], info[15], info[16]);
+				break;
+			case "dagger":
+				item = new Dagger(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
+						parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
+						parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
+						determineWeaponType(info[13]), info[14], info[15], info[16]);
+				break;
+			case "mace":
+				item = new Mace(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
+						parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
+						parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
+						determineWeaponType(info[13]), info[14], info[15], info[16]);
+				break;
+			case "spear":
+				item = new Spear(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
+						parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
+						parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
+						determineWeaponType(info[13]), info[14], info[15], info[16]);
+				break;
+		/*case "boots":
             item = new Boots(parseInt(info[4]), parseInt(info[5]), parseInt(info[6]),
                     parseInt(info[7]), Double.parseDouble(info[8]), parseInt(info[9]),
                     parseInt(info[10]), parseInt(info[11]), determineRarity(info[12]),
@@ -703,8 +702,8 @@ public class MapParser {
 		case "random":
 			item = Item.generateRandomItem();
 			break;
-		}
-		return item;
+		}*/
+		}	return null;
 	}
 
     /**
@@ -717,7 +716,7 @@ public class MapParser {
 		sb.append("item|");
 		sb.append(determineItemTag(i));
         sb.append("0|0|").append(i.getAtk()).append(DELIMITER_STRING).append(i.getMagic()).append(DELIMITER_STRING).append(i.getDef())
-                .append(DELIMITER_STRING).append(i.getSpeedModifier()).append(DELIMITER_STRING).append(i.getWeight()).append(DELIMITER_STRING).append(i.getHpBoost())
+                .append(DELIMITER_STRING).append(i.getCooldown()).append(DELIMITER_STRING).append(i.getWeight()).append(DELIMITER_STRING).append(i.getHpBoost())
                 .append(DELIMITER_STRING).append(i.getManaBoost()).append(DELIMITER_STRING).append(i.getValue()).append(DELIMITER_STRING);
 		sb.append(determineRarityTag(i));
 
@@ -746,7 +745,7 @@ public class MapParser {
 		sb.append("item|");
 		sb.append(determineItemTag(i));
 		sb.append(di.getX()).append(DELIMITER_STRING).append(di.getY()).append(DELIMITER_STRING).append(i.getAtk()).append(DELIMITER_STRING)
-                .append(i.getMagic()).append(DELIMITER_STRING).append(i.getDef()).append(DELIMITER_STRING).append(i.getSpeedModifier())
+                .append(i.getMagic()).append(DELIMITER_STRING).append(i.getDef()).append(DELIMITER_STRING).append(i.getCooldown())
                 .append(DELIMITER_STRING).append(i.getWeight()).append(DELIMITER_STRING).append(i.getHpBoost()).append(DELIMITER_STRING)
                 .append(i.getManaBoost()).append(DELIMITER_STRING).append(i.getValue()).append(DELIMITER_STRING);
 		sb.append(determineRarityTag(i));

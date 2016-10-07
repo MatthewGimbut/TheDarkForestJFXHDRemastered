@@ -5,6 +5,7 @@ import gui.GameButton;
 import gui.GameLabel;
 import items.Armor.*;
 import items.Item;
+import items.Secondary;
 import items.Weapons.Weapon;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -63,7 +64,7 @@ public class EquipmentPane extends VBox {
         Legs legs = player.getLeggings();
         Gloves gloves = player.getGloves();
         Boots boots = player.getBoots();
-        Shield shield = player.getLeftHand();
+        Secondary secondary = player.getLeftHand();
         Weapon weapon = player.getWeaponHandR();
         //TODO When spells are added, add section for spell tome here
 
@@ -113,9 +114,9 @@ public class EquipmentPane extends VBox {
             center.getChildren().add(new ImageView(PLACEHOLDER_IMAGE));
         }
 
-        if(shield != null) {
-            ItemPane ip = new ItemPane(shield, player);
-            ip.setOnMouseClicked(new UnequipHandler(shield));
+        if(secondary != null) {
+            ItemPane ip = new ItemPane((Item) secondary, player);
+            ip.setOnMouseClicked(new UnequipHandler((Item) secondary));
             center.getChildren().add(ip);
         } else {
             center.getChildren().add(new ImageView(PLACEHOLDER_IMAGE));

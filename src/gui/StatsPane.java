@@ -1,6 +1,7 @@
 package gui;
 
 import characters.Player;
+import items.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -93,8 +94,8 @@ public class StatsPane extends BorderPane {
         }
 
         if(player.getLeftHand() != null) {
-            shieldImage.setImage(new Image(player.getLeftHand().getImageLocation()));
-            Tooltip.install(shieldImage, new Tooltip(player.getLeftHand().getItemToolTipText()));
+            shieldImage.setImage(new Image(((Item) player.getLeftHand()).getImageLocation()));
+            Tooltip.install(shieldImage, new Tooltip(((Item) player.getLeftHand()).getItemToolTipText()));
         }
 
         if(player.getHelmet() != null) {

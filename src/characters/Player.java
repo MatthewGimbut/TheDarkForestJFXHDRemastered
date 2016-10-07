@@ -4,6 +4,7 @@ import items.Armor.*;
 import items.Consumables.Consumable;
 import items.Consumables.Potion;
 import items.Item;
+import items.Secondary;
 import items.Weapons.Weapon;
 import main.Records;
 
@@ -31,7 +32,7 @@ public class Player extends Character {
     private int xp;
     private int gold;
     private Weapon weaponHandR;
-    private Shield leftHand;
+    private Secondary leftHand;
     private ChestPiece chestPiece;
     private Legs leggings;
     private Boots boots;
@@ -63,7 +64,7 @@ public class Player extends Character {
         return weaponHandR;
     }
 
-    public Shield getLeftHand() {
+    public Secondary getLeftHand() {
         return leftHand;
     }
 
@@ -94,10 +95,10 @@ public class Player extends Character {
      * @param i The item to unequip
      */
     public void unequip(Item i) {
-        if (i instanceof Weapon) {
-            weaponHandR = null;
-        } else if (i instanceof Shield) {
+        if (i instanceof Secondary) {
             leftHand = null;
+        } else if (i instanceof Weapon) {
+            weaponHandR = null;
         } else if (i instanceof Helmet) {
             helmet = null;
         } else if (i instanceof ChestPiece) {
@@ -178,16 +179,30 @@ public class Player extends Character {
                     unequipUpdateStats(leggings);
                     leggings = (Legs) a;
                 }
-            } else if(a instanceof Shield) {
+            } else if(a instanceof Secondary) {
                 if(leftHand == null) {
                     leftHand = (Shield) a;
                 } else {
-                    leftHand.setCurrentlyEquipped(false);
-                    unequipUpdateStats(leftHand);
+                    ((Item) leftHand).setCurrentlyEquipped(false);
+                    unequipUpdateStats((Item) leftHand);
                     leftHand = (Shield) a;
                 }
             }
             equipUpdateStats(a);
+        }
+    }
+
+    public void equip(Secondary s) {
+        if(!((Item) s).isCurrentlyEquipped()) {
+            ((Item) s).setCurrentlyEquipped(true);
+            if(leftHand == null) {
+                leftHand = s;
+            } else {
+                ((Item) leftHand).setCurrentlyEquipped(false);
+                unequipUpdateStats((Item) leftHand);
+                leftHand = s;
+            }
+            equipUpdateStats((Item) s);
         }
     }
 

@@ -16,9 +16,9 @@ public abstract class Armor extends Item {
 
 	private ArmorType armorType;
 	
-	public Armor(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
+	public Armor(int atk, int magic, int def, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
 		super((int) Math.round(atk * ArmorTypeMultiplier(armorType)), (int)Math.round(magic * ArmorTypeMultiplier(armorType)), 
-				(int) Math.round(def * ArmorTypeMultiplier(armorType)),	speedModifier, (int) Math.round(weight * ArmorTypeMultiplier(armorType)), hpBoost, 
+				(int) Math.round(def * ArmorTypeMultiplier(armorType)),	0, (int) Math.round(weight * ArmorTypeMultiplier(armorType)), hpBoost,
 				manaBoost, (int) Math.round(value * ArmorTypeMultiplier(armorType)), howRare);
 		this.armorType = armorType;
 	}
