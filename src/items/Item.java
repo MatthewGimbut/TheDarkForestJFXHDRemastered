@@ -18,7 +18,7 @@ import java.util.Random;
 public abstract class Item implements Serializable {
 
 	private static final long serialVersionUID = 3550233679832297833L;
-	private int atk;
+	protected int atk;
 	private int magic;
 	private int def;
 	private String imageLocation;
@@ -141,64 +141,47 @@ public abstract class Item implements Serializable {
 	 */
 	public static Item generateRandomItem() {
 		Random randy = new Random();
-		int randomItemNum = randy.nextInt(17);
+		int randomItemNum = randy.nextInt(19);
 		switch (randomItemNum) {
-		case 1:
-			return new Sword();
-		case 2: 
-			 return new Shield();
-		case 3: 
-			return new Boots();
-		case 4: 
-			return new ChestPiece();
-		case 5:
-			return new Gloves();
-		case 6: 
-			return new Helmet();
-		case 7: 
-			return new Legs();
-		case 8:
-			return new Shield();
-		case 9: 
-			return new Dagger();
-		case 10: 
-			return new Sword();
-		case 11: 
-			return new Axe();
-		case 12:
-			return new Mace();
-		case 13: 
-			return new Spear();
-		case 14: 
-			return new Potion(PotionType.Health, 75);
-		case 15:
-			return new SpellTome();
-		default:
-			return new Potion(PotionType.Health, 80);
-		}
-	}
-
-	public static SpellType getRandomSpellType() {
-		Random randy = new Random();
-		SpellType st = null;
-		switch(randy.nextInt(5)) {
-			case 0:
-				st = SpellType.Fire001;
-				break;
 			case 1:
-				st = SpellType.Ice001;
-				break;
+				return new Sword();
 			case 2:
-				st = SpellType.Earth001;
-				break;
+				 return new Shield();
 			case 3:
-				st = SpellType.Lightning001;
-				break;
+				return new Boots();
 			case 4:
-				st = SpellType.Water001;
-				break;
+				return new ChestPiece();
+			case 5:
+				return new Gloves();
+			case 6:
+				return new Helmet();
+			case 7:
+				return new Legs();
+			case 8:
+				return new Shield();
+			case 9:
+				return new Dagger();
+			case 10:
+				return new Sword();
+			case 11:
+				return new Axe();
+			case 12:
+				return new Mace();
+			case 13:
+				return new Spear();
+			case 14:
+				return new Potion(PotionType.Health, 75);
+			case 15:
+				return new SpellTome();
+			case 16:
+				return new SpellTome();
+			case 17:
+				return new Staff();
+			case 18:
+				return new Staff();
+			default:
+				return new Potion(PotionType.Health, 80);
 		}
-		return st;
 	}
 
 	/**

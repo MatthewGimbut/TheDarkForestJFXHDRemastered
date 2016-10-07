@@ -78,7 +78,7 @@ public abstract class Character implements Serializable {
 		this.def += i.getDef();
 		this.maxHP += i.getHpBoost();
 		this.maxMana += i.getManaBoost(); //TODO
-		this.speed -= i.getCooldown();
+		this.speed += i.getCooldown();
 	}
 	
 	
@@ -92,7 +92,7 @@ public abstract class Character implements Serializable {
 		this.def -= i.getDef();
 		this.maxHP -= i.getHpBoost();
 		this.maxMana -= i.getManaBoost(); 
-		this.speed += i.getCooldown();
+		this.speed -= i.getCooldown();
 	}
 	
 	/**
@@ -102,7 +102,6 @@ public abstract class Character implements Serializable {
 		this.lvl++;
 		//GameController.playSound(""); //TODO
 		Random r = new Random();
-		this.speed += r.nextInt(3);
 		this.atk += r.nextInt(2);
 		this.magic += r.nextInt(4); 
 		this.def += r.nextInt(2);

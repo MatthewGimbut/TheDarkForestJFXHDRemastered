@@ -182,4 +182,5 @@ public enum SpellType {
     public abstract SpellType[] getStrengths();
     public abstract SpellType[] getWeaknesses();
     public abstract String toString();
+
 }

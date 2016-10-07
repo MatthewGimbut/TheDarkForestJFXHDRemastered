@@ -12,10 +12,13 @@ import gui.quests.JournalPane;
 import gui.quests.NewQuestPane;
 import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
+import items.Weapons.Magic;
 import items.Weapons.SpellTome;
 import items.SpellType;
+import items.Weapons.Staff;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -48,13 +51,14 @@ public class GamePane extends StackPane {
     private MapContainer map;
     private String currentMapFile;
     private boolean hostile;
+    private boolean projectileOnCooldown;
     private MenuPane menu;
     private GraphicsContext gc;
     private Timeline t;
     private QuestSummary qs;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
-    private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 3;
+    private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
 
     public GamePane(Stage primaryStage) {
 
@@ -66,6 +70,8 @@ public class GamePane extends StackPane {
         this.getChildren().add(canvas);
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
+
+        projectileOnCooldown = false;
 
         gc = canvas.getGraphicsContext2D();
 
@@ -141,8 +147,14 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "K": //Magic attack
-                        if(player.getPlayer().getLeftHand() instanceof SpellTome) { ///TODO or player has staff equipped
-                            SpellType st = ((SpellTome) player.getPlayer().getLeftHand()).getSpellType();
+                        if(!projectileOnCooldown && (player.getPlayer().getLeftHand() instanceof Magic || player.getPlayer().getWeaponHandR() instanceof Magic)) { ///TODO or player has staff equipped
+                            projectileOnCooldown = true;
+                            SpellType st;
+                            if(player.getPlayer().getLeftHand() != null) {
+                                st = ((SpellTome) player.getPlayer().getLeftHand()).getSpellType();
+                            } else {
+                                st = ((Staff) player.getPlayer().getWeaponHandR()).getSpellType();
+                            }
                             switch (player.getImageLocation()) {
                                 case Player.FACING_NORTH:
                                     magicAttack(player.getX(), player.getY() - player.getHeight(),
@@ -161,12 +173,12 @@ public class GamePane extends StackPane {
                                             -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
                                     break;
                             }
+                            startProjectileCooldown(player.getPlayer().getSpeed());
                         }
                         break;
                     case "ESCAPE":
                         if(!engagedMinusMenu()) {
                             toggleMenuPane();
-                            System.out.println(":");
                         }
                         break;
                     case "I":
@@ -210,6 +222,25 @@ public class GamePane extends StackPane {
             }
         };
         animate.start();
+    }
+
+    private void startProjectileCooldown(int period) {
+        System.out.println(period);
+        PauseTransition delay = new PauseTransition(Duration.millis(period));
+        delay.setOnFinished(event -> {
+            projectileOnCooldown = false;
+            System.out.println("Cooldown cycle ended.");
+        });
+        delay.play();
+
+        /*Timeline t = new Timeline();
+        t.setRate(period + 1000);
+        t.setCycleCount(2);
+        t.setOnFinished(event -> {
+            projectileOnCooldown = false;
+            System.out.println("Cooldown cycle ended.");
+        });
+        t.playFromStart();*/
     }
 
     public void displayQuestSuccessPane(quests.Quest quest) {
@@ -315,7 +346,7 @@ public class GamePane extends StackPane {
      */
     private void projectileAttack(int x, int y, int dx, int dy) {
         if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
-            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\corna.png");
+            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\corn.png");
             interact.setVelocity(dx, dy);
             interact.setObstacle(false);
             interact.render(gc);

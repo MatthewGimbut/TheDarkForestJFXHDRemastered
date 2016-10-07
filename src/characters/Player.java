@@ -5,6 +5,7 @@ import items.Consumables.Consumable;
 import items.Consumables.Potion;
 import items.Item;
 import items.Secondary;
+import items.TwoHanded;
 import items.Weapons.Weapon;
 import main.Records;
 
@@ -107,7 +108,7 @@ public class Player extends Character {
             leggings = null;
         } else if (i instanceof Gloves) {
             gloves = null;
-        } else{
+        } else {
             boots = null;
         }
         i.setCurrentlyEquipped(false);
@@ -120,15 +121,31 @@ public class Player extends Character {
      */
     public void equip(Weapon w) {
         if(!w.isCurrentlyEquipped()) {
-            if(this.weaponHandR == null) {
+            if(!(w instanceof TwoHanded)) { //One handed weapons
+                if(this.weaponHandR == null) {
+                    weaponHandR = w;
+                } else {
+                    unequipUpdateStats(this.weaponHandR);
+                    this.weaponHandR.setCurrentlyEquipped(false);
+                    weaponHandR = w;
+                }
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
+            } else { //Two handed weapons
+                if(leftHand != null) {
+                    unequipUpdateStats((Item) leftHand);
+                    ((Item) leftHand).setCurrentlyEquipped(false);
+                    leftHand = null;
+                }
+                if(this.weaponHandR != null) {
+                    unequipUpdateStats(weaponHandR);
+                    weaponHandR.setCurrentlyEquipped(false);
+                    weaponHandR = null;
+                }
                 weaponHandR = w;
-            } else {
-                unequipUpdateStats(this.weaponHandR);
-                this.weaponHandR.setCurrentlyEquipped(false);
-                weaponHandR = w;
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
             }
-            w.setCurrentlyEquipped(true);
-            equipUpdateStats(w);
         }
     }
 
@@ -195,6 +212,11 @@ public class Player extends Character {
     public void equip(Secondary s) {
         if(!((Item) s).isCurrentlyEquipped()) {
             ((Item) s).setCurrentlyEquipped(true);
+            if(weaponHandR != null && weaponHandR instanceof TwoHanded) {
+             weaponHandR.setCurrentlyEquipped(false);
+                unequipUpdateStats(weaponHandR);
+                weaponHandR = null;
+            }
             if(leftHand == null) {
                 leftHand = s;
             } else {
