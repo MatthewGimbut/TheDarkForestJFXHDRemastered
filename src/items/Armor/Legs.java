@@ -4,7 +4,7 @@ import items.Item;
 import items.Rarity;
 
 /**
- * Legs armor class
+ * Legs Armor class
  * @author Matthew Gimbut
  *
  */

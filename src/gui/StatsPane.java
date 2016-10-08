@@ -2,6 +2,7 @@ package gui;
 
 import characters.Player;
 import items.Item;
+import items.TwoHanded;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -92,11 +93,11 @@ public class StatsPane extends BorderPane {
 
         if(player.getWeaponHandR() != null) {
             weaponImage.setImage(new Image(player.getWeaponHandR().getImageLocation()));
-            Tooltip.install(weaponImage, new Tooltip(player.getWeaponHandR().getItemToolTipText()));
+            Tooltip.install(weaponImage, new Tooltip(player.getWeaponHandR().getItemToolTipText())); //TODO Some sort of visual effect on the Secondary slot if using 2H
         }
 
         if(player.getLeftHand() != null) {
-            shieldImage.setImage(new Image(((Item) player.getLeftHand()).getImageLocation()));
+            shieldImage.setImage(new Image(((Item) player.getLeftHand()).getImageLocation())); //TODO Rename this to something more fitting in FXML
             Tooltip.install(shieldImage, new Tooltip(((Item) player.getLeftHand()).getItemToolTipText()));
         }
 
@@ -105,12 +106,10 @@ public class StatsPane extends BorderPane {
             Tooltip.install(helmetImage, new Tooltip(player.getHelmet().getItemToolTipText()));
         }
 
-        //TODO
-        /*
-               if(player.getSpellstuff){
-                do stuff
-               }
-         */
+        if(player.getAmmo() != null) {
+            spellImage.setImage(new Image(player.getAmmo().getImageLocation())); //TODO Rename this to something more fitting in FXML
+            Tooltip.install(spellImage, new Tooltip(player.getAmmo().getItemToolTipText()));
+        }
 
         if(player.getGloves() != null) {
             glovesImage.setImage(new Image(player.getGloves().getImageLocation()));

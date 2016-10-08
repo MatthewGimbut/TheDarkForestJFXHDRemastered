@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * Abstract superclass for armors.
- * Does all the math unique to armor types here, contains some useful
+ * Does all the math unique to Armor types here, contains some useful
  * static methods related to armors. 
  * @author Matthew
  *
@@ -28,7 +28,7 @@ public abstract class Armor extends Item {
 	}
 	
 	/**
-	 * Gets a random armor type from the ArmorType enumerator
+	 * Gets a random Armor type from the ArmorType enumerator
 	 * @return An ArmorType
 	 */
 	public static ArmorType getRandomArmorType() {
@@ -58,8 +58,8 @@ public abstract class Armor extends Item {
 	}
 	
 	/**
-	 * Gets the appropriate multiplier for a specific armor type
-	 * @param armor The armor type 
+	 * Gets the appropriate multiplier for a specific Armor type
+	 * @param armor The Armor type
 	 * @return A double containing the ArmorType multiplier
 	 */
 	public static double ArmorTypeMultiplier(ArmorType armor) {

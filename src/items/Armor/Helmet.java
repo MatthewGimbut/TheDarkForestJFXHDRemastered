@@ -4,7 +4,7 @@ import items.Item;
 import items.Rarity;
 
 /**
- * Helmet armor class
+ * Helmet Armor class
  * @author Matthew Gimbut
  *
  */

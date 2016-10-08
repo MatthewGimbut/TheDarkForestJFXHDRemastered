@@ -4,7 +4,7 @@ import items.Item;
 import items.Rarity;
 
 /**
- * Gloves armor class
+ * Gloves Armor class
  * @author Matthew Gimbut
  *
  */
@@ -44,7 +44,7 @@ public class Gloves extends Armor {
 	}
 
 	/**
-	 * Changes the name based on what type of armor it is.
+	 * Changes the name based on what type of Armor it is.
 	 * Steel gloves would be a bit uncomfortable
 	 * so I changed them to gauntlets.
 	 */

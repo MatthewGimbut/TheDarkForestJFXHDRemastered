@@ -236,21 +236,21 @@ public class InventoryPane extends BorderPane {
                 if (wepPages != 0) {
                     page.setText("Page " + currentWepPage + " of " + wepPages);
                 } else {
-                    page.setText("No weapons to display.");
+                    page.setText("No Weapons to display.");
                 }
                 break;
             case 2: //Armor tab
                 if (armorPages != 0) {
                     page.setText("Page " + currentArmorPage + " of " + armorPages);
                 } else {
-                    page.setText("No armor to display.");
+                    page.setText("No Armor to display.");
                 }
                 break;
             case 3: //Consumables tab
                 if (consumablePages != 0) {
                     page.setText("Page " + currentConsumablePage + " of " + consumablePages);
                 } else {
-                    page.setText("No consumables to display.");
+                    page.setText("No Consumables to display.");
                 }
                 break;
             case 4: //Miscellaneous tab
@@ -298,7 +298,7 @@ public class InventoryPane extends BorderPane {
             try {
                 weaponsPane.getChildren().add(initWeapon(weaponsList.get(i)));
             } catch (IndexOutOfBoundsException e) {
-                //weapons.add(new ItemPanel("placeholder"));
+                //Weapons.add(new ItemPanel("placeholder"));
             }
         }
     }
@@ -320,7 +320,7 @@ public class InventoryPane extends BorderPane {
             try {
                 consumablesPane.getChildren().add(initConsumable(consumableList.get(i)));
             } catch (IndexOutOfBoundsException e) {
-                //consumables.add(new ItemPanel());
+                //Consumables.add(new ItemPanel());
             }
         }
     }
@@ -340,7 +340,7 @@ public class InventoryPane extends BorderPane {
                     favoritesPane.getChildren().add(initMisc(it));
                 }
             } catch (IndexOutOfBoundsException e) {
-                //consumables.add(new ItemPanel());
+                //Consumables.add(new ItemPanel());
             }
         }
     }
@@ -370,13 +370,13 @@ public class InventoryPane extends BorderPane {
             favoritesPane.getChildren().add(new GameLabel("No favorites."));
         }
         if(weaponsList.size() == 0) {
-            weaponsPane.getChildren().add(new GameLabel("No weapons."));
+            weaponsPane.getChildren().add(new GameLabel("No Weapons."));
         }
         if(armorList.size() == 0) {
             armorPane.getChildren().add(new GameLabel("No armors."));
         }
         if(consumableList.size() == 0) {
-            consumablesPane.getChildren().add(new GameLabel("No consumables."));
+            consumablesPane.getChildren().add(new GameLabel("No Consumables."));
         }
         if(miscList.size() == 0) {
             miscPane.getChildren().add(new GameLabel("No miscellaneous items."));

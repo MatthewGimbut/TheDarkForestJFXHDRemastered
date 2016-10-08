@@ -171,7 +171,7 @@ public class JSONMapParser {
             writer.print("");
             writer.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            GameStage.logger.error(e);
         }
 
         try(BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
@@ -186,7 +186,7 @@ public class JSONMapParser {
             br.write(json);
         } catch (IOException e) {
             System.out.println("Error writing JSON!");
-            System.out.println(e.getMessage());
+            GameStage.logger.error(e);
         }
     }
 

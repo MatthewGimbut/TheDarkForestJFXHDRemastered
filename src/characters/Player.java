@@ -1,5 +1,6 @@
 package characters;
 
+import items.ammunition.Ammunition;
 import items.Armor.*;
 import items.Consumables.Consumable;
 import items.Consumables.Potion;
@@ -40,6 +41,7 @@ public class Player extends Character {
     private Gloves gloves;
     private Helmet helmet;
     private Records records;
+    private Ammunition ammo;
 
     private List<Quest> activeQuestsSer;
     private List<Quest> completeQuestsSer;
@@ -90,6 +92,10 @@ public class Player extends Character {
         return helmet;
     }
 
+    public Ammunition getAmmo() { return this.ammo; }
+
+    public void setAmmo(Ammunition ammo) { this.ammo = ammo; }
+
     /**
      * Unequips an item from the player.
      * Checks to see what type the item is and changes things accordingly.
@@ -98,6 +104,8 @@ public class Player extends Character {
     public void unequip(Item i) {
         if (i instanceof Secondary) {
             leftHand = null;
+        } else if (i instanceof Ammunition) {
+            ammo = null;
         } else if (i instanceof Weapon) {
             weaponHandR = null;
         } else if (i instanceof Helmet) {
@@ -108,7 +116,7 @@ public class Player extends Character {
             leggings = null;
         } else if (i instanceof Gloves) {
             gloves = null;
-        } else {
+        } else if (i instanceof Boots) {
             boots = null;
         }
         i.setCurrentlyEquipped(false);
@@ -116,22 +124,12 @@ public class Player extends Character {
     }
 
     /**
-     * Method to equip weapons
+     * Method to equip Weapons
      * @param w The weapon to equip
      */
     public void equip(Weapon w) {
         if(!w.isCurrentlyEquipped()) {
-            if(!(w instanceof TwoHanded)) { //One handed weapons
-                if(this.weaponHandR == null) {
-                    weaponHandR = w;
-                } else {
-                    unequipUpdateStats(this.weaponHandR);
-                    this.weaponHandR.setCurrentlyEquipped(false);
-                    weaponHandR = w;
-                }
-                w.setCurrentlyEquipped(true);
-                equipUpdateStats(w);
-            } else { //Two handed weapons
+            if(w instanceof TwoHanded) { //Two handed Weapons
                 if(leftHand != null) {
                     unequipUpdateStats((Item) leftHand);
                     ((Item) leftHand).setCurrentlyEquipped(false);
@@ -145,13 +143,33 @@ public class Player extends Character {
                 weaponHandR = w;
                 w.setCurrentlyEquipped(true);
                 equipUpdateStats(w);
+            } else if (w instanceof Ammunition) {
+                if(this.ammo == null) {
+                    ammo = (Ammunition) w;
+                } else {
+                    unequipUpdateStats(this.ammo);
+                    this.ammo.setCurrentlyEquipped(false);
+                    this.ammo = (Ammunition) w;
+                }
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
+            } else { //One handed Weapons
+                if(this.weaponHandR == null) {
+                    weaponHandR = w;
+                } else {
+                    unequipUpdateStats(this.weaponHandR);
+                    this.weaponHandR.setCurrentlyEquipped(false);
+                    weaponHandR = w;
+                }
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
             }
         }
     }
 
     /**
      * Method to equip armors
-     * @param a The armor to be equipped
+     * @param a The Armor to be equipped
      */
     public void equip(Armor a) {
         if(!a.isCurrentlyEquipped()) {

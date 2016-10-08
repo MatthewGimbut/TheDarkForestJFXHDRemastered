@@ -1,10 +1,8 @@
 package items.Weapons;
 
-import items.Item;
 import items.Rarity;
 import items.Secondary;
 import items.SpellType;
-import items.Weapons.Weapon;
 
 public class SpellTome extends Magic implements Secondary {
 
@@ -21,18 +19,36 @@ public class SpellTome extends Magic implements Secondary {
     public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod) {
         super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType);
         this.projectileSpeed = spellType.getBaseProjectileSpeed() + speedMod;
-        setInfo();
+        setInfo(null, null, null);
     }
+
+    public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod,
+                     String imgLoc, String name, String tooltip) {
+        super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType);
+        this.projectileSpeed = spellType.getBaseProjectileSpeed() + speedMod;
+        setInfo(imgLoc, name, tooltip);    }
 
     public SpellTome() {
-        super(0, 5, 200, 5.4, 10, 100, Item.randomRareness(), null, Magic.getRandomSpellType());
-        setInfo();
+        super(0, 5, 200, 5.4, 10, 100, randomRareness(), null, getRandomSpellType());
+        setInfo(null, null, null);
     }
 
-    private void setInfo() {
-        this.setImageLocation("file:Images\\Weapons\\bookbase.png");
-        this.setSimpleName(this.spellType + " tome");
-        this.setItemToolTipText("A " + this.spellType + " spell tome");
+    private void setInfo(String imgLoc, String name, String tooltip) {
+        if(imgLoc == null) {
+            this.setImageLocation("file:Images\\Weapons\\bookbase.png");
+        } else {
+            this.setImageLocation(imgLoc);
+        }
+        if(name == null) {
+            this.setSimpleName(this.spellType + " tome");
+        } else {
+            this.setSimpleName(name);
+        }
+        if(tooltip == null) {
+            this.setItemToolTipText("A " + this.spellType + " spell tome");
+        } else {
+            this.setItemToolTipText(tooltip);
+        }
         this.atk = 0;
     }
 }

@@ -1,10 +1,11 @@
 package items;
 
+import items.ammunition.Arrow;
+import items.ammunition.Bolt;
 import items.Armor.*;
 import items.Consumables.Potion;
 import items.Consumables.PotionType;
 import items.Weapons.*;
-import items.Weapons.SpellTome;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -141,7 +142,7 @@ public abstract class Item implements Serializable {
 	 */
 	public static Item generateRandomItem() {
 		Random randy = new Random();
-		int randomItemNum = randy.nextInt(19);
+		int randomItemNum = randy.nextInt(23);
 		switch (randomItemNum) {
 			case 1:
 				return new Sword();
@@ -179,6 +180,14 @@ public abstract class Item implements Serializable {
 				return new Staff();
 			case 18:
 				return new Staff();
+			case 19:
+				return new Bow();
+			case 20:
+				return new Crossbow();
+			case 21:
+				return new Bolt();
+			case 22:
+				return new Arrow();
 			default:
 				return new Potion(PotionType.Health, 80);
 		}

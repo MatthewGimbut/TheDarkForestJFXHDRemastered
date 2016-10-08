@@ -85,7 +85,7 @@ public class GameStage extends Application {
         return MALE_FIRST_NAMES[r.nextInt(45)] + " " + LAST_NAMES[r.nextInt(45)];
     }
 
-    public static int getRandomSpeed() {
+    public static int getRandom() {
         return rand.nextInt(50);
     }
 

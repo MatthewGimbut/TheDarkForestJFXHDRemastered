@@ -74,7 +74,7 @@ public class MainMenuPane extends AnchorPane {
                MapContainer map = new MapContainer(gp.getMainPlayerSprite(), (String) newMap.get(1));
                 gp.setMapContainer(map);
             } catch (Exception e) {
-                e.printStackTrace();
+                GameStage.logger.error(e);
             }
             gp.setId((String) newMap.get(2));
 

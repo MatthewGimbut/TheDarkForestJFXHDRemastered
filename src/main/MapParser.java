@@ -233,13 +233,13 @@ public class MapParser {
 			}
 		} catch(NullPointerException e) {
 			System.out.println("Something not initialized in map at line " + lineCounter + "!");
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Array index error in map at line " + lineCounter + "! Are you missing a portion of the .map file?");
-            e.printStackTrace();
+            GameStage.logger.error(e);
 		} catch(Exception e) {
 			System.out.println("Map error occurred at line " + lineCounter + "! Check for typos in the current .map file!" + mapLocation);
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		}
 		return objects;
 	}
@@ -373,7 +373,7 @@ public class MapParser {
 			writer.print("");
 			writer.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		}
 
 		try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(f, true), "ISO-8859-1")) {
@@ -443,7 +443,7 @@ public class MapParser {
 				}
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		}
     }
 
@@ -616,7 +616,7 @@ public class MapParser {
 	 * Separate method for parsing items because this could get messy kids.
      * info[4] is atk, info[5] is magic, info[6] is def, info[7] is speedmod, info[8] is weight,
      * info[9] is hpboost, info[10] is manaboost, info[11] is value, info[12] is rarity,
-     * info[13] is weapon/armor type, info[14] is image location, info[15] is the item's name,
+     * info[13] is weapon/Armor type, info[14] is image location, info[15] is the item's name,
      * info[16] is the item tooltop.
      * Or they're all null. Who the fuck knows.
 	 * info[2] and [3] will not matter if it is parsing an item to be placed into a chest.
@@ -764,8 +764,8 @@ public class MapParser {
 	}
 
     /**
-     * Determines the armor tag for the map file based on armor type
-     * @param a The armor being checked
+     * Determines the Armor tag for the map file based on Armor type
+     * @param a The Armor being checked
      * @return The tag to be written to the map file
      */
 	private  String determineArmorTag(Armor a) {
@@ -913,7 +913,7 @@ public class MapParser {
     }
 
     /**
-     * Determines the armor type for the object based on armor tag
+     * Determines the Armor type for the object based on Armor tag
      * @param armorType The type being checked
      * @return The tag to be written to the object
      */

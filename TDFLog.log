@@ -14,3 +14,27 @@
 2016-10-07 21:15:59.940 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 39123723935764
 2016-10-07 21:20:24.212 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 39387995289892
 2016-10-07 23:50:22.298 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 48386081373178
+2016-10-08 00:04:09.468 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 49213251283145
+2016-10-08 00:04:31.760 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 49235542636577
+2016-10-08 00:04:33.959 [JavaFX Application Thread] ERROR main.GameStage - Location is not set.
+2016-10-08 00:04:33.960 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalStateException: Location is not set.
+2016-10-08 00:18:24.041 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 50067823673942
+2016-10-08 00:41:30.956 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 51454739246903
+2016-10-08 00:41:32.127 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonParseException: java.lang.ClassNotFoundException: items.Weapons.Sword
+2016-10-08 00:41:32.171 [JavaFX Application Thread] ERROR main.GameStage - java.lang.ClassNotFoundException: items.Weapons.Staff
+2016-10-08 00:42:05.530 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 51489313752406
+2016-10-08 01:49:05.285 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55509068856680
+2016-10-08 01:50:09.196 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55572978803786
+2016-10-08 01:50:10.421 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonParseException: java.lang.ClassNotFoundException: items.Armor.Shield
+2016-10-08 01:50:52.567 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55616349643604
+2016-10-08 01:55:40.407 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55904189906930
+2016-10-08 01:58:45.745 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56089528385131
+2016-10-08 02:02:42.148 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56325931308914
+2016-10-08 02:04:42.478 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56446261124954
+2016-10-08 02:08:52.722 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56696502870271
+2016-10-08 02:12:50.843 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56934625471734
+2016-10-08 02:13:01.360 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56945143427573
+2016-10-08 02:21:49.935 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57473716338562
+2016-10-08 02:24:01.077 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57604859605221
+2016-10-08 02:24:48.780 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57652562938399
+2016-10-08 02:25:12.111 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57675894197694

@@ -19,7 +19,7 @@
             <Color blue="1.000" green="1.000" opacity="0.000" red="1.000" fx:id="x1" />
           </fill>
         </Rectangle>
-        <Label layoutX="25.0" layoutY="14.0" text="Weapon" textAlignment="CENTER" />
+        <Label layoutX="25.0" layoutY="14.0" text="Primary" textAlignment="CENTER" />
         <ImageView fx:id="weaponImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
@@ -45,7 +45,7 @@
     <AnchorPane layoutX="14.0" layoutY="14.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
       <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-        <Label layoutX="17.0" layoutY="14.0" text="Spell Tome" textAlignment="CENTER" />
+        <Label layoutX="12.0" layoutY="14.0" text="Ammunition" textAlignment="CENTER" />
         <ImageView id="weaponImage" fx:id="spellImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>

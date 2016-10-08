@@ -13,9 +13,11 @@ import gui.quests.NewQuestPane;
 import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
 import items.Weapons.Magic;
+import items.Weapons.Projectile;
 import items.Weapons.SpellTome;
 import items.SpellType;
 import items.Weapons.Staff;
+import items.ammunition.OutOfAmmoException;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
@@ -38,8 +40,6 @@ import javafx.scene.layout.BorderPane;
 import java.util.Iterator;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.stream.Collectors;
 
 public class GamePane extends StackPane {
@@ -133,19 +133,32 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "L": //Projectile attack for demo purposes until they are added to player
-                        switch (player.getImageLocation()) {
-                            case Player.FACING_NORTH:
-                                projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -5);
-                                break;
-                            case Player.FACING_SOUTH:
-                                projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 5);
-                                break;
-                            case Player.FACING_EAST:
-                                projectileAttack(player.getX() + player.getWidth(), player.getY(), 5, 0);
-                                break;
-                            case Player.FACING_WEST:
-                                projectileAttack(player.getX() - player.getWidth(), player.getY(), -5, 0);
-                                break;
+                        if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null && player.getPlayer().getWeaponHandR() instanceof Projectile)) {
+                            projectileOnCooldown = true;
+                            String img = null;
+                            try {
+                                player.getPlayer().getAmmo().decrementAmmoCount();
+                                img = player.getPlayer().getAmmo().getImageLocation();
+                            } catch (NullPointerException e) {
+                                System.out.println("Player has no ammo equipped!");
+                            } catch (OutOfAmmoException e1) {
+                                System.out.println(e1.getMessage());
+                            }
+                            switch (player.getImageLocation()) {
+                                case Player.FACING_NORTH:
+                                    projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -5, img);
+                                    break;
+                                case Player.FACING_SOUTH:
+                                    projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 5, img);
+                                    break;
+                                case Player.FACING_EAST:
+                                    projectileAttack(player.getX() + player.getWidth(), player.getY(), 5, 0, img);
+                                    break;
+                                case Player.FACING_WEST:
+                                    projectileAttack(player.getX() - player.getWidth(), player.getY(), -5, 0, img);
+                                    break;
+                            }
+                            startCooldown(player.getPlayer().getSpeed());
                         }
                         break;
                     case "K": //Magic attack
@@ -159,19 +172,19 @@ public class GamePane extends StackPane {
                             }
                             switch (player.getImageLocation()) {
                                 case Player.FACING_NORTH:
-                                    magicAttack(player.getX(), player.getY() - player.getHeight(),
+                                    projectileAttack(player.getX(), player.getY() - player.getHeight(),
                                             0, -st.getBaseProjectileSpeed(), st.northCastImageLocation());
                                     break;
                                 case Player.FACING_SOUTH:
-                                    magicAttack(player.getX(), player.getY() + player.getHeight(),
+                                    projectileAttack(player.getX(), player.getY() + player.getHeight(),
                                             0, st.getBaseProjectileSpeed(), st.southCastImageLocation());
                                     break;
                                 case Player.FACING_EAST:
-                                    magicAttack(player.getX() + player.getWidth(), player.getY(),
+                                    projectileAttack(player.getX() + player.getWidth(), player.getY(),
                                             st.getBaseProjectileSpeed(), 0, st.eastCastImageLocation());
                                     break;
                                 case Player.FACING_WEST:
-                                    magicAttack(player.getX() - player.getWidth(), player.getY(),
+                                    projectileAttack(player.getX() - player.getWidth(), player.getY(),
                                             -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
                                     break;
                             }
@@ -336,30 +349,10 @@ public class GamePane extends StackPane {
      * @param dx x speed of the projectile
      * @param dy y speed of the projectile
      */
-    private void projectileAttack(int x, int y, int dx, int dy) {
-        if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
-            Sprite interact = new Sprite(x, y, "file:Images\\Weapons\\Spells\\corn.png");
-            interact.setVelocity(dx, dy);
-            interact.setObstacle(false);
-            interact.render(gc);
-            playerProjectiles.add(interact);
-        } else {
-            System.out.println("Max playerProjectiles");
+    private void projectileAttack(int x, int y, int dx, int dy, String imageLoc) {
+        if(imageLoc == null) {
+            imageLoc = "file:Images\\Weapons\\Spells\\corn.png";
         }
-    }
-
-    /**
-     * Method for determining magic attack interactions.
-     * Slightly modified projectile attack for testing. In the future, change so this isn't repeated code? //TODO
-     * Creates an invisible Rectangle2D for hitbox detection.
-     * Creates a visible sprite to represent the projectile.
-     * If the Rectangle2D collides with an enemy damage is done.
-     * @param x Initial x coordinate of the projectile
-     * @param y Initial y coordinate of the projectile
-     * @param dx x speed of the projectile
-     * @param dy y speed of the projectile
-     */
-    private void magicAttack(int x, int y, int dx, int dy, String imageLoc) {
         if(playerProjectiles.size() <= MAX_PLAYER_PROJECTILES_ON_SCREEN - 1) {
             Sprite interact = new Sprite(x, y, imageLoc);
             interact.setVelocity(dx, dy);
@@ -465,17 +458,6 @@ public class GamePane extends StackPane {
         player.setDy(0);
         if(player.getPlayer().addItem(item.getItem())) {
             displayMessagePane("You have picked up a " + item.getItem().getSimpleName() + ".");
-
-            //Below segment is commented out for testing reasons.
-            //It works perfectly, but I don't want items being removed from file while testing.
-
-		/*try {
-			MapParser.removeItem("item", currentMapFile, item.getX(), item.getY());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
             return true;
         } else {
             displayMessagePane("You don't currently have the inventory space to carry that!");
@@ -530,7 +512,7 @@ public class GamePane extends StackPane {
             setCurrentMapFile(mapLoc);
         }
         catch(Exception e) {
-            e.printStackTrace();
+            GameStage.logger.error(e);
         }
     }
 
@@ -595,7 +577,7 @@ public class GamePane extends StackPane {
                             ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.json");
                         } catch (Exception e) {
                             System.out.println("Failed to generate random map.");
-                            e.printStackTrace();
+                            GameStage.logger.error(e);
                         }
                     } else {
                         updateMapItems((Exit) obstacle);	//Moves the player to the next area if they move on an exit.

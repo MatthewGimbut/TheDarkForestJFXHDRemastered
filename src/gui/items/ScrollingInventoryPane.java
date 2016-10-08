@@ -7,6 +7,7 @@ import items.Consumables.Consumable;
 import items.Item;
 import items.Secondary;
 import items.Weapons.Weapon;
+import items.ammunition.Ammunition;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,7 +25,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import main.GameStage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -103,7 +103,7 @@ public class ScrollingInventoryPane extends BorderPane {
 
         try {
             fxmlLoader.load();
-        } catch (IOException exception) {
+        } catch (Exception exception) {
             GameStage.logger.error(exception.getMessage());
             GameStage.logger.error(exception);
         }
@@ -302,6 +302,9 @@ public class ScrollingInventoryPane extends BorderPane {
                         player.unequip(itemPane.getItem());
                         drawColors(wepLabels);
                         drawColors(armorLabels);
+                    } else if (itemPane.getItem() instanceof Ammunition) {
+                        player.unequip(itemPane.getItem());
+                        drawColors(wepLabels);
                     } else if (itemPane.getItem() instanceof Armor) {
                         player.unequip(itemPane.getItem());
                         GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
@@ -321,6 +324,11 @@ public class ScrollingInventoryPane extends BorderPane {
                         info.setText("Equipped " + itemPane.getItem().getSimpleName() + ".");
                         drawColors(wepLabels);
                         drawColors(armorLabels);
+                    } else if (itemPane.getItem() instanceof Ammunition) {
+                        player.equip((Ammunition) itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(wepLabels);
+                        info.setText("Equipped " + itemPane.getItem().getSimpleName() + ". ");
                     } else if (itemPane.getItem() instanceof Armor) {
                         player.equip((Armor) itemPane.getItem());
                         GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
@@ -348,12 +356,10 @@ public class ScrollingInventoryPane extends BorderPane {
                     if(itemPane.getItem() instanceof Armor) {
                         armorScroll.setContent(drawArmors());
                         drawColors(armorLabels);
-                    }
-                    else if(itemPane.getItem() instanceof Weapon) {
+                    } else if(itemPane.getItem() instanceof Weapon) {
                         weaponsScroll.setContent(drawWeapons());
                         drawColors(wepLabels);
-                    }
-                    else if(itemPane.getItem() instanceof Consumable) {
+                    } else if(itemPane.getItem() instanceof Consumable) {
                         consumablesScroll.setContent(drawConsumables());
                         drawColors(consumableLabels);
                     }

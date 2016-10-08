@@ -5,7 +5,7 @@ import items.Rarity;
 import items.Secondary;
 
 /**
- * Shield armor class
+ * Shield Armor class
  * @author Matthew Gimbut
  *
  */

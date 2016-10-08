@@ -5,7 +5,7 @@ import items.SpellType;
 
 import java.util.Random;
 
-public abstract class Magic extends Weapon {
+public abstract class Magic extends Weapon implements Projectile{
 
     protected SpellType spellType;
     protected int projectileSpeed;
