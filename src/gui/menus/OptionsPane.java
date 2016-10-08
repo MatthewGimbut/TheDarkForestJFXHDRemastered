@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.*;
+import main.GameStage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +42,8 @@ public class OptionsPane extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 

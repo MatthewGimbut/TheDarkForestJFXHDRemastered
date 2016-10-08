@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import main.GameStage;
 import sprites.Lootable;
 
 import java.io.IOException;
@@ -41,7 +42,8 @@ public class LootPane extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 

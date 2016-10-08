@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
+import main.GameStage;
 import quests.Quest;
 import quests.QuestHandler;
 
@@ -48,9 +49,9 @@ public class JournalPane extends BorderPane {
 
         try {
             fxmlLoader.load();
-        } catch (IOException exception)
-        {
-            throw new RuntimeException(exception);
+        } catch (IOException exception) {
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 

@@ -104,7 +104,8 @@ public class ScrollingInventoryPane extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 

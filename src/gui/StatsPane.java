@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import main.GameStage;
 import sprites.PlayerSprite;
 
 import java.io.IOException;
@@ -60,7 +61,8 @@ public class StatsPane extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 

@@ -10,6 +10,8 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Paths;
 import java.util.Random;
@@ -39,6 +41,7 @@ public class GameStage extends Application {
 
     public static GamePane gamePane;
 
+    public static final Logger logger = LogManager.getLogger(GameStage.class);
 
     public static void setGamePane(GamePane gamePane) {
         GameStage.gamePane = gamePane;
@@ -73,7 +76,7 @@ public class GameStage extends Application {
         Image icon = new Image("file:Images\\SaveArea.png");
         primaryStage.getIcons().add(icon);
 
-
+        logger.debug("Logger successfully launched at " + System.nanoTime());
         primaryStage.show();
     }
 

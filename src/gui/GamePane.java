@@ -38,6 +38,8 @@ import javafx.scene.layout.BorderPane;
 import java.util.Iterator;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.stream.Collectors;
 
 public class GamePane extends StackPane {
@@ -147,7 +149,7 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "K": //Magic attack
-                        if(!projectileOnCooldown && (player.getPlayer().getLeftHand() instanceof Magic || player.getPlayer().getWeaponHandR() instanceof Magic)) { ///TODO or player has staff equipped
+                        if(!projectileOnCooldown && (player.getPlayer().getLeftHand() instanceof Magic || player.getPlayer().getWeaponHandR() instanceof Magic)) {
                             projectileOnCooldown = true;
                             SpellType st;
                             if(player.getPlayer().getLeftHand() != null) {
@@ -173,7 +175,7 @@ public class GamePane extends StackPane {
                                             -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
                                     break;
                             }
-                            startProjectileCooldown(player.getPlayer().getSpeed());
+                            startCooldown(player.getPlayer().getSpeed());
                         }
                         break;
                     case "ESCAPE":
@@ -224,23 +226,13 @@ public class GamePane extends StackPane {
         animate.start();
     }
 
-    private void startProjectileCooldown(int period) {
+    private void startCooldown(int period) {
         System.out.println(period);
         PauseTransition delay = new PauseTransition(Duration.millis(period));
         delay.setOnFinished(event -> {
             projectileOnCooldown = false;
-            System.out.println("Cooldown cycle ended.");
         });
         delay.play();
-
-        /*Timeline t = new Timeline();
-        t.setRate(period + 1000);
-        t.setCycleCount(2);
-        t.setOnFinished(event -> {
-            projectileOnCooldown = false;
-            System.out.println("Cooldown cycle ended.");
-        });
-        t.playFromStart();*/
     }
 
     public void displayQuestSuccessPane(quests.Quest quest) {
@@ -285,7 +277,7 @@ public class GamePane extends StackPane {
                 .collect(Collectors.toList());
 
         for(int i = 0; i < items.size() && !found; i++) {
-            if (interact.getBounds().intersects(items.get(i).getBounds())) {
+            if (interact.getBounds().intersects(items.get(i).getBounds()) && !(items.get(i) instanceof GenericObstacle)) {
                 found = true;
                 if (items.get(i) instanceof Lootable) {
                     displayLootPane(((Lootable) items.get(i)));
