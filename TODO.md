@@ -6,11 +6,11 @@
    - [ ] 'J' Physical Attack
       - [x] Spawn Insivible Hitbox of specific range (field in weapon)
       - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
-      - [ ] Put rate of fire cap on (weapon speed?)
+      - [x] Put rate of fire cap on (weapon speed?)
       - [x] If hitbox collides with an active enemy, do damage (battle handler)
          - [x] Normal weapons
          - [x] Projectiles
-   - [ ] 'K' Magic Attack
+   - [x] 'K' Magic Attack
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
 - [ ] Battle Handler Class + functionality
@@ -19,12 +19,12 @@
 - [ ] Put range field in for weapons
 - [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
 - [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
-- [ ] Max rate of fire (attack) field.
-- [ ] Add Spell Tome as a weapon type (but have it take up left hand slot, alternative to shield?)
-- [ ] Add different elemental spells depending on equipped spell tome
+- [x] Max rate of fire (attack) field.
+- [x] Add Spell Tome as a weapon type (but have it take up left hand slot, alternative to shield?)
+- [x] Add different elemental spells depending on equipped spell tome
 
 # Attacks
-- [ ] Finish developing magic attacks
+- [x] Finish developing magic attacks
 - [ ] Put in special attacks?
 
 # Character Info Screen
@@ -33,7 +33,7 @@
 - [ ] Continue to organize and format the screen
 
 # Inventory Screen
-- [ ] Add "all" tab
+- [x] Add "all" tab
 - [x] Add favorites
 - [ ] Ability to sort items
 - [ ] Add magic tab
