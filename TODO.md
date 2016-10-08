@@ -17,7 +17,7 @@
 
 # Weapons
 - [ ] Put range field in for weapons
-- [ ] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
+- [x] Create projectile weapons (and ammo for them), with a specified projectile speed (attached to ammo)
 - [ ] When a new weapon is equipped if it is not a projectile weapon then call GamePane.despawnPlayerProjectiles() (this will keep the player from shooting a projectile then switching weapons and it staying on screen. Add this in after projectile weapons are added to the game
 - [x] Max rate of fire (attack) field.
 - [x] Add Spell Tome as a weapon type (but have it take up left hand slot, alternative to shield?)
@@ -70,10 +70,10 @@
 - [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?)
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
 - [ ] Have player health and mana bars displayed on screen
-- [ ] Edit StatsPane for more fitting names
+- [x] Edit StatsPane for more fitting names
 - [ ] Create basic art for bows, arrows
 - [ ] Directional arrows/bolts images
-- [ ] Have each projectile have a modifier to change base speed depending on type?
+- [x] Have each projectile have a modifier to change base speed depending on type?
 
 # Known bugs
 - [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
