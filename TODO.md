@@ -36,7 +36,6 @@
 - [x] Add "all" tab
 - [x] Add favorites
 - [ ] Ability to sort items
-- [ ] Add magic tab
 - [ ] Add way to drop items
 
 # Map Builder/System
@@ -71,6 +70,10 @@
 - [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?)
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
 - [ ] Have player health and mana bars displayed on screen
+- [ ] Edit StatsPane for more fitting names
+- [ ] Create basic art for bows, arrows
+- [ ] Directional arrows/bolts images
+- [ ] Have each projectile have a modifier to change base speed depending on type?
 
 # Known bugs
 - [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
