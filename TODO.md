@@ -5,7 +5,7 @@
 - [ ] Attacking
    - [ ] 'J' Physical Attack
       - [x] Spawn Insivible Hitbox of specific range (field in weapon)
-      - [ ] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
+      - [x] Projectile do the same but that moves with a specified speed, only spawn a projectile weapon if it has ammo
       - [x] Put rate of fire cap on (weapon speed?)
       - [x] If hitbox collides with an active enemy, do damage (battle handler)
          - [x] Normal weapons
@@ -48,7 +48,7 @@
 
 # Save System
 - [ ] Make temporary files to store map changes, overwrite old map files on save
-- [ ] Update SerialVersionUIDs
+- [x] Update SerialVersionUIDs
 - [ ] Test Serializing for Quests
 
 # Crafting System
@@ -71,8 +71,8 @@
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
 - [ ] Have player health and mana bars displayed on screen
 - [x] Edit StatsPane for more fitting names
-- [ ] Create basic art for bows, arrows
-- [ ] Directional arrows/bolts images
+- [x] Create basic art for bows, arrows
+- [x] Directional arrows/bolts images
 - [x] Have each projectile have a modifier to change base speed depending on type?
 
 # Known bugs
