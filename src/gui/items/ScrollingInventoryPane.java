@@ -6,6 +6,7 @@ import items.Armor.Armor;
 import items.Consumables.Consumable;
 import items.Item;
 import items.Secondary;
+import items.Weapons.Projectile;
 import items.Weapons.Weapon;
 import items.ammunition.Ammunition;
 import javafx.event.Event;
@@ -62,6 +63,8 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private Label stat4;
     @FXML private Label stat5;
     @FXML private Label stat6;
+    @FXML private Label stat7;
+    @FXML private Label stat8;
     @FXML private Label title;
     @FXML private ScrollPane weaponsScroll;
     @FXML private Tab weaponsTab;
@@ -260,6 +263,25 @@ public class ScrollingInventoryPane extends BorderPane {
         });
     }
 
+    private Color determineNameColor(Item i) {
+        switch(i.getHowRare()) {
+            case JUNK:
+                return Color.GRAY;
+            case COMMON:
+                return Color.BLACK;
+            case UNCOMMON:
+                return Color.GREEN;
+            case RARE:
+                return Color.BLUE;
+            case VERY_RARE:
+                return Color.MAGENTA;
+            case LEGENDARY:
+                return Color.ORANGE;
+            default:
+                return Color.BLACK;
+        }
+    }
+
 
     private class ItemDisplayHandler implements EventHandler {
 
@@ -273,12 +295,20 @@ public class ScrollingInventoryPane extends BorderPane {
         public void handle(Event event) {
             itemName.setText(label.getItem().getSimpleName());
             itemImage.setImage(label.getItemImage());
+            itemName.setTextFill(determineNameColor(label.getItem()));
             stat1.setText("Atk: " + label.getItem().getAtk());
             stat2.setText("Def: " + label.getItem().getDef());
-            stat3.setText("Spd: -" + label.getItem().getCooldown());
+            stat3.setText("CD: " + label.getItem().getCooldown());
             stat4.setText("Weight: " + label.getItem().getWeight());
             stat5.setText("Magic: " + label.getItem().getMagic());
             stat6.setText("HP: +" + label.getItem().getHpBoost());
+            stat7.setText("Gold: " + label.getItem().getValue());
+            if(label.getItem() instanceof Projectile) {
+                stat8.setText("Projectile speed: " + ((Projectile) label.getItem()).getProjectileSpeed());
+            } else {
+                stat8.setText("");
+            }
+
             itemMessage.setText(label.getItem().getItemToolTipText());
             Tooltip tp = new Tooltip(label.getItem().getItemToolTipText());
             tp.setOpacity(.85);
@@ -350,6 +380,7 @@ public class ScrollingInventoryPane extends BorderPane {
                 }
                 drawColors(allLabels);
                 if (itemPane.getItem().isFavorite()) drawColors(favLabels);
+                currentView.despawnPlayerProjectiles();
             } else if(event.getButton() == MouseButton.SECONDARY){ //Right Click
                 if(itemPane.getItem().isFavorite()) {
                     itemPane.getItem().setFavorite(false);

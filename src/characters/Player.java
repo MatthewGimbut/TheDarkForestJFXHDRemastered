@@ -1,5 +1,6 @@
 package characters;
 
+import items.Weapons.Staff;
 import items.ammunition.Ammunition;
 import items.Armor.*;
 import items.Consumables.Consumable;
@@ -8,6 +9,7 @@ import items.Item;
 import items.Secondary;
 import items.TwoHanded;
 import items.Weapons.Weapon;
+import items.ammunition.Stackable;
 import main.Records;
 
 import quests.Quest;
@@ -104,23 +106,29 @@ public class Player extends Character {
     public void unequip(Item i) {
         if (i instanceof Secondary) {
             leftHand = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Ammunition) {
             ammo = null;
         } else if (i instanceof Weapon) {
             weaponHandR = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Helmet) {
             helmet = null;
+            unequipUpdateStats(i);
         } else if (i instanceof ChestPiece) {
             chestPiece = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Legs) {
             leggings = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Gloves) {
             gloves = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Boots) {
             boots = null;
+            unequipUpdateStats(i);
         }
         i.setCurrentlyEquipped(false);
-        unequipUpdateStats(i);
     }
 
     /**
@@ -147,12 +155,11 @@ public class Player extends Character {
                 if(this.ammo == null) {
                     ammo = (Ammunition) w;
                 } else {
-                    unequipUpdateStats(this.ammo);
                     this.ammo.setCurrentlyEquipped(false);
+                    unequip(this.ammo);
                     this.ammo = (Ammunition) w;
                 }
                 w.setCurrentlyEquipped(true);
-                equipUpdateStats(w);
             } else { //One handed Weapons
                 if(this.weaponHandR == null) {
                     weaponHandR = w;
@@ -261,8 +268,30 @@ public class Player extends Character {
      */
     public boolean addItem(Item i) {
         if (i.getWeight() <= (getCarryCap() - getCurrentCarry())) {
+            if(i instanceof Stackable) {
+                boolean stacked = false;
+                for(int k = 0; k < inventory.size() && !stacked; k++) {
+                    Item current = inventory.get(k);
+                    if(current instanceof Stackable) {
+                        if(current instanceof Ammunition && i instanceof Ammunition
+                                && current.getClass().equals(i.getClass())
+                                && current.getHowRare().equals(i.getHowRare())
+                                && ((Ammunition) current).getWeaponType().equals(((Ammunition) i).getWeaponType())) {
+                            System.out.println("Previous: " + ((Ammunition) current).getCount());
+                            ((Ammunition) current).combine((Stackable) i);
+                            System.out.println("After: " + ((Ammunition) current).getCount());
+                            stacked = true;
+                        }
+                    }
+
+                }
+                if(!stacked) {
+                    this.inventory.add(i);
+                }
+            } else {
+                this.inventory.add(i);
+            }
             this.modifyCurrentCarry(i.getWeight());
-            this.inventory.add(i);
             return true;
         }
         else {

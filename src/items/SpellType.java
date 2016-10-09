@@ -28,6 +28,7 @@ public enum SpellType {
         public String toString() {
             return "Fire";
         }
+        public double getCooldownModifier() { return 1.1; }
     },
 
     Water001 {
@@ -53,6 +54,7 @@ public enum SpellType {
         public String toString() {
             return "Water";
         }
+        public double getCooldownModifier() { return 0.9; }
     },
 
     Ice001 {
@@ -80,6 +82,7 @@ public enum SpellType {
         public String toString() {
             return "Ice";
         }
+        public double getCooldownModifier() { return 0.85; }
     },
 
     Earth001 {
@@ -107,6 +110,7 @@ public enum SpellType {
         public String toString() {
             return "Earth";
         }
+        public double getCooldownModifier() { return 1.25; }
     },
 
     Lightning001 {
@@ -132,6 +136,7 @@ public enum SpellType {
             return new SpellType[] { Earth001 };
         }
         public String toString() { return "Lightning"; }
+        public double getCooldownModifier() { return 0.75; }
     };
 
     public abstract String northCastImageLocation();
@@ -139,6 +144,7 @@ public enum SpellType {
     public abstract String eastCastImageLocation();
     public abstract String westCastImageLocation();
     public abstract int getBaseProjectileSpeed();
+    public abstract double getCooldownModifier();
     public abstract SpellType[] getStrengths();
     public abstract SpellType[] getWeaknesses();
     public abstract String toString();

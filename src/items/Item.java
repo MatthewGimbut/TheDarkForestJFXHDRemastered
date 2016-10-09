@@ -23,7 +23,7 @@ public abstract class Item implements Serializable {
 	private int magic;
 	private int def;
 	private String imageLocation;
-	private int value;
+	protected int value;
 	private Rarity howRare;
 	private Random r;
 	private int random;
@@ -53,7 +53,7 @@ public abstract class Item implements Serializable {
 		random = r.nextInt(2);
 		this.howRare = howRare;
 		this.isFavorite = false;
-		if(this instanceof Weapon) {
+		/*if(this instanceof Weapon) {
 			this.atk = (int) Math.round((atk * (Item.rarityMultiplier(howRare)))) + random;
 			this.magic = (int) Math.round((magic * (Item.rarityMultiplier(howRare)))) + random;
 			this.def = (int) Math.round((def * (Item.rarityMultiplier(howRare))));
@@ -67,8 +67,11 @@ public abstract class Item implements Serializable {
 			this.atk = (int) Math.round((atk * (Item.rarityMultiplier(howRare))));
 			this.magic = (int) Math.round((magic * (Item.rarityMultiplier(howRare))));
 			this.def = (int) Math.round((def * (Item.rarityMultiplier(howRare))));
-		}
-		this.value = (int) Math.round((value * (Item.rarityMultiplier(howRare)))) + random;
+		}*/
+		this.atk = atk;
+		this.magic = magic;
+		this.def = def;
+		this.value = value;
 		this.cooldown = cooldown;
 		this.weight = weight;
 		this.hpBoost = hpBoost;
@@ -153,13 +156,17 @@ public abstract class Item implements Serializable {
 			case 4:
 				return new ChestPiece();
 			case 5:
-				return new Gloves();
+				//return new Gloves();
+				return new Arrow();
 			case 6:
-				return new Helmet();
+				//return new Helmet();
+				return new Bolt();
 			case 7:
-				return new Legs();
+				//return new Legs();
+				return new Arrow();
 			case 8:
-				return new Shield();
+				//return new Shield();
+				return new Bolt();
 			case 9:
 				return new Dagger();
 			case 10:

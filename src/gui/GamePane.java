@@ -135,28 +135,40 @@ public class GamePane extends StackPane {
                     case "L": //Projectile attack for demo purposes until they are added to player
                         if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null && player.getPlayer().getWeaponHandR() instanceof Projectile)) {
                             projectileOnCooldown = true;
-                            String img = null;
                             try {
                                 player.getPlayer().getAmmo().decrementAmmoCount();
-                                img = player.getPlayer().getAmmo().getImageLocation();
+                                switch (player.getImageLocation()) { //Player size values reduced in certain places to make the projectiles look centered
+                                    case Player.FACING_NORTH:
+                                        projectileAttack(player.getX() + 8, player.getY() - (player.getHeight() - 20), 0,
+                                                -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
+                                                player.getPlayer().getAmmo().northLaunchImageLocation());
+                                        break;
+                                    case Player.FACING_SOUTH:
+                                        projectileAttack(player.getX() + 8, player.getY() + player.getHeight(), 0,
+                                                ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
+                                                player.getPlayer().getAmmo().southLaunchImageLocation());
+                                        break;
+                                    case Player.FACING_EAST:
+                                        projectileAttack(player.getX() + player.getWidth(), player.getY() + 12,
+                                                ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
+                                                player.getPlayer().getAmmo().eastLaunchImageLocation());
+                                        break;
+                                    case Player.FACING_WEST:
+                                        projectileAttack(player.getX() - player.getWidth(), player.getY() + 12,
+                                                -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
+                                                player.getPlayer().getAmmo().westLaunchImageLocation());
+                                        break;
+                                }
+                                if(player.getPlayer().getAmmo().getCount() == 0) {
+                                    player.getPlayer().unequipUpdateStats(player.getPlayer().getAmmo());
+                                    player.getPlayer().getInventory().remove(player.getPlayer().getAmmo());
+                                }
                             } catch (NullPointerException e) {
                                 System.out.println("Player has no ammo equipped!");
                             } catch (OutOfAmmoException e1) {
+                                player.getPlayer().unequipUpdateStats(player.getPlayer().getAmmo());
+                                player.getPlayer().getInventory().remove(player.getPlayer().getAmmo());
                                 System.out.println(e1.getMessage());
-                            }
-                            switch (player.getImageLocation()) {
-                                case Player.FACING_NORTH:
-                                    projectileAttack(player.getX(), player.getY() - player.getHeight(), 0, -5, img);
-                                    break;
-                                case Player.FACING_SOUTH:
-                                    projectileAttack(player.getX(), player.getY() + player.getHeight(), 0, 5, img);
-                                    break;
-                                case Player.FACING_EAST:
-                                    projectileAttack(player.getX() + player.getWidth(), player.getY(), 5, 0, img);
-                                    break;
-                                case Player.FACING_WEST:
-                                    projectileAttack(player.getX() - player.getWidth(), player.getY(), -5, 0, img);
-                                    break;
                             }
                             startCooldown(player.getPlayer().getSpeed());
                         }

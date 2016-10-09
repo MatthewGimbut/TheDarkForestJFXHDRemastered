@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class GameStage extends Application {
@@ -42,6 +43,7 @@ public class GameStage extends Application {
     public static GamePane gamePane;
 
     public static final Logger logger = LogManager.getLogger(GameStage.class);
+    public static final DecimalFormat df = new DecimalFormat("#.#");
 
     public static void setGamePane(GamePane gamePane) {
         GameStage.gamePane = gamePane;
@@ -76,7 +78,7 @@ public class GameStage extends Application {
         Image icon = new Image("file:Images\\SaveArea.png");
         primaryStage.getIcons().add(icon);
 
-        logger.debug("Logger successfully launched at " + System.nanoTime());
+        logger.debug("Logger successfully launched.");
         primaryStage.show();
     }
 

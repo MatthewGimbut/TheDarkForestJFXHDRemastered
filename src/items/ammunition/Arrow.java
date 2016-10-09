@@ -26,7 +26,7 @@ public class Arrow extends Ammunition {
     }
 
     public Arrow() {
-        super(0, 20, 0.15, 20, Item.randomRareness(), Weapon.getRandomWeaponType(), GameStage.getRandom(), 5); //TODO Fix this so it scales
+        super(0, 20, 0.15, 20, Rarity.COMMON, Weapon.getRandomWeaponType(), GameStage.getRandom() + 2, 5); //TODO Fix this so it scales
         setInfo(null, null, null);
     }
 
@@ -43,7 +43,8 @@ public class Arrow extends Ammunition {
         this.setItemToolTipText(this.getWeaponType().toString() + " arrows (" + this.ammoCount + ")");
     }
 
-    private void setInfo(String imgLoc, String name, String tooltip) {
+    @Override
+    public void setInfo(String imgLoc, String name, String tooltip) {
         if(imgLoc == null) {
             this.setImageLocation("file:Images\\Weapons\\Arrow.png");
         } else {
@@ -60,4 +61,26 @@ public class Arrow extends Ammunition {
             this.setItemToolTipText(tooltip);
         }
     }
+
+    @Override
+    public String northLaunchImageLocation() {
+        return AMMO_BASE_LOC + this.getWeaponType().toString() + "\\Arrow\\north.png";
+    }
+
+    @Override
+    public String southLaunchImageLocation() {
+        return AMMO_BASE_LOC + this.getWeaponType().toString() + "\\Arrow\\south.png";
+    }
+
+    @Override
+    public String eastLaunchImageLocation() {
+        return AMMO_BASE_LOC + this.getWeaponType().toString() + "\\Arrow\\east.png";
+    }
+
+    @Override
+    public String westLaunchImageLocation() {
+        return AMMO_BASE_LOC + this.getWeaponType().toString() + "\\Arrow\\west.png";
+    }
+
+
 }

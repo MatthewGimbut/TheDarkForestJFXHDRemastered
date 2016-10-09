@@ -14,6 +14,7 @@ public abstract class Magic extends Weapon implements Projectile{
         super(atk, magic, 0, speedModifier, weight, 0, manaBoost, value, howRare, weaponType);
         this.spellType = spellType;
         this.projectileSpeed = spellType.getBaseProjectileSpeed();
+        this.setCooldown((int) (this.getCooldown() * spellType.getCooldownModifier()));
     }
 
     public static SpellType getRandomSpellType() {

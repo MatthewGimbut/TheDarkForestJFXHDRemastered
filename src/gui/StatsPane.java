@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Rectangle;
 import main.GameStage;
 import sprites.PlayerSprite;
 
@@ -26,13 +27,13 @@ public class StatsPane extends BorderPane {
     private PlayerSprite playerSprite;
     @FXML private ResourceBundle resources;
     @FXML private URL location;
+    @FXML private ImageView ammoImage;
     @FXML private AnchorPane anchor;
     @FXML private ImageView bootsImage;
     @FXML private ImageView chestImage;
     @FXML private Button exit;
-    @FXML private ProgressBar xpBar;
-    @FXML private Label xpLabel;
     @FXML private ImageView glovesImage;
+    @FXML private Label gold;
     @FXML private ProgressBar healthBar;
     @FXML private Label healthLabel;
     @FXML private ImageView helmetImage;
@@ -45,10 +46,12 @@ public class StatsPane extends BorderPane {
     @FXML private Label playerLevel;
     @FXML private Label playerMagic;
     @FXML private Label playerName;
-    @FXML private ImageView shieldImage;
-    @FXML private ImageView spellImage;
-    @FXML private ImageView weaponImage;
-    @FXML private Label gold;
+    @FXML private ImageView primaryImage;
+    @FXML private ImageView secondaryImage;
+    @FXML private Label secondaryLabel;
+    @FXML private Rectangle secondaryPane;
+    @FXML private ProgressBar xpBar;
+    @FXML private Label xpLabel;
 
     public StatsPane(GamePane currentView, PlayerSprite playerSprite) {
         this.currentView = currentView;
@@ -92,13 +95,17 @@ public class StatsPane extends BorderPane {
         gold.setText(player.getGold() + " gold");
 
         if(player.getWeaponHandR() != null) {
-            weaponImage.setImage(new Image(player.getWeaponHandR().getImageLocation()));
-            Tooltip.install(weaponImage, new Tooltip(player.getWeaponHandR().getItemToolTipText())); //TODO Some sort of visual effect on the Secondary slot if using 2H
+            primaryImage.setImage(new Image(player.getWeaponHandR().getImageLocation()));
+            Tooltip.install(primaryImage, new Tooltip(player.getWeaponHandR().getItemToolTipText()));
+            if(player.getWeaponHandR() instanceof TwoHanded) {
+                secondaryLabel.setOpacity(.50);
+                secondaryImage.setOpacity(.50);
+            }
         }
 
         if(player.getLeftHand() != null) {
-            shieldImage.setImage(new Image(((Item) player.getLeftHand()).getImageLocation())); //TODO Rename this to something more fitting in FXML
-            Tooltip.install(shieldImage, new Tooltip(((Item) player.getLeftHand()).getItemToolTipText()));
+            secondaryImage.setImage(new Image(((Item) player.getLeftHand()).getImageLocation()));
+            Tooltip.install(secondaryImage, new Tooltip(((Item) player.getLeftHand()).getItemToolTipText()));
         }
 
         if(player.getHelmet() != null) {
@@ -107,8 +114,8 @@ public class StatsPane extends BorderPane {
         }
 
         if(player.getAmmo() != null) {
-            spellImage.setImage(new Image(player.getAmmo().getImageLocation())); //TODO Rename this to something more fitting in FXML
-            Tooltip.install(spellImage, new Tooltip(player.getAmmo().getItemToolTipText()));
+            ammoImage.setImage(new Image(player.getAmmo().getImageLocation()));
+            Tooltip.install(ammoImage, new Tooltip(player.getAmmo().getItemToolTipText()));
         }
 
         if(player.getGloves() != null) {

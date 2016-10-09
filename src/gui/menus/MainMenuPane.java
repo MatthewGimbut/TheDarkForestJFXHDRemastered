@@ -1,6 +1,7 @@
 package gui.menus;
 
 
+import com.sun.xml.internal.ws.encoding.soap.SerializationException;
 import gui.GameButton;
 import gui.GamePane;
 import gui.GameScene;
@@ -66,17 +67,23 @@ public class MainMenuPane extends AnchorPane {
         load.setOnAction(event -> {
             GamePane gp = new GamePane(primaryStage);
             GameStage.setGamePane(gp);
-            ArrayList<Object> newMap = SaveManager.deserialize();
-            gp.setCurrentMapFile((String) newMap.get(1));
-            gp.setPlayer((PlayerSprite) newMap.get(0));
-            gp.getMainPlayerSprite().setImage(gp.getMainPlayerSprite().getImageLocation());
+            ArrayList<Object> newMap = null;
+            try {
+                newMap = SaveManager.deserialize();
+                gp.setCurrentMapFile((String) newMap.get(1));
+                gp.setPlayer((PlayerSprite) newMap.get(0));
+                gp.getMainPlayerSprite().setImage(gp.getMainPlayerSprite().getImageLocation());
+                gp.setId((String) newMap.get(2));
+            } catch (SerializationException | NullPointerException e) {
+                GameStage.logger.error(e);
+            }
+
             try {
                MapContainer map = new MapContainer(gp.getMainPlayerSprite(), (String) newMap.get(1));
                 gp.setMapContainer(map);
             } catch (Exception e) {
                 GameStage.logger.error(e);
             }
-            gp.setId((String) newMap.get(2));
 
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();

@@ -3,12 +3,16 @@ package items.ammunition;
 import items.Rarity;
 import items.Weapons.Weapon;
 import items.Weapons.WeaponType;
+import main.GameStage;
 
-public abstract class Ammunition extends Weapon {
+import java.text.DecimalFormat;
+
+public abstract class Ammunition extends Weapon implements Stackable {
 
     protected int ammoCount;
     protected int damage;
     protected double individualWeight;
+    public static final String AMMO_BASE_LOC = "file:Images\\Weapons\\";
 
     /**
      * Constructor for item that takes all the stats for the specific item, usually set in the subclass
@@ -26,7 +30,7 @@ public abstract class Ammunition extends Weapon {
         this.individualWeight = weight;
     }
 
-    public int getAmmoCount() {
+    public int getCount() {
         return this.ammoCount;
     }
 
@@ -53,6 +57,34 @@ public abstract class Ammunition extends Weapon {
 
     @Override
     public double getWeight() {
-        return this.individualWeight * this.ammoCount;
+        return Double.parseDouble(GameStage.df.format(this.individualWeight * this.ammoCount));
     }
+
+    @Override
+    public int getValue() {
+        return this.value * ammoCount;
+    }
+
+    @Override
+    public void addToStack(int add) {
+        this.ammoCount += add;
+    }
+
+    @Override
+    public void removeFromStack(int remove) {
+        this.ammoCount -= remove;
+    }
+
+    @Override
+    public void combine(Stackable s) {
+        this.ammoCount += s.getCount();
+        this.setInfo(this.getImageLocation(), null, null);
+    }
+
+    public abstract void setInfo(String imgLoc, String name, String tooltip);
+    public abstract String northLaunchImageLocation();
+    public abstract String southLaunchImageLocation();
+    public abstract String eastLaunchImageLocation();
+    public abstract String westLaunchImageLocation();
+
 }

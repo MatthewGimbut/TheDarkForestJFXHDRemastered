@@ -7,19 +7,21 @@ import items.TwoHanded;
 
 public class Crossbow extends Weapon implements Projectile, TwoHanded {
 
+    private static final int BASE_CROSSBOW_ROF = 1000;
+
     public Crossbow(int atk, int speedModifier, double weight, int value, Rarity howRare, WeaponType weaponType) {
-        super(atk, 0, 0, 400, weight, 0, 0, value, howRare, weaponType);
+        super(atk, 0, 0, BASE_CROSSBOW_ROF, weight, 0, 0, value, howRare, weaponType);
         setInfo(null, null, null);
     }
 
     public Crossbow() {
-        super(10, 0, 0, 400, 15.6, 0, 0, 250, Item.randomRareness(), Weapon.getRandomWeaponType());
+        super(10, 0, 0, BASE_CROSSBOW_ROF, 15.6, 0, 0, 250, Item.randomRareness(), Weapon.getRandomWeaponType());
         setInfo(null, null, null);
     }
 
     public Crossbow(int atk, int speedModifier, double weight, int value, Rarity howRare, WeaponType weaponType,
                     String imgLoc, String name, String tooltip) {
-        super(atk, 0, 0, 400, weight, 0, 0, value, howRare, weaponType);
+        super(atk, 0, 0, BASE_CROSSBOW_ROF, weight, 0, 0, value, howRare, weaponType);
         setInfo(imgLoc, name, tooltip);
     }
 
