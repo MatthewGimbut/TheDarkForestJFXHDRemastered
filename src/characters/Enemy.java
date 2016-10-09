@@ -47,7 +47,7 @@ public class Enemy extends Character {
 	}
 
 	public Enemy(String name) {
-		super(name , 1, 100, 100, 100, 100, 4, 4, 4, GameStage.getRandom(), 0, 10);
+		super(name , 1, 100, 100, 100, 100, 4, 4, 4, GameStage.getRandom(50), 0, 10);
 		this.isSelected = false;
 		this.setImage("Images\\Enemies\\Enemy0.png");
 		this.customMusic = "";

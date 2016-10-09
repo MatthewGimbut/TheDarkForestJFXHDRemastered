@@ -77,8 +77,6 @@ public class GameStage extends Application {
         primaryStage.setTitle("The Dark Forest Alpha");
         Image icon = new Image("file:Images\\SaveArea.png");
         primaryStage.getIcons().add(icon);
-
-        logger.debug("Logger successfully launched.");
         primaryStage.show();
     }
 
@@ -87,8 +85,8 @@ public class GameStage extends Application {
         return MALE_FIRST_NAMES[r.nextInt(45)] + " " + LAST_NAMES[r.nextInt(45)];
     }
 
-    public static int getRandom() {
-        return rand.nextInt(50);
+    public static int getRandom(int upperBound) {
+        return rand.nextInt(upperBound);
     }
 
     public static void playSound(String fileLocation) {

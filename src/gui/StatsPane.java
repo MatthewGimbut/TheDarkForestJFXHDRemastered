@@ -11,6 +11,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
@@ -76,6 +77,11 @@ public class StatsPane extends BorderPane {
 
         exit.setOnAction(event -> currentView.removeStatsPane(this));
 
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) exit.fire();
+        });
+
         Player player = playerSprite.getPlayer();
 
         playerName.setText(player.getName());
@@ -87,10 +93,11 @@ public class StatsPane extends BorderPane {
 
         healthLabel.setText("Health: " + player.getCurrentHP() + "/" + player.getMaxHP());
         healthBar.setProgress(player.getCurrentHP()/player.getMaxHP());
+        healthBar.setStyle(currentView.getPlayerHealthAccentColor());
         xpLabel.setText("XP: " + player.getXp() + "/100");
         xpBar.setProgress(player.getXp()/100.0);
         manaLabel.setText("Mana: " + player.getCurrentMana() + "/" + player.getMaxMana());
-        manaBar.setProgress(player.getCurrentMana()/player.getMaxMana());
+        manaBar.setProgress((player.getCurrentMana()+0.0)/(player.getMaxMana()+0.0));
 
         gold.setText(player.getGold() + " gold");
 

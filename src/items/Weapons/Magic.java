@@ -9,11 +9,14 @@ public abstract class Magic extends Weapon implements Projectile{
 
     protected SpellType spellType;
     protected int projectileSpeed;
+    protected int manaCost;
 
-    public Magic(int atk, int magic, int speedModifier, double weight, int manaBoost, int value, Rarity howRare, WeaponType weaponType, SpellType spellType) {
+    public Magic(int atk, int magic, int speedModifier, double weight, int manaBoost, int value, Rarity howRare, WeaponType weaponType,
+                 SpellType spellType, int manaCost) {
         super(atk, magic, 0, speedModifier, weight, 0, manaBoost, value, howRare, weaponType);
         this.spellType = spellType;
         this.projectileSpeed = spellType.getBaseProjectileSpeed();
+        this.manaCost = manaCost;
         this.setCooldown((int) (this.getCooldown() * spellType.getCooldownModifier()));
     }
 
@@ -40,10 +43,13 @@ public abstract class Magic extends Weapon implements Projectile{
         return st;
     }
 
+    public int getManaCost() {
+        return this.manaCost;
+    }
+
     public int getProjectileSpeed() {
         return this.projectileSpeed;
     }
-
     public SpellType getSpellType() {
         return this.spellType;
     }

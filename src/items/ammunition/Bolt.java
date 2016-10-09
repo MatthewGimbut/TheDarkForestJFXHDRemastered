@@ -26,7 +26,7 @@ public class Bolt extends Ammunition {
     }
 
     public Bolt() {
-        super(0, 60, 0.10, 25, Rarity.COMMON, Weapon.getRandomWeaponType(), GameStage.getRandom() + 2, 6); //TODO Fix this so it scales
+        super(0, 60, 0.10, 25, Rarity.COMMON, Weapon.getRandomWeaponType(), GameStage.getRandom(50) + 2, 6); //TODO Fix this so it scales
         setInfo(null, null, null);
     }
 

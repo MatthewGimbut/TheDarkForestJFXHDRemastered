@@ -6,6 +6,7 @@ import items.Armor.Armor;
 import items.Consumables.Consumable;
 import items.Item;
 import items.Secondary;
+import items.Weapons.Magic;
 import items.Weapons.Projectile;
 import items.Weapons.Weapon;
 import items.ammunition.Ammunition;
@@ -109,6 +110,7 @@ public class ScrollingInventoryPane extends BorderPane {
         } catch (Exception exception) {
             GameStage.logger.error(exception.getMessage());
             GameStage.logger.error(exception);
+            GameStage.logger.error(exception.getStackTrace());
         }
     }
 
@@ -297,12 +299,20 @@ public class ScrollingInventoryPane extends BorderPane {
             itemImage.setImage(label.getItemImage());
             itemName.setTextFill(determineNameColor(label.getItem()));
             stat1.setText("Atk: " + label.getItem().getAtk());
-            stat2.setText("Def: " + label.getItem().getDef());
             stat3.setText("CD: " + label.getItem().getCooldown());
             stat4.setText("Weight: " + label.getItem().getWeight());
             stat5.setText("Magic: " + label.getItem().getMagic());
-            stat6.setText("HP: +" + label.getItem().getHpBoost());
+
+            if(label.getItem() instanceof Magic) {
+                stat2.setText("Mana cost: " + ((Magic) label.getItem()).getManaCost());
+                stat6.setText("Mana boost: " + label.getItem().getManaBoost());
+            } else {
+                stat2.setText("Def: " + label.getItem().getDef());
+                stat6.setText("HP boost: +" + label.getItem().getHpBoost());
+            }
+
             stat7.setText("Gold: " + label.getItem().getValue());
+
             if(label.getItem() instanceof Projectile) {
                 stat8.setText("Projectile speed: " + ((Projectile) label.getItem()).getProjectileSpeed());
             } else {

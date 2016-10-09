@@ -90,19 +90,19 @@
       <children>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar fx:id="healthBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="healthBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="" />
             <Label fx:id="healthLabel" layoutX="17.0" layoutY="8.0" text="Health:" />
           </children>
         </AnchorPane>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar id="expBar" fx:id="xpBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar id="expBar" fx:id="xpBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="-fx-accent: gold;&#10;" />
             <Label id="expLabel" fx:id="xpLabel" layoutX="17.0" layoutY="8.0" text="XP:" />
           </children>
         </AnchorPane>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar fx:id="manaBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="manaBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="-fx-accent: blue;" />
             <Label fx:id="manaLabel" layoutX="17.0" layoutY="8.0" text="Mana:" />
           </children>
         </AnchorPane>

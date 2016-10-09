@@ -3,6 +3,7 @@ package items.Weapons;
 import items.Rarity;
 import items.Secondary;
 import items.SpellType;
+import main.GameStage;
 
 public class SpellTome extends Magic implements Secondary {
 
@@ -16,20 +17,20 @@ public class SpellTome extends Magic implements Secondary {
      * @param value
      * @param howRare
      */
-    public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod) {
-        super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType);
+    public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod, int manaCost) {
+        super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType, manaCost);
         this.projectileSpeed = spellType.getBaseProjectileSpeed() + speedMod;
         setInfo(null, null, null);
     }
 
-    public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod,
+    public SpellTome(int magic, int cooldown, double weight, int manaBoost, int value, Rarity howRare, SpellType spellType, int speedMod, int manaCost,
                      String imgLoc, String name, String tooltip) {
-        super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType);
+        super(0, magic, cooldown, weight, manaBoost, value, howRare, null, spellType, manaCost);
         this.projectileSpeed = spellType.getBaseProjectileSpeed() + speedMod;
         setInfo(imgLoc, name, tooltip);    }
 
     public SpellTome() {
-        super(0, 5, 200, 5.4, 10, 100, randomRareness(), null, getRandomSpellType());
+        super(0, 5, 200, 5.4, 10, 100, randomRareness(), null, getRandomSpellType(), GameStage.getRandom(14) + 1);
         setInfo(null, null, null);
     }
 

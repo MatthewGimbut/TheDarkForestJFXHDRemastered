@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import main.GameStage;
 
@@ -51,6 +52,11 @@ public class OptionsPane extends BorderPane {
     void initialize() {
 
         exit.setOnAction(event -> currentView.removeOptionsPane(this));
+
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) exit.fire();
+        });
 
         save.setOnAction(event -> {
             player.setTextScrollingSpeed((int) textSpeedSlider.getValue());

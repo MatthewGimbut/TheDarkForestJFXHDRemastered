@@ -263,6 +263,10 @@ public abstract class Character implements Serializable {
 		}
 	}
 
+	public void setCurrentMana(int mana) {
+		this.currentMana = mana;
+	}
+
 	public String getSouthImage() {
 		return south;
 	}

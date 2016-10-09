@@ -26,7 +26,7 @@ public class Arrow extends Ammunition {
     }
 
     public Arrow() {
-        super(0, 20, 0.15, 20, Rarity.COMMON, Weapon.getRandomWeaponType(), GameStage.getRandom() + 2, 5); //TODO Fix this so it scales
+        super(0, 20, 0.15, 20, Rarity.COMMON, Weapon.getRandomWeaponType(), GameStage.getRandom(50) + 2, 5); //TODO Fix this so it scales
         setInfo(null, null, null);
     }
 

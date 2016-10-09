@@ -828,8 +828,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 417,
-      "y": 402,
+      "x": 484,
+      "y": 126,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -839,8 +839,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 417,
-      "y": 434,
+      "x": 484,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -850,8 +850,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 449,
-      "y": 402,
+      "x": 516,
+      "y": 126,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -861,8 +861,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 449,
-      "y": 434,
+      "x": 516,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -872,8 +872,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 417,
-      "y": 466,
+      "x": 484,
+      "y": 190,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -883,8 +883,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 449,
-      "y": 466,
+      "x": 516,
+      "y": 190,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -894,8 +894,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 481,
-      "y": 402,
+      "x": 548,
+      "y": 126,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -905,8 +905,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 513,
-      "y": 402,
+      "x": 580,
+      "y": 126,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -916,8 +916,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 513,
-      "y": 434,
+      "x": 580,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -927,8 +927,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 513,
-      "y": 466,
+      "x": 580,
+      "y": 190,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -938,8 +938,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 545,
-      "y": 402,
+      "x": 612,
+      "y": 126,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -949,8 +949,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 545,
-      "y": 434,
+      "x": 612,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -960,8 +960,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 545,
-      "y": 466,
+      "x": 612,
+      "y": 190,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -971,8 +971,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 577,
-      "y": 466,
+      "x": 644,
+      "y": 190,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -982,8 +982,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 537,
-      "y": 515,
+      "x": 610,
+      "y": 520,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -993,8 +993,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 616,
-      "y": 137,
+      "x": 378,
+      "y": 55,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1004,8 +1004,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 508,
-      "y": 148,
+      "x": 547,
+      "y": 276,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1015,8 +1015,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 368,
-      "y": 221,
+      "x": 524,
+      "y": 435,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1026,8 +1026,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 274,
-      "y": 388,
+      "x": 120,
+      "y": 424,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1037,8 +1037,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 112,
-      "y": 525,
+      "x": 830,
+      "y": 177,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1048,8 +1048,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 798,
-      "y": 417,
+      "x": 240,
+      "y": 481,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1059,8 +1059,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 866,
-      "y": 358,
+      "x": 771,
+      "y": 205,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1070,107 +1070,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 131,
-      "y": 231,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 863,
-      "y": 266,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 274,
-      "y": 474,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 364,
-      "y": 122,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 218,
-      "y": 103,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 623,
-      "y": 222,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 753,
-      "y": 92,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 78,
-      "y": 179,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 186,
-      "y": 357,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 671,
-      "y": 197,
+      "x": 180,
+      "y": 333,
       "dx": 0,
       "dy": 0,
       "width": 50,
@@ -1180,8 +1081,8 @@
       "location": "file:Images\\Nature\\Tree50x50.png"
     },
     {
-      "x": 834,
-      "y": 523,
+      "x": 556,
+      "y": 501,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1191,8 +1092,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 765,
-      "y": 581,
+      "x": 309,
+      "y": 532,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1202,8 +1103,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 174,
-      "y": 462,
+      "x": 421,
+      "y": 565,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1213,8 +1114,63 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 933,
-      "y": 121,
+      "x": 345,
+      "y": 455,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 427,
+      "y": 311,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 246,
+      "y": 234,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 629,
+      "y": 310,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 61,
+      "y": 281,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 242,
+      "y": 51,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1224,47 +1180,7 @@
       "location": "file:Images\\Nature\\Tree.png"
     }
   ],
-  "displayItems": [
-    {
-      "item": {
-        "type": "items.Weapons.Staff",
-        "data": {
-          "spellType": "Lightning001",
-          "projectileSpeed": 8,
-          "weaponType": "stone",
-          "atk": 5,
-          "magic": 8,
-          "def": 0,
-          "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
-          "value": 150,
-          "howRare": "COMMON",
-          "r": {
-            "seed": 32860409761631,
-            "nextNextGaussian": 0.0,
-            "haveNextNextGaussian": false
-          },
-          "random": 0,
-          "cooldown": 375,
-          "weight": 5.0,
-          "hpBoost": 0,
-          "manaBoost": 40,
-          "simpleName": "Lightning staff",
-          "toolTipText": "A Lightning staff",
-          "isCurrentlyEquipped": false,
-          "isFavorite": false
-        }
-      },
-      "x": 753,
-      "y": 180,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Weapons\\stone\\Staff.png"
-    }
-  ],
+  "displayItems": [],
   "exits": [
     {
       "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.map",
@@ -1286,8 +1202,8 @@
       "nextX": 468,
       "nextY": 421,
       "placement": "North",
-      "x": 484,
-      "y": 444,
+      "x": 551,
+      "y": 168,
       "dx": 0,
       "dy": 0,
       "width": 16,
@@ -1301,84 +1217,274 @@
     {
       "items": [
         {
-          "type": "items.Weapons.Staff",
+          "type": "items.Weapons.SpellTome",
           "data": {
-            "spellType": "Fire001",
-            "projectileSpeed": 6,
-            "weaponType": "stone",
-            "atk": 5,
-            "magic": 8,
+            "spellType": "Water001",
+            "projectileSpeed": 7,
+            "manaCost": 4,
+            "atk": 0,
+            "magic": 5,
             "def": 0,
-            "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
-            "value": 150,
+            "imageLocation": "file:Images\\Weapons\\bookbase.png",
+            "value": 100,
             "howRare": "COMMON",
             "r": {
-              "seed": 66195700726365,
+              "seed": 63959743830950,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 0,
-            "cooldown": 550,
+            "cooldown": 180,
             "weight": 5.0,
             "hpBoost": 0,
-            "manaBoost": 40,
-            "simpleName": "Fire staff",
-            "toolTipText": "A Fire staff",
+            "manaBoost": 10,
+            "simpleName": "Water tome",
+            "toolTipText": "A Water spell tome",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         },
         {
-          "type": "items.ammunition.Arrow",
+          "type": "items.Weapons.Crossbow",
           "data": {
-            "ammoCount": 26,
-            "damage": 5,
-            "individualWeight": 0.15,
-            "weaponType": "stone",
-            "atk": 0,
+            "weaponType": "steel",
+            "atk": 20,
             "magic": 0,
             "def": 0,
-            "imageLocation": "file:Images\\Weapons\\Arrow.png",
-            "value": 10,
-            "howRare": "COMMON",
+            "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+            "value": 500,
+            "howRare": "JUNK",
             "r": {
-              "seed": 205485207733350,
+              "seed": 240448379997030,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 1,
-            "cooldown": 20,
-            "weight": 0.0,
+            "cooldown": 1000,
+            "weight": 31.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "stone arrows (26)",
-            "toolTipText": "stone arrows (26)",
+            "simpleName": "steel crossbow",
+            "toolTipText": "A steel crossbow",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         },
         {
-          "type": "items.Weapons.Spear",
+          "type": "items.Armor.Boots",
           "data": {
-            "weaponType": "stone",
-            "atk": 7,
+            "armorType": "wood",
+            "atk": 0,
             "magic": 0,
-            "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\Spear.png",
-            "value": 100,
-            "howRare": "JUNK",
+            "def": 2,
+            "imageLocation": "Images\\Armors\\wood\\Boots.png",
+            "value": 49,
+            "howRare": "COMMON",
             "r": {
-              "seed": 124642959342108,
+              "seed": 133941093329446,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 0,
-            "cooldown": 5,
+            "cooldown": 0,
+            "weight": 2.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood boots",
+            "toolTipText": "A pair of wood boots",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Earth001",
+            "projectileSpeed": 4,
+            "manaCost": 6,
+            "weaponType": "iron",
+            "atk": 15,
+            "magic": 23,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\iron\\Staff.png",
+            "value": 450,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 111969641716610,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 625,
+            "weight": 15.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Earth staff",
+            "toolTipText": "A Earth staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        }
+      ],
+      "x": 946,
+      "y": 482,
+      "dx": 0,
+      "dy": 0,
+      "width": 34,
+      "height": 33,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Lootables\\ChestArea.png"
+    },
+    {
+      "items": [
+        {
+          "type": "items.Weapons.Sword",
+          "data": {
+            "weaponType": "stone",
+            "atk": 4,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Sword.png",
+            "value": 88,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 67397312531036,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 2,
+            "weight": 2.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone sword",
+            "toolTipText": "A stone sword",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Water001",
+            "projectileSpeed": 7,
+            "manaCost": 7,
+            "weaponType": "bronze",
+            "atk": 10,
+            "magic": 15,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\bronze\\Staff.png",
+            "value": 300,
+            "howRare": "RARE",
+            "r": {
+              "seed": 124308911115308,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 450,
+            "weight": 10.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Water staff",
+            "toolTipText": "A Water staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.SpellTome",
+          "data": {
+            "spellType": "Ice001",
+            "projectileSpeed": 6,
+            "manaCost": 13,
+            "atk": 0,
+            "magic": 5,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\bookbase.png",
+            "value": 100,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 42153465960044,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 170,
+            "weight": 5.0,
+            "hpBoost": 0,
+            "manaBoost": 10,
+            "simpleName": "Ice tome",
+            "toolTipText": "A Ice spell tome",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Bolt",
+          "data": {
+            "ammoCount": 48,
+            "damage": 6,
+            "individualWeight": 0.1,
+            "weaponType": "stone",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Bolt.png",
+            "value": 13,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 267438025365975,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 60,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone bolts (48)",
+            "toolTipText": "stone bolts (48)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        }
+      ],
+      "x": 352,
+      "y": 241,
+      "dx": 0,
+      "dy": 0,
+      "width": 34,
+      "height": 33,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Lootables\\ChestArea.png"
+    },
+    {
+      "items": [
+        {
+          "type": "items.Weapons.Crossbow",
+          "data": {
+            "weaponType": "wood",
+            "atk": 3,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+            "value": 75,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 17364321317927,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 1000,
             "weight": 4.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "stone spear",
-            "toolTipText": "A stone spear",
+            "simpleName": "wood crossbow",
+            "toolTipText": "A wood crossbow",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
@@ -1392,13 +1498,13 @@
             "def": 0,
             "imageLocation": "Images\\Weapons\\wood\\Axe.png",
             "value": 54,
-            "howRare": "JUNK",
+            "howRare": "COMMON",
             "r": {
-              "seed": 73696970165537,
+              "seed": 277257139167069,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
-            "random": 0,
+            "random": 1,
             "cooldown": 3,
             "weight": 1.0,
             "hpBoost": 0,
@@ -1408,10 +1514,65 @@
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
+        },
+        {
+          "type": "items.Weapons.Spear",
+          "data": {
+            "weaponType": "iron",
+            "atk": 21,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\iron\\Spear.png",
+            "value": 300,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 116375352126611,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 5,
+            "weight": 12.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "iron spear",
+            "toolTipText": "A iron spear",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Ice001",
+            "projectileSpeed": 6,
+            "manaCost": 5,
+            "weaponType": "steel",
+            "atk": 20,
+            "magic": 30,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\steel\\Staff.png",
+            "value": 600,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 115046638591762,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 425,
+            "weight": 20.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Ice staff",
+            "toolTipText": "A Ice staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
         }
       ],
-      "x": 171,
-      "y": 611,
+      "x": 883,
+      "y": 378,
       "dx": 0,
       "dy": 0,
       "width": 34,
@@ -1423,54 +1584,81 @@
     {
       "items": [
         {
-          "type": "items.Weapons.Dagger",
+          "type": "items.Weapons.SpellTome",
           "data": {
-            "weaponType": "stone",
-            "atk": 3,
-            "magic": 0,
+            "spellType": "Earth001",
+            "projectileSpeed": 4,
+            "manaCost": 9,
+            "atk": 0,
+            "magic": 5,
             "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\Dagger.png",
-            "value": 38,
-            "howRare": "UNCOMMON",
+            "imageLocation": "file:Images\\Weapons\\bookbase.png",
+            "value": 100,
+            "howRare": "COMMON",
             "r": {
-              "seed": 115067660265159,
+              "seed": 95111248400327,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 0,
-            "cooldown": 1,
-            "weight": 1.0,
+            "cooldown": 250,
+            "weight": 5.0,
             "hpBoost": 0,
-            "manaBoost": 0,
-            "simpleName": "stone dagger",
-            "toolTipText": "A stone dagger",
+            "manaBoost": 10,
+            "simpleName": "Earth tome",
+            "toolTipText": "A Earth spell tome",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         },
         {
-          "type": "items.Consumables.Potion",
+          "type": "items.Weapons.Mace",
           "data": {
-            "type": "Health",
-            "amount": 75,
-            "atk": 0,
+            "weaponType": "wood",
+            "atk": 4,
             "magic": 0,
             "def": 0,
-            "imageLocation": "Images\\Consumables\\Potions\\Health Potion.png",
-            "value": 100,
-            "howRare": "COMMON",
+            "imageLocation": "Images\\Weapons\\wood\\Mace.png",
+            "value": 53,
+            "howRare": "VERY_RARE",
             "r": {
-              "seed": 41153869042813,
+              "seed": 115148080740743,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 0,
-            "cooldown": 0,
-            "weight": 0.1,
+            "cooldown": 4,
+            "weight": 2.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "Health Potion",
-            "toolTipText": "A(n) Health Potion",
+            "simpleName": "wood mace",
+            "toolTipText": "A wood mace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Axe",
+          "data": {
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Axe.png",
+            "value": 90,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 112686047763074,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 3,
+            "weight": 3.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone axe",
+            "toolTipText": "A stone axe",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
@@ -1478,8 +1666,9 @@
         {
           "type": "items.Weapons.Staff",
           "data": {
-            "spellType": "Fire001",
-            "projectileSpeed": 6,
+            "spellType": "Earth001",
+            "projectileSpeed": 4,
+            "manaCost": 6,
             "weaponType": "wood",
             "atk": 3,
             "magic": 5,
@@ -1488,50 +1677,24 @@
             "value": 90,
             "howRare": "COMMON",
             "r": {
-              "seed": 239656950577995,
+              "seed": 234828145049650,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 1,
-            "cooldown": 550,
+            "cooldown": 625,
             "weight": 3.0,
             "hpBoost": 0,
             "manaBoost": 40,
-            "simpleName": "Fire staff",
-            "toolTipText": "A Fire staff",
-            "isCurrentlyEquipped": false,
-            "isFavorite": false
-          }
-        },
-        {
-          "type": "items.Weapons.Sword",
-          "data": {
-            "weaponType": "stone",
-            "atk": 4,
-            "magic": 0,
-            "def": 0,
-            "imageLocation": "Images\\Weapons\\stone\\Sword.png",
-            "value": 88,
-            "howRare": "COMMON",
-            "r": {
-              "seed": 264780022826637,
-              "nextNextGaussian": 0.0,
-              "haveNextNextGaussian": false
-            },
-            "random": 1,
-            "cooldown": 2,
-            "weight": 2.0,
-            "hpBoost": 0,
-            "manaBoost": 0,
-            "simpleName": "stone sword",
-            "toolTipText": "A stone sword",
+            "simpleName": "Earth staff",
+            "toolTipText": "A Earth staff",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         }
       ],
-      "x": 408,
-      "y": 576,
+      "x": 456,
+      "y": 234,
       "dx": 0,
       "dy": 0,
       "width": 34,
@@ -1543,8 +1706,8 @@
   ],
   "lowerLayers": [
     {
-      "x": 481,
-      "y": 434,
+      "x": 548,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1561,7 +1724,7 @@
         "data": {
           "currentStatusEffects": [],
           "lvl": 1,
-          "name": "John Rogers",
+          "name": "Jason Reed",
           "currentHP": 100,
           "maxHP": 100,
           "currentMana": 100,
@@ -1582,8 +1745,8 @@
       },
       "questActivationTriggers": [],
       "questTriggers": [],
-      "x": 430,
-      "y": 508,
+      "x": 426,
+      "y": 161,
       "dx": 0,
       "dy": 0,
       "width": 24,
@@ -1591,9 +1754,7 @@
       "visible": true,
       "isObstacle": true,
       "message": [
-        "Give me some fucking coffee.",
-        "If you don\u0027t give me a coffee, I\u0027m going to fuck you up.",
-        "....Alright, that\u0027s how its going to be."
+        "how the fuck did i get here???"
       ],
       "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png"
     },
@@ -1603,7 +1764,7 @@
         "data": {
           "currentStatusEffects": [],
           "lvl": 1,
-          "name": "Harold Martinez",
+          "name": "Joe Murphy",
           "currentHP": 100,
           "maxHP": 100,
           "currentMana": 100,
@@ -1624,8 +1785,92 @@
       },
       "questActivationTriggers": [],
       "questTriggers": [],
-      "x": 481,
-      "y": 70,
+      "x": 813,
+      "y": 352,
+      "dx": 0,
+      "dy": 0,
+      "width": 16,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "Give me some fucking coffee.",
+        "If you don\u0027t give me a coffee, I\u0027m going to fuck you up.",
+        "....Alright, that\u0027s how its going to be."
+      ],
+      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralEast.png"
+    },
+    {
+      "chara": {
+        "type": "characters.Neutral",
+        "data": {
+          "currentStatusEffects": [],
+          "lvl": 1,
+          "name": "Doug Green",
+          "currentHP": 100,
+          "maxHP": 100,
+          "currentMana": 100,
+          "maxMana": 100,
+          "atk": 1,
+          "magic": 1,
+          "def": 1,
+          "speed": 1,
+          "carryCap": 10.0,
+          "currentCarry": 0.0,
+          "isDead": false,
+          "image": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "south": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "north": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
+          "east": "Images\\Characters\\GenericNeutral\\GenericNeutralEast.png",
+          "west": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 721,
+      "y": 46,
+      "dx": 0,
+      "dy": 0,
+      "width": 24,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "This message is being read from the second line.",
+        "This is a test of the generic dialogue system.",
+        "Hello, how are you?"
+      ],
+      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png"
+    },
+    {
+      "chara": {
+        "type": "characters.Neutral",
+        "data": {
+          "currentStatusEffects": [],
+          "lvl": 1,
+          "name": "Boris Williams",
+          "currentHP": 100,
+          "maxHP": 100,
+          "currentMana": 100,
+          "maxMana": 100,
+          "atk": 1,
+          "magic": 1,
+          "def": 1,
+          "speed": 1,
+          "carryCap": 10.0,
+          "currentCarry": 0.0,
+          "isDead": false,
+          "image": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png",
+          "south": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "north": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
+          "east": "Images\\Characters\\GenericNeutral\\GenericNeutralEast.png",
+          "west": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 688,
+      "y": 301,
       "dx": 0,
       "dy": 0,
       "width": 16,
@@ -1635,14 +1880,14 @@
       "message": [
         "how the fuck did i get here???"
       ],
-      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralEast.png"
+      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
     }
   ],
   "saves": [],
   "upperLayers": [
     {
-      "x": 417,
-      "y": 370,
+      "x": 484,
+      "y": 94,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1652,8 +1897,8 @@
       "location": "file:Images\\Buildings\\WoodRoofLeft32.png"
     },
     {
-      "x": 545,
-      "y": 370,
+      "x": 612,
+      "y": 94,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1663,8 +1908,8 @@
       "location": "file:Images\\Buildings\\WoodRoofRight32.png"
     },
     {
-      "x": 449,
-      "y": 370,
+      "x": 516,
+      "y": 94,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1674,8 +1919,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 481,
-      "y": 370,
+      "x": 548,
+      "y": 94,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1685,8 +1930,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 513,
-      "y": 370,
+      "x": 580,
+      "y": 94,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1696,8 +1941,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 577,
-      "y": 434,
+      "x": 644,
+      "y": 158,
       "dx": 0,
       "dy": 0,
       "width": 32,

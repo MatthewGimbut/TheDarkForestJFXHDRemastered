@@ -94,3 +94,8 @@
 2016-10-08 18:55:36.377 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
 2016-10-08 19:07:18.367 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
 2016-10-08 19:50:10.928 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 22:16:21.228 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 22:16:26.563 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 23:56:13.502 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Magic; local class incompatible: stream classdesc serialVersionUID = 3785857994985128691, local class serialVersionUID = 1942735966431176672
+2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException

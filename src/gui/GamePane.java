@@ -14,14 +14,10 @@ import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
 import items.Weapons.Magic;
 import items.Weapons.Projectile;
-import items.Weapons.SpellTome;
 import items.SpellType;
-import items.Weapons.Staff;
+import items.ammunition.Ammunition;
 import items.ammunition.OutOfAmmoException;
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -58,9 +54,11 @@ public class GamePane extends StackPane {
     private GraphicsContext gc;
     private Timeline t;
     private QuestSummary qs;
+    private StatusPeekPane spp;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
+    private Timeline manaRegen;
 
     public GamePane(Stage primaryStage) {
 
@@ -166,8 +164,9 @@ public class GamePane extends StackPane {
                             } catch (NullPointerException e) {
                                 System.out.println("Player has no ammo equipped!");
                             } catch (OutOfAmmoException e1) {
-                                player.getPlayer().unequipUpdateStats(player.getPlayer().getAmmo());
-                                player.getPlayer().getInventory().remove(player.getPlayer().getAmmo());
+                                Ammunition a = player.getPlayer().getAmmo();
+                                player.getPlayer().unequip(a);
+                                player.getPlayer().getInventory().remove(a);
                                 System.out.println(e1.getMessage());
                             }
                             startCooldown(player.getPlayer().getSpeed());
@@ -176,29 +175,39 @@ public class GamePane extends StackPane {
                     case "K": //Magic attack
                         if(!projectileOnCooldown && (player.getPlayer().getLeftHand() instanceof Magic || player.getPlayer().getWeaponHandR() instanceof Magic)) {
                             projectileOnCooldown = true;
+                            Magic m;
                             SpellType st;
                             if(player.getPlayer().getLeftHand() != null) {
-                                st = ((SpellTome) player.getPlayer().getLeftHand()).getSpellType();
+                                m = (Magic) player.getPlayer().getLeftHand();
+                                st = m.getSpellType();
                             } else {
-                                st = ((Staff) player.getPlayer().getWeaponHandR()).getSpellType();
+                                m = (Magic) player.getPlayer().getWeaponHandR();
+                                st = m.getSpellType();
                             }
-                            switch (player.getImageLocation()) {
-                                case Player.FACING_NORTH:
-                                    projectileAttack(player.getX(), player.getY() - player.getHeight(),
-                                            0, -st.getBaseProjectileSpeed(), st.northCastImageLocation());
-                                    break;
-                                case Player.FACING_SOUTH:
-                                    projectileAttack(player.getX(), player.getY() + player.getHeight(),
-                                            0, st.getBaseProjectileSpeed(), st.southCastImageLocation());
-                                    break;
-                                case Player.FACING_EAST:
-                                    projectileAttack(player.getX() + player.getWidth(), player.getY(),
-                                            st.getBaseProjectileSpeed(), 0, st.eastCastImageLocation());
-                                    break;
-                                case Player.FACING_WEST:
-                                    projectileAttack(player.getX() - player.getWidth(), player.getY(),
-                                            -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
-                                    break;
+                            if(player.getPlayer().getCurrentMana() > m.getManaCost()) {
+                                player.getPlayer().modifyCurrentMana(-m.getManaCost());
+                                spp.update();
+                                //manaRegen.play();
+                                switch (player.getImageLocation()) {
+                                    case Player.FACING_NORTH:
+                                        projectileAttack(player.getX(), player.getY() - player.getHeight(),
+                                                0, -st.getBaseProjectileSpeed(), st.northCastImageLocation());
+                                        break;
+                                    case Player.FACING_SOUTH:
+                                        projectileAttack(player.getX(), player.getY() + player.getHeight(),
+                                                0, st.getBaseProjectileSpeed(), st.southCastImageLocation());
+                                        break;
+                                    case Player.FACING_EAST:
+                                        projectileAttack(player.getX() + player.getWidth(), player.getY(),
+                                                st.getBaseProjectileSpeed(), 0, st.eastCastImageLocation());
+                                        break;
+                                    case Player.FACING_WEST:
+                                        projectileAttack(player.getX() - player.getWidth(), player.getY(),
+                                                -st.getBaseProjectileSpeed(), 0, st.westCastImageLocation());
+                                        break;
+                                }
+                            } else {
+                                System.out.println("Not enough mana.");
                             }
                             startCooldown(player.getPlayer().getSpeed());
                         }
@@ -240,12 +249,39 @@ public class GamePane extends StackPane {
 
         qs = new QuestSummary(this);
         this.setMargin(qs, new Insets(5, 5, 0, 795));
-        this.getChildren().add(qs);
+
+        spp = new StatusPeekPane(this);
+        spp.setVisible(false);
+        this.setMargin(spp, new Insets(660, 5, 5, 350));
+
+        this.getChildren().addAll(spp, qs);
+
+        manaRegen = new Timeline(new KeyFrame(Duration.millis(250), event -> {
+            Player p = player.getPlayer();
+            if(!engaged()) {
+                if(p.getCurrentMana() < p.getMaxMana()) {
+                    p.modifyCurrentMana(1);
+                    spp.update();
+                } else { //Mana == Max mana, no more need to restore
+                    PauseTransition delay = new PauseTransition(Duration.millis(2500));
+                    delay.setOnFinished(event2 -> {
+                        if(p.getCurrentMana() > p.getMaxMana()) {
+                            p.setCurrentMana(p.getMaxMana());
+                        }
+                        spp.setVisible(false);
+                    });
+                    delay.play();
+                    manaRegen.stop();
+                }
+            }
+        }));
+        manaRegen.setCycleCount(Animation.INDEFINITE);
 
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
                 drawLayers(gc);
+                if(player.getPlayer().getCurrentMana() < player.getPlayer().getMaxMana()) manaRegen.play();
             }
         };
         animate.start();
@@ -825,6 +861,18 @@ public class GamePane extends StackPane {
         questCurrentlyDisplayed = true;
         this.getChildren().add(bp);
         bp.requestFocus();
+    }
+
+    public String getPlayerHealthAccentColor() {
+        Player p = player.getPlayer();
+        double diff = (p.getCurrentHP()+0.0) / (p.getMaxHP()+0.0);
+        if(diff > .75) {
+            return "-fx-accent: green;";
+        } else if (diff <= .75 && diff > .35) {
+            return "-fx-accent: orange;";
+        } else {
+            return "-fx-accent: red;";
+        }
     }
 
     public PlayerSprite getMainPlayerSprite() {
