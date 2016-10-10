@@ -14,6 +14,7 @@
 - [ ] Develop enemy AI (move randomly with heavy bias towards the player, attack randomly only when facing the player and within range)
 - [ ] On enemy kill drop items where the enemy died (randomly ofc)
 - [ ] Battle Handler Class + functionality
+- [ ] Extend Sprite class to have a combat Sprite, which contains information about the weapon/projectile when being placed on the screen
 
 # Weapons
 - [ ] Put range field in for weapons
@@ -53,7 +54,7 @@
 
 # Crafting System
 - [ ] Add crafting system
-- [ ] Add miscellaneous junk items tobe used by the crafting system
+- [ ] Add miscellaneous junk items to be used by the crafting system
 
 # Quest System
 - [x] Add quest system
@@ -69,7 +70,7 @@
 - [x] Add quest screen (seperate tabs for active or completed). If the user clicks on an active quest set it to priority quest (run QuestHandler.setPriority(q))
 - [ ] Have a map system for the player to look at (things to discuss, how detailed should it be?)
 - [ ] Have enemy health bar drawn above their sprite for active enemies (transparent like the priority quest display)
-- [ ] Have player health and mana bars displayed on screen
+- [x] Have player health and mana bars displayed on screen
 - [x] Edit StatsPane for more fitting names
 - [x] Create basic art for bows, arrows
 - [x] Directional arrows/bolts images
