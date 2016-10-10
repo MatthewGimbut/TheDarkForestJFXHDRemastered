@@ -75,6 +75,7 @@
 - [x] Create basic art for bows, arrows
 - [x] Directional arrows/bolts images
 - [x] Have each projectile have a modifier to change base speed depending on type?
+- [ ] Come up with a way to allow the player to move over/behind different parts of sprites to give illusion of depth?
 
 # Known bugs
 - [x] Map loads twice? Syso statements load twice, investigate (Fixed, doesn't actually load twice, the fillQuests() method is just called twice so it prints it out twice)
