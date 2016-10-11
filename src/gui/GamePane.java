@@ -54,11 +54,15 @@ public class GamePane extends StackPane {
     private GraphicsContext gc;
     private Timeline t;
     private QuestSummary qs;
-    private StatusPeekPane spp;
+    public StatusPeekPane sppHealth, sppMana;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
-    private Timeline manaRegen;
+    public Timeline manaRegen, hpRegen;
+    public static final String STYLE_GREEN =  "-fx-accent: green;";
+    public static final String STYLE_RED =  "-fx-accent: red;";
+    public static final String STYLE_BLUE =  "-fx-accent: blue;";
+    public static final String STYLE_ORANGE =  "-fx-accent: orange;";
 
     public GamePane(Stage primaryStage) {
 
@@ -131,7 +135,9 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "L": //Projectile attack for demo purposes until they are added to player
-                        if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null && player.getPlayer().getWeaponHandR() instanceof Projectile)) {
+                        if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null
+                                && player.getPlayer().getWeaponHandR() instanceof Projectile
+                                && !(player.getPlayer().getWeaponHandR() instanceof Magic))) {
                             projectileOnCooldown = true;
                             try {
                                 player.getPlayer().getAmmo().decrementAmmoCount();
@@ -186,7 +192,7 @@ public class GamePane extends StackPane {
                             }
                             if(player.getPlayer().getCurrentMana() > m.getManaCost()) {
                                 player.getPlayer().modifyCurrentMana(-m.getManaCost());
-                                spp.update();
+                                sppMana.update();
                                 //manaRegen.play();
                                 switch (player.getImageLocation()) {
                                     case Player.FACING_NORTH:
@@ -250,26 +256,42 @@ public class GamePane extends StackPane {
         qs = new QuestSummary(this);
         this.setMargin(qs, new Insets(5, 5, 0, 795));
 
-        spp = new StatusPeekPane(this);
-        spp.setVisible(false);
-        this.setMargin(spp, new Insets(660, 5, 5, 350));
+        sppHealth = new StatusPeekPane(this, StatusPeekPane.HEALTH);
+        sppMana = new StatusPeekPane(this, StatusPeekPane.MANA);
+        sppHealth.setVisible(false);
+        sppMana.setVisible(false);
+        this.setMargin(sppHealth, new Insets(0, 5, 5, 10));
+        this.setMargin(sppMana, new Insets(0, 5, 5, 160));
 
-        this.getChildren().addAll(spp, qs);
+        this.getChildren().addAll(sppHealth, sppMana, qs);
 
-        manaRegen = new Timeline(new KeyFrame(Duration.millis(250), event -> {
+        hpRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getHpRegen()), event -> {
+            Player p = player.getPlayer();
+            if(!engaged()) {
+                if(p.getCurrentHP() < p.getMaxHP()) {
+                    p.modifyCurrentHP(1);
+                    sppHealth.update();
+                } else { //Mana == Max mana, no more need to restore
+                    p.setCurrentHP(p.getMaxHP());
+                    PauseTransition delay = new PauseTransition(Duration.millis(2500));
+                    delay.setOnFinished(event2 -> fadeOutStatus(sppHealth));
+                    delay.play();
+                    hpRegen.stop();
+                }
+            }
+        }));
+        hpRegen.setCycleCount(Animation.INDEFINITE);
+
+        manaRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getManaRegen()), event -> {
             Player p = player.getPlayer();
             if(!engaged()) {
                 if(p.getCurrentMana() < p.getMaxMana()) {
                     p.modifyCurrentMana(1);
-                    spp.update();
+                    sppMana.update();
                 } else { //Mana == Max mana, no more need to restore
+                    p.setCurrentMana(p.getMaxMana());
                     PauseTransition delay = new PauseTransition(Duration.millis(2500));
-                    delay.setOnFinished(event2 -> {
-                        if(p.getCurrentMana() > p.getMaxMana()) {
-                            p.setCurrentMana(p.getMaxMana());
-                        }
-                        spp.setVisible(false);
-                    });
+                    delay.setOnFinished(event2 -> fadeOutStatus(sppMana));
                     delay.play();
                     manaRegen.stop();
                 }
@@ -281,10 +303,20 @@ public class GamePane extends StackPane {
             public void handle(long currentNanoTime) {
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
                 drawLayers(gc);
-                if(player.getPlayer().getCurrentMana() < player.getPlayer().getMaxMana()) manaRegen.play();
+                Player p = player.getPlayer();
+                if(p.getCurrentMana() < p.getMaxMana()) manaRegen.play();
+                if(p.getCurrentHP() < p.getMaxHP()) hpRegen.play();
             }
         };
         animate.start();
+    }
+
+    public void fadeOutStatus(StatusPeekPane bar) {
+        FadeTransition ft = new FadeTransition(Duration.millis(750), bar);
+        ft.setOnFinished(f -> bar.setVisible(false));
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.play();
     }
 
     private void startCooldown(int period) {
@@ -552,7 +584,7 @@ public class GamePane extends StackPane {
 
     private void initCollections() {
         try {
-            String mapLoc = "Saves\\Save01\\Maps\\Map0-0.json";
+            String mapLoc = "Saves\\Save01\\Maps\\Map0-1.json";
             //String mapLoc = "Saves\\Save01\\Maps\\JSONTest.map";
             map = new MapContainer(player, mapLoc);
             this.setId(map.getIdName());
@@ -867,11 +899,11 @@ public class GamePane extends StackPane {
         Player p = player.getPlayer();
         double diff = (p.getCurrentHP()+0.0) / (p.getMaxHP()+0.0);
         if(diff > .75) {
-            return "-fx-accent: green;";
+            return STYLE_GREEN;
         } else if (diff <= .75 && diff > .35) {
-            return "-fx-accent: orange;";
+            return STYLE_ORANGE;
         } else {
-            return "-fx-accent: red;";
+            return STYLE_RED;
         }
     }
 

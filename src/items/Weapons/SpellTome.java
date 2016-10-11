@@ -30,7 +30,7 @@ public class SpellTome extends Magic implements Secondary {
         setInfo(imgLoc, name, tooltip);    }
 
     public SpellTome() {
-        super(0, 5, 200, 5.4, 10, 100, randomRareness(), null, getRandomSpellType(), GameStage.getRandom(14) + 1);
+        super(0, 5, 200, 5.4, 10, 100, randomRareness(), null, getRandomSpellType(), GameStage.getRandom(10) + 5);
         setInfo(null, null, null);
     }
 

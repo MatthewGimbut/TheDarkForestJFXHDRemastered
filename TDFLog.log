@@ -99,3 +99,6 @@
 2016-10-08 23:56:13.502 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Magic; local class incompatible: stream classdesc serialVersionUID = 3785857994985128691, local class serialVersionUID = 1942735966431176672
 2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-09 12:01:35.047 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = 1658663857299801381, local class serialVersionUID = -7127516322307962556
+2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException

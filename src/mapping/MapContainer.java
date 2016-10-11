@@ -99,7 +99,7 @@ public class MapContainer {
      * Adds a sprite to the current map iff it doesn't intersect anything and updates layers.
      * @param toAdd The Sprite object to add to the game.
      */
-    public void addSprite(Sprite toAdd) {
+    public void add(Sprite toAdd) {
         boolean found = false;
         for(Sprite sprite : mapItems) {
             if(sprite.getBounds().intersects(toAdd.getBounds())) {

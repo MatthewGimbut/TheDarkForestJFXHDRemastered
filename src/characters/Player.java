@@ -35,6 +35,8 @@ public class Player extends Character {
     private LinkedList<Item> inventory;
     private int xp;
     private int gold;
+    private int hpRegen; //hpRegen and manaRegen are both in milliseconds
+    private int manaRegen;
     private Weapon weaponHandR;
     private Secondary leftHand;
     private ChestPiece chestPiece;
@@ -60,6 +62,8 @@ public class Player extends Character {
         super(username , STARTING_LEVEL, STARTING_MAX_HP, STARTING_MAX_HP, STARTING_MAX_MANA, STARTING_MAX_MANA, STARTING_ATK, STARTING_MAGIC, STARTING_DEF, STARTING_SPD, 0, STARTING_MAX_CARRY);
         xp = 0;
         gold = 0;
+        hpRegen = 3500; //Base HP regeneration rate
+        manaRegen = 250; //Base mana regeneration rate
         textScrollingSpeed = 45; //Milliseconds
         inventory = new LinkedList<Item>();
         records = new Records();
@@ -361,5 +365,21 @@ public class Player extends Character {
 
     public Records getRecords() {
         return records;
+    }
+
+    public int getHpRegen() {
+        return hpRegen;
+    }
+
+    public void setHpRegen(int hpRegen) {
+        this.hpRegen = hpRegen;
+    }
+
+    public int getManaRegen() {
+        return manaRegen;
+    }
+
+    public void setManaRegen(int manaRegen) {
+        this.manaRegen = manaRegen;
     }
 }

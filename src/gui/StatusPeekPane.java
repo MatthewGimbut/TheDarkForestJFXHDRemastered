@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.GameStage;
@@ -18,19 +20,22 @@ public class StatusPeekPane extends AnchorPane {
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private AnchorPane anchor;
-    @FXML private Label hp;
-    @FXML private ProgressBar hpBar;
-    @FXML private Label mana;
-    @FXML private ProgressBar manaBar;
+    @FXML private Label total;
+    @FXML private Label stat;
+    @FXML private ProgressBar bar;
+    @FXML private ImageView borderImage;
+    private String display;
+    public static final String HEALTH = "health";
+    public static final String MANA = "mana";
 
-    public StatusPeekPane(GamePane currentView) {
+    public StatusPeekPane(GamePane currentView, String display) {
         this.currentView = currentView;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\StatusPeekPane.fxml"));
         fxmlLoader.setController(this);
 
-
+        this.display = display;
         try {
             fxmlLoader.load();
         } catch (Exception exception) {
@@ -43,16 +48,32 @@ public class StatusPeekPane extends AnchorPane {
     @FXML
     void initialize() {
         update();
+
+        if(display.equals("mana")) {
+            bar.setStyle(GamePane.STYLE_BLUE);
+        }
+
+        borderImage.setImage(new Image("file:Images\\bordertest.png"));
+
         this.getChildren().add(anchor);
     }
 
     public void update() {
         Player p = currentView.getMainPlayerSprite().getPlayer();
-        hp.setText(p.getCurrentHP() + "/" + p.getMaxHP());
-        mana.setText(p.getCurrentMana() + "/" + p.getMaxMana());
-        manaBar.setProgress((p.getCurrentMana()+0.0)/(p.getMaxMana()+0.0));
-        hpBar.setProgress((p.getCurrentHP()+0.0)/(p.getMaxHP()+0.0));
-        hpBar.setStyle(currentView.getPlayerHealthAccentColor());
+
+        switch(display) {
+            case "health":
+                stat.setText("HP: ");
+                total.setText(p.getCurrentHP() + "/" + p.getMaxHP());
+                bar.setProgress((p.getCurrentHP()+0.0)/(p.getMaxHP()+0.0));
+                bar.setStyle(currentView.getPlayerHealthAccentColor());
+                break;
+            case "mana":
+                stat.setText("Mana: ");
+                total.setText(p.getCurrentMana() + "/" + p.getMaxMana());
+                bar.setProgress((p.getCurrentMana()+0.0)/(p.getMaxMana()+0.0));
+                break;
+        }
         this.setVisible(true);
     }
 }

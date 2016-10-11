@@ -4,6 +4,8 @@ import characters.Player;
 import gui.GamePane;
 import items.Armor.Armor;
 import items.Consumables.Consumable;
+import items.Consumables.Potion;
+import items.Consumables.PotionType;
 import items.Item;
 import items.Secondary;
 import items.Weapons.Magic;
@@ -358,6 +360,12 @@ public class ScrollingInventoryPane extends BorderPane {
                         GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
                     }
                     info.setText("Unequipped " + itemPane.getItem().getSimpleName() + ". ");
+                    if(player.getCurrentHP() > player.getMaxHP()) {
+                        player.setCurrentHP(player.getMaxHP());
+                    }
+                    if(player.getCurrentMana() > player.getMaxMana()) {
+                        player.setCurrentMana(player.getMaxMana());
+                    }
                 } else { //Equip
                     if (itemPane.getItem() instanceof Secondary) {
                         player.equip((Secondary) itemPane.getItem());
@@ -381,6 +389,12 @@ public class ScrollingInventoryPane extends BorderPane {
                     } else if (itemPane.getItem() instanceof Consumable) {
                         player.consume((Consumable) itemPane.getItem());
                         info.setText("Consumed " + itemPane.getItem().getSimpleName());
+                        if(itemPane.getItem() instanceof Potion) {
+                            if(((Potion) itemPane.getItem()).getType().equals(PotionType.Health)) {
+                                currentView.sppHealth.update();
+                            }
+                        }
+
                         sortItems();
                         consumablesScroll.setContent(drawConsumables());
                         favoritesScroll.setContent(drawFavorites());
@@ -391,6 +405,10 @@ public class ScrollingInventoryPane extends BorderPane {
                 drawColors(allLabels);
                 if (itemPane.getItem().isFavorite()) drawColors(favLabels);
                 currentView.despawnPlayerProjectiles();
+                currentView.sppHealth.update();
+                currentView.hpRegen.play();
+                currentView.sppMana.update();
+                currentView.manaRegen.play();
             } else if(event.getButton() == MouseButton.SECONDARY){ //Right Click
                 if(itemPane.getItem().isFavorite()) {
                     itemPane.getItem().setFavorite(false);

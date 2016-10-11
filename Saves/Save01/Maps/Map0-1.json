@@ -1054,6 +1054,7 @@
         "type": "characters.Enemy",
         "data": {
           "customMusic": "file:Music\\\\InLightOfDarkness.mp3",
+          "isActive": false,
           "isSelected": false,
           "type": "TestEnemy",
           "currentStatusEffects": [],
@@ -1112,7 +1113,19 @@
       "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
     }
   ],
-  "saves": [],
+  "saves": [
+    {
+      "x": 348,
+      "y": 456,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\SaveArea.png"
+    }
+  ],
   "upperLayers": [
     {
       "x": 400,

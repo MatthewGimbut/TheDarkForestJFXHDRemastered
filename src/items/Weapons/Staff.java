@@ -19,7 +19,7 @@ public class Staff extends Magic implements TwoHanded {
     }
 
     public Staff() {
-        super(10, 15, 500, 10.4, 40, 300, randomRareness(), getRandomWeaponType(), getRandomSpellType(), GameStage.getRandom(14) + 1);
+        super(10, 15, 500, 10.4, 40, 300, randomRareness(), getRandomWeaponType(), getRandomSpellType(), GameStage.getRandom(10) + 5);
         setInfo(null, null, null);
     }
 
