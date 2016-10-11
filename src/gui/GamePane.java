@@ -59,10 +59,13 @@ public class GamePane extends StackPane {
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
     public Timeline manaRegen, hpRegen;
-    public static final String STYLE_GREEN =  "-fx-accent: green;";
-    public static final String STYLE_RED =  "-fx-accent: red;";
-    public static final String STYLE_BLUE =  "-fx-accent: blue;";
-    public static final String STYLE_ORANGE =  "-fx-accent: orange;";
+    public static final String STYLE_HIGH_HP =  "-fx-accent: green;";
+    public static final String STYLE_LOW_HP =  "-fx-accent: red;";
+    public static final String STYLE_MANA =  "-fx-accent: blue;";
+    public static final String STYLE_MEDIUM_HP =  "-fx-accent: orange;";
+    public static final String STYLE_XP =  "-fx-accent: gold;";
+    public static final String STYLE_STAMINA = "-fx-accent: DeepSkyBlue;";
+
 
     public GamePane(Stage primaryStage) {
 
@@ -265,6 +268,7 @@ public class GamePane extends StackPane {
 
         this.getChildren().addAll(sppHealth, sppMana, qs);
 
+        /* Timer that is responsible for HP regen. */
         hpRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getHpRegen()), event -> {
             Player p = player.getPlayer();
             if(!engaged()) {
@@ -282,13 +286,14 @@ public class GamePane extends StackPane {
         }));
         hpRegen.setCycleCount(Animation.INDEFINITE);
 
+        /* Timer that is responsible for mana regen. */
         manaRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getManaRegen()), event -> {
             Player p = player.getPlayer();
             if(!engaged()) {
                 if(p.getCurrentMana() < p.getMaxMana()) {
                     p.modifyCurrentMana(1);
                     sppMana.update();
-                } else { //Mana == Max mana, no more need to restore
+                } else { //Health == Max health, no more need to restore
                     p.setCurrentMana(p.getMaxMana());
                     PauseTransition delay = new PauseTransition(Duration.millis(2500));
                     delay.setOnFinished(event2 -> fadeOutStatus(sppMana));
@@ -299,10 +304,18 @@ public class GamePane extends StackPane {
         }));
         manaRegen.setCycleCount(Animation.INDEFINITE);
 
+        /* The main AnimationTimer that runs the game, defaults to 60fps.
+         * Try to keep the code in this section limited. On new systems
+         * it may run fine, but older systems may have issues executing
+         * these instructions 60 times per second. */
         AnimationTimer animate = new AnimationTimer() {
             public void handle(long currentNanoTime) {
+
+                //Clears and renders the image on the screen
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
                 drawLayers(gc);
+
+                //Triggers UI updates, but only if needed.
                 Player p = player.getPlayer();
                 if(p.getCurrentMana() < p.getMaxMana()) manaRegen.play();
                 if(p.getCurrentHP() < p.getMaxHP()) hpRegen.play();
@@ -311,6 +324,10 @@ public class GamePane extends StackPane {
         animate.start();
     }
 
+    /**
+     * Fades out a StatusPeekPane after 3/4 seconds.
+     * @param bar The bar on the screen to fade out.
+     */
     public void fadeOutStatus(StatusPeekPane bar) {
         FadeTransition ft = new FadeTransition(Duration.millis(750), bar);
         ft.setOnFinished(f -> bar.setVisible(false));
@@ -319,6 +336,10 @@ public class GamePane extends StackPane {
         ft.play();
     }
 
+    /**
+     * Starts the cooldown for projectiles fired by the player.
+     * @param period The time period for the cooldown.
+     */
     private void startCooldown(int period) {
         System.out.println(period);
         PauseTransition delay = new PauseTransition(Duration.millis(period));
@@ -895,15 +916,15 @@ public class GamePane extends StackPane {
         bp.requestFocus();
     }
 
-    public String getPlayerHealthAccentColor() {
+    String getPlayerHealthAccentColor() {
         Player p = player.getPlayer();
         double diff = (p.getCurrentHP()+0.0) / (p.getMaxHP()+0.0);
         if(diff > .75) {
-            return STYLE_GREEN;
+            return STYLE_HIGH_HP;
         } else if (diff <= .75 && diff > .35) {
-            return STYLE_ORANGE;
+            return STYLE_MEDIUM_HP;
         } else {
-            return STYLE_RED;
+            return STYLE_LOW_HP;
         }
     }
 

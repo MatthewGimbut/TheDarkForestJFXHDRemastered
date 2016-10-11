@@ -27,6 +27,8 @@ public class StatusPeekPane extends AnchorPane {
     private String display;
     public static final String HEALTH = "health";
     public static final String MANA = "mana";
+    public static final String XP = "xp";
+    public static final String STAMINA = "stamina";
 
     public StatusPeekPane(GamePane currentView, String display) {
         this.currentView = currentView;
@@ -50,7 +52,7 @@ public class StatusPeekPane extends AnchorPane {
         update();
 
         if(display.equals("mana")) {
-            bar.setStyle(GamePane.STYLE_BLUE);
+            bar.setStyle(GamePane.STYLE_MANA);
         }
 
         borderImage.setImage(new Image("file:Images\\bordertest.png"));
@@ -73,7 +75,12 @@ public class StatusPeekPane extends AnchorPane {
                 total.setText(p.getCurrentMana() + "/" + p.getMaxMana());
                 bar.setProgress((p.getCurrentMana()+0.0)/(p.getMaxMana()+0.0));
                 break;
+            case "xp":
+                stat.setText("XP: ");
+                total.setText(p.getXp() + "/100");
+                bar.setProgress((p.getXp()+0.0)/100.0);
         }
         this.setVisible(true);
+        this.setOpacity(1.0);
     }
 }
