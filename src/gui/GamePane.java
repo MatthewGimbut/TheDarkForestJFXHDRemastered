@@ -21,6 +21,7 @@ import javafx.animation.*;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -54,17 +55,17 @@ public class GamePane extends StackPane {
     private GraphicsContext gc;
     private Timeline t;
     private QuestSummary qs;
-    public StatusPeekPane sppHealth, sppMana;
+    public StatusPeekPane sppHealth, sppMana, sppStamina;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
-    public Timeline manaRegen, hpRegen;
+    public Timeline manaRegen, hpRegen, staminaRegen;
     public static final String STYLE_HIGH_HP =  "-fx-accent: green;";
     public static final String STYLE_LOW_HP =  "-fx-accent: red;";
     public static final String STYLE_MANA =  "-fx-accent: blue;";
     public static final String STYLE_MEDIUM_HP =  "-fx-accent: orange;";
-    public static final String STYLE_XP =  "-fx-accent: gold;";
-    public static final String STYLE_STAMINA = "-fx-accent: DeepSkyBlue;";
+    public static final String STYLE_STAMINA =  "-fx-accent: gold;";
+    public static final String STYLE_XP = "-fx-accent: DeepSkyBlue;";
 
 
     public GamePane(Stage primaryStage) {
@@ -139,36 +140,41 @@ public class GamePane extends StackPane {
                         break;
                     case "L": //Projectile attack for demo purposes until they are added to player
                         if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null
-                                && player.getPlayer().getWeaponHandR() instanceof Projectile
-                                && !(player.getPlayer().getWeaponHandR() instanceof Magic))) {
+                                && player.getPlayer().getWeaponHandR() instanceof Projectile)
+                                && !(player.getPlayer().getWeaponHandR() instanceof  Magic)) {
                             projectileOnCooldown = true;
+                            int cost = player.getPlayer().getWeaponHandR().getStaminaCost();
                             try {
-                                player.getPlayer().getAmmo().decrementAmmoCount();
-                                switch (player.getImageLocation()) { //Player size values reduced in certain places to make the projectiles look centered
-                                    case Player.FACING_NORTH:
-                                        projectileAttack(player.getX() + 8, player.getY() - (player.getHeight() - 20), 0,
-                                                -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
-                                                player.getPlayer().getAmmo().northLaunchImageLocation());
-                                        break;
-                                    case Player.FACING_SOUTH:
-                                        projectileAttack(player.getX() + 8, player.getY() + player.getHeight(), 0,
-                                                ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
-                                                player.getPlayer().getAmmo().southLaunchImageLocation());
-                                        break;
-                                    case Player.FACING_EAST:
-                                        projectileAttack(player.getX() + player.getWidth(), player.getY() + 12,
-                                                ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
-                                                player.getPlayer().getAmmo().eastLaunchImageLocation());
-                                        break;
-                                    case Player.FACING_WEST:
-                                        projectileAttack(player.getX() - player.getWidth(), player.getY() + 12,
-                                                -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
-                                                player.getPlayer().getAmmo().westLaunchImageLocation());
-                                        break;
-                                }
-                                if(player.getPlayer().getAmmo().getCount() == 0) {
-                                    player.getPlayer().unequipUpdateStats(player.getPlayer().getAmmo());
-                                    player.getPlayer().getInventory().remove(player.getPlayer().getAmmo());
+                                if(player.getPlayer().getCurrentStamina() > cost) {
+                                    player.getPlayer().getAmmo().decrementAmmoCount();
+                                    player.getPlayer().modifyCurrentStamina(-cost);
+                                    sppStamina.update();
+                                    switch (player.getImageLocation()) { //Player size values reduced in certain places to make the projectiles look centered
+                                        case Player.FACING_NORTH:
+                                            projectileAttack(player.getX() + 8, player.getY() - (player.getHeight() - 20), 0,
+                                                    -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
+                                                    player.getPlayer().getAmmo().northLaunchImageLocation());
+                                            break;
+                                        case Player.FACING_SOUTH:
+                                            projectileAttack(player.getX() + 8, player.getY() + player.getHeight(), 0,
+                                                    ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(),
+                                                    player.getPlayer().getAmmo().southLaunchImageLocation());
+                                            break;
+                                        case Player.FACING_EAST:
+                                            projectileAttack(player.getX() + player.getWidth(), player.getY() + 12,
+                                                    ((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
+                                                    player.getPlayer().getAmmo().eastLaunchImageLocation());
+                                            break;
+                                        case Player.FACING_WEST:
+                                            projectileAttack(player.getX() - player.getWidth(), player.getY() + 12,
+                                                    -((Projectile) player.getPlayer().getWeaponHandR()).getProjectileSpeed(), 0,
+                                                    player.getPlayer().getAmmo().westLaunchImageLocation());
+                                            break;
+                                    }
+                                    if(player.getPlayer().getAmmo().getCount() == 0) {
+                                        player.getPlayer().unequipUpdateStats(player.getPlayer().getAmmo());
+                                        player.getPlayer().getInventory().remove(player.getPlayer().getAmmo());
+                                    }
                                 }
                             } catch (NullPointerException e) {
                                 System.out.println("Player has no ammo equipped!");
@@ -259,14 +265,22 @@ public class GamePane extends StackPane {
         qs = new QuestSummary(this);
         this.setMargin(qs, new Insets(5, 5, 0, 795));
 
+        HBox box = new HBox(50);
         sppHealth = new StatusPeekPane(this, StatusPeekPane.HEALTH);
         sppMana = new StatusPeekPane(this, StatusPeekPane.MANA);
+        sppStamina = new StatusPeekPane(this, StatusPeekPane.STAMINA);
         sppHealth.setVisible(false);
         sppMana.setVisible(false);
-        this.setMargin(sppHealth, new Insets(0, 5, 5, 10));
+        sppStamina.setVisible(false);
+        /*this.setMargin(sppHealth, new Insets(0, 5, 5, 10));
         this.setMargin(sppMana, new Insets(0, 5, 5, 160));
+        this.setMargin(sppStamina, new Insets(0, 5, 5, 310));*/
+        box.getChildren().addAll(sppHealth, sppMana, sppStamina);
+        this.setMargin(box, new Insets(0, 5, 5, 10));
 
-        this.getChildren().addAll(sppHealth, sppMana, qs);
+        this.getChildren().addAll(box, qs);
+
+        final int fadePause = 2500;
 
         /* Timer that is responsible for HP regen. */
         hpRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getHpRegen()), event -> {
@@ -277,7 +291,7 @@ public class GamePane extends StackPane {
                     sppHealth.update();
                 } else { //Mana == Max mana, no more need to restore
                     p.setCurrentHP(p.getMaxHP());
-                    PauseTransition delay = new PauseTransition(Duration.millis(2500));
+                    PauseTransition delay = new PauseTransition(Duration.millis(fadePause));
                     delay.setOnFinished(event2 -> fadeOutStatus(sppHealth));
                     delay.play();
                     hpRegen.stop();
@@ -295,7 +309,7 @@ public class GamePane extends StackPane {
                     sppMana.update();
                 } else { //Health == Max health, no more need to restore
                     p.setCurrentMana(p.getMaxMana());
-                    PauseTransition delay = new PauseTransition(Duration.millis(2500));
+                    PauseTransition delay = new PauseTransition(Duration.millis(fadePause));
                     delay.setOnFinished(event2 -> fadeOutStatus(sppMana));
                     delay.play();
                     manaRegen.stop();
@@ -303,6 +317,24 @@ public class GamePane extends StackPane {
             }
         }));
         manaRegen.setCycleCount(Animation.INDEFINITE);
+
+        /* Timer that is responsible for stamina regen. */
+        staminaRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getStaminaRegen()), event -> {
+            Player p = player.getPlayer();
+            if(!engaged()) {
+                if(p.getCurrentStamina() < p.getMaxStamina()) {
+                    p.modifyCurrentStamina(1);
+                    sppStamina.update();
+                } else {
+                    p.setCurrentStamina(p.getMaxStamina());
+                    PauseTransition delay = new PauseTransition(Duration.millis(fadePause));
+                    delay.setOnFinished(event1 -> fadeOutStatus(sppStamina));
+                    delay.play();
+                    staminaRegen.stop();
+                }
+            }
+        }));
+        staminaRegen.setCycleCount(Animation.INDEFINITE);
 
         /* The main AnimationTimer that runs the game, defaults to 60fps.
          * Try to keep the code in this section limited. On new systems
@@ -319,6 +351,7 @@ public class GamePane extends StackPane {
                 Player p = player.getPlayer();
                 if(p.getCurrentMana() < p.getMaxMana()) manaRegen.play();
                 if(p.getCurrentHP() < p.getMaxHP()) hpRegen.play();
+                if(p.getCurrentStamina() < p.getMaxStamina()) staminaRegen.play();
             }
         };
         animate.start();

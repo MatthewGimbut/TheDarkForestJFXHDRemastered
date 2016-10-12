@@ -80,4 +80,9 @@ public class Bolt extends Ammunition {
     public String westLaunchImageLocation() {
         return AMMO_BASE_LOC + this.getWeaponType().toString() + "\\Bolt\\west.png";
     }
+
+    @Override
+    public int getStaminaCost() {
+        return 0;
+    }
 }

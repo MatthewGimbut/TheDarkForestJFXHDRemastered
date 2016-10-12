@@ -113,5 +113,20 @@
         <Label fx:id="gold" text="x gold" />
       </children>
     </HBox>
+    <ImageView fx:id="hpBorder" fitHeight="15.0" fitWidth="212.0" layoutX="345.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
+    <ImageView fx:id="xpBorder" fitHeight="15.0" fitWidth="212.0" layoutX="345.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
+    <ImageView fx:id="manaBorder" fitHeight="15.0" fitWidth="212.0" layoutX="345.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
   </children>
 </AnchorPane>

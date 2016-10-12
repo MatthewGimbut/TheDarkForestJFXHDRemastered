@@ -58,7 +58,7 @@ public abstract class Character implements Serializable {
 		this.isDead = false;
 
 	}
-	
+
 	public Character(String name, int lvl, int currentHP, int maxHP, int currentMana, int maxMana, int atk, int magic, int def, int speed,
 					 int currentCarry, int carryCap, String north, String south, String east, String west) {
 		this(name, lvl, currentHP, maxHP, currentMana, maxMana, atk, magic, def, speed, currentCarry, carryCap);
@@ -119,7 +119,11 @@ public abstract class Character implements Serializable {
 	}
 
 	public void setCurrentHP(int hp) {
-		this.currentHP = hp;
+		if(hp <= maxHP) {
+			this.currentHP = hp;
+		} else {
+			this.currentHP = maxHP;
+		}
 	}
 	
 	public void modifyCurrentCarry(double currentCarry) {
@@ -264,7 +268,11 @@ public abstract class Character implements Serializable {
 	}
 
 	public void setCurrentMana(int mana) {
-		this.currentMana = mana;
+		if(mana <= maxMana){
+			this.currentMana = mana;
+		} else {
+			this.currentMana = maxMana;
+		}
 	}
 
 	public String getSouthImage() {

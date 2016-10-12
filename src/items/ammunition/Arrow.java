@@ -83,4 +83,8 @@ public class Arrow extends Ammunition {
     }
 
 
+    @Override
+    public int getStaminaCost() {
+        return 0;
+    }
 }

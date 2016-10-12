@@ -16,7 +16,12 @@ public class Mace extends Weapon {
 		this.setSimpleName(this.getWeaponType() + " mace");
 		this.setItemToolTipText("A " + this.getWeaponType() + " mace");
 	}
-	
+
+	@Override
+	public int getStaminaCost() {
+		return 10;
+	}
+
 	public Mace(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value,
 				Rarity howRare, WeaponType weaponType, String uniqueImage, String uniqueName, String uniqueToolTip) {
 		super(atk, magic, def, speedModifier, weight, hpBoost, manaBoost, value, howRare, weaponType);

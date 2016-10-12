@@ -48,7 +48,9 @@ public abstract class Weapon extends Item {
 			return WeaponType.wood;
 		}
 	}
-	
+
+	public abstract int getStaminaCost();
+
 	public static double weaponTypeMultiplier(WeaponType weapon) {
 		if(weapon != null) {
 			switch(weapon) {

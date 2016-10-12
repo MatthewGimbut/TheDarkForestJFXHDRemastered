@@ -40,4 +40,9 @@ public class Staff extends Magic implements TwoHanded {
             this.setItemToolTipText(tooltip);
         }
     }
+
+    @Override
+    public int getStaminaCost() {
+        return 9;
+    }
 }

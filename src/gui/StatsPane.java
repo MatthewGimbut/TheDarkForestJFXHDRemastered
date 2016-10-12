@@ -26,6 +26,7 @@ public class StatsPane extends BorderPane {
 
     private GamePane currentView;
     private PlayerSprite playerSprite;
+    private final String BORDER = "file:Images\\border_long.png";
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private ImageView ammoImage;
@@ -53,6 +54,7 @@ public class StatsPane extends BorderPane {
     @FXML private Rectangle secondaryPane;
     @FXML private ProgressBar xpBar;
     @FXML private Label xpLabel;
+    @FXML private ImageView hpBorder, manaBorder, xpBorder;
 
     public StatsPane(GamePane currentView, PlayerSprite playerSprite) {
         this.currentView = currentView;
@@ -83,6 +85,10 @@ public class StatsPane extends BorderPane {
         });
 
         Player player = playerSprite.getPlayer();
+
+        hpBorder.setImage(new Image(BORDER));
+        manaBorder.setImage(new Image(BORDER));
+        xpBorder.setImage(new Image(BORDER));
 
         playerName.setText(player.getName());
 

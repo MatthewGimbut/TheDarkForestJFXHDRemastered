@@ -102,3 +102,16 @@
 2016-10-09 12:01:35.047 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = 1658663857299801381, local class serialVersionUID = -7127516322307962556
 2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 00:40:36.915 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -7127516322307962556, local class serialVersionUID = -9060532762176687927
+2016-10-12 00:40:36.916 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 00:40:36.916 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:07:03.996 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:07:03.998 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:07:03.998 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:56:17.293 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:56:17.294 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:56:17.295 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:58:08.450 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - [Ljava.lang.StackTraceElement;@bb6956f
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException

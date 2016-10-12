@@ -16,7 +16,12 @@ public class Cleaver extends Weapon {
 		System.out.println(this.getWeaponType());
 		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Dagger.png");
 	}
-	
+
+	@Override
+	public int getStaminaCost() {
+		return 0;
+	}
+
 	public Cleaver() {
 		super(5, 0, 0, 2, 4, 0, 0, 15, Item.randomRareness(), WeaponType.iron);
 		this.setImageLocation("Images\\Weapons\\Cleaver\\Cleaver.png");

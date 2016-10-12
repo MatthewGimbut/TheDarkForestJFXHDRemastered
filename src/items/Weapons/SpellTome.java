@@ -52,4 +52,9 @@ public class SpellTome extends Magic implements Secondary {
         }
         this.atk = 0;
     }
+
+    @Override
+    public int getStaminaCost() {
+        return 0;
+    }
 }

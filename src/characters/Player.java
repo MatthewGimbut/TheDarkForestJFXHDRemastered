@@ -17,6 +17,7 @@ import quests.QuestHandler;
 
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Player extends Character {
     public static final String FACING_NORTH = "file:Images\\Player\\PlayerNorth.png";
@@ -35,8 +36,9 @@ public class Player extends Character {
     private LinkedList<Item> inventory;
     private int xp;
     private int gold;
-    private int hpRegen; //hpRegen and manaRegen are both in milliseconds
+    private int hpRegen; //hpRegen, manaRegen, staminaRegen are in milliseconds
     private int manaRegen;
+    private int currentStamina, maxStamina, staminaRegen;
     private Weapon weaponHandR;
     private Secondary leftHand;
     private ChestPiece chestPiece;
@@ -64,6 +66,9 @@ public class Player extends Character {
         gold = 0;
         hpRegen = 3500; //Base HP regeneration rate
         manaRegen = 250; //Base mana regeneration rate
+        staminaRegen = 150;
+        currentStamina = 150;
+        maxStamina = 150;
         textScrollingSpeed = 45; //Milliseconds
         inventory = new LinkedList<Item>();
         records = new Records();
@@ -331,6 +336,10 @@ public class Player extends Character {
      */
     public void lvlUp(int leftoverXP) {
         super.lvlUp(leftoverXP);
+        Random r = new Random();
+        int staminaBoost = r.nextInt(7);
+        this.currentStamina += staminaBoost;
+        this.maxStamina += staminaBoost;
         this.xp = leftoverXP;
     }
 
@@ -382,4 +391,37 @@ public class Player extends Character {
     public void setManaRegen(int manaRegen) {
         this.manaRegen = manaRegen;
     }
+
+    public int getCurrentStamina() {
+        return currentStamina;
+    }
+
+    public void setCurrentStamina(int currentStamina) {
+        if(currentStamina <= maxStamina) {
+            this.currentStamina = currentStamina;
+        } else {
+            this.currentStamina = this.maxStamina;
+        }
+    }
+
+    public int getMaxStamina() {
+        return maxStamina;
+    }
+
+    public void setMaxStamina(int maxStamina) {
+        this.maxStamina = maxStamina;
+    }
+
+    public int getStaminaRegen() {
+        return staminaRegen;
+    }
+
+    public void setStaminaRegen(int staminaRegen) {
+        this.staminaRegen = staminaRegen;
+    }
+
+    public void modifyCurrentStamina(int mod) {
+        this.currentStamina += mod;
+    }
+
 }

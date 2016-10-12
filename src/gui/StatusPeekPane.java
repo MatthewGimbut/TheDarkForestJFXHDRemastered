@@ -53,6 +53,8 @@ public class StatusPeekPane extends AnchorPane {
 
         if(display.equals("mana")) {
             bar.setStyle(GamePane.STYLE_MANA);
+        } else if(display.equals("stamina")) {
+            bar.setStyle(GamePane.STYLE_STAMINA);
         }
 
         borderImage.setImage(new Image("file:Images\\bordertest.png"));
@@ -79,6 +81,12 @@ public class StatusPeekPane extends AnchorPane {
                 stat.setText("XP: ");
                 total.setText(p.getXp() + "/100");
                 bar.setProgress((p.getXp()+0.0)/100.0);
+                break;
+            case "stamina":
+                stat.setText("Stamina: ");
+                total.setText(p.getCurrentStamina() + "/" + p.getMaxStamina());
+                bar.setProgress((p.getCurrentStamina()+0.0)/(p.getMaxStamina()+0.0));
+                break;
         }
         this.setVisible(true);
         this.setOpacity(1.0);

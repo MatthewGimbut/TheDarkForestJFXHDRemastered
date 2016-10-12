@@ -28,6 +28,9 @@ public class Bow extends Weapon implements Projectile, TwoHanded {
         return 13;
     }
 
+    @Override
+    public int getStaminaCost() { return 10; }
+
     private void setInfo(String imgLoc, String name, String tooltip) {
         if(imgLoc == null) {
             this.setImageLocation("file:Images\\Weapons\\Bow.png");

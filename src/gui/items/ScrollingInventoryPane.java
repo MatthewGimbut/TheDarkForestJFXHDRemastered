@@ -330,6 +330,15 @@ public class ScrollingInventoryPane extends BorderPane {
         }
     }
 
+    private void playAndUpdateAllSPP() {
+        currentView.sppHealth.update();
+        currentView.hpRegen.play();
+        currentView.sppMana.update();
+        currentView.manaRegen.play();
+        currentView.sppStamina.update();
+        currentView.staminaRegen.play();
+    }
+
     private class EquipHandler implements EventHandler<MouseEvent> {
 
         private TextItemPane itemPane;
@@ -405,10 +414,7 @@ public class ScrollingInventoryPane extends BorderPane {
                 drawColors(allLabels);
                 if (itemPane.getItem().isFavorite()) drawColors(favLabels);
                 currentView.despawnPlayerProjectiles();
-                currentView.sppHealth.update();
-                currentView.hpRegen.play();
-                currentView.sppMana.update();
-                currentView.manaRegen.play();
+                playAndUpdateAllSPP();
             } else if(event.getButton() == MouseButton.SECONDARY){ //Right Click
                 if(itemPane.getItem().isFavorite()) {
                     itemPane.getItem().setFavorite(false);

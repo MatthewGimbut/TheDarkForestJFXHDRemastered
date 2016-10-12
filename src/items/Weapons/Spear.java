@@ -17,6 +17,11 @@ public class Spear extends Weapon {
 		this.setItemToolTipText("A " + this.getWeaponType() + " spear");
 	}
 
+	@Override
+	public int getStaminaCost() {
+		return 12;
+	}
+
 	public Spear(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, 
 			Rarity howRare, WeaponType weaponType, String uniqueImage, String uniqueName, String uniqueToolTip) {
 		super(atk, magic, def, speedModifier, weight, hpBoost, manaBoost, value, howRare, weaponType);
