@@ -10,7 +10,6 @@ import java.util.Random;
  * @author Matthew Gimbut
  *
  */
-@SuppressWarnings("serial")
 public abstract class Weapon extends Item {
 
 	private WeaponType weaponType;

@@ -12,10 +12,14 @@ import gui.quests.JournalPane;
 import gui.quests.NewQuestPane;
 import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
+import items.Weapons.Bow;
+import items.Weapons.Crossbow;
 import items.Weapons.Magic;
 import items.Weapons.Projectile;
 import items.SpellType;
 import items.ammunition.Ammunition;
+import items.ammunition.Arrow;
+import items.ammunition.Bolt;
 import items.ammunition.OutOfAmmoException;
 import javafx.animation.*;
 import javafx.geometry.Insets;
@@ -139,9 +143,12 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "L": //Projectile attack for demo purposes until they are added to player
-                        if(!projectileOnCooldown && (player.getPlayer().getWeaponHandR() != null
-                                && player.getPlayer().getWeaponHandR() instanceof Projectile)
-                                && !(player.getPlayer().getWeaponHandR() instanceof  Magic)) {
+                        Player p = player.getPlayer();
+                        if(!projectileOnCooldown && (p.getWeaponHandR() != null //If the player has a weapon equipped
+                                && p.getWeaponHandR() instanceof Projectile) //If the weapon is a projectile weapon
+                                && !(p.getWeaponHandR() instanceof  Magic) //but NOT a magic weapon
+                                && ((p.getWeaponHandR() instanceof Bow && p.getAmmo() instanceof Arrow) //And matching ammo types
+                                || (p.getWeaponHandR() instanceof Crossbow && p.getAmmo() instanceof Bolt))) { //Ugh so many conditions to fire a fucking piece of wood
                             projectileOnCooldown = true;
                             int cost = player.getPlayer().getWeaponHandR().getStaminaCost();
                             try {
@@ -272,9 +279,6 @@ public class GamePane extends StackPane {
         sppHealth.setVisible(false);
         sppMana.setVisible(false);
         sppStamina.setVisible(false);
-        /*this.setMargin(sppHealth, new Insets(0, 5, 5, 10));
-        this.setMargin(sppMana, new Insets(0, 5, 5, 160));
-        this.setMargin(sppStamina, new Insets(0, 5, 5, 310));*/
         box.getChildren().addAll(sppHealth, sppMana, sppStamina);
         this.setMargin(box, new Insets(0, 5, 5, 10));
 
@@ -376,9 +380,7 @@ public class GamePane extends StackPane {
     private void startCooldown(int period) {
         System.out.println(period);
         PauseTransition delay = new PauseTransition(Duration.millis(period));
-        delay.setOnFinished(event -> {
-            projectileOnCooldown = false;
-        });
+        delay.setOnFinished(event -> projectileOnCooldown = false);
         delay.play();
     }
 
@@ -541,7 +543,7 @@ public class GamePane extends StackPane {
 
                 it.remove();
                 System.out.println("Test: Collision with enemy success");
-            } else if(collision != null && !(collision instanceof LowerLayer)) {
+            } else if(collision != null && !(collision instanceof LowerLayer || collision instanceof Exit)) {
                 it.remove();
                 System.out.println("Test: Collision with non-enemy success");
             }

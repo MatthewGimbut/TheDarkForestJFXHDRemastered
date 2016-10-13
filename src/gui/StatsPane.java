@@ -29,6 +29,9 @@ public class StatsPane extends BorderPane {
     private final String BORDER = "file:Images\\border_long.png";
     @FXML private ResourceBundle resources;
     @FXML private URL location;
+    @FXML private ImageView accessory1Image;
+    @FXML private ImageView accessory2Image;
+    @FXML private ImageView accessory3Image;
     @FXML private ImageView ammoImage;
     @FXML private AnchorPane anchor;
     @FXML private ImageView bootsImage;
@@ -39,8 +42,10 @@ public class StatsPane extends BorderPane {
     @FXML private ProgressBar healthBar;
     @FXML private Label healthLabel;
     @FXML private ImageView helmetImage;
+    @FXML private ImageView hpBorder;
     @FXML private ImageView legsImage;
     @FXML private ProgressBar manaBar;
+    @FXML private ImageView manaBorder;
     @FXML private Label manaLabel;
     @FXML private Label playerAttack;
     @FXML private Label playerDefense;
@@ -52,9 +57,12 @@ public class StatsPane extends BorderPane {
     @FXML private ImageView secondaryImage;
     @FXML private Label secondaryLabel;
     @FXML private Rectangle secondaryPane;
+    @FXML private ProgressBar staminaBar;
+    @FXML private Label staminaLabel;
     @FXML private ProgressBar xpBar;
+    @FXML private ImageView xpBorder;
+    @FXML private ImageView staminaBorder;
     @FXML private Label xpLabel;
-    @FXML private ImageView hpBorder, manaBorder, xpBorder;
 
     public StatsPane(GamePane currentView, PlayerSprite playerSprite) {
         this.currentView = currentView;
@@ -89,6 +97,7 @@ public class StatsPane extends BorderPane {
         hpBorder.setImage(new Image(BORDER));
         manaBorder.setImage(new Image(BORDER));
         xpBorder.setImage(new Image(BORDER));
+        staminaBorder.setImage(new Image(BORDER));
 
         playerName.setText(player.getName());
 
@@ -98,12 +107,16 @@ public class StatsPane extends BorderPane {
         playerLevel.setText("Level: " + player.getLvl());
 
         healthLabel.setText("Health: " + player.getCurrentHP() + "/" + player.getMaxHP());
-        healthBar.setProgress(player.getCurrentHP()/player.getMaxHP());
+        healthBar.setProgress((player.getCurrentHP()+0.0)/(player.getMaxHP()+0.0));
         healthBar.setStyle(currentView.getPlayerHealthAccentColor());
         xpLabel.setText("XP: " + player.getXp() + "/100");
         xpBar.setProgress(player.getXp()/100.0);
         manaLabel.setText("Mana: " + player.getCurrentMana() + "/" + player.getMaxMana());
         manaBar.setProgress((player.getCurrentMana()+0.0)/(player.getMaxMana()+0.0));
+        staminaLabel.setText("Stamina: " + player.getCurrentStamina() + "/" + player.getMaxStamina());
+        staminaBar.setProgress((player.getCurrentStamina()+0.0)/(player.getMaxStamina()+0.0));
+        staminaBar.setStyle(GamePane.STYLE_STAMINA);
+        xpBar.setStyle(GamePane.STYLE_XP);
 
         gold.setText(player.getGold() + " gold");
 
@@ -151,7 +164,7 @@ public class StatsPane extends BorderPane {
             Tooltip.install(legsImage, new Tooltip(player.getLeggings().getItemToolTipText()));
         }
 
-        playerImage.setImage(new Image(this.playerSprite.getImageLocation()));
+        playerImage.setImage(new Image(Player.FACING_SOUTH));
 
         this.setCenter(anchor);
     }
