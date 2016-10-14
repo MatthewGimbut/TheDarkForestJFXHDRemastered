@@ -2,39 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e7314be-cc46-46d3-b58f-eaa020bd30b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane$UnequipHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$DropHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$EquipHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$UnequipHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ItemPane$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ItemPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/LootPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/LootPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MainMenuPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MenuPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/NewQuestPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/OptionsPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/OptionsPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/QuestSuccess.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/QuestSuccess.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/QuestSummary.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane$EquipHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane$ItemDisplayHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/TextItemPane.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar/TheDarkForestJFXHDRemastered.jar" afterPath="$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar/TheDarkForestJFXHDRemastered.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane$1.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/GameStage.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/GameStage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/QuestHandler.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/QuestHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/themes.css" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/themes.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePane.java" afterPath="$PROJECT_DIR$/src/gui/GamePane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sprites/Sprite.java" afterPath="$PROJECT_DIR$/src/sprites/Sprite.java" />
     </list>
     <ignored path="TheDarkForestJFXHDRemastered.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +43,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2601">
               <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,9 +53,40 @@
       <file leaf-file-name="GamePane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="586" column="51" selection-start-line="586" selection-start-column="51" selection-end-line="586" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="2618">
+              <caret line="692" column="82" selection-start-line="692" selection-start-column="82" selection-end-line="692" selection-end-column="82" />
+              <folding>
+                <marker date="1476423179722" expanded="false" signature="15406:15417" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="15443:15449" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="41618:41629" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="41651:41657" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="41715:41726" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="41763:41769" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="41930:41941" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="41956:41962" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="42007:42018" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="42041:42047" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="47363:47374" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="47393:47399" placeholder=" }" />
+                <marker date="1476423179722" expanded="false" signature="47578:47589" placeholder=" { " />
+                <marker date="1476423179722" expanded="false" signature="47604:47610" placeholder=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sprites/Sprite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
+                <element signature="e#1162#1163#0" expanded="true" />
+                <element signature="e#1207#1208#0" expanded="true" />
+                <element signature="e#1239#1240#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/sprites/DisplayItem.java" />
         <option value="$PROJECT_DIR$/src/sprites/GenericObstacle.java" />
         <option value="$PROJECT_DIR$/src/sprites/Lootable.java" />
-        <option value="$PROJECT_DIR$/src/sprites/Sprite.java" />
         <option value="$PROJECT_DIR$/src/main/MapContainer.java" />
         <option value="$PROJECT_DIR$/src/gui/GameLabel.java" />
         <option value="$PROJECT_DIR$/src/main/SaveManager.java" />
@@ -153,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/sprites/NPC.java" />
         <option value="$PROJECT_DIR$/src/mapping/JSONMapParser.java" />
         <option value="$PROJECT_DIR$/src/quests/trigger/Trigger.java" />
+        <option value="$PROJECT_DIR$/src/sprites/Sprite.java" />
         <option value="$PROJECT_DIR$/src/gui/GamePane.java" />
       </list>
     </option>
@@ -195,9 +198,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -442,6 +444,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -764,7 +767,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34619507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11727079" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -940,14 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/QuestSuccess.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/src.zip!/java/lang/Enum.java" />
     <entry file="file://$PROJECT_DIR$/src/mapping/JSONMapParser.java">
@@ -1073,15 +1068,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2601">
           <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1239#1240#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="586" column="51" selection-start-line="586" selection-start-column="51" selection-end-line="586" selection-end-column="51" />
-          <folding />
+        <state relative-caret-position="2618">
+          <caret line="692" column="82" selection-start-line="692" selection-start-column="82" selection-end-line="692" selection-end-column="82" />
+          <folding>
+            <marker date="1476423179722" expanded="false" signature="15406:15417" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="15443:15449" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="41618:41629" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="41651:41657" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="41715:41726" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="41763:41769" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="41930:41941" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="41956:41962" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="42007:42018" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="42041:42047" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="47363:47374" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="47393:47399" placeholder=" }" />
+            <marker date="1476423179722" expanded="false" signature="47578:47589" placeholder=" { " />
+            <marker date="1476423179722" expanded="false" signature="47604:47610" placeholder=" }" />
+          </folding>
         </state>
       </provider>
     </entry>

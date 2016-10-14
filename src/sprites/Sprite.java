@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import java.util.LinkedList;
 
 import java.io.Serializable;
 
@@ -18,6 +19,7 @@ public class Sprite implements Serializable {
     protected boolean isObstacle;
     protected String[] message;
     private String location;
+    private LinkedList<Cardinal> path;
 
     public Sprite(int x, int y) {
         this.x = x;
@@ -47,6 +49,14 @@ public class Sprite implements Serializable {
     {
         dx = x;
         dy = y;
+    }
+
+    public void setPath(LinkedList<Cardinal> path) {
+        this.path = path;
+    }
+
+    public LinkedList<Cardinal> getPath() {
+        return this.path;
     }
 
     public void setImage(String filename) {
