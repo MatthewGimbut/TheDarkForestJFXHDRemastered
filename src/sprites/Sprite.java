@@ -9,12 +9,12 @@ import java.io.Serializable;
 
 public class Sprite implements Serializable {
 
-    private transient Image image;
-    private int x, y, dx, dy, width, height;
+    protected transient Image image;
+    protected int x, y, dx, dy, width, height;
     private boolean visible;
     protected boolean isObstacle;
     protected String[] message;
-    private String location;
+    protected String location;
 
     public Sprite(int x, int y) {
         this.x = x;
@@ -26,6 +26,11 @@ public class Sprite implements Serializable {
         this.x = x;
         this.y = y;
         visible = true;
+
+        if(!image.startsWith("file:")) {
+            image = "file:" + image;
+        }
+
         setImage(image);
         this.location = image;
     }
@@ -46,9 +51,6 @@ public class Sprite implements Serializable {
     }
 
     public void setImage(String filename) {
-        if(!filename.startsWith("file:")) {
-            filename = "file:" + filename;
-        }
         this.location = filename;
         Image i = new Image(filename);
         setImage(i);

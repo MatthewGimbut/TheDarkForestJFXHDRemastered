@@ -70,6 +70,7 @@ public class GamePane extends StackPane {
     public static final String STYLE_MEDIUM_HP =  "-fx-accent: orange;";
     public static final String STYLE_STAMINA =  "-fx-accent: gold;";
     public static final String STYLE_XP = "-fx-accent: DeepSkyBlue;";
+    public AnimatedSprite as;
 
 
     public GamePane(Stage primaryStage) {
@@ -82,6 +83,12 @@ public class GamePane extends StackPane {
         this.getChildren().add(canvas);
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
+
+        String[] portal = new String[11];
+        for(int i = 0; i < portal.length; i++) {
+            portal[i] = "file:Images\\Portal\\portal" + i + ".png";
+        }
+        as = new AnimatedSprite(600, 100, portal);
 
         projectileOnCooldown = false;
 
@@ -674,6 +681,7 @@ public class GamePane extends StackPane {
     void updatePlayer(GraphicsContext gc) {
         if(!engaged()) move(player);
         if(player.isVisible()) player.render(gc);
+        as.render(gc);
     }
 
     void move(Sprite sprite) {

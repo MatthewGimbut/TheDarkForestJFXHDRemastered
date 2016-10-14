@@ -127,3 +127,9 @@
 2016-10-13 23:05:55.465 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -9060532762176687927, local class serialVersionUID = -182726181219785768
 2016-10-13 23:05:55.466 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-13 23:05:55.467 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:17:13.322 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was STRING at line 14 column 20 path $.genericObstacles[0].location
+2016-10-14 18:20:29.711 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:21:07.863 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:22:46.619 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:39:31.270 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found
+2016-10-14 18:39:50.549 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found
