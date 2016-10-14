@@ -7,9 +7,6 @@ import javafx.scene.layout.Pane;
 
 import java.io.Serializable;
 
-/**
- * Created by Matthew on 8/13/2016.
- */
 public class Sprite implements Serializable {
 
     private transient Image image;
@@ -43,8 +40,7 @@ public class Sprite implements Serializable {
         this.y = y;
     }
 
-    public void setVelocity(int x, int y)
-    {
+    public void setVelocity(int x, int y) {
         dx = x;
         dy = y;
     }

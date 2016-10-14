@@ -46,7 +46,7 @@ public class Ring extends Accessory {
             this.setImageLocation(imgLoc);
         }
         if(name == null) {
-            this.setItemToolTipText(this.getArmorType() + " ring");
+            this.setSimpleName(this.getArmorType() + " ring");
         } else {
             this.setSimpleName(name);
         }
