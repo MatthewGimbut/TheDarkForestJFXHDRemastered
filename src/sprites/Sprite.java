@@ -173,4 +173,19 @@ public class Sprite implements Serializable {
     public String getImageLocation() {
         return this.location;
     }
+
+    /**
+     * Clones the current Sprite into a new one.
+     * @return The clone of this Sprite
+     */
+    public Sprite clone() {
+        Sprite result = new Sprite(this.getX(), this.getY(), this.getImageLocation());
+
+        result.setVelocity(this.getDx(), this.getDy());
+        result.setVisible(this.isVisible());
+        result.setObstacle(this.isObstacle());
+        result.setMessage(this.getMessage());
+
+        return result;
+    }
 }

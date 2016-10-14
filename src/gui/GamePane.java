@@ -484,7 +484,7 @@ public class GamePane extends StackPane {
                             s.modifyX(0);
                         }
                         if(!intersectedPlayer) {
-                            s.setPath(pathAroundSprite(s, collision, direction));
+                            s.setPath(pathAroundSprite(s.clone(), collision, direction));
                         }
                     }
                 }
