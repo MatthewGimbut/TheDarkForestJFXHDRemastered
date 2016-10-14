@@ -169,13 +169,13 @@ public class StatsPane extends BorderPane {
         }
 
         if(player.getRing2() != null) {
-            accessory3Image.setImage(new Image(player.getRing2().getImageLocation()));
-            Tooltip.install(accessory3Image, new Tooltip(player.getRing2().getItemToolTipText()));
+            accessory2Image.setImage(new Image(player.getRing2().getImageLocation()));
+            Tooltip.install(accessory2Image, new Tooltip(player.getRing2().getItemToolTipText()));
         }
 
         if(player.getRing1() != null) {
-            accessory2Image.setImage(new Image(player.getRing1().getImageLocation()));
-            Tooltip.install(accessory2Image, new Tooltip(player.getRing1().getItemToolTipText()));
+            accessory3Image.setImage(new Image(player.getRing1().getImageLocation()));
+            Tooltip.install(accessory3Image, new Tooltip(player.getRing1().getItemToolTipText()));
         }
 
         playerImage.setImage(new Image(Player.FACING_SOUTH));

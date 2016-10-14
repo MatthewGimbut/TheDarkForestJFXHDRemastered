@@ -1,5 +1,7 @@
 package items.accessories;
 
+import items.Armor.Armor;
+import items.Armor.ArmorType;
 import items.Rarity;
 
 public class Ring extends Accessory {
@@ -17,13 +19,19 @@ public class Ring extends Accessory {
      * @param value
      * @param howRare
      */
-    public Ring(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost, int manaBoost, int value, Rarity howRare) {
-        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare);
+    public Ring(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
+        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare, armorType);
         setInfo(null, null, null);
     }
 
+    public Ring(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost,
+                int manaBoost, int value, Rarity howRare, ArmorType armorType, String imgLoc, String name, String tooltip) {
+        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare, armorType);
+        setInfo(imgLoc, name, tooltip);
+    }
+
     public Ring() {
-        super(0, 0, 0, 0, 2.3, 15, 15, 100, Rarity.UNCOMMON);
+        super(0, 0, 0, 0, 2.3, 15, 15, 100, Rarity.UNCOMMON, Armor.getRandomArmorType());
         this.cooldownReduction = -25;
         this.manaRegenBoost = -50;
         this.hpRegenBoost = -225;
@@ -38,12 +46,12 @@ public class Ring extends Accessory {
             this.setImageLocation(imgLoc);
         }
         if(name == null) {
-            this.setSimpleName("test ring");
+            this.setItemToolTipText(this.getArmorType() + " ring");
         } else {
             this.setSimpleName(name);
         }
         if(tooltip == null) {
-            this.setItemToolTipText("test ring");
+            this.setItemToolTipText("A " + this.getArmorType() + " ring");
         } else {
             this.setItemToolTipText(tooltip);
         }

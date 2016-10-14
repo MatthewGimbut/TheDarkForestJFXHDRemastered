@@ -1,5 +1,7 @@
 package items.accessories;
 
+import items.Armor.Armor;
+import items.Armor.ArmorType;
 import items.Rarity;
 
 public class Necklace extends Accessory {
@@ -17,13 +19,19 @@ public class Necklace extends Accessory {
      * @param value
      * @param howRare
      */
-    public Necklace(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost, int manaBoost, int value, Rarity howRare) {
-        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare);
+    public Necklace(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
+        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare, armorType);
         setInfo(null, null, null);
     }
 
+    public Necklace(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost, double weight, int hpBoost,
+                int manaBoost, int value, Rarity howRare, ArmorType armorType, String imgLoc, String name, String tooltip) {
+        super(cooldownReduction, manaRegenBoost, hpRegenBoost, staminaRegenBoost, weight, hpBoost, manaBoost, value, howRare, armorType);
+        setInfo(imgLoc, name, tooltip);
+    }
+
     public Necklace() {
-        super(0, 0, 0, 0, 5.5, 30, 30, 100, Rarity.UNCOMMON);
+        super(0, 0, 0, 0, 5.5, 30, 30, 100, Rarity.UNCOMMON, Armor.getRandomArmorType());
         this.cooldownReduction = -50;
         this.manaRegenBoost = -100;
         this.hpRegenBoost = -450;
@@ -38,12 +46,12 @@ public class Necklace extends Accessory {
             this.setImageLocation(imgLoc);
         }
         if(name == null) {
-            this.setSimpleName("test necklace");
+            this.setSimpleName(this.getArmorType() + " necklace");
         } else {
             this.setSimpleName(name);
         }
         if(tooltip == null) {
-            this.setItemToolTipText("test necklace");
+            this.setItemToolTipText("A " + this.getArmorType() + " necklace");
         } else {
             this.setItemToolTipText(tooltip);
         }

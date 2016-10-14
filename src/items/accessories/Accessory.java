@@ -1,10 +1,12 @@
 package items.accessories;
 
+import items.Armor.Armor;
+import items.Armor.ArmorType;
 import items.Item;
 import items.Rarity;
 import main.GameStage;
 
-public class Accessory extends Item {
+public class Accessory extends Armor {
 
     protected double cooldownReduction;
     protected int manaRegenBoost;
@@ -21,8 +23,8 @@ public class Accessory extends Item {
      * @param howRare
      */
     public Accessory(int cooldownReduction, int manaRegenBoost, int hpRegenBoost, int staminaRegenBoost,
-                     double weight, int hpBoost, int manaBoost, int value, Rarity howRare) {
-        super(0, 0, 0, 0, weight, hpBoost, manaBoost, value, howRare);
+                     double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armor) {
+        super(0, 0, 0, weight, hpBoost, manaBoost, value, howRare, armor);
         this.cooldownReduction = cooldownReduction;
         this.manaRegenBoost = manaRegenBoost;
         this.hpRegenBoost = hpRegenBoost;
