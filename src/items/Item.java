@@ -1,5 +1,7 @@
 package items;
 
+import items.accessories.Necklace;
+import items.accessories.Ring;
 import items.ammunition.Arrow;
 import items.ammunition.Bolt;
 import items.Armor.*;
@@ -145,7 +147,7 @@ public abstract class Item implements Serializable {
 	 */
 	public static Item generateRandomItem() {
 		Random randy = new Random();
-		int randomItemNum = randy.nextInt(23);
+		int randomItemNum = randy.nextInt(27);
 		switch (randomItemNum) {
 			case 1:
 				return new Sword();
@@ -195,6 +197,12 @@ public abstract class Item implements Serializable {
 				return new Bolt();
 			case 22:
 				return new Arrow();
+			case 23:
+			case 24:
+				return new Necklace();
+			case 25:
+			case 26:
+				return new Ring();
 			default:
 				return new Potion(PotionType.Health, 80);
 		}

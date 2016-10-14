@@ -17,7 +17,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import main.GameStage;
 import sprites.PlayerSprite;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -162,6 +161,21 @@ public class StatsPane extends BorderPane {
         if(player.getLeggings() != null) {
             legsImage.setImage(new Image(player.getLeggings().getImageLocation()));
             Tooltip.install(legsImage, new Tooltip(player.getLeggings().getItemToolTipText()));
+        }
+
+        if(player.getNecklace() != null) {
+            accessory1Image.setImage(new Image(player.getNecklace().getImageLocation()));
+            Tooltip.install(accessory1Image, new Tooltip(player.getNecklace().getItemToolTipText()));
+        }
+
+        if(player.getRing2() != null) {
+            accessory3Image.setImage(new Image(player.getRing2().getImageLocation()));
+            Tooltip.install(accessory3Image, new Tooltip(player.getRing2().getItemToolTipText()));
+        }
+
+        if(player.getRing1() != null) {
+            accessory2Image.setImage(new Image(player.getRing1().getImageLocation()));
+            Tooltip.install(accessory2Image, new Tooltip(player.getRing1().getItemToolTipText()));
         }
 
         playerImage.setImage(new Image(Player.FACING_SOUTH));

@@ -11,6 +11,7 @@ import items.Secondary;
 import items.Weapons.Magic;
 import items.Weapons.Projectile;
 import items.Weapons.Weapon;
+import items.accessories.Accessory;
 import items.ammunition.Ammunition;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -364,6 +365,10 @@ public class ScrollingInventoryPane extends BorderPane {
                         player.unequip(itemPane.getItem());
                         GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
                         drawColors(wepLabels);
+                    } else if(itemPane.getItem() instanceof Accessory) {
+                        player.unequip((Accessory) itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(armorLabels);
                     } else {
                         player.unequip(itemPane.getItem());
                         GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
@@ -395,6 +400,11 @@ public class ScrollingInventoryPane extends BorderPane {
                         player.equip((Weapon) itemPane.getItem());
                         info.setText("Equipped " + itemPane.getItem().getSimpleName() + ". ");
                         drawColors(wepLabels);
+                    } else if(itemPane.getItem() instanceof Accessory) {
+                        player.equip((Accessory) itemPane.getItem());
+                        GameStage.playSound("Sounds\\Inventory\\Equip\\leather_inventory.mp3");
+                        drawColors(armorLabels);
+                        info.setText("Equipped " + itemPane.getItem().getSimpleName() + ". ");
                     } else if (itemPane.getItem() instanceof Consumable) {
                         player.consume((Consumable) itemPane.getItem());
                         info.setText("Consumed " + itemPane.getItem().getSimpleName());

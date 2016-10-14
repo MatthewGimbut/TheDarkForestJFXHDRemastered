@@ -1,6 +1,9 @@
 package characters;
 
 import items.Weapons.Staff;
+import items.accessories.Accessory;
+import items.accessories.Necklace;
+import items.accessories.Ring;
 import items.ammunition.Ammunition;
 import items.Armor.*;
 import items.Consumables.Consumable;
@@ -10,6 +13,7 @@ import items.Secondary;
 import items.TwoHanded;
 import items.Weapons.Weapon;
 import items.ammunition.Stackable;
+import javafx.animation.PauseTransition;
 import main.Records;
 
 import quests.Quest;
@@ -48,6 +52,9 @@ public class Player extends Character {
     private Helmet helmet;
     private Records records;
     private Ammunition ammo;
+    private Necklace necklace;
+    private Ring ring1;
+    private Ring ring2;
 
     private List<Quest> activeQuestsSer;
     private List<Quest> completeQuestsSer;
@@ -116,6 +123,20 @@ public class Player extends Character {
         if (i instanceof Secondary) {
             leftHand = null;
             unequipUpdateStats(i);
+        } else if (i instanceof Necklace) {
+            necklace = null;
+            unequipUpdateStats(i);
+            reverseAccessoryStatChange((Accessory) i);
+        } else if(i instanceof Ring) {
+            if(ring1 == i) {
+                ring1 = null;
+            } else if(ring2 == i) {
+                ring2 = null;
+            } else {
+                throw new RuntimeException("How the fuck did this get here if neither was equipped to begin with???");
+            }
+            unequipUpdateStats(i);
+            reverseAccessoryStatChange((Accessory) i);
         } else if (i instanceof Ammunition) {
             ammo = null;
         } else if (i instanceof Weapon) {
@@ -260,6 +281,53 @@ public class Player extends Character {
             }
             equipUpdateStats((Item) s);
         }
+    }
+
+    public void equip(Accessory a) {
+        a.setCurrentlyEquipped(true);
+        if(a instanceof  Necklace) {
+            if(this.necklace == null) {
+                this.necklace = (Necklace) a;
+            } else {
+                this.necklace.setCurrentlyEquipped(false);
+                unequipUpdateStats(necklace);
+                reverseAccessoryStatChange(necklace);
+                this.necklace = (Necklace) a;
+
+            }
+        } else if (a instanceof  Ring) {
+            if(this.ring1 == null) {
+                this.ring1 = (Ring) a;
+            } else if(ring2 == null) {
+                this.ring2 = (Ring) a;
+            } else {
+                this.ring2.setCurrentlyEquipped(false);
+                unequipUpdateStats(ring2);
+                reverseAccessoryStatChange(ring2);
+                this.ring2 = (Ring) a;
+            }
+        } else {
+            throw new RuntimeException("User tried to equip an accessory that has not been accounted for!");
+        }
+        System.out.println(this.getManaRegen());
+        System.out.println(this.getHpRegen());
+        System.out.println(this.getSpeed());
+        this.speed += a.getCooldownReduction();
+        this.manaRegen += a.getManaRegenBoost();
+        this.hpRegen += a.getHpRegenBoost();
+        this.staminaRegen += a.getStaminaRegenBoost();
+        System.out.println(this.getManaRegen());
+        System.out.println(this.getHpRegen());
+        System.out.println(this.getSpeed());
+
+        equipUpdateStats(a);
+    }
+
+    private void reverseAccessoryStatChange(Accessory a) {
+        this.speed -= a.getCooldownReduction();
+        this.manaRegen -= a.getManaRegenBoost();
+        this.hpRegen -= a.getHpRegenBoost();
+        this.staminaRegen -= a.getStaminaRegenBoost();
     }
 
     public void consume(Consumable p) {
@@ -423,5 +491,30 @@ public class Player extends Character {
     public void modifyCurrentStamina(int mod) {
         this.currentStamina += mod;
     }
+
+    public Ring getRing2() {
+        return ring2;
+    }
+
+    public void setRing2(Ring ring2) {
+        this.ring2 = ring2;
+    }
+
+    public Ring getRing1() {
+        return ring1;
+    }
+
+    public void setRing1(Ring ring1) {
+        this.ring1 = ring1;
+    }
+
+    public Necklace getNecklace() {
+        return necklace;
+    }
+
+    public void setNecklace(Necklace necklace) {
+        this.necklace = necklace;
+    }
+
 
 }

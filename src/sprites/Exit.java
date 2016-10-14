@@ -16,6 +16,11 @@ public class Exit extends Sprite {
         initExit();
     }
 
+    public Exit(int x, int y, int nextX, int nextY, Cardinal placement, String nextMapLocation, String image) {
+        this(x, y, nextX, nextY, placement, nextMapLocation);
+        this.setImage(image);
+    }
+
     private void initExit() {
         isObstacle = true;
         setImage("file:Images\\Exit.png");
