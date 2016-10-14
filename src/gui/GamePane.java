@@ -86,7 +86,8 @@ public class GamePane extends StackPane {
 
         String[] portal = new String[11];
         for(int i = 0; i < portal.length; i++) {
-            portal[i] = "file:Images\\Portal\\portal" + i + ".png";
+            int z = i+1;
+            portal[i] = "file:Images\\Portal\\portal" + z + ".png";
         }
         as = new AnimatedSprite(600, 100, portal);
 

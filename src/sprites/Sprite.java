@@ -27,10 +27,6 @@ public class Sprite implements Serializable {
         this.y = y;
         visible = true;
 
-        if(!image.startsWith("file:")) {
-            image = "file:" + image;
-        }
-
         setImage(image);
         this.location = image;
     }
@@ -51,6 +47,9 @@ public class Sprite implements Serializable {
     }
 
     public void setImage(String filename) {
+        if(!filename.startsWith("file:")) {
+            filename = "file:" + filename;
+        }
         this.location = filename;
         Image i = new Image(filename);
         setImage(i);
