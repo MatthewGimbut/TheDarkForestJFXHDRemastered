@@ -596,9 +596,9 @@ public class GamePane extends StackPane {
 
         // move the sprite deltaX distance to the (right/left) in steps of s.getWidth()
         while(tryMoveHorizontally(s,
-                amountMovedHorizontally+s.getWidth() > deltaX ? deltaX-amountMovedHorizontally : s.getWidth(),
+                amountMovedHorizontally+(s.getWidth()/2) > deltaX ? deltaX-amountMovedHorizontally : (s.getWidth()/2),
                 right) && amountMovedHorizontally < deltaX) {
-            amountMovedHorizontally += amountMovedHorizontally+s.getWidth() > deltaX ? deltaX-amountMovedHorizontally : s.getWidth();
+            amountMovedHorizontally += amountMovedHorizontally+(s.getWidth()/2) > deltaX ? deltaX-amountMovedHorizontally : (s.getWidth()/2);
         }
 
         if(amountMovedHorizontally == deltaX) { // if the move was successful add the cardinals to the list
@@ -629,9 +629,9 @@ public class GamePane extends StackPane {
 
         // move the sprite deltaY distance (up/down) in steps of s.getHeight()
         while(tryMoveVertically(s,
-                amountMovedVertically+s.getHeight() > deltaY ? deltaY-amountMovedVertically : s.getHeight(),
+                amountMovedVertically+(s.getHeight()/2) > deltaY ? deltaY-amountMovedVertically : (s.getHeight()/2),
                 up) && amountMovedVertically < deltaY) {
-            amountMovedVertically += amountMovedVertically+s.getHeight() > deltaY ? deltaY-amountMovedVertically : s.getHeight();
+            amountMovedVertically += amountMovedVertically+(s.getHeight()/2) > deltaY ? deltaY-amountMovedVertically : (s.getHeight()/2);
         }
 
         if(amountMovedVertically == deltaY) { // if the move was successful add the cardinals to the list
