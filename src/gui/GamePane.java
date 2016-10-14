@@ -431,6 +431,23 @@ public class GamePane extends StackPane {
                             break;
                     }
 
+                    if(s.intersects(player)) {
+                        switch(direction) {
+                            case North:
+                                s.modifyY(s.getDy()); // move up
+                                break;
+                            case South:
+                                s.modifyY(-s.getDy()); // move down
+                                break;
+                            case East:
+                                s.modifyX(-s.getDx()); // move right
+                                break;
+                            case West:
+                                s.modifyX(s.getDx()); // move left
+                                break;
+                        }
+                    }
+
                     // no need to check for collision since that was done in path generation
                 } else { // no path created
                     double ratio = 1.0; // ratio of deltaX / deltaY
@@ -484,7 +501,7 @@ public class GamePane extends StackPane {
                             s.modifyX(0);
                         }
                         if(!intersectedPlayer) {
-                            s.setPath(pathAroundSprite(s.clone(), collision, direction));
+                            s.setPath(pathAroundSprite(s.clone(), s, collision, direction));
                         }
                     }
                 }
@@ -501,11 +518,12 @@ public class GamePane extends StackPane {
     /**
      * Determines a path around a colliding sprite for another sprite.
      * @param s The sprite to path
+     * @param other The other sprite to avoid (Sprite from the actual enemy not its clone)
      * @param collision The sprite to path around
      * @param direction The direction the colliding sprite is with respect to the sprite
      * @return The path
      */
-    private LinkedList<Cardinal> pathAroundSprite(Sprite s, Sprite collision, Cardinal direction) {
+    private LinkedList<Cardinal> pathAroundSprite(Sprite s, Sprite other, Sprite collision, Cardinal direction) {
         LinkedList<Cardinal> result = new LinkedList<>();
 
         int initialX = s.getX();
@@ -524,23 +542,23 @@ public class GamePane extends StackPane {
 
             if(deltaXFromLeft < deltaXFromRight) { // try the left side first
 
-                if(attemptMoveHorizontally(s, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
-                    return moveVerticallyUntilCanRealignHorizontally(s, deltaY, initialX, result, direction == Cardinal.North, true);
+                if(attemptMoveHorizontally(s, other, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
+                    return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, true);
                 } else { // move failed, try other direction
                     result.clear();
-                    if(attemptMoveHorizontally(s, deltaXFromRight, initialX, result, true)) { // now try to path vertically
-                        return moveVerticallyUntilCanRealignHorizontally(s, deltaY, initialX, result, direction == Cardinal.North, false);
+                    if(attemptMoveHorizontally(s, other, deltaXFromRight, initialX, result, true)) { // now try to path vertically
+                        return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, false);
                     }
                 }
 
             } else { // try the right side
 
-                if(attemptMoveHorizontally(s, deltaXFromRight, initialX, result, true)) { // now try to path vertically
-                    return moveVerticallyUntilCanRealignHorizontally(s, deltaY, initialX, result, direction == Cardinal.North, false);
+                if(attemptMoveHorizontally(s, other, deltaXFromRight, initialX, result, true)) { // now try to path vertically
+                    return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, false);
                 } else { // move failed, try other direction
                     result.clear();
-                    if(attemptMoveHorizontally(s, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
-                        return moveVerticallyUntilCanRealignHorizontally(s, deltaY, initialX, result, direction == Cardinal.North, true);
+                    if(attemptMoveHorizontally(s, other, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
+                        return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, true);
                     }
                 }
 
@@ -557,21 +575,21 @@ public class GamePane extends StackPane {
             }
 
             if(deltaYFromTop < deltaYFromBottom) { // try the top side first
-                if(attemptMoveVertically(s, deltaYFromTop, initialY, result, true)) { // now try to path horizontally
-                    return moveHorizontallyUntilCanRealignVertically(s, deltaX, initialY, result, direction == Cardinal.East, false);
+                if(attemptMoveVertically(s, other, deltaYFromTop, initialY, result, true)) { // now try to path horizontally
+                    return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, false);
                 } else {
                     result.clear();
-                    if(attemptMoveVertically(s, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
-                        return moveHorizontallyUntilCanRealignVertically(s, deltaX, initialY, result, direction == Cardinal.East, true);
+                    if(attemptMoveVertically(s, other, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
+                        return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, true);
                     }
                 }
             } else { // try the bottom side first
-                if(attemptMoveVertically(s, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
-                    return moveHorizontallyUntilCanRealignVertically(s, deltaX, initialY, result, direction == Cardinal.East, true);
+                if(attemptMoveVertically(s, other, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
+                    return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, true);
                 } else {
                     result.clear();
-                    if(attemptMoveVertically(s, deltaYFromTop, initialY, result, true)) {
-                        return moveHorizontallyUntilCanRealignVertically(s, deltaX, initialY, result, direction == Cardinal.East, false);
+                    if(attemptMoveVertically(s, other, deltaYFromTop, initialY, result, true)) {
+                        return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, false);
                     }
                 }
             }
@@ -584,18 +602,19 @@ public class GamePane extends StackPane {
     /**
      * If the given sprite is able to move left the given amount of distance without collisions.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param deltaX The distance to move
      * @param initialX The initial X position before the move was attempted
      * @param result The result list of Cardinals to make the path
      * @param right If the movement is to the right
      * @return If the move was successful
      */
-    private boolean attemptMoveHorizontally(Sprite s, int deltaX, int initialX, LinkedList<Cardinal> result, boolean right) {
+    private boolean attemptMoveHorizontally(Sprite s, Sprite other, int deltaX, int initialX, LinkedList<Cardinal> result, boolean right) {
         int amountMovedHorizontally = 0;
         Cardinal direction = right ? Cardinal.East : Cardinal.West;
 
         // move the sprite deltaX distance to the (right/left) in steps of s.getWidth()
-        while(tryMoveHorizontally(s,
+        while(tryMoveHorizontally(s, other,
                 amountMovedHorizontally+15 > deltaX ? deltaX-amountMovedHorizontally : 15,
                 right) && amountMovedHorizontally < deltaX) {
             amountMovedHorizontally += amountMovedHorizontally+15 > deltaX ? deltaX-amountMovedHorizontally : 15;
@@ -617,18 +636,19 @@ public class GamePane extends StackPane {
     /**
      * If the given sprite is able to move left the given amount of distance without collisions.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param deltaY The distance to move
      * Wparam initialY The initial Y position before the move was attempted
      * @param result The result list of Cardinals to make the path
      * @param up If the movement is up
      * @return If the move was successful
      */
-    private boolean attemptMoveVertically(Sprite s, int deltaY, int initialY, LinkedList<Cardinal> result, boolean up) {
+    private boolean attemptMoveVertically(Sprite s, Sprite other, int deltaY, int initialY, LinkedList<Cardinal> result, boolean up) {
         int amountMovedVertically = 0;
         Cardinal direction = up ? Cardinal.North : Cardinal.South;
 
         // move the sprite deltaY distance (up/down) in steps of s.getHeight()
-        while(tryMoveVertically(s,
+        while(tryMoveVertically(s, other,
                 amountMovedVertically+15 > deltaY ? deltaY-amountMovedVertically : 15,
                 up) && amountMovedVertically < deltaY) {
             amountMovedVertically += amountMovedVertically+15 > deltaY ? deltaY-amountMovedVertically : 15;
@@ -650,6 +670,7 @@ public class GamePane extends StackPane {
     /**
      * Moves the Sprite vertically in the given direction until it is able to realign to its initial x position without collision.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param deltaY The y distance to move before checking if it can move horizontally
      * @param initialX The initial X position to return to
      * @param result The current path
@@ -657,16 +678,16 @@ public class GamePane extends StackPane {
      * @param right If the horizontal direction of movement is right
      * @return The final path or null if it gets stuck
      */
-    private LinkedList<Cardinal> moveVerticallyUntilCanRealignHorizontally(Sprite s, int deltaY, int initialX, LinkedList<Cardinal> result, boolean up, boolean right) {
+    private LinkedList<Cardinal> moveVerticallyUntilCanRealignHorizontally(Sprite s, Sprite other, int deltaY, int initialX, LinkedList<Cardinal> result, boolean up, boolean right) {
         final int MAX_ATTEMPTS = 5;
         int counter = 0;
         do {
-            attemptMoveVertically(s, deltaY, s.getY(), result, up);
+            attemptMoveVertically(s, other, deltaY, s.getY(), result, up);
             counter++;
             if(counter == MAX_ATTEMPTS) {
                 return null; // path failed
             }
-        } while(!attemptMoveHorizontally(s, Math.abs(s.getX() - initialX), s.getX(), result, right)); // until you can move horizontally keep moving vertically
+        } while(!attemptMoveHorizontally(s, other, Math.abs(s.getX() - initialX), s.getX(), result, right)); // until you can move horizontally keep moving vertically
 
         return result; // SUCCESS RETURN THAT SHITTTTTTT
     }
@@ -674,6 +695,7 @@ public class GamePane extends StackPane {
     /**
      * Moves the Sprite vertically in the given direction until it is able to realign to its initial x position without collision.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param deltaX The x distance to move before checking if it can move vertically
      * @param initialY The initial Y position to return to
      * @param result The current path
@@ -681,16 +703,16 @@ public class GamePane extends StackPane {
      * @param up If the horizontal direction of movement is up
      * @return The final path or null if it gets stuck
      */
-    private LinkedList<Cardinal> moveHorizontallyUntilCanRealignVertically(Sprite s, int deltaX, int initialY, LinkedList<Cardinal> result, boolean right, boolean up) {
+    private LinkedList<Cardinal> moveHorizontallyUntilCanRealignVertically(Sprite s, Sprite other, int deltaX, int initialY, LinkedList<Cardinal> result, boolean right, boolean up) {
         final int MAX_ATTEMPTS = 5;
         int counter = 0;
         do {
-            attemptMoveHorizontally(s, deltaX, s.getX(), result, right);
+            attemptMoveHorizontally(s, other, deltaX, s.getX(), result, right);
             counter++;
             if(counter == MAX_ATTEMPTS) {
                 return null; // path failed
             }
-        } while(!attemptMoveVertically(s, Math.abs(s.getY() - initialY), s.getY(), result, up)); // until you can move vertically keep moving horizontally
+        } while(!attemptMoveVertically(s, other, Math.abs(s.getY() - initialY), s.getY(), result, up)); // until you can move vertically keep moving horizontally
 
         return result; // SUCCESS RETURN THAT SHITTTTTTT
     }
@@ -699,22 +721,25 @@ public class GamePane extends StackPane {
      * Attempts to move the sprite delta units veritcally.
      * If movement is unsuccessful the sprite is moved back.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param delta The amount to be moved
      * @param up If the movement is up (false -> down)
      * @return If the movement is successful
      */
-    private boolean tryMoveVertically(Sprite s, int delta, boolean up) {
+    private boolean tryMoveVertically(Sprite s, Sprite other, int delta, boolean up) {
         if(up) {
             s.modifyY(-delta);
         } else {
             s.modifyY(delta);
         }
 
-        boolean temp = enemyCollision(s);
+        boolean temp = enemyCollision(s, other);
         if(temp) {
-            s.modifyY(delta);
-        } else {
-            s.modifyY(-delta);
+            if (up) {
+                s.modifyY(delta);
+            } else {
+                s.modifyY(-delta);
+            }
         }
 
         return !temp;
@@ -724,18 +749,19 @@ public class GamePane extends StackPane {
      * Attempts to move the sprite delta units veritcally.
      * If movement is unsuccessful the sprite is moved back.
      * @param s The sprite to move
+     * @param other The other sprite to avoid
      * @param delta The amount to be moved
      * @param right If the movement is up (false -> down)
      * @return If the movement is successful
      */
-    private boolean tryMoveHorizontally(Sprite s, int delta, boolean right) {
+    private boolean tryMoveHorizontally(Sprite s, Sprite other, int delta, boolean right) {
         if(right) {
             s.modifyX(delta);
         } else {
             s.modifyX(-delta);
         }
 
-        boolean temp = enemyCollision(s);
+        boolean temp = enemyCollision(s, other);
         if(temp) {
             if(right) {
                 s.modifyX(-delta);
@@ -747,7 +773,7 @@ public class GamePane extends StackPane {
     }
 
     /**
-     * Determines if a Sprite collides with anything on screen
+     * Determines if a Sprite collides with anything on screen except itself or another given Sprite.
      * @param s The sprite to test
      * @return if the sprite collides with an object (besides itself)
      */
@@ -761,6 +787,26 @@ public class GamePane extends StackPane {
                 return true;
             }
         }
+        return false;
+    }
+
+    /**
+     * Determines if a Sprite collides with anything on screen except itself or another given Sprite.
+     * @param s The sprite to test
+     * @param otherAvoid The other Sprite to avoid
+     * @return if the sprite collides with an object (besides itself)
+     */
+    private boolean enemyCollision(Sprite s, Sprite otherAvoid) {
+        if(s.intersects(player)) {
+            return true;
+        }
+
+        for(Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(otherAvoid)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
