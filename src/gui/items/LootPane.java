@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import main.GameStage;
 import sprites.Lootable;
 
 import java.io.IOException;
@@ -41,7 +43,8 @@ public class LootPane extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 
@@ -49,6 +52,11 @@ public class LootPane extends BorderPane {
     void initialize() {
 
         exit.setOnAction(event -> currentView.removeLootPane(this));
+
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) exit.fire();
+        });
 
         takeAll.setOnAction(event -> {
             int totalWeight = 0;

@@ -1,5 +1,9 @@
 package items;
 
+import items.accessories.Necklace;
+import items.accessories.Ring;
+import items.ammunition.Arrow;
+import items.ammunition.Bolt;
 import items.Armor.*;
 import items.Consumables.Potion;
 import items.Consumables.PotionType;
@@ -17,15 +21,15 @@ import java.util.Random;
 public abstract class Item implements Serializable {
 
 	private static final long serialVersionUID = 3550233679832297833L;
-	private int atk;
+	protected int atk;
 	private int magic;
 	private int def;
 	private String imageLocation;
-	private int value;
+	protected int value;
 	private Rarity howRare;
 	private Random r;
 	private int random;
-	private int speedModifier;
+	private int cooldown;
 	private double weight;
 	private int hpBoost;
 	private int manaBoost;
@@ -34,22 +38,24 @@ public abstract class Item implements Serializable {
 	private boolean isCurrentlyEquipped;
 	private boolean isFavorite;
 
+	public static final String SPELL_BASE_LOC = "file:Images\\Weapons\\Spells\\";
+
 	/**
 	 * Constructor for item that takes all the stats for the specific item, usually set in the subclass
 	 * @param atk
 	 * @param def
-	 * @param speedModifier
+	 * @param cooldown
 	 * @param weight
 	 * @param hpBoost
 	 * @param value
 	 * @param howRare
 	 */
-	public Item(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, Rarity howRare) {
+	public Item(int atk, int magic, int def, int cooldown, double weight, int hpBoost, int manaBoost, int value, Rarity howRare) {
 		this.r = new Random();
 		random = r.nextInt(2);
 		this.howRare = howRare;
 		this.isFavorite = false;
-		if(this instanceof Weapon) {
+		/*if(this instanceof Weapon) {
 			this.atk = (int) Math.round((atk * (Item.rarityMultiplier(howRare)))) + random;
 			this.magic = (int) Math.round((magic * (Item.rarityMultiplier(howRare)))) + random;
 			this.def = (int) Math.round((def * (Item.rarityMultiplier(howRare))));
@@ -63,9 +69,12 @@ public abstract class Item implements Serializable {
 			this.atk = (int) Math.round((atk * (Item.rarityMultiplier(howRare))));
 			this.magic = (int) Math.round((magic * (Item.rarityMultiplier(howRare))));
 			this.def = (int) Math.round((def * (Item.rarityMultiplier(howRare))));
-		}
-		this.value = (int) Math.round((value * (Item.rarityMultiplier(howRare)))) + random;
-		this.speedModifier = speedModifier;
+		}*/
+		this.atk = atk;
+		this.magic = magic;
+		this.def = def;
+		this.value = value;
+		this.cooldown = cooldown;
 		this.weight = weight;
 		this.hpBoost = hpBoost;
 		this.manaBoost = manaBoost;
@@ -101,8 +110,8 @@ public abstract class Item implements Serializable {
 		return howRare;
 	}
 	
-	public int getSpeedModifier() {
-		return speedModifier;
+	public int getCooldown() {
+		return cooldown;
 	}
 	
 	public double getWeight() {
@@ -138,41 +147,67 @@ public abstract class Item implements Serializable {
 	 */
 	public static Item generateRandomItem() {
 		Random randy = new Random();
-		int randomItemNum = randy.nextInt(16);
+		int randomItemNum = randy.nextInt(27);
 		switch (randomItemNum) {
-		case 1:
-			return new Sword();
-		case 2: 
-			 return new Shield();
-		case 3: 
-			return new Boots();
-		case 4: 
-			return new ChestPiece();
-		case 5:
-			return new Gloves();
-		case 6: 
-			return new Helmet();
-		case 7: 
-			return new Legs();
-		case 8:
-			return new Shield();
-		case 9: 
-			return new Dagger();
-		case 10: 
-			return new Sword();
-		case 11: 
-			return new Axe();
-		case 12:
-			return new Mace();
-		case 13: 
-			return new Spear();
-		case 14: 
-			return new Potion(PotionType.Health, 75);
-		default:
-			return new Potion(PotionType.Health, 80);
+			case 1:
+				return new Sword();
+			case 2:
+				 return new Shield();
+			case 3:
+				return new Boots();
+			case 4:
+				return new ChestPiece();
+			case 5:
+				//return new Gloves();
+				return new Arrow();
+			case 6:
+				//return new Helmet();
+				return new Bolt();
+			case 7:
+				//return new Legs();
+				return new Arrow();
+			case 8:
+				//return new Shield();
+				return new Bolt();
+			case 9:
+				return new Dagger();
+			case 10:
+				return new Sword();
+			case 11:
+				return new Axe();
+			case 12:
+				return new Mace();
+			case 13:
+				return new Spear();
+			case 14:
+				return new Potion(PotionType.Health, 75);
+			case 15:
+				return new SpellTome();
+			case 16:
+				return new SpellTome();
+			case 17:
+				return new Staff();
+			case 18:
+				return new Staff();
+			case 19:
+				return new Bow();
+			case 20:
+				return new Crossbow();
+			case 21:
+				return new Bolt();
+			case 22:
+				return new Arrow();
+			case 23:
+			case 24:
+				return new Necklace();
+			case 25:
+			case 26:
+				return new Ring();
+			default:
+				return new Potion(PotionType.Health, 80);
 		}
 	}
-	
+
 	/**
 	 * Generates a random rareness for an item.
 	 * @return The random rareness
@@ -251,6 +286,7 @@ public abstract class Item implements Serializable {
 		isCurrentlyEquipped = currentlyEquipped;
 	}
 
+	public void setCooldown(int cooldown) { this.cooldown = cooldown; }
 
 	public boolean isFavorite() {
 		return isFavorite;

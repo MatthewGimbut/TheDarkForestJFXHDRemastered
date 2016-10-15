@@ -144,9 +144,9 @@ public class JSONMapParser {
             JSONMapTemplate m = gson.create().fromJson(json, JSONMapTemplate.class);
 
             m.getMapItems().forEach(sprite -> {
+                sprite.setImage(sprite.getImageLocation().replaceAll("(.+(MapBuilder\\\\))", "file:"));
                 if(sprite.getImageLocation().contains("\\\\")) sprite.setImage(sprite.getImageLocation().replace("\\\\", "\\"));
-                if(sprite.getImageLocation().contains("C:\\Users\\Matthew\\workspace\\MapBuilder\\")) sprite.setImage(sprite.getImageLocation().replace("C:\\Users\\Matthew\\workspace\\MapBuilder\\", ""));
-                sprite.setImage(sprite.getImageLocation());
+                if(sprite instanceof NPC) loadNPC((NPC) sprite);
                 sprites.add(sprite);
             });
         } catch (IOException e) {
@@ -171,7 +171,7 @@ public class JSONMapParser {
             writer.print("");
             writer.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            GameStage.logger.error(e);
         }
 
         try(BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
@@ -186,7 +186,7 @@ public class JSONMapParser {
             br.write(json);
         } catch (IOException e) {
             System.out.println("Error writing JSON!");
-            System.out.println(e.getMessage());
+            GameStage.logger.error(e);
         }
     }
 

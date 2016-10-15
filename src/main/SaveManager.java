@@ -20,26 +20,27 @@ public interface SaveManager {
 			System.out.println(currentMapLocation);
 			os.writeObject(items);
 		} catch (IOException e) {
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Object> deserialize() {
 		try(FileInputStream fs = new FileInputStream("Saves\\save01.ser");
-				ObjectInputStream os = new ObjectInputStream(fs)) {
-				ArrayList<Object> mapstuff = (ArrayList<Object>) os.readObject();
+			ObjectInputStream os = new ObjectInputStream(fs)) {
+			ArrayList<Object> mapstuff = (ArrayList<Object>) os.readObject();
 
-				((PlayerSprite) mapstuff.get(0)).getPlayer().deserializeQuests(); //deserialize the quests
+			((PlayerSprite) mapstuff.get(0)).getPlayer().deserializeQuests(); //deserialize the quests
+
 
 			return mapstuff;
 		} catch (IOException e) {
-			e.printStackTrace();
+			GameStage.logger.error(e);
 		} catch (Exception e) {
-			e.printStackTrace();
-		} 
+			GameStage.logger.error(e);
+		}
 		return null;
 	}
 	

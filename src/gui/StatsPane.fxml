@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?scenebuilder-stylesheet themes.css?>
 
-<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="568.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0000999999975" prefWidth="568.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
     <Button id="" fx:id="exit" cancelButton="false" defaultButton="false" disable="false" layoutX="517.0" layoutY="14.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" textFill="#990000" underline="false" />
     <AnchorPane layoutX="214.0" layoutY="114.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
@@ -19,8 +19,8 @@
             <Color blue="1.000" green="1.000" opacity="0.000" red="1.000" fx:id="x1" />
           </fill>
         </Rectangle>
-        <Label layoutX="25.0" layoutY="14.0" text="Weapon" textAlignment="CENTER" />
-        <ImageView fx:id="weaponImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="25.0" layoutY="14.0" text="Primary" textAlignment="CENTER" />
+        <ImageView id="weaponImage" fx:id="primaryImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
     <ImageView fx:id="playerImage" fitHeight="32.0" fitWidth="32.0" layoutX="154.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
@@ -45,15 +45,15 @@
     <AnchorPane layoutX="14.0" layoutY="14.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
       <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-        <Label layoutX="17.0" layoutY="14.0" text="Spell Tome" textAlignment="CENTER" />
-        <ImageView id="weaponImage" fx:id="spellImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="12.0" layoutY="14.0" text="Ammunition" textAlignment="CENTER" />
+        <ImageView id="weaponImage" fx:id="ammoImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
     <AnchorPane layoutX="14.0" layoutY="114.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
       <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-        <Label layoutX="32.0" layoutY="14.0" text="Shield" textAlignment="CENTER" />
-        <ImageView id="weaponImage" fx:id="shieldImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+        <Rectangle fx:id="secondaryPane" arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+        <Label fx:id="secondaryLabel" layoutX="19.0" layoutY="14.0" text="Secondary" textAlignment="CENTER" />
+        <ImageView id="weaponImage" fx:id="secondaryImage" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
     <AnchorPane layoutX="14.0" layoutY="215.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
@@ -86,24 +86,30 @@
         <Label fx:id="playerMagic" text="Magic:" />
       </children>
     </VBox>
-    <VBox layoutX="336.0" layoutY="153.0" prefHeight="151.0" prefWidth="221.0" spacing="5.0">
+    <VBox layoutX="326.0" layoutY="211.0" prefHeight="189.0" prefWidth="221.0" spacing="5.0">
       <children>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar fx:id="healthBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="healthBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="" />
             <Label fx:id="healthLabel" layoutX="17.0" layoutY="8.0" text="Health:" />
           </children>
         </AnchorPane>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar id="expBar" fx:id="xpBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar id="expBar" fx:id="xpBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="-fx-accent: gold;&#10;" />
             <Label id="expLabel" fx:id="xpLabel" layoutX="17.0" layoutY="8.0" text="XP:" />
           </children>
         </AnchorPane>
         <AnchorPane prefHeight="44.0" prefWidth="247.0">
           <children>
-            <ProgressBar fx:id="manaBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="manaBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="-fx-accent: blue;" />
             <Label fx:id="manaLabel" layoutX="17.0" layoutY="8.0" text="Mana:" />
+          </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="44.0" prefWidth="221.0">
+          <children>
+            <ProgressBar id="manaBar" fx:id="staminaBar" layoutX="14.0" layoutY="25.0" prefWidth="200.0" progress="0.0" style="-fx-accent: blue;" />
+            <Label id="manaLabel" fx:id="staminaLabel" layoutX="17.0" layoutY="8.0" text="Stamina:" />
           </children>
         </AnchorPane>
       </children>
@@ -113,5 +119,46 @@
         <Label fx:id="gold" text="x gold" />
       </children>
     </HBox>
+    <ImageView fx:id="hpBorder" fitHeight="15.0" fitWidth="212.0" layoutX="335.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
+    <ImageView fx:id="xpBorder" fitHeight="15.0" fitWidth="212.0" layoutX="335.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
+    <ImageView fx:id="manaBorder" fitHeight="15.0" fitWidth="212.0" layoutX="335.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
+    <AnchorPane layoutX="15.0" layoutY="311.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+        <Label layoutX="23.0" layoutY="14.0" text="Necklace" textAlignment="CENTER" />
+        <ImageView id="weaponImage" fx:id="accessory1Image" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="114.0" layoutY="311.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+        <ImageView id="weaponImage" fx:id="accessory2Image" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="18.0" layoutY="14.0" text="Ring Slot 1" textAlignment="CENTER" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="214.0" layoutY="311.0" minHeight="70.0" prefHeight="100.0" prefWidth="100.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x1" height="50.0" layoutX="25.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+        <ImageView id="weaponImage" fx:id="accessory3Image" fitHeight="32.0" fitWidth="32.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="18.0" layoutY="14.0" text="Ring Slot 2" textAlignment="CENTER" />
+      </children>
+    </AnchorPane>
+    <ImageView id="manaBorder" fx:id="staminaBorder" fitHeight="15.0" fitWidth="212.0" layoutX="335.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../Images/border_long.png" />
+      </image>
+    </ImageView>
   </children>
 </AnchorPane>

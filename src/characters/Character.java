@@ -2,6 +2,7 @@ package characters;
 
 import attacks.Other.StatChange;
 import items.Item;
+import items.accessories.Accessory;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,21 +23,21 @@ public abstract class Character implements Serializable {
 	public static final String GENERIC_NEUTRAL_WEST = "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png";
 	private static final long serialVersionUID = -7026591060236208199L;
 	private List<StatChange> currentStatusEffects; //buffs and debuffs
-	private int lvl;
-	private String name;
-	private int currentHP;
-	private int maxHP;
-	private int currentMana;
-	private int maxMana;
-	private int atk;
-	private int magic;
-	private int def;
-	private int speed;
-	private double carryCap;
-	private double currentCarry;
-	private boolean isDead;
 	private boolean isAttacking = false;
-	private String image;
+	protected int lvl;
+	protected String name;
+	protected int currentHP;
+	protected int maxHP;
+	protected int currentMana;
+	protected int maxMana;
+	protected int atk;
+	protected int magic;
+	protected int def;
+	protected int speed;
+	protected double carryCap;
+	protected double currentCarry;
+	protected boolean isDead;
+	protected String image;
 	protected String south;
 	protected String north;
 	protected String east;
@@ -59,7 +60,7 @@ public abstract class Character implements Serializable {
 		this.isDead = false;
 
 	}
-	
+
 	public Character(String name, int lvl, int currentHP, int maxHP, int currentMana, int maxMana, int atk, int magic, int def, int speed,
 					 int currentCarry, int carryCap, String north, String south, String east, String west) {
 		this(name, lvl, currentHP, maxHP, currentMana, maxMana, atk, magic, def, speed, currentCarry, carryCap);
@@ -79,9 +80,8 @@ public abstract class Character implements Serializable {
 		this.def += i.getDef();
 		this.maxHP += i.getHpBoost();
 		this.maxMana += i.getManaBoost(); //TODO
-		this.speed -= i.getSpeedModifier();	
+		this.speed += i.getCooldown();
 	}
-	
 	
 	/**
 	 * Removes from base stats according to item unequipped.
@@ -93,7 +93,7 @@ public abstract class Character implements Serializable {
 		this.def -= i.getDef();
 		this.maxHP -= i.getHpBoost();
 		this.maxMana -= i.getManaBoost(); 
-		this.speed += i.getSpeedModifier();	
+		this.speed -= i.getCooldown();
 	}
 	
 	/**
@@ -103,7 +103,6 @@ public abstract class Character implements Serializable {
 		this.lvl++;
 		//GameController.playSound(""); //TODO
 		Random r = new Random();
-		this.speed += r.nextInt(3);
 		this.atk += r.nextInt(2);
 		this.magic += r.nextInt(4); 
 		this.def += r.nextInt(2);
@@ -121,7 +120,11 @@ public abstract class Character implements Serializable {
 	}
 
 	public void setCurrentHP(int hp) {
-		this.currentHP = hp;
+		if(hp <= maxHP) {
+			this.currentHP = hp;
+		} else {
+			this.currentHP = maxHP;
+		}
 	}
 	
 	public void modifyCurrentCarry(double currentCarry) {
@@ -270,6 +273,14 @@ public abstract class Character implements Serializable {
 			if(s.turnsLeft() == 0) { //if there are no turns left remove it from the list
 				it.remove();
 			}
+		}
+	}
+
+	public void setCurrentMana(int mana) {
+		if(mana <= maxMana){
+			this.currentMana = mana;
+		} else {
+			this.currentMana = maxMana;
 		}
 	}
 

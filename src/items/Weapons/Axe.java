@@ -16,7 +16,12 @@ public class Axe extends Weapon {
 		this.setSimpleName(this.getWeaponType() + " axe");
 		this.setItemToolTipText("A " + this.getWeaponType() + " axe");
 	}
-	
+
+	@Override
+	public int getStaminaCost() {
+		return 8;
+	}
+
 	public Axe(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, 
 			Rarity howRare, WeaponType weaponType, String uniqueImage, String uniqueName, String uniqueToolTip) {
 		super(atk, magic, def, speedModifier, weight, hpBoost, manaBoost, value, howRare, weaponType);

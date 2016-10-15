@@ -10,13 +10,12 @@ import java.util.Random;
  * @author Matthew Gimbut
  *
  */
-@SuppressWarnings("serial")
 public abstract class Weapon extends Item {
 
 	private WeaponType weaponType;
 	
 	public Weapon(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, WeaponType weaponType) {
-		super((int) Math.round(atk*weaponTypeMultiplier(weaponType)), (int) Math.round(magic*weaponTypeMultiplier(weaponType)), 
+		super((int) Math.round(atk*weaponTypeMultiplier(weaponType)), (int) Math.round(magic*weaponTypeMultiplier(weaponType)),
 				(int) Math.round(def*weaponTypeMultiplier(weaponType)),	speedModifier, (int) (weight * weaponTypeMultiplier(weaponType)), hpBoost, manaBoost,
 				(int) Math.round(value*weaponTypeMultiplier(weaponType)), howRare);
 		this.weaponType = weaponType;
@@ -48,20 +47,26 @@ public abstract class Weapon extends Item {
 			return WeaponType.wood;
 		}
 	}
-	
+
+	public abstract int getStaminaCost();
+
 	public static double weaponTypeMultiplier(WeaponType weapon) {
-		switch(weapon) {
-		case wood: 
-			return 0.30;
-		case stone: 
-			return 0.50;
-		case bronze: 
-			return 1.0;
-		case iron: 
-			return 1.5;
-		case steel: 
-			return 2.0;
-		default:
+		if(weapon != null) {
+			switch(weapon) {
+				case wood:
+					return 0.30;
+				case stone:
+					return 0.50;
+				case bronze:
+					return 1.0;
+				case iron:
+					return 1.5;
+				case steel:
+					return 2.0;
+				default:
+					return 1.0;
+			}
+		} else {
 			return 1.0;
 		}
 	}

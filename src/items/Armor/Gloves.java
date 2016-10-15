@@ -4,29 +4,29 @@ import items.Item;
 import items.Rarity;
 
 /**
- * Gloves armor class
+ * Gloves Armor class
  * @author Matthew Gimbut
  *
  */
 public class Gloves extends Armor {
 
-	public Gloves(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
-		super(atk, magic, def, speedModifier, weight, hpBoost, manaBoost, value, howRare, armorType);
+	public Gloves(int atk, int magic, int def, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
+		super(atk, magic, def, weight, hpBoost, manaBoost, value, howRare, armorType);
 		this.setImageLocation("Images\\Armors\\" + this.getArmorType().toString() + "\\Gloves.png");
 		this.setSimpleName(getSimpleGloveName());
 		this.setItemToolTipText(getGloveToolTip());
 	}
 	
-	public Gloves(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value,
+	public Gloves(int atk, int magic, int def, double weight, int hpBoost, int manaBoost, int value,
 				  Rarity howRare, ArmorType weaponType, String uniqueImage, String uniqueName, String uniqueToolTip) {
-		super(atk, magic, def, speedModifier, weight, hpBoost, manaBoost, value, howRare, weaponType);
+		super(atk, magic, def, weight, hpBoost, manaBoost, value, howRare, weaponType);
 		this.setImageLocation(uniqueImage);
 		this.setSimpleName(uniqueName);
 		this.setItemToolTipText(uniqueToolTip);
 	}
 	
 	public Gloves() {
-		super(0, 0, 2, 1, 2, 0, 0, 50, Item.randomRareness(), Armor.getRandomArmorType());
+		super(0, 0, 2, 2, 0, 0, 50, Item.randomRareness(), Armor.getRandomArmorType());
 		this.setImageLocation("Images\\Armors\\" + this.getArmorType().toString() + "\\Gloves.png");
 		this.setSimpleName(getSimpleGloveName());
 		this.setItemToolTipText(getGloveToolTip());
@@ -44,7 +44,7 @@ public class Gloves extends Armor {
 	}
 
 	/**
-	 * Changes the name based on what type of armor it is.
+	 * Changes the name based on what type of Armor it is.
 	 * Steel gloves would be a bit uncomfortable
 	 * so I changed them to gauntlets.
 	 */

@@ -16,7 +16,12 @@ public class RustyKnife extends Weapon {
 		System.out.println(this.getWeaponType());
 		this.setImageLocation("Images\\Weapons\\" + this.getWeaponType().toString() + "\\Dagger.png");
 	}
-	
+
+	@Override
+	public int getStaminaCost() {
+		return 0;
+	}
+
 	public RustyKnife() {
 		super(5, 0, 0, 1, 2, 0, 0, 10, Item.randomRareness(), WeaponType.iron);
 		this.setImageLocation("Images\\Weapons\\RustyKnife\\RustyKnife.png");

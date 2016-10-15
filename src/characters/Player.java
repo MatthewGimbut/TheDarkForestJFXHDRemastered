@@ -1,10 +1,19 @@
 package characters;
 
+import items.Weapons.Staff;
+import items.accessories.Accessory;
+import items.accessories.Necklace;
+import items.accessories.Ring;
+import items.ammunition.Ammunition;
 import items.Armor.*;
 import items.Consumables.Consumable;
 import items.Consumables.Potion;
 import items.Item;
+import items.Secondary;
+import items.TwoHanded;
 import items.Weapons.Weapon;
+import items.ammunition.Stackable;
+import javafx.animation.PauseTransition;
 import main.Records;
 
 import quests.Quest;
@@ -12,6 +21,7 @@ import quests.QuestHandler;
 
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Player extends Character {
     public static final String FACING_NORTH = "file:Images\\Player\\PlayerNorth.png";
@@ -30,14 +40,21 @@ public class Player extends Character {
     private LinkedList<Item> inventory;
     private int xp;
     private int gold;
+    private int hpRegen; //hpRegen, manaRegen, staminaRegen are in milliseconds
+    private int manaRegen;
+    private int currentStamina, maxStamina, staminaRegen;
     private Weapon weaponHandR;
-    private Shield leftHand;
+    private Secondary leftHand;
     private ChestPiece chestPiece;
     private Legs leggings;
     private Boots boots;
     private Gloves gloves;
     private Helmet helmet;
     private Records records;
+    private Ammunition ammo;
+    private Necklace necklace;
+    private Ring ring1;
+    private Ring ring2;
 
     private List<Quest> activeQuestsSer;
     private List<Quest> completeQuestsSer;
@@ -54,6 +71,11 @@ public class Player extends Character {
         super(username , STARTING_LEVEL, STARTING_MAX_HP, STARTING_MAX_HP, STARTING_MAX_MANA, STARTING_MAX_MANA, STARTING_ATK, STARTING_MAGIC, STARTING_DEF, STARTING_SPD, 0, STARTING_MAX_CARRY);
         xp = 0;
         gold = 0;
+        hpRegen = 3500; //Base HP regeneration rate
+        manaRegen = 250; //Base mana regeneration rate
+        staminaRegen = 150;
+        currentStamina = 150;
+        maxStamina = 150;
         textScrollingSpeed = 45; //Milliseconds
         inventory = new LinkedList<Item>();
         records = new Records();
@@ -63,7 +85,7 @@ public class Player extends Character {
         return weaponHandR;
     }
 
-    public Shield getLeftHand() {
+    public Secondary getLeftHand() {
         return leftHand;
     }
 
@@ -88,52 +110,103 @@ public class Player extends Character {
         return helmet;
     }
 
+    public Ammunition getAmmo() { return this.ammo; }
+
+    public void setAmmo(Ammunition ammo) { this.ammo = ammo; }
+
     /**
      * Unequips an item from the player.
      * Checks to see what type the item is and changes things accordingly.
      * @param i The item to unequip
      */
     public void unequip(Item i) {
-        if (i instanceof Weapon) {
-            weaponHandR = null;
-        } else if (i instanceof Shield) {
+        if (i instanceof Secondary) {
             leftHand = null;
+            unequipUpdateStats(i);
+        } else if (i instanceof Necklace) {
+            necklace = null;
+            unequipUpdateStats(i);
+            reverseAccessoryStatChange((Accessory) i);
+        } else if(i instanceof Ring) {
+            if(ring1 == i) {
+                ring1 = null;
+            } else if(ring2 == i) {
+                ring2 = null;
+            } else {
+                throw new RuntimeException("How the fuck did this get here if neither was equipped to begin with???");
+            }
+            unequipUpdateStats(i);
+            reverseAccessoryStatChange((Accessory) i);
+        } else if (i instanceof Ammunition) {
+            ammo = null;
+        } else if (i instanceof Weapon) {
+            weaponHandR = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Helmet) {
             helmet = null;
+            unequipUpdateStats(i);
         } else if (i instanceof ChestPiece) {
             chestPiece = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Legs) {
             leggings = null;
+            unequipUpdateStats(i);
         } else if (i instanceof Gloves) {
             gloves = null;
-        } else{
+            unequipUpdateStats(i);
+        } else if (i instanceof Boots) {
             boots = null;
+            unequipUpdateStats(i);
         }
         i.setCurrentlyEquipped(false);
-        unequipUpdateStats(i);
     }
 
     /**
-     * Method to equip weapons
+     * Method to equip Weapons
      * @param w The weapon to equip
      */
     public void equip(Weapon w) {
         if(!w.isCurrentlyEquipped()) {
-            if(this.weaponHandR == null) {
+            if(w instanceof TwoHanded) { //Two handed Weapons
+                if(leftHand != null) {
+                    unequipUpdateStats((Item) leftHand);
+                    ((Item) leftHand).setCurrentlyEquipped(false);
+                    leftHand = null;
+                }
+                if(this.weaponHandR != null) {
+                    unequipUpdateStats(weaponHandR);
+                    weaponHandR.setCurrentlyEquipped(false);
+                    weaponHandR = null;
+                }
                 weaponHandR = w;
-            } else {
-                unequipUpdateStats(this.weaponHandR);
-                this.weaponHandR.setCurrentlyEquipped(false);
-                weaponHandR = w;
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
+            } else if (w instanceof Ammunition) {
+                if(this.ammo == null) {
+                    ammo = (Ammunition) w;
+                } else {
+                    this.ammo.setCurrentlyEquipped(false);
+                    unequip(this.ammo);
+                    this.ammo = (Ammunition) w;
+                }
+                w.setCurrentlyEquipped(true);
+            } else { //One handed Weapons
+                if(this.weaponHandR == null) {
+                    weaponHandR = w;
+                } else {
+                    unequipUpdateStats(this.weaponHandR);
+                    this.weaponHandR.setCurrentlyEquipped(false);
+                    weaponHandR = w;
+                }
+                w.setCurrentlyEquipped(true);
+                equipUpdateStats(w);
             }
-            w.setCurrentlyEquipped(true);
-            equipUpdateStats(w);
         }
     }
 
     /**
      * Method to equip armors
-     * @param a The armor to be equipped
+     * @param a The Armor to be equipped
      */
     public void equip(Armor a) {
         if(!a.isCurrentlyEquipped()) {
@@ -178,17 +251,83 @@ public class Player extends Character {
                     unequipUpdateStats(leggings);
                     leggings = (Legs) a;
                 }
-            } else if(a instanceof Shield) {
+            } else if(a instanceof Secondary) {
                 if(leftHand == null) {
                     leftHand = (Shield) a;
                 } else {
-                    leftHand.setCurrentlyEquipped(false);
-                    unequipUpdateStats(leftHand);
+                    ((Item) leftHand).setCurrentlyEquipped(false);
+                    unequipUpdateStats((Item) leftHand);
                     leftHand = (Shield) a;
                 }
             }
             equipUpdateStats(a);
         }
+    }
+
+    public void equip(Secondary s) {
+        if(!((Item) s).isCurrentlyEquipped()) {
+            ((Item) s).setCurrentlyEquipped(true);
+            if(weaponHandR != null && weaponHandR instanceof TwoHanded) {
+             weaponHandR.setCurrentlyEquipped(false);
+                unequipUpdateStats(weaponHandR);
+                weaponHandR = null;
+            }
+            if(leftHand == null) {
+                leftHand = s;
+            } else {
+                ((Item) leftHand).setCurrentlyEquipped(false);
+                unequipUpdateStats((Item) leftHand);
+                leftHand = s;
+            }
+            equipUpdateStats((Item) s);
+        }
+    }
+
+    public void equip(Accessory a) {
+        a.setCurrentlyEquipped(true);
+        if(a instanceof  Necklace) {
+            if(this.necklace == null) {
+                this.necklace = (Necklace) a;
+            } else {
+                this.necklace.setCurrentlyEquipped(false);
+                unequipUpdateStats(necklace);
+                reverseAccessoryStatChange(necklace);
+                this.necklace = (Necklace) a;
+
+            }
+        } else if (a instanceof  Ring) {
+            if(this.ring1 == null) {
+                this.ring1 = (Ring) a;
+            } else if(ring2 == null) {
+                this.ring2 = (Ring) a;
+            } else {
+                this.ring2.setCurrentlyEquipped(false);
+                unequipUpdateStats(ring2);
+                reverseAccessoryStatChange(ring2);
+                this.ring2 = (Ring) a;
+            }
+        } else {
+            throw new RuntimeException("User tried to equip an accessory that has not been accounted for!");
+        }
+        System.out.println(this.getManaRegen());
+        System.out.println(this.getHpRegen());
+        System.out.println(this.getSpeed());
+        this.speed += a.getCooldownReduction();
+        this.manaRegen += a.getManaRegenBoost();
+        this.hpRegen += a.getHpRegenBoost();
+        this.staminaRegen += a.getStaminaRegenBoost();
+        System.out.println(this.getManaRegen());
+        System.out.println(this.getHpRegen());
+        System.out.println(this.getSpeed());
+
+        equipUpdateStats(a);
+    }
+
+    private void reverseAccessoryStatChange(Accessory a) {
+        this.speed -= a.getCooldownReduction();
+        this.manaRegen -= a.getManaRegenBoost();
+        this.hpRegen -= a.getHpRegenBoost();
+        this.staminaRegen -= a.getStaminaRegenBoost();
     }
 
     public void consume(Consumable p) {
@@ -206,8 +345,30 @@ public class Player extends Character {
      */
     public boolean addItem(Item i) {
         if (i.getWeight() <= (getCarryCap() - getCurrentCarry())) {
+            if(i instanceof Stackable) {
+                boolean stacked = false;
+                for(int k = 0; k < inventory.size() && !stacked; k++) {
+                    Item current = inventory.get(k);
+                    if(current instanceof Stackable) {
+                        if(current instanceof Ammunition && i instanceof Ammunition
+                                && current.getClass().equals(i.getClass())
+                                && current.getHowRare().equals(i.getHowRare())
+                                && ((Ammunition) current).getWeaponType().equals(((Ammunition) i).getWeaponType())) {
+                            System.out.println("Previous: " + ((Ammunition) current).getCount());
+                            ((Ammunition) current).combine((Stackable) i);
+                            System.out.println("After: " + ((Ammunition) current).getCount());
+                            stacked = true;
+                        }
+                    }
+
+                }
+                if(!stacked) {
+                    this.inventory.add(i);
+                }
+            } else {
+                this.inventory.add(i);
+            }
             this.modifyCurrentCarry(i.getWeight());
-            this.inventory.add(i);
             return true;
         }
         else {
@@ -243,6 +404,10 @@ public class Player extends Character {
      */
     public void lvlUp(int leftoverXP) {
         super.lvlUp(leftoverXP);
+        Random r = new Random();
+        int staminaBoost = r.nextInt(7);
+        this.currentStamina += staminaBoost;
+        this.maxStamina += staminaBoost;
         this.xp = leftoverXP;
     }
 
@@ -278,4 +443,78 @@ public class Player extends Character {
     public Records getRecords() {
         return records;
     }
+
+    public int getHpRegen() {
+        return hpRegen;
+    }
+
+    public void setHpRegen(int hpRegen) {
+        this.hpRegen = hpRegen;
+    }
+
+    public int getManaRegen() {
+        return manaRegen;
+    }
+
+    public void setManaRegen(int manaRegen) {
+        this.manaRegen = manaRegen;
+    }
+
+    public int getCurrentStamina() {
+        return currentStamina;
+    }
+
+    public void setCurrentStamina(int currentStamina) {
+        if(currentStamina <= maxStamina) {
+            this.currentStamina = currentStamina;
+        } else {
+            this.currentStamina = this.maxStamina;
+        }
+    }
+
+    public int getMaxStamina() {
+        return maxStamina;
+    }
+
+    public void setMaxStamina(int maxStamina) {
+        this.maxStamina = maxStamina;
+    }
+
+    public int getStaminaRegen() {
+        return staminaRegen;
+    }
+
+    public void setStaminaRegen(int staminaRegen) {
+        this.staminaRegen = staminaRegen;
+    }
+
+    public void modifyCurrentStamina(int mod) {
+        this.currentStamina += mod;
+    }
+
+    public Ring getRing2() {
+        return ring2;
+    }
+
+    public void setRing2(Ring ring2) {
+        this.ring2 = ring2;
+    }
+
+    public Ring getRing1() {
+        return ring1;
+    }
+
+    public void setRing1(Ring ring1) {
+        this.ring1 = ring1;
+    }
+
+    public Necklace getNecklace() {
+        return necklace;
+    }
+
+    public void setNecklace(Necklace necklace) {
+        this.necklace = necklace;
+    }
+
+
 }

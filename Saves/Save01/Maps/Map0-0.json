@@ -962,7 +962,7 @@
           "random": 1,
           "speedModifier": 5,
           "weight": 31.0,
-          "hpBoost": 30,
+          "hpBoost": 200,
           "manaBoost": 20,
           "simpleName": "Test shield",
           "toolTipText": "A unique shield created for testing purposes",

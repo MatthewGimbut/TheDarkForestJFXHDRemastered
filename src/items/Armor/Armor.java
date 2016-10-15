@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * Abstract superclass for armors.
- * Does all the math unique to armor types here, contains some useful
+ * Does all the math unique to Armor types here, contains some useful
  * static methods related to armors. 
  * @author Matthew
  *
@@ -16,9 +16,9 @@ public abstract class Armor extends Item {
 
 	private ArmorType armorType;
 	
-	public Armor(int atk, int magic, int def, int speedModifier, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
+	public Armor(int atk, int magic, int def, double weight, int hpBoost, int manaBoost, int value, Rarity howRare, ArmorType armorType) {
 		super((int) Math.round(atk * ArmorTypeMultiplier(armorType)), (int)Math.round(magic * ArmorTypeMultiplier(armorType)), 
-				(int) Math.round(def * ArmorTypeMultiplier(armorType)),	speedModifier, (int) Math.round(weight * ArmorTypeMultiplier(armorType)), hpBoost, 
+				(int) Math.round(def * ArmorTypeMultiplier(armorType)),	0, (int) Math.round(weight * ArmorTypeMultiplier(armorType)), hpBoost,
 				manaBoost, (int) Math.round(value * ArmorTypeMultiplier(armorType)), howRare);
 		this.armorType = armorType;
 	}
@@ -28,7 +28,7 @@ public abstract class Armor extends Item {
 	}
 	
 	/**
-	 * Gets a random armor type from the ArmorType enumerator
+	 * Gets a random Armor type from the ArmorType enumerator
 	 * @return An ArmorType
 	 */
 	public static ArmorType getRandomArmorType() {
@@ -58,8 +58,8 @@ public abstract class Armor extends Item {
 	}
 	
 	/**
-	 * Gets the appropriate multiplier for a specific armor type
-	 * @param armor The armor type 
+	 * Gets the appropriate multiplier for a specific Armor type
+	 * @param armor The Armor type
 	 * @return A double containing the ArmorType multiplier
 	 */
 	public static double ArmorTypeMultiplier(ArmorType armor) {

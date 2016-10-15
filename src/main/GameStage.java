@@ -10,8 +10,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class GameStage extends Application {
@@ -39,6 +42,8 @@ public class GameStage extends Application {
 
     public static GamePane gamePane;
 
+    public static final Logger logger = LogManager.getLogger(GameStage.class);
+    public static final DecimalFormat df = new DecimalFormat("#.#");
 
     public static void setGamePane(GamePane gamePane) {
         GameStage.gamePane = gamePane;
@@ -72,8 +77,6 @@ public class GameStage extends Application {
         primaryStage.setTitle("The Dark Forest Alpha");
         Image icon = new Image("file:Images\\SaveArea.png");
         primaryStage.getIcons().add(icon);
-
-
         primaryStage.show();
     }
 
@@ -82,8 +85,8 @@ public class GameStage extends Application {
         return MALE_FIRST_NAMES[r.nextInt(45)] + " " + LAST_NAMES[r.nextInt(45)];
     }
 
-    public static int getRandomSpeed() {
-        return rand.nextInt(50);
+    public static int getRandom(int upperBound) {
+        return rand.nextInt(upperBound);
     }
 
     public static void playSound(String fileLocation) {

@@ -2,6 +2,7 @@ package gui.quests;
 
 import gui.GamePane;
 import gui.items.ItemPane;
+import javafx.scene.input.KeyEvent;
 import main.GameStage;
 import quests.Quest;
 
@@ -45,7 +46,8 @@ public class QuestSuccess extends BorderPane {
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
-            throw new RuntimeException(exception);
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 
@@ -55,6 +57,11 @@ public class QuestSuccess extends BorderPane {
         exit.setOnAction(event -> {
             GameStage.gamePane.removeQuestSuccessPane(this);
             currentView.resetMessagePaneFocus();
+        });
+
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) exit.fire();
         });
 
         goldLabel.setText("" + quest.getMoneyReward() + " gold");

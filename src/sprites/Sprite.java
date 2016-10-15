@@ -8,18 +8,15 @@ import java.util.LinkedList;
 
 import java.io.Serializable;
 
-/**
- * Created by Matthew on 8/13/2016.
- */
 public class Sprite implements Serializable {
 
-    private transient Image image;
-    private int x, y, dx, dy, width, height;
+    protected transient Image image;
+    protected int x, y, dx, dy, width, height;
     private boolean visible;
     protected boolean isObstacle;
     protected String[] message;
-    private String location;
     private LinkedList<Cardinal> path;
+    protected String location;
 
     public Sprite(int x, int y) {
         this.x = x;
@@ -31,6 +28,7 @@ public class Sprite implements Serializable {
         this.x = x;
         this.y = y;
         visible = true;
+
         setImage(image);
         this.location = image;
     }
@@ -45,8 +43,7 @@ public class Sprite implements Serializable {
         this.y = y;
     }
 
-    public void setVelocity(int x, int y)
-    {
+    public void setVelocity(int x, int y) {
         dx = x;
         dy = y;
     }

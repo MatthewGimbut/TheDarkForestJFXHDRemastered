@@ -1,0 +1,135 @@
+2016-10-07 21:11:12.444 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 38836227300189
+2016-10-07 21:11:12.445 [JavaFX Application Thread] DEBUG main.GameStage - Test
+2016-10-07 21:10:42.932 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:27.374 [main] DEBUG main.GameStage - Logger successfully launched at 38851158884998
+2016-10-07 21:11:27.374 [main] DEBUG main.GameStage - Test
+2016-10-07 21:11:31.048 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 38854831867404
+2016-10-07 21:11:34.623 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:36.524 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:37.576 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:38.110 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:38.794 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:39.328 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:11:40.295 [JavaFX Application Thread] DEBUG main.GameStage - Magic projectile fired!
+2016-10-07 21:15:59.940 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 39123723935764
+2016-10-07 21:20:24.212 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 39387995289892
+2016-10-07 23:50:22.298 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 48386081373178
+2016-10-08 00:04:09.468 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 49213251283145
+2016-10-08 00:04:31.760 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 49235542636577
+2016-10-08 00:04:33.959 [JavaFX Application Thread] ERROR main.GameStage - Location is not set.
+2016-10-08 00:04:33.960 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalStateException: Location is not set.
+2016-10-08 00:18:24.041 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 50067823673942
+2016-10-08 00:41:30.956 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 51454739246903
+2016-10-08 00:41:32.127 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonParseException: java.lang.ClassNotFoundException: items.Weapons.Sword
+2016-10-08 00:41:32.171 [JavaFX Application Thread] ERROR main.GameStage - java.lang.ClassNotFoundException: items.Weapons.Staff
+2016-10-08 00:42:05.530 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 51489313752406
+2016-10-08 01:49:05.285 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55509068856680
+2016-10-08 01:50:09.196 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55572978803786
+2016-10-08 01:50:10.421 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonParseException: java.lang.ClassNotFoundException: items.Armor.Shield
+2016-10-08 01:50:52.567 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55616349643604
+2016-10-08 01:55:40.407 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 55904189906930
+2016-10-08 01:58:45.745 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56089528385131
+2016-10-08 02:02:42.148 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56325931308914
+2016-10-08 02:04:42.478 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56446261124954
+2016-10-08 02:08:52.722 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56696502870271
+2016-10-08 02:12:50.843 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56934625471734
+2016-10-08 02:13:01.360 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 56945143427573
+2016-10-08 02:21:49.935 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57473716338562
+2016-10-08 02:24:01.077 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57604859605221
+2016-10-08 02:24:48.780 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57652562938399
+2016-10-08 02:25:12.111 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched at 57675894197694
+2016-10-08 10:14:03.297 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:14:04.773 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.ammunition.Arrow; local class incompatible: stream classdesc serialVersionUID = 516201813886485162, local class serialVersionUID = -6437721012828429947
+2016-10-08 10:14:35.471 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:14:36.835 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.ammunition.Arrow; local class incompatible: stream classdesc serialVersionUID = 516201813886485162, local class serialVersionUID = -6437721012828429947
+2016-10-08 10:14:37.123 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.ammunition.Arrow; local class incompatible: stream classdesc serialVersionUID = 516201813886485162, local class serialVersionUID = -6437721012828429947
+2016-10-08 10:14:52.650 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:18:49.084 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:15:11.251 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:19:02.262 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:23:55.912 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:24:33.874 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 10:24:55.507 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 11:30:23.565 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 11:57:29.633 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:16:44.765 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:16:47.088 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.ammunition.Ammunition; local class incompatible: stream classdesc serialVersionUID = -7866846684643054691, local class serialVersionUID = 7443887915344040257
+2016-10-08 12:16:56.042 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:21:18.749 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:24:01.848 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:28:56.117 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:29:21.905 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:29:38.630 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:30:09.244 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:31:10.340 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:31:15.410 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:33:39.985 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:33:57.319 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:34:30.437 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:38:59.442 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:39:19.376 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 12:40:07.773 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 14:38:10.353 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 14:45:17.831 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:16:07.593 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:16:11.178 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: class java.text.DecimalFormat declares multiple JSON fields named maximumIntegerDigits
+2016-10-08 15:17:57.699 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:19:05.809 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:22:38.620 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:23:23.921 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:24:20.420 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:26:15.960 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:29:43.718 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:32:14.765 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:32:42.025 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:40:11.976 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 15:48:19.555 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:01:48.212 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:45:27.607 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:48:08.715 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:56:53.888 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:57:48.674 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:58:05.750 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 16:58:33.163 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 18:55:36.377 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 19:07:18.367 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 19:50:10.928 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 22:16:21.228 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 22:16:26.563 [JavaFX Application Thread] DEBUG main.GameStage - Logger successfully launched.
+2016-10-08 23:56:13.502 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Magic; local class incompatible: stream classdesc serialVersionUID = 3785857994985128691, local class serialVersionUID = 1942735966431176672
+2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-08 23:56:13.504 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-09 12:01:35.047 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = 1658663857299801381, local class serialVersionUID = -7127516322307962556
+2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-09 12:01:35.049 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 00:40:36.915 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -7127516322307962556, local class serialVersionUID = -9060532762176687927
+2016-10-12 00:40:36.916 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 00:40:36.916 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:07:03.996 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:07:03.998 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:07:03.998 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:56:17.293 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:56:17.294 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:56:17.295 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:58:08.450 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - [Ljava.lang.StackTraceElement;@bb6956f
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 01:58:08.452 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 11:14:16.770 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 11:14:16.771 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 11:14:16.771 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 20:58:07.364 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 20:58:07.365 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 20:58:07.365 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 22:07:48.227 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: items.Weapons.Weapon; local class incompatible: stream classdesc serialVersionUID = -2314466330330649492, local class serialVersionUID = 5472376555144372736
+2016-10-12 22:07:48.229 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-12 22:07:48.229 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-13 23:05:55.465 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -9060532762176687927, local class serialVersionUID = -182726181219785768
+2016-10-13 23:05:55.466 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-13 23:05:55.467 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:17:13.322 [JavaFX Application Thread] ERROR main.GameStage - com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was STRING at line 14 column 20 path $.genericObstacles[0].location
+2016-10-14 18:20:29.711 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:21:07.863 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:22:46.619 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-14 18:39:31.270 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found
+2016-10-14 18:39:50.549 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found

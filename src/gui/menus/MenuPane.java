@@ -46,7 +46,7 @@ public class MenuPane extends VBox {
                 map = new MapContainer(currentView.getMainPlayerSprite(), (String) newMap.get(1));
                 currentView.setMapContainer(map);
             } catch (Exception e) {
-                e.printStackTrace();
+                GameStage.logger.error(e);
             }
             currentView.setId((String) newMap.get(2));
         });

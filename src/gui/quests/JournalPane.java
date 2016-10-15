@@ -6,12 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
+import main.GameStage;
 import quests.Quest;
 import quests.QuestHandler;
 
@@ -48,9 +50,9 @@ public class JournalPane extends BorderPane {
 
         try {
             fxmlLoader.load();
-        } catch (IOException exception)
-        {
-            throw new RuntimeException(exception);
+        } catch (IOException exception) {
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
         }
     }
 
@@ -58,6 +60,11 @@ public class JournalPane extends BorderPane {
 
         brexit.setOnAction(event -> {
             currentView.removeJournalPane(this);
+        });
+
+        this.setOnKeyReleased((KeyEvent key) -> {
+            String code = key.getCode().toString();
+            if(code.equals("ESCAPE")) brexit.fire();
         });
 
         drawQuests();
