@@ -59,6 +59,7 @@ public class Player extends Character {
     private List<Quest> activeQuestsSer;
     private List<Quest> completeQuestsSer;
     private List<Quest> inActiveQuestsSer;
+    private Quest priorityQuest;
 
     //Player settings
     private int textScrollingSpeed;
@@ -424,12 +425,14 @@ public class Player extends Character {
         this.activeQuestsSer = QuestHandler.activeQuests;
         this.completeQuestsSer = QuestHandler.completeQuests;
         this.inActiveQuestsSer = QuestHandler.inActiveQuests;
+        this.priorityQuest = QuestHandler.priorityQuest;
     }
 
     public void deserializeQuests() {
         QuestHandler.activeQuests = this.activeQuestsSer;
         QuestHandler.completeQuests = this.completeQuestsSer;
         QuestHandler.inActiveQuests = this.inActiveQuestsSer;
+        QuestHandler.setPriorityQuest(this.priorityQuest);
     }
 
     public int getTextScrollingSpeed() {
