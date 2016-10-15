@@ -681,8 +681,43 @@ public class GamePane extends StackPane {
     private LinkedList<Cardinal> moveVerticallyUntilCanRealignHorizontally(Sprite s, Sprite other, int deltaY, int initialX, LinkedList<Cardinal> result, boolean up, boolean right) {
         final int MAX_ATTEMPTS = 5;
         int counter = 0;
+        int prevY = s.getY();
         do {
+            int newY;
             attemptMoveVertically(s, other, deltaY, s.getY(), result, up);
+            newY = s.getY();
+
+            if(prevY == newY) { // the sprite did not move, so it collided with something.
+                Cardinal direction = up ? Cardinal.North : Cardinal.South;
+                Sprite collision = null;
+
+                while(!enemyCollision(s, other)) {
+                    if(up) {
+                        s.modifyY(-s.getDy());
+                    } else {
+                        s.modifyY(s.getDy());
+                    }
+                }
+
+                for(Sprite obstacle : map.getCollisions()) {
+                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
+                        collision = obstacle;
+                    }
+                }
+
+                if(up) {
+                    s.modifyY(s.getDy());
+                } else {
+                    s.modifyY(-s.getDy());
+                }
+
+                result.addAll(pathAroundSprite(s, other, collision, direction));
+                return result;
+
+            } else { // no collision
+                prevY = newY;
+            }
+
             counter++;
             if(counter == MAX_ATTEMPTS) {
                 return null; // path failed
@@ -706,8 +741,43 @@ public class GamePane extends StackPane {
     private LinkedList<Cardinal> moveHorizontallyUntilCanRealignVertically(Sprite s, Sprite other, int deltaX, int initialY, LinkedList<Cardinal> result, boolean right, boolean up) {
         final int MAX_ATTEMPTS = 5;
         int counter = 0;
+        int prevX = s.getX();
         do {
+            int newX;
             attemptMoveHorizontally(s, other, deltaX, s.getX(), result, right);
+            newX = s.getX();
+
+            if(prevX == newX) { // the sprite did not move, it collided with something
+                Cardinal direction = right ? Cardinal.East : Cardinal.West;
+                Sprite collision = null;
+
+                while(!enemyCollision(s, other)) {
+                    if(right) {
+                        s.modifyX(s.getDx());
+                    } else {
+                        s.modifyX(-s.getDx());
+                    }
+                }
+
+                for(Sprite obstacle : map.getCollisions()) {
+                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
+                        collision = obstacle;
+                    }
+                }
+
+                if(right) {
+                    s.modifyX(-s.getDx());
+                } else {
+                    s.modifyX(s.getDx());
+                }
+
+                result.addAll(pathAroundSprite(s, other, collision, direction));
+                return result;
+
+            } else { // no collision
+                prevX = newX;
+            }
+
             counter++;
             if(counter == MAX_ATTEMPTS) {
                 return null; // path failed
