@@ -50,3 +50,9 @@ Temporary Items
 *.class
 *.class
 *.class
+*.tis
+*.prefs
+*.gen
+*.class
+*.class
+*.class

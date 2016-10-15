@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import java.util.LinkedList;
 
 import java.io.Serializable;
 
@@ -14,6 +15,7 @@ public class Sprite implements Serializable {
     private boolean visible;
     protected boolean isObstacle;
     protected String[] message;
+    private LinkedList<Cardinal> path;
     protected String location;
 
     public Sprite(int x, int y) {
@@ -44,6 +46,14 @@ public class Sprite implements Serializable {
     public void setVelocity(int x, int y) {
         dx = x;
         dy = y;
+    }
+
+    public void setPath(LinkedList<Cardinal> path) {
+        this.path = path;
+    }
+
+    public LinkedList<Cardinal> getPath() {
+        return this.path;
     }
 
     public void setImage(String filename) {
@@ -159,5 +169,20 @@ public class Sprite implements Serializable {
 
     public String getImageLocation() {
         return this.location;
+    }
+
+    /**
+     * Clones the current Sprite into a new one.
+     * @return The clone of this Sprite
+     */
+    public Sprite clone() {
+        Sprite result = new Sprite(this.getX(), this.getY(), this.getImageLocation());
+
+        result.setVelocity(this.getDx(), this.getDy());
+        result.setVisible(this.isVisible());
+        result.setObstacle(this.isObstacle());
+        result.setMessage(this.getMessage());
+
+        return result;
     }
 }

@@ -34,10 +34,15 @@ import mapping.MapContainer;
 import main.SaveManager;
 import quests.Quest;
 import sprites.*;
+import java.util.Random;
+
+import java.lang.reflect.Array;
 import java.util.Queue;
 import java.util.List;
 import java.util.LinkedList;
 import javafx.scene.layout.BorderPane;
+import sun.awt.image.ImageWatched;
+
 import java.util.Iterator;
 
 import java.util.ArrayList;
@@ -62,6 +67,7 @@ public class GamePane extends StackPane {
     public StatusPeekPane sppHealth, sppMana, sppStamina;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
+    private ArrayList<Sprite> enemies = new ArrayList<Sprite>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
     public Timeline manaRegen, hpRegen, staminaRegen;
     public static final String STYLE_HIGH_HP =  "-fx-accent: green;";
@@ -71,7 +77,6 @@ public class GamePane extends StackPane {
     public static final String STYLE_STAMINA =  "-fx-accent: gold;";
     public static final String STYLE_XP = "-fx-accent: DeepSkyBlue;";
     public AnimatedSprite as;
-
 
     public GamePane(Stage primaryStage) {
 
@@ -582,14 +587,529 @@ public class GamePane extends StackPane {
         playerProjectiles.clear();
     }
 
+    private void updateEnemies(GraphicsContext gc) {
+        if(!engaged()) {
+            moveEnemies(); // in future use enemyAI to determine individual AI
+        }
+        enemies.forEach(s -> s.render(gc));
+    }
+
+    /**
+     * Private method which moves all of the enemies on screen towards the player
+     */
+    private void moveEnemies() {
+        Iterator<Sprite> it = enemies.iterator();
+        Random random = new Random();
+        Enemy e;
+        Sprite s;
+        int playerX = player.getX();
+        int playerY = player.getY();
+        int deltaX, deltaY;
+        while(it.hasNext()) {
+            s = it.next();
+            e = ((Enemy) ((NPC)s).getNPC());
+
+            e.setActive(true); // TODO remove once it works properly
+
+            if(e.isActive()) { // only do movement if the enemy is active
+                deltaX = s.getX() - playerX; // positive means enemy is father right than player
+                deltaY = s.getY() - playerY; // positive means enemy is father down than player
+
+                s.setDx(2);
+                s.setDy(2);
+
+                LinkedList<Cardinal> path = s.getPath();
+
+                if(path != null && !path.isEmpty()) { // path is created, so use it until it is done
+                    Cardinal direction = path.remove(0);
+
+                    switch(direction) {
+                        case North:
+                            s.modifyY(-s.getDy()); // move up
+                            break;
+                        case South:
+                            s.modifyY(s.getDy()); // move down
+                            break;
+                        case East:
+                            s.modifyX(s.getDx()); // move right
+                            break;
+                        case West:
+                            s.modifyX(-s.getDx()); // move left
+                            break;
+                    }
+
+                    if(s.intersects(player)) {
+                        switch(direction) {
+                            case North:
+                                s.modifyY(s.getDy()); // move up
+                                break;
+                            case South:
+                                s.modifyY(-s.getDy()); // move down
+                                break;
+                            case East:
+                                s.modifyX(-s.getDx()); // move right
+                                break;
+                            case West:
+                                s.modifyX(s.getDx()); // move left
+                                break;
+                        }
+                    }
+
+                    // no need to check for collision since that was done in path generation
+                } else { // no path created
+                    double ratio = 1.0; // ratio of deltaX / deltaY
+                    if(deltaY != 0) {
+                        ratio = Math.abs((1.0*deltaX) / (1.0*(Math.abs(deltaY)+Math.abs(deltaX))));
+                    }
+
+                    double num = random.nextDouble();
+                    if(num <= ratio) { // move in x direction
+                        if(deltaX > 0) { // move left
+                            s.modifyX(-s.getDx());
+                        } else { // move right
+                            s.modifyX(s.getDx());
+                        }
+                        s.modifyY(0);
+                    } else { // move in y direction
+                        if(deltaY > 0) { // move up
+                            s.modifyY(-s.getDy());
+                        } else { // move down
+                            s.modifyY(s.getDy());
+                        }
+                        s.modifyX(0);
+                    }
+
+                    if (s.getX() < 1) s.setX(1);
+                    if (s.getY() < 1) s.setY(1);
+                    if (s.getX() > GameStage.WINDOW_WIDTH - 35) s.setX(GameStage.WINDOW_WIDTH - 35);
+                    if (s.getY() > GameStage.WINDOW_HEIGHT - 70) s.setY(GameStage.WINDOW_HEIGHT - 70);
+
+                    if(enemyCollision(s)) { // back the enemy up if it collides with something
+                        Cardinal direction;
+                        Sprite collision = getCollisionObstacle(s);
+                        boolean intersectedPlayer = s.intersects(player);
+                        if(num <= ratio) { // move in x direction
+                            if(deltaX > 0) { // collision on left, move right
+                                s.modifyX(s.getDx());
+                                direction = Cardinal.West;
+                            } else { // collision on right, move left
+                                s.modifyX(-s.getDx());
+                                direction = Cardinal.East;
+                            }
+                            s.modifyY(0);
+                        } else { // move in y direction
+                            if(deltaY > 0) { // collision up, move down
+                                s.modifyY(s.getDy());
+                                direction = Cardinal.North;
+                            } else { // collision down, move up
+                                s.modifyY(-s.getDy());
+                                direction = Cardinal.South;
+                            }
+                            s.modifyX(0);
+                        }
+                        if(!intersectedPlayer) {
+                            s.setPath(pathAroundSprite(s.clone(), s, collision, direction));
+                        }
+                    }
+                }
+
+                deltaX = s.getX() - playerX;
+                deltaY = s.getY() - playerY;
+                if(Math.abs(deltaX) < 32 && Math.abs(deltaY) < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely
+                    System.out.println("Enemy attack");
+                }
+            }
+        }
+    }
+
+    /**
+     * Determines a path around a colliding sprite for another sprite.
+     * @param s The sprite to path
+     * @param other The other sprite to avoid (Sprite from the actual enemy not its clone)
+     * @param collision The sprite to path around
+     * @param direction The direction the colliding sprite is with respect to the sprite
+     * @return The path
+     */
+    private LinkedList<Cardinal> pathAroundSprite(Sprite s, Sprite other, Sprite collision, Cardinal direction) {
+        LinkedList<Cardinal> result = new LinkedList<>();
+
+        int initialX = s.getX();
+        int initialY = s.getY();
+
+        if(direction == Cardinal.North || direction == Cardinal.South) { // vertical collision, move sideways
+            int deltaXFromLeft = Math.abs(collision.getX() - (s.getX() + s.getWidth() + 5));
+            int deltaXFromRight = Math.abs(collision.getX() + collision.getWidth() + 5 - s.getX());
+
+            int deltaY;
+            if(direction == Cardinal.North) { // collision is north, so path north
+                deltaY = Math.abs(collision.getY() - (s.getY() + s.getHeight() + 5));
+            } else { // collision is south, so path south
+                deltaY = Math.abs(s.getY() - (collision.getY() + collision.getHeight() + 5));
+            }
+
+            if(deltaXFromLeft < deltaXFromRight) { // try the left side first
+
+                if(attemptMoveHorizontally(s, other, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
+                    return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, true);
+                } else { // move failed, try other direction
+                    result.clear();
+                    if(attemptMoveHorizontally(s, other, deltaXFromRight, initialX, result, true)) { // now try to path vertically
+                        return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, false);
+                    }
+                }
+
+            } else { // try the right side
+
+                if(attemptMoveHorizontally(s, other, deltaXFromRight, initialX, result, true)) { // now try to path vertically
+                    return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, false);
+                } else { // move failed, try other direction
+                    result.clear();
+                    if(attemptMoveHorizontally(s, other, deltaXFromLeft, initialX, result, false)) { // now try to path vertically
+                        return moveVerticallyUntilCanRealignHorizontally(s, other, deltaY, initialX, result, direction == Cardinal.North, true);
+                    }
+                }
+
+            }
+        } else { // horizontal collision, move vertically
+            int deltaYFromTop = Math.abs(s.getY() + s.getHeight() + 5 - collision.getY());
+            int deltaYFromBottom = Math.abs(s.getY() - (collision.getY() + collision.getHeight() + 5));
+
+            int deltaX;
+            if(direction == Cardinal.East) { // collision is east, so path east
+                deltaX = Math.abs(collision.getX() + collision.getWidth() + 5 - s.getX());
+            } else { // collision is west so path west
+                deltaX = Math.abs(collision.getX() - (s.getX() + s.getWidth() + 5));
+            }
+
+            if(deltaYFromTop < deltaYFromBottom) { // try the top side first
+                if(attemptMoveVertically(s, other, deltaYFromTop, initialY, result, true)) { // now try to path horizontally
+                    return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, false);
+                } else {
+                    result.clear();
+                    if(attemptMoveVertically(s, other, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
+                        return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, true);
+                    }
+                }
+            } else { // try the bottom side first
+                if(attemptMoveVertically(s, other, deltaYFromBottom, initialY, result, false)) { // now try to path horizontally
+                    return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, true);
+                } else {
+                    result.clear();
+                    if(attemptMoveVertically(s, other, deltaYFromTop, initialY, result, true)) {
+                        return moveHorizontallyUntilCanRealignVertically(s, other, deltaX, initialY, result, direction == Cardinal.East, false);
+                    }
+                }
+            }
+        }
+
+
+        return result;
+    }
+
+    /**
+     * If the given sprite is able to move left the given amount of distance without collisions.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param deltaX The distance to move
+     * @param initialX The initial X position before the move was attempted
+     * @param result The result list of Cardinals to make the path
+     * @param right If the movement is to the right
+     * @return If the move was successful
+     */
+    private boolean attemptMoveHorizontally(Sprite s, Sprite other, int deltaX, int initialX, LinkedList<Cardinal> result, boolean right) {
+        int amountMovedHorizontally = 0;
+        Cardinal direction = right ? Cardinal.East : Cardinal.West;
+
+        // move the sprite deltaX distance to the (right/left) in steps of s.getWidth()
+        while(tryMoveHorizontally(s, other,
+                amountMovedHorizontally+15 > deltaX ? deltaX-amountMovedHorizontally : 15,
+                right) && amountMovedHorizontally < deltaX) {
+            amountMovedHorizontally += amountMovedHorizontally+15 > deltaX ? deltaX-amountMovedHorizontally : 15;
+        }
+
+        if(amountMovedHorizontally == deltaX) { // if the move was successful add the cardinals to the list
+            int temp = amountMovedHorizontally;
+            while(temp > 0) {
+                result.add(direction); // add the appropriate amount of directional Cardinals to the list
+                temp -= s.getDx();
+            }
+        } else {
+            s.setX(initialX);
+        }
+
+        return amountMovedHorizontally == deltaX;
+    }
+
+    /**
+     * If the given sprite is able to move left the given amount of distance without collisions.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param deltaY The distance to move
+     * Wparam initialY The initial Y position before the move was attempted
+     * @param result The result list of Cardinals to make the path
+     * @param up If the movement is up
+     * @return If the move was successful
+     */
+    private boolean attemptMoveVertically(Sprite s, Sprite other, int deltaY, int initialY, LinkedList<Cardinal> result, boolean up) {
+        int amountMovedVertically = 0;
+        Cardinal direction = up ? Cardinal.North : Cardinal.South;
+
+        // move the sprite deltaY distance (up/down) in steps of s.getHeight()
+        while(tryMoveVertically(s, other,
+                amountMovedVertically+15 > deltaY ? deltaY-amountMovedVertically : 15,
+                up) && amountMovedVertically < deltaY) {
+            amountMovedVertically += amountMovedVertically+15 > deltaY ? deltaY-amountMovedVertically : 15;
+        }
+
+        if(amountMovedVertically == deltaY) { // if the move was successful add the cardinals to the list
+            int temp = amountMovedVertically;
+            while(temp > 0) {
+                result.add(direction); // add the appropriate amount of directional Cardinals to the list
+                temp -= s.getDy();
+            }
+        } else {
+            s.setY(initialY);
+        }
+
+        return amountMovedVertically == deltaY;
+    }
+
+    /**
+     * Moves the Sprite vertically in the given direction until it is able to realign to its initial x position without collision.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param deltaY The y distance to move before checking if it can move horizontally
+     * @param initialX The initial X position to return to
+     * @param result The current path
+     * @param up If the vertical direction of movement is up
+     * @param right If the horizontal direction of movement is right
+     * @return The final path or null if it gets stuck
+     */
+    private LinkedList<Cardinal> moveVerticallyUntilCanRealignHorizontally(Sprite s, Sprite other, int deltaY, int initialX, LinkedList<Cardinal> result, boolean up, boolean right) {
+        final int MAX_ATTEMPTS = 5;
+        int counter = 0;
+        int prevY = s.getY();
+        do {
+            int newY;
+            attemptMoveVertically(s, other, deltaY, s.getY(), result, up);
+            newY = s.getY();
+
+            if(prevY == newY) { // the sprite did not move, so it collided with something.
+                Cardinal direction = up ? Cardinal.North : Cardinal.South;
+                Sprite collision = null;
+
+                while(!enemyCollision(s, other)) {
+                    if(up) {
+                        s.modifyY(-s.getDy());
+                    } else {
+                        s.modifyY(s.getDy());
+                    }
+                }
+
+                for(Sprite obstacle : map.getCollisions()) {
+                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
+                        collision = obstacle;
+                    }
+                }
+
+                if(up) {
+                    s.modifyY(s.getDy());
+                } else {
+                    s.modifyY(-s.getDy());
+                }
+
+                result.addAll(pathAroundSprite(s, other, collision, direction));
+                return result;
+
+            } else { // no collision
+                prevY = newY;
+            }
+
+            counter++;
+            if(counter == MAX_ATTEMPTS) {
+                return null; // path failed
+            }
+        } while(!attemptMoveHorizontally(s, other, Math.abs(s.getX() - initialX), s.getX(), result, right)); // until you can move horizontally keep moving vertically
+
+        return result; // SUCCESS RETURN THAT SHITTTTTTT
+    }
+
+    /**
+     * Moves the Sprite vertically in the given direction until it is able to realign to its initial x position without collision.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param deltaX The x distance to move before checking if it can move vertically
+     * @param initialY The initial Y position to return to
+     * @param result The current path
+     * @param right If the vertical direction of movement is right
+     * @param up If the horizontal direction of movement is up
+     * @return The final path or null if it gets stuck
+     */
+    private LinkedList<Cardinal> moveHorizontallyUntilCanRealignVertically(Sprite s, Sprite other, int deltaX, int initialY, LinkedList<Cardinal> result, boolean right, boolean up) {
+        final int MAX_ATTEMPTS = 5;
+        int counter = 0;
+        int prevX = s.getX();
+        do {
+            int newX;
+            attemptMoveHorizontally(s, other, deltaX, s.getX(), result, right);
+            newX = s.getX();
+
+            if(prevX == newX) { // the sprite did not move, it collided with something
+                Cardinal direction = right ? Cardinal.East : Cardinal.West;
+                Sprite collision = null;
+
+                while(!enemyCollision(s, other)) {
+                    if(right) {
+                        s.modifyX(s.getDx());
+                    } else {
+                        s.modifyX(-s.getDx());
+                    }
+                }
+
+                for(Sprite obstacle : map.getCollisions()) {
+                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
+                        collision = obstacle;
+                    }
+                }
+
+                if(right) {
+                    s.modifyX(-s.getDx());
+                } else {
+                    s.modifyX(s.getDx());
+                }
+
+                result.addAll(pathAroundSprite(s, other, collision, direction));
+                return result;
+
+            } else { // no collision
+                prevX = newX;
+            }
+
+            counter++;
+            if(counter == MAX_ATTEMPTS) {
+                return null; // path failed
+            }
+        } while(!attemptMoveVertically(s, other, Math.abs(s.getY() - initialY), s.getY(), result, up)); // until you can move vertically keep moving horizontally
+
+        return result; // SUCCESS RETURN THAT SHITTTTTTT
+    }
+
+    /**
+     * Attempts to move the sprite delta units veritcally.
+     * If movement is unsuccessful the sprite is moved back.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param delta The amount to be moved
+     * @param up If the movement is up (false -> down)
+     * @return If the movement is successful
+     */
+    private boolean tryMoveVertically(Sprite s, Sprite other, int delta, boolean up) {
+        if(up) {
+            s.modifyY(-delta);
+        } else {
+            s.modifyY(delta);
+        }
+
+        boolean temp = enemyCollision(s, other);
+        if(temp) {
+            if (up) {
+                s.modifyY(delta);
+            } else {
+                s.modifyY(-delta);
+            }
+        }
+
+        return !temp;
+    }
+
+    /**
+     * Attempts to move the sprite delta units veritcally.
+     * If movement is unsuccessful the sprite is moved back.
+     * @param s The sprite to move
+     * @param other The other sprite to avoid
+     * @param delta The amount to be moved
+     * @param right If the movement is up (false -> down)
+     * @return If the movement is successful
+     */
+    private boolean tryMoveHorizontally(Sprite s, Sprite other, int delta, boolean right) {
+        if(right) {
+            s.modifyX(delta);
+        } else {
+            s.modifyX(-delta);
+        }
+
+        boolean temp = enemyCollision(s, other);
+        if(temp) {
+            if(right) {
+                s.modifyX(-delta);
+            } else {
+                s.modifyX(delta);
+            }
+        }
+        return !temp;
+    }
+
+    /**
+     * Determines if a Sprite collides with anything on screen except itself or another given Sprite.
+     * @param s The sprite to test
+     * @return if the sprite collides with an object (besides itself)
+     */
+    private boolean enemyCollision(Sprite s) {
+        if(s.intersects(player)) {
+            return true;
+        }
+
+        for(Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Determines if a Sprite collides with anything on screen except itself or another given Sprite.
+     * @param s The sprite to test
+     * @param otherAvoid The other Sprite to avoid
+     * @return if the sprite collides with an object (besides itself)
+     */
+    private boolean enemyCollision(Sprite s, Sprite otherAvoid) {
+        if(s.intersects(player)) {
+            return true;
+        }
+
+        for(Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(otherAvoid)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Gets the Sprite that the given Sprite is colliding with
+     * @param s The Sprite to test
+     * @return The obstacle that s is colliding with (besides itself)
+     */
+    private Sprite getCollisionObstacle(Sprite s) {
+        for(Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
+                return obstacle;
+            }
+        }
+        return null;
+    }
+
     /**
      * Method for controlling the enemy AI.
-     * Enemies will walk in random directions but tend towards the player.
+     * Enemies will walk towards the player.
      * Enemies will attack randomly when in range and when facing the player.
-     * @param enemies The enemies which need AI on the screen (all active enemies)
+     * Applies on the list of all enemies on screen.
      */
-    private void enemyAI(List<Enemy> enemies) {
+    private void enemyAI() {
         //TODO lots of shit
+
     }
 
     /**
@@ -654,6 +1174,7 @@ public class GamePane extends StackPane {
             this.setId(map.getIdName());
             //mapItems = mapParser.parseMap(map);
             setCurrentMapFile(mapLoc);
+            fillEnemies();
         }
         catch(Exception e) {
             GameStage.logger.error(e);
@@ -670,12 +1191,40 @@ public class GamePane extends StackPane {
         map.loadNewFile(nextMap);
         setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
         this.setId(map.getIdName());
+        fillEnemies();
+    }
+
+    /**
+     * Fills the enemies list with all the enemies in the current map.
+     */
+    private void fillEnemies() {
+        this.enemies.clear();
+        ArrayList<Sprite> temp = map.getMapItems();
+        temp.forEach(s -> {
+            if(s instanceof NPC) {
+                NPC np = (NPC) s;
+                if(np.getNPC() instanceof Enemy) {
+                    enemies.add(s);
+                }
+            }
+        });
+    }
+
+    /**
+     * Removes the enemy from the current enemies when it is killed.
+     * @param s The killed enemy
+     */
+    public void enemyKilled(Sprite s) {
+        enemies.remove(s);
+        // TODO drop items and shit
+        drawLayers(gc);
     }
 
     private void drawLayers(GraphicsContext gc) {
         map.getUnderLayer().forEach(sprite -> sprite.render(gc));
         updatePlayer(gc);
         updateProjectiles(gc);
+        updateEnemies(gc);
         map.getOverLayer().forEach(sprite -> sprite.render(gc));
     }
 

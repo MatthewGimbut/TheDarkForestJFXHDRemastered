@@ -23,6 +23,7 @@ public abstract class Character implements Serializable {
 	public static final String GENERIC_NEUTRAL_WEST = "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png";
 	private static final long serialVersionUID = -7026591060236208199L;
 	private List<StatChange> currentStatusEffects; //buffs and debuffs
+	private boolean isAttacking = false;
 	protected int lvl;
 	protected String name;
 	protected int currentHP;
@@ -192,6 +193,14 @@ public abstract class Character implements Serializable {
 
 	public void modifySpd(int speed) {
 		this.speed += speed;
+	}
+
+	public void setAttacking(boolean isAttacking) {
+		this.isAttacking = isAttacking;
+	}
+
+	public boolean getAttacking() {
+		return this.isAttacking;
 	}
 	
 	

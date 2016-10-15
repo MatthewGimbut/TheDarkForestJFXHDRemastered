@@ -1,7 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e7314be-cc46-46d3-b58f-eaa020bd30b4" name="Default" comment="">
+    <list default="true" id="7e7314be-cc46-46d3-b58f-eaa020bd30b4" name="Default" comment="Merge branch 'master' into enemy-ai-collision-avoid-2&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/characters/Character.java&#10;#&#9;src/gui/GamePane.java&#10;#&#9;src/sprites/Sprite.java&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Accessories/gem-necklace.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Accessories/gem-pendant.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Accessories/necklace.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Accessories/ring.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/GrassBackgroundAlt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Lootables/ChestAreaold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Nature/TreeOld.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Nature/flower test.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Objects/Lootables/ChestAreaold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Objects/Miscellaneous/portal.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Objects/Nature/TreeOld.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Objects/Nature/flower test.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Portal/portal9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Screenshot1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Bolt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Bow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Crossbow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Earth/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Earth/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Earth/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Earth/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Fire/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Fire/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Fire/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Fire/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Ice/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Ice/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Ice/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Ice/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Lightning/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Lightning/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Lightning/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Lightning/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Water/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Water/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Water/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/Basic/Water/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/Spells/corn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bookbase.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Arrow/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Arrow/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Arrow/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Arrow/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Bolt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Bolt/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Bolt/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Bolt/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Bolt/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/bronze/Staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Arrow/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Arrow/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Arrow/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Arrow/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Bolt/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Bolt/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Bolt/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Bolt/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/iron/Staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Arrow/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Arrow/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Arrow/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Arrow/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Bolt/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Bolt/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Bolt/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Bolt/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/steel/Staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Arrow/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Arrow/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Arrow/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Arrow/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Bolt/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Bolt/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Bolt/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Bolt/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/stone/Staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Arrow/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Arrow/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Arrow/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Arrow/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Bolt/east.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Bolt/north.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Bolt/south.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Bolt/west.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/Weapons/wood/Staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/border_long.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/bordertest.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/flower test.ase" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/flower test.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/behold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/bleeding-eye.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/bright-explosion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/burning-round-shot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/burst-blob.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/caldera.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/cash.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/chemical-bolt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/crystal-wand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/dripping-stone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/drop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/droplets.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/egg-clutch.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/eruption.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/eyeball.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/fairy-wand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/falling-leaf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/fire-bomb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/fire-bottle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/fizzing-flask.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/fleshy-mass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/foam.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/gloop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/gooey-daemon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/ground-sprout.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/heat-haze.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/infested-mass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/large-wound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/lightning-branches.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/lightning-frequency.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/lightning-slashes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/lightning-trio.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/paper-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/poison-gas.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/power-lightning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/rock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/rough-wound.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/rune-stone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/spiky-explosion.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/stone-sphere.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/stone-tablet.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/striking-arrows.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/striking-balls.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/striking-clamps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/striking-diamonds.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/striking-splinter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/thunderball.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/winged-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/future use/wizard-staff.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/portal.ase" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Images/portal.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log4j-api-2.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log4j-core-2.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/log4j_api_2_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Saves/Save01/Maps/Nothing.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TDFLog.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/log4j2.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/StatusPeekPane.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/StatusPeekPane.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/Secondary.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/SpellType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/TwoHanded.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/Weapons/Magic.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/Weapons/SpellTome.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/Weapons/Staff.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/accessories/Accessory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/accessories/Necklace.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/accessories/Ring.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/ammunition/Ammunition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/ammunition/Arrow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/ammunition/Bolt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/ammunition/OutOfAmmoException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/ammunition/Stackable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/weapons/Bow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/weapons/Crossbow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/items/weapons/Projectile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/log4j2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sprites/AnimatedSprite.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Images/fire.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane$UnequipHandler.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/EquipmentPane.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/InventoryPane$DropHandler.class" afterPath="" />
@@ -25,34 +205,79 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/ScrollingInventoryPane.fxml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/TextItemPane.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/items/EquipmentPane.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gui/items/InventoryPane.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Lootables/ChestArea.png" afterPath="$PROJECT_DIR$/Images/Lootables/ChestArea.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Lootables/SmallCrates.png" afterPath="$PROJECT_DIR$/Images/Lootables/SmallCrates.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Nature/TorchTest.gif" afterPath="$PROJECT_DIR$/Images/Nature/TorchTest.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Nature/Tree.png" afterPath="$PROJECT_DIR$/Images/Nature/Tree.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Nature/Tree50x50.png" afterPath="$PROJECT_DIR$/Images/Nature/Tree50x50.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Objects/Lootables/ChestArea.png" afterPath="$PROJECT_DIR$/Images/Objects/Lootables/ChestArea.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Objects/Miscellaneous/SaveArea.png" afterPath="$PROJECT_DIR$/Images/Objects/Miscellaneous/SaveArea.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Objects/Nature/TorchTest.gif" afterPath="$PROJECT_DIR$/Images/Objects/Nature/TorchTest.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Objects/Nature/Tree.png" afterPath="$PROJECT_DIR$/Images/Objects/Nature/Tree.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/Objects/Nature/Tree50x50.png" afterPath="$PROJECT_DIR$/Images/Objects/Nature/Tree50x50.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/SaveArea.png" afterPath="$PROJECT_DIR$/Images/SaveArea.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/TorchTest.gif" afterPath="$PROJECT_DIR$/Images/TorchTest.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/save01.ser" afterPath="$PROJECT_DIR$/Saves/save01.ser" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar/TheDarkForestJFXHDRemastered.jar" afterPath="$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar/TheDarkForestJFXHDRemastered.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Enemy.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Enemy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Player.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/characters/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane$1.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/GamePane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MessagePane.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/MessagePane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Boots.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Boots.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ChestPiece.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/ChestPiece.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Gloves.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Gloves.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Helmet.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Helmet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Legs.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Legs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Shield.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Armor/Shield.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item$1.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Axe.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Axe.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Dagger.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Dagger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Mace.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Mace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Spear.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Spear.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Sword.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/items/Weapons/Sword.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/GameStage.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/GameStage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser$1.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/main/MapParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/QuestHandler.class" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/quests/QuestHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/Default Maps/Maps/tempMap.json" afterPath="$PROJECT_DIR$/Saves/Default Maps/Maps/tempMap.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/Save01/Maps/Map0-0.json" afterPath="$PROJECT_DIR$/Saves/Save01/Maps/Map0-0.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/Save01/Maps/Map0-1.json" afterPath="$PROJECT_DIR$/Saves/Save01/Maps/Map0-1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/Save01/Maps/Map1-1.json" afterPath="$PROJECT_DIR$/Saves/Save01/Maps/Map1-1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Saves/Save01/Maps/Map1-1House.json" afterPath="$PROJECT_DIR$/Saves/Save01/Maps/Map1-1House.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TODO.md" afterPath="$PROJECT_DIR$/TODO.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TheDarkForestJFXHDRemastered.iml" afterPath="$PROJECT_DIR$/TheDarkForestJFXHDRemastered.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.fxml" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/StatsPane.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/themes.css" afterPath="$PROJECT_DIR$/out/production/TheDarkForestJFXHDRemastered/gui/themes.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/characters/Character.java" afterPath="$PROJECT_DIR$/src/characters/Character.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/characters/Enemy.java" afterPath="$PROJECT_DIR$/src/characters/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/characters/Player.java" afterPath="$PROJECT_DIR$/src/characters/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GamePane.java" afterPath="$PROJECT_DIR$/src/gui/GamePane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StatsPane.fxml" afterPath="$PROJECT_DIR$/src/gui/StatsPane.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StatsPane.java" afterPath="$PROJECT_DIR$/src/gui/StatsPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/items/LootPane.java" afterPath="$PROJECT_DIR$/src/gui/items/LootPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/items/ScrollingInventoryPane.fxml" afterPath="$PROJECT_DIR$/src/gui/items/ScrollingInventoryPane.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/items/ScrollingInventoryPane.java" afterPath="$PROJECT_DIR$/src/gui/items/ScrollingInventoryPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/menus/MainMenuPane.java" afterPath="$PROJECT_DIR$/src/gui/menus/MainMenuPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/menus/MenuPane.java" afterPath="$PROJECT_DIR$/src/gui/menus/MenuPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/menus/OptionsPane.java" afterPath="$PROJECT_DIR$/src/gui/menus/OptionsPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quests/JournalPane.java" afterPath="$PROJECT_DIR$/src/gui/quests/JournalPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quests/NewQuestPane.java" afterPath="$PROJECT_DIR$/src/gui/quests/NewQuestPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quests/QuestSuccess.java" afterPath="$PROJECT_DIR$/src/gui/quests/QuestSuccess.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/quests/QuestSummary.java" afterPath="$PROJECT_DIR$/src/gui/quests/QuestSummary.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/themes.css" afterPath="$PROJECT_DIR$/src/gui/themes.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Armor.java" afterPath="$PROJECT_DIR$/src/items/Armor/Armor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Boots.java" afterPath="$PROJECT_DIR$/src/items/Armor/Boots.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/ChestPiece.java" afterPath="$PROJECT_DIR$/src/items/Armor/ChestPiece.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Gloves.java" afterPath="$PROJECT_DIR$/src/items/Armor/Gloves.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Helmet.java" afterPath="$PROJECT_DIR$/src/items/Armor/Helmet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Legs.java" afterPath="$PROJECT_DIR$/src/items/Armor/Legs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Armor/Shield.java" afterPath="$PROJECT_DIR$/src/items/Armor/Shield.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Item.java" afterPath="$PROJECT_DIR$/src/items/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Axe.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Axe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Cleaver.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Cleaver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Dagger.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Dagger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Mace.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Mace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/RustyKnife.java" afterPath="$PROJECT_DIR$/src/items/Weapons/RustyKnife.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Spear.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Spear.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Sword.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Sword.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/items/Weapons/Weapon.java" afterPath="$PROJECT_DIR$/src/items/Weapons/Weapon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/GameStage.java" afterPath="$PROJECT_DIR$/src/main/GameStage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/MapParser.java" afterPath="$PROJECT_DIR$/src/main/MapParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/SaveManager.java" afterPath="$PROJECT_DIR$/src/main/SaveManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mapping/JSONMapParser.java" afterPath="$PROJECT_DIR$/src/mapping/JSONMapParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mapping/MapContainer.java" afterPath="$PROJECT_DIR$/src/mapping/MapContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sprites/Cardinal.java" afterPath="$PROJECT_DIR$/src/sprites/Cardinal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sprites/Exit.java" afterPath="$PROJECT_DIR$/src/sprites/Exit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sprites/Sprite.java" afterPath="$PROJECT_DIR$/src/sprites/Sprite.java" />
     </list>
     <ignored path="TheDarkForestJFXHDRemastered.iws" />
@@ -80,8 +305,8 @@
           <file leaf-file-name="GamePane.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="833">
-                  <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+                <state relative-caret-position="391">
+                  <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -90,8 +315,8 @@
           <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/sprites/Sprite.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
-                  <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+                <state relative-caret-position="714">
+                  <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
                   <folding />
                 </state>
               </provider>
@@ -135,7 +360,7 @@
           <file leaf-file-name="MainMenuPane.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/gui/menus/MainMenuPane.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1003">
+                <state relative-caret-position="697">
                   <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
                   <folding />
                 </state>
@@ -147,9 +372,7 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="969">
                   <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -243,13 +466,7 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="884">
                   <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                    <element signature="e#4160#4161#0" expanded="false" />
-                    <element signature="e#4203#4204#0" expanded="false" />
-                    <element signature="e#4388#4389#0" expanded="false" />
-                    <element signature="e#4413#4414#0" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -259,9 +476,7 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="221">
                   <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -444,6 +659,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -617,8 +834,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -922,17 +1137,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1543258" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15510522" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969603" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -941,13 +1154,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14497273" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15354638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3460639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17303196" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14497273" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1010,9 +1225,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,13 +1416,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4160#4161#0" expanded="false" />
-            <element signature="e#4203#4204#0" expanded="false" />
-            <element signature="e#4388#4389#0" expanded="false" />
-            <element signature="e#4413#4414#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,13 +1455,7 @@
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="e#6161#6162#0" expanded="false" />
-            <element signature="e#6180#6181#0" expanded="false" />
             <element signature="e#6214#6215#0" expanded="false" />
-            <element signature="e#6233#6234#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6284#6285#0" expanded="false" />
-            <element signature="e#6317#6318#0" expanded="false" />
-            <element signature="e#6335#6336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1323,7 +1524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,7 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1358,13 +1557,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/menus/MainMenuPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state relative-caret-position="697">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
@@ -1382,9 +1580,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="73" column="47" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1403,8 +1599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sprites/Sprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+        <state relative-caret-position="714">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1419,8 +1615,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GamePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        <state relative-caret-position="391">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1491,7 +1687,7 @@
       </state>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
