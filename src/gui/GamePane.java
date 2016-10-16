@@ -573,6 +573,11 @@ public class GamePane extends StackPane {
 
                 it.remove();
                 System.out.println("Test: Collision with enemy success");
+                //TODO Remove this, just for testing fun
+                e.modifyCurrentHP(-25);
+                if(e.getCurrentHP() <= 0) {
+                    GameStage.playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20)+".mp3");
+                }
             } else if(collision != null && !(collision instanceof LowerLayer || collision instanceof Exit)) {
                 it.remove();
                 System.out.println("Test: Collision with non-enemy success");

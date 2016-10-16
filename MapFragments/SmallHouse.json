@@ -3,149 +3,6 @@
   "fileLocation": "SmallHouse.json",
   "genericObstacles": [
     {
-      "x": 33,
-      "y": 33,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 33,
-      "y": 65,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 65,
-      "y": 33,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 65,
-      "y": 65,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 33,
-      "y": 97,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 65,
-      "y": 97,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 97,
-      "y": 33,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 129,
-      "y": 33,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 129,
-      "y": 65,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 129,
-      "y": 97,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 161,
-      "y": 33,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 161,
-      "y": 65,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
-      "x": 161,
-      "y": 97,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
-    },
-    {
       "x": 193,
       "y": 97,
       "dx": 0,
@@ -154,7 +11,40 @@
       "height": 32,
       "visible": true,
       "isObstacle": true,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
+      "location": "file:Images\\Buildings\\WoodWall32.png"
+    },
+    {
+      "x": 33,
+      "y": 65,
+      "dx": 0,
+      "dy": 0,
+      "width": 64,
+      "height": 64,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:C:\\Users\\Matthew\\workspace\\MapBuilder\\Images\\Objects\\Structures\\WoodWall64.png"
+    },
+    {
+      "x": 129,
+      "y": 65,
+      "dx": 0,
+      "dy": 0,
+      "width": 64,
+      "height": 64,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:C:\\Users\\Matthew\\workspace\\MapBuilder\\Images\\Objects\\Structures\\WoodWall64.png"
+    },
+    {
+      "x": 33,
+      "y": 33,
+      "dx": 0,
+      "dy": 0,
+      "width": 160,
+      "height": 32,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:C:\\Users\\Matthew\\workspace\\MapBuilder\\Images\\Objects\\Structures\\WoodWall32x160.png"
     }
   ],
   "displayItems": [],
@@ -186,7 +76,7 @@
       "height": 64,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\DarkDoorwayTall.png"
+      "location": "file:Images\\Buildings\\DarkDoorwayTall.png"
     }
   ],
   "npcs": [],
@@ -201,7 +91,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodRoofLeft32.png"
+      "location": "file:Images\\Buildings\\WoodRoofLeft32.png"
     },
     {
       "x": 161,
@@ -212,7 +102,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodRoofRight32.png"
+      "location": "file:Images\\Buildings\\WoodRoofRight32.png"
     },
     {
       "x": 65,
@@ -223,7 +113,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
+      "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
       "x": 65,
@@ -234,7 +124,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
+      "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
       "x": 97,
@@ -245,7 +135,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
+      "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
       "x": 129,
@@ -256,7 +146,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodWall32.png"
+      "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
       "x": 193,
@@ -267,7 +157,7 @@
       "height": 32,
       "visible": true,
       "isObstacle": false,
-      "location": "file:Images\\\\Buildings\\\\WoodRoofRight32.png"
+      "location": "file:Images\\Buildings\\WoodRoofRight32.png"
     }
   ]
 }
