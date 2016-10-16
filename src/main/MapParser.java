@@ -234,12 +234,15 @@ public class MapParser {
 		} catch(NullPointerException e) {
 			System.out.println("Something not initialized in map at line " + lineCounter + "!");
 			GameStage.logger.error(e);
+			e.printStackTrace();
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Array index error in map at line " + lineCounter + "! Are you missing a portion of the .map file?");
             GameStage.logger.error(e);
+			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("Map error occurred at line " + lineCounter + "! Check for typos in the current .map file!" + mapLocation);
 			GameStage.logger.error(e);
+			e.printStackTrace();
 		}
 		return objects;
 	}

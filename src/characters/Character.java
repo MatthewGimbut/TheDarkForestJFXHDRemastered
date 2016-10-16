@@ -300,6 +300,13 @@ public abstract class Character implements Serializable {
 		return west;
 	}
 
+	public void setAllDirectionsSingleImage(String image) {
+		this.north = image;
+		this.south = image;
+		this.east = image;
+		this.west = image;
+	}
+
 	protected String getRandomDirection() {
 		Random r = new Random();
 		switch(r.nextInt(4)) {

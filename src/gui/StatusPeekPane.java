@@ -105,9 +105,9 @@ public class StatusPeekPane extends AnchorPane {
                 break;
             case "enemy":
                 currentView.setMargin(this, new Insets(enemy.getY()-15,
-                        GameStage.WINDOW_WIDTH-enemy.getX()-100,
+                        GameStage.WINDOW_WIDTH-enemy.getX()-enemy.getWidth(),
                         GameStage.WINDOW_HEIGHT-enemy.getY()+15,
-                        enemy.getX()-50));
+                        enemy.getX()-enemy.getWidth()));
                 stat.setText("");
                 total.setText("");
                 bar.setProgress((enemy.getNPC().getCurrentHP()+0.0)/(enemy.getNPC().getMaxHP()+0.0));

@@ -34,6 +34,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import main.AudioManager;
 import main.GameStage;
 import mapping.MapContainer;
 import main.SaveManager;
@@ -576,7 +577,9 @@ public class GamePane extends StackPane {
                 //TODO Remove this, just for testing fun
                 e.modifyCurrentHP(-25);
                 if(e.getCurrentHP() <= 0) {
-                    GameStage.playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20)+".mp3");
+                    AudioManager.getInstance().playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20) + ".mp3");
+                    map.removeSprite(np);
+                    fillEnemies();
                 }
             } else if(collision != null && !(collision instanceof LowerLayer || collision instanceof Exit)) {
                 it.remove();
@@ -1195,7 +1198,7 @@ public class GamePane extends StackPane {
 
     private void initCollections() {
         try {
-            String mapLoc = "Saves\\Save01\\Maps\\Map0-1.json";
+            String mapLoc = "Saves\\Save01\\Maps\\Map1-1.json";
             //String mapLoc = "Saves\\Save01\\Maps\\JSONTest.map";
             map = new MapContainer(player, mapLoc);
             this.setId(map.getIdName());
@@ -1205,6 +1208,7 @@ public class GamePane extends StackPane {
         }
         catch(Exception e) {
             GameStage.logger.error(e);
+            e.printStackTrace();
         }
     }
 
@@ -1227,19 +1231,31 @@ public class GamePane extends StackPane {
     public void fillEnemies() {
         this.enemies.clear();
         this.enemyHealthBars.clear();
+        AudioManager.getInstance().stopAllAudio();
         this.removeAllEnemyHPBars();
+        boolean enemyFound = false;
         ArrayList<Sprite> temp = map.getMapItems();
-        temp.forEach(s -> {
+        for (Sprite s : temp) {
             if(s instanceof NPC) {
                 NPC np = (NPC) s;
                 if(np.getNPC() instanceof Enemy) {
+                    enemyFound = true;
+                    if(!((Enemy) np.getNPC()).getCustomMusic().isEmpty()) {
+                        System.out.println(((Enemy) np.getNPC()).getCustomMusic());
+                        AudioManager.getInstance().loopBackgroundMusic(((Enemy) np.getNPC()).getCustomMusic());
+                    }
                     enemies.add((NPC) s);
                     StatusPeekPane spp = new StatusPeekPane(this, StatusPeekPane.ENEMY, (NPC) s);
                     enemyHealthBars.add(spp);
                     this.getChildren().add(spp);
                 }
             }
-        });
+        }
+
+        if(!enemyFound) {
+            //TODO change to previous track when we actually have background music, instead of just stopping audio to return to silence
+            AudioManager.getInstance().stopAllAudio();
+        }
     }
 
     /**
@@ -1307,9 +1323,11 @@ public class GamePane extends StackPane {
                             map.randomize("Saves\\Default Maps\\Maps\\tempMap.json", currentMapFile,
                                     (Exit) obstacle);
                             ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.json");
+                            fillEnemies();
                         } catch (Exception e) {
                             System.out.println("Failed to generate random map.");
                             GameStage.logger.error(e);
+                            e.printStackTrace();
                         }
                     } else {
                         updateMapItems((Exit) obstacle);	//Moves the player to the next area if they move on an exit.

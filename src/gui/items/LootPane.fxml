@@ -6,7 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
-<?scenebuilder-stylesheet themes.css?>
 
 <AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="441.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
@@ -19,7 +18,7 @@
         </HBox>
       </bottom>
       <center>
-        <FlowPane fx:id="itemPane" alignment="CENTER" hgap="10.0" prefHeight="207.0" prefWidth="441.0" vgap="10.0">
+        <FlowPane fx:id="itemPane" hgap="50.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0">
           <padding>
             <Insets left="10.0" right="10.0" />
           </padding>

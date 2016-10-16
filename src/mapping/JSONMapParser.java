@@ -172,6 +172,7 @@ public class JSONMapParser {
             writer.close();
         } catch (FileNotFoundException e) {
             GameStage.logger.error(e);
+            e.printStackTrace();
         }
 
         try(BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
@@ -187,6 +188,7 @@ public class JSONMapParser {
         } catch (IOException e) {
             System.out.println("Error writing JSON!");
             GameStage.logger.error(e);
+            e.printStackTrace();
         }
     }
 
@@ -254,7 +256,7 @@ public class JSONMapParser {
         }
 
         //Adds random obstacles
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 20; i++) {
             ArrayList<Sprite> sprite = getRandomObstacles();
             sprite.forEach(currentSprite -> {
                 if(!(intersectsObstacle(mapItems, currentSprite))) {
@@ -332,14 +334,17 @@ public class JSONMapParser {
      * @throws IOException
      */
     private  ArrayList<Sprite> getRandomNPCS() throws IOException {
+        String randomDialogue = "Dialogue\\GenericNeutralDialogue\\Generic" + rand.nextInt(NUM_GENERIC_DIALOGUE) + ".dialogue";
         ArrayList<Sprite> npcs = new ArrayList<>();
-        switch (rand.nextInt(2)) {
+        switch (rand.nextInt(3)) {
             case 0:
                 npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), new Neutral(GameStage.getRandomName()),
-                        parseDialogueArray("Dialogue\\GenericNeutralDialogue\\Generic" + rand.nextInt(NUM_GENERIC_DIALOGUE) + ".dialogue")));
+                        parseDialogueArray(randomDialogue)));
                 break;
             case 1:
-
+            case 2:
+                npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), new Enemy(GameStage.getRandomName()),
+                        parseDialogueArray(randomDialogue)));
                 break;
         }
         return npcs;
@@ -377,7 +382,7 @@ public class JSONMapParser {
     private  ArrayList<Sprite> getRandomLoot() throws IOException {
         Random rand = new Random();
         ArrayList<Sprite> temp = new ArrayList<>();
-        temp.add(new Lootable(rand.nextInt(980), rand.nextInt(650), Item.generateRandomItem(3)));
+        temp.add(new Lootable(rand.nextInt(980), rand.nextInt(650), Item.generateRandomItem(8)));
         return temp;
     }
 
@@ -393,7 +398,7 @@ public class JSONMapParser {
                 final int MAX_HOUSES = 1;
                 if(currentHouses < MAX_HOUSES) {
                     temp = parseStructure("MapFragments\\SmallHouse.json", rand.nextInt(400) + 50 , rand.nextInt(400) + 50);
-                    int extraX = rand.nextInt(400);
+                    int extraX = rand.nextInt(300);
                     for (Sprite sprite : temp) {
                         sprite.setX(sprite.getX() + extraX);
                     }

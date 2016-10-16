@@ -166,3 +166,27 @@
 2016-10-16 01:55:28.264 [JavaFX Application Thread] ERROR main.GameStage - General while deserializing save.
 2016-10-16 01:55:28.265 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-16 01:55:28.265 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 02:04:17.510 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 02:04:17.512 [JavaFX Application Thread] ERROR main.GameStage - General while deserializing save.
+2016-10-16 02:04:17.512 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 02:04:17.512 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 16:38:19.021 [JavaFX Application Thread] ERROR main.GameStage - 
+/C:/Users/Matthew/workspace/TheDarkForestJFXHDRemastered/out/production/TheDarkForestJFXHDRemastered/gui%5citems%5cLootPane.fxml:21
+
+2016-10-16 16:38:19.025 [JavaFX Application Thread] ERROR main.GameStage - javafx.fxml.LoadException: 
+/C:/Users/Matthew/workspace/TheDarkForestJFXHDRemastered/out/production/TheDarkForestJFXHDRemastered/gui%5citems%5cLootPane.fxml:21
+
+2016-10-16 16:38:37.589 [JavaFX Application Thread] ERROR main.GameStage - 
+/C:/Users/Matthew/workspace/TheDarkForestJFXHDRemastered/out/production/TheDarkForestJFXHDRemastered/gui%5citems%5cLootPane.fxml:21
+
+2016-10-16 16:38:37.593 [JavaFX Application Thread] ERROR main.GameStage - javafx.fxml.LoadException: 
+/C:/Users/Matthew/workspace/TheDarkForestJFXHDRemastered/out/production/TheDarkForestJFXHDRemastered/gui%5citems%5cLootPane.fxml:21
+
+2016-10-16 17:10:34.171 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:11:45.027 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:13:06.516 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:22:11.113 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:23:02.313 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:24:48.416 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 17:25:21.288 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: java.net.URISyntaxException: Illegal character in path at index 5: Music\\InLightOfDarkness.mp3
+2016-10-16 17:26:40.669 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException

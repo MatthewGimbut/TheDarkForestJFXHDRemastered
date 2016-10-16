@@ -33,8 +33,6 @@ public class GameStage extends Application {
     public static double musicVolume = .2;
     public static final Font GAME_FONT = new Font("Cambria", 14);
     public static final Font GAME_FONT_SMALL = new Font("Cambria", 12);
-    private static Media sound;
-    private static MediaPlayer soundPlayer;
     private static Random rand = new Random();
     public static final int WINDOW_WIDTH = 1056;
     public static final int WINDOW_HEIGHT = 730;
@@ -87,13 +85,6 @@ public class GameStage extends Application {
 
     public static int getRandom(int upperBound) {
         return rand.nextInt(upperBound);
-    }
-
-    public static void playSound(String fileLocation) {
-        sound = new Media(Paths.get(fileLocation).toUri().toString());
-        soundPlayer = new MediaPlayer(sound);
-        soundPlayer.setVolume(effectVolume);
-        soundPlayer.play();
     }
 
     public static void main(String[] args) {

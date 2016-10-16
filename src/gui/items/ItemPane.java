@@ -20,15 +20,15 @@ public class ItemPane extends BorderPane {
     private Image itemImage;
     private Item i;
     private Player player;
+    private ImageView iv;
 
     public ItemPane(Item i, Player player) {
         this.i = i;
         this.player = player;
 
         itemImage = new Image(i.getImageLocation());
-        System.out.println(i.getImageLocation());
 
-        ImageView iv = new ImageView(itemImage);
+        iv = new ImageView(itemImage);
         VBox box = new VBox();
         box.setAlignment(Pos.CENTER);
         box.getChildren().add(iv);
@@ -98,4 +98,6 @@ public class ItemPane extends BorderPane {
     public Image getItemImage() {
         return itemImage;
     }
+
+    public ImageView getImageView() { return this.iv; }
 }

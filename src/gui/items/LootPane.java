@@ -3,12 +3,14 @@ package gui.items;
 import characters.Player;
 import gui.GamePane;
 import items.Item;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import main.GameStage;
 import sprites.Lootable;
@@ -75,6 +77,7 @@ public class LootPane extends BorderPane {
         });
 
         drawItems();
+        anchor.setMinHeight((lootContainer.getItems().size()+0.0)/4);
         this.setCenter(anchor);
     }
 
@@ -83,18 +86,18 @@ public class LootPane extends BorderPane {
         if(lootContainer.getItems().size() > 0) {
             lootContainer.getItems().forEach(i -> {
                 VBox vb = new VBox();
-                vb.getChildren().add(new ItemPane(i, player));
-                Button gb = new Button("Take");
-                gb.setOnAction(event -> {
+                ItemPane ip = new ItemPane(i, player);
+                vb.getChildren().add(ip);
+                ip.getImageView().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
                     if(!player.addItem(i)) {
                         currentView.displayMessagePane("You cannot carry that!");
                     } else {
+                        itemPane.getChildren().remove(vb);
                         lootContainer.getItems().remove(i);
+                        numItems.setText(lootContainer.getItems().size() + " Items");
                     }
-                    itemPane.getChildren().remove(vb);
                 });
                 vb.setAlignment(Pos.CENTER);
-                vb.getChildren().add(gb);
                 itemPane.getChildren().add(vb);
             });
         }
