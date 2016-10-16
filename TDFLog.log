@@ -136,3 +136,33 @@
 2016-10-15 15:21:44.062 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: sprites.Sprite; local class incompatible: stream classdesc serialVersionUID = -2948243477200802040, local class serialVersionUID = -4920207885950610206
 2016-10-15 15:21:44.063 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-15 15:21:44.063 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 00:03:50.476 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: sprites.Sprite; local class incompatible: stream classdesc serialVersionUID = -2948243477200802040, local class serialVersionUID = -4920207885950610206
+2016-10-16 00:03:50.477 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 00:03:50.477 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 00:52:07.589 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: sprites.Sprite; local class incompatible: stream classdesc serialVersionUID = -2948243477200802040, local class serialVersionUID = -4920207885950610206
+2016-10-16 01:25:35.989 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:25:35.993 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:25:35.993 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:25:46.948 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:25:46.948 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:25:46.948 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:26:04.681 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:28:04.581 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:29:30.800 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:29:30.801 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:29:30.801 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:31:03.282 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:31:03.283 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:31:03.284 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:32:53.203 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:34:40.759 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:36:58.509 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:37:24.129 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:37:38.226 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:38:33.490 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:38:33.491 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:38:33.492 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:55:28.263 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:55:28.264 [JavaFX Application Thread] ERROR main.GameStage - General while deserializing save.
+2016-10-16 01:55:28.265 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-16 01:55:28.265 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
