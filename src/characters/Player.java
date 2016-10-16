@@ -432,7 +432,9 @@ public class Player extends Character {
         QuestHandler.activeQuests = this.activeQuestsSer;
         QuestHandler.completeQuests = this.completeQuestsSer;
         QuestHandler.inActiveQuests = this.inActiveQuestsSer;
-        QuestHandler.setPriorityQuest(this.priorityQuest);
+        if(this.priorityQuest != null) {
+            QuestHandler.setPriorityQuest(this.priorityQuest);
+        }
     }
 
     public int getTextScrollingSpeed() {
