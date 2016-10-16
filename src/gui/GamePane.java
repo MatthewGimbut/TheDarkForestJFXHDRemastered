@@ -913,7 +913,6 @@ public class GamePane extends StackPane {
 
             if(prevY == newY) { // the sprite did not move, so it collided with something.
                 Cardinal direction = up ? Cardinal.North : Cardinal.South;
-                Sprite collision = null;
 
                 while(!enemyCollision(s, other)) {
                     if(up) {
@@ -923,11 +922,7 @@ public class GamePane extends StackPane {
                     }
                 }
 
-                for(Sprite obstacle : map.getCollisions()) {
-                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
-                        collision = obstacle;
-                    }
-                }
+                Sprite collision = getCollisionObstacle(s, other);
 
                 if(up) {
                     s.modifyY(s.getDy());
@@ -973,7 +968,6 @@ public class GamePane extends StackPane {
 
             if(prevX == newX) { // the sprite did not move, it collided with something
                 Cardinal direction = right ? Cardinal.East : Cardinal.West;
-                Sprite collision = null;
 
                 while(!enemyCollision(s, other)) {
                     if(right) {
@@ -983,11 +977,7 @@ public class GamePane extends StackPane {
                     }
                 }
 
-                for(Sprite obstacle : map.getCollisions()) {
-                    if(collision == null && !s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds()) && !obstacle.equals(other)) {
-                        collision = obstacle;
-                    }
-                }
+                Sprite collision = getCollisionObstacle(s, other);
 
                 if(right) {
                     s.modifyX(-s.getDx());
@@ -995,6 +985,7 @@ public class GamePane extends StackPane {
                     s.modifyX(s.getDx());
                 }
 
+                System.out.println(collision == null);
                 result.addAll(pathAroundSprite(s, other, collision, direction));
                 return result;
 
@@ -1112,6 +1103,21 @@ public class GamePane extends StackPane {
     private Sprite getCollisionObstacle(Sprite s) {
         for(Sprite obstacle : map.getCollisions()) {
             if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
+                return obstacle;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets the Sprite that the given Sprite is colliding with, except avoid
+     * @param s The Sprite to test
+     * @param avoid The sprite to avoid
+     * @return The obstacle that s is colliding with (besides itself or avoid)
+     */
+    private Sprite getCollisionObstacle(Sprite s, Sprite avoid) {
+        for(Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && !avoid.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
                 return obstacle;
             }
         }
