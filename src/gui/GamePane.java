@@ -1224,7 +1224,7 @@ public class GamePane extends StackPane {
     /**
      * Fills the enemies list with all the enemies in the current map.
      */
-    private void fillEnemies() {
+    public void fillEnemies() {
         this.enemies.clear();
         this.enemyHealthBars.clear();
         this.removeAllEnemyHPBars();
@@ -1321,21 +1321,6 @@ public class GamePane extends StackPane {
         }
         return false;
     }
-
-    /**
-     * Gets the obstacle that a Sprite collides with (besides itself)
-     * @param s The sprite to test
-     * @return The colliding Sprite (or null if none)
-     */
-    private Sprite collision(Sprite s) {
-        for (Sprite obstacle : map.getCollisions()) {
-            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
-                return obstacle;
-            }
-        }
-        return null;
-    }
-
 
     private void initFlags() {
         menuCurrentlyDisplayed = false;

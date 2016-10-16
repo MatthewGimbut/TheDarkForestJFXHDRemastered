@@ -85,6 +85,8 @@ public class MainMenuPane extends AnchorPane {
                 GameStage.logger.error(e);
             }
 
+            gp.fillEnemies();
+
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);

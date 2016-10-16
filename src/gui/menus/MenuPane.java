@@ -49,6 +49,7 @@ public class MenuPane extends VBox {
                 GameStage.logger.error(e);
             }
             currentView.setId((String) newMap.get(2));
+            currentView.fillEnemies();
         });
 
         quit.setOnAction(event -> {
