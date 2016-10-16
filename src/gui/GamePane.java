@@ -990,7 +990,6 @@ public class GamePane extends StackPane {
                     s.modifyX(s.getDx());
                 }
 
-                System.out.println(collision == null);
                 result.addAll(pathAroundSprite(s, other, collision, direction));
                 return result;
 
@@ -1267,21 +1266,27 @@ public class GamePane extends StackPane {
         //as.render(gc);
     }
 
+    /**
+     * Move the sprite its given dx and dy.
+     * Check collision after each movement direction so it is easy to determine which one is causing the trouble.
+     * @param sprite The sprite to move
+     */
     void move(Sprite sprite) {
         sprite.modifyX(sprite.getDx());
-        sprite.modifyY(sprite.getDy());
-
         //If the player tries moving out of bounds to the left.
         if (sprite.getX() < 1) sprite.setX(1);
-        //If the player tries moving out of bounds upwards.
-        if (sprite.getY() < 1) sprite.setY(1);
         //If the player tries moving out of bounds to the right.
         if (sprite.getX() > GameStage.WINDOW_WIDTH - 35) sprite.setX(GameStage.WINDOW_WIDTH - 35);
+        if(collision()) {
+            sprite.modifyX(-sprite.getDx());
+        }
+
+        sprite.modifyY(sprite.getDy());
+        //If the player tries moving out of bounds upwards.
+        if (sprite.getY() < 1) sprite.setY(1);
         //If the player tries moving out of bounds downwards.
         if (sprite.getY() > GameStage.WINDOW_HEIGHT - 70) sprite.setY(GameStage.WINDOW_HEIGHT - 70);
-
-        if (collision()) {
-            sprite.modifyX(-sprite.getDx());
+        if(collision()) {
             sprite.modifyY(-sprite.getDy());
         }
     }
@@ -1315,6 +1320,20 @@ public class GamePane extends StackPane {
             }
         }
         return false;
+    }
+
+    /**
+     * Gets the obstacle that a Sprite collides with (besides itself)
+     * @param s The sprite to test
+     * @return The colliding Sprite (or null if none)
+     */
+    private Sprite collision(Sprite s) {
+        for (Sprite obstacle : map.getCollisions()) {
+            if(!s.equals(obstacle) && s.getBounds().intersects(obstacle.getBounds())) {
+                return obstacle;
+            }
+        }
+        return null;
     }
 
 
