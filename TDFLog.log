@@ -133,3 +133,6 @@
 2016-10-14 18:22:46.619 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
 2016-10-14 18:39:31.270 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found
 2016-10-14 18:39:50.549 [JavaFX Application Thread] ERROR main.GameStage - java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not found
+2016-10-15 15:21:44.062 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: sprites.Sprite; local class incompatible: stream classdesc serialVersionUID = -2948243477200802040, local class serialVersionUID = -4920207885950610206
+2016-10-15 15:21:44.063 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException
+2016-10-15 15:21:44.063 [JavaFX Application Thread] ERROR main.GameStage - java.lang.NullPointerException

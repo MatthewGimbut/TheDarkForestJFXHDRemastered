@@ -1,6 +1,7 @@
 package gui;
 
 import battle.BattleHandler;
+import characters.Character;
 import characters.Enemy;
 import characters.Neutral;
 import characters.Player;
@@ -22,10 +23,14 @@ import items.ammunition.Arrow;
 import items.ammunition.Bolt;
 import items.ammunition.OutOfAmmoException;
 import javafx.animation.*;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,7 +72,8 @@ public class GamePane extends StackPane {
     public StatusPeekPane sppHealth, sppMana, sppStamina;
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
-    private ArrayList<Sprite> enemies = new ArrayList<Sprite>();
+    private ArrayList<NPC> enemies = new ArrayList<>();
+    private ArrayList<StatusPeekPane> enemyHealthBars = new ArrayList<>();
     private final int MAX_PLAYER_PROJECTILES_ON_SCREEN = 10;
     public Timeline manaRegen, hpRegen, staminaRegen;
     public static final String STYLE_HIGH_HP =  "-fx-accent: green;";
@@ -89,12 +95,12 @@ public class GamePane extends StackPane {
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
 
-        String[] portal = new String[11];
+        /*String[] portal = new String[11];
         for(int i = 0; i < portal.length; i++) {
             int z = i+1;
             portal[i] = "file:Images\\Portal\\portal" + z + ".png";
         }
-        as = new AnimatedSprite(600, 100, portal);
+        as = new AnimatedSprite(600, 100, portal);*/
 
         projectileOnCooldown = false;
 
@@ -364,7 +370,9 @@ public class GamePane extends StackPane {
                 gc.clearRect(0, 0, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
                 drawLayers(gc);
 
+
                 //Triggers UI updates, but only if needed.
+                if(enemies.size() > 0 && !engaged()) enemyHealthBars.forEach(StatusPeekPane::update);
                 Player p = player.getPlayer();
                 if(p.getCurrentMana() < p.getMaxMana()) manaRegen.play();
                 if(p.getCurrentHP() < p.getMaxHP()) hpRegen.play();
@@ -372,6 +380,15 @@ public class GamePane extends StackPane {
             }
         };
         animate.start();
+    }
+
+    private void removeAllEnemyHPBars() {
+        for(Iterator<Node> n = this.getChildren().iterator(); n.hasNext();) {
+            Node node = n.next();
+            if(node instanceof StatusPeekPane) {
+                n.remove();
+            }
+        }
     }
 
     /**
@@ -598,7 +615,7 @@ public class GamePane extends StackPane {
      * Private method which moves all of the enemies on screen towards the player
      */
     private void moveEnemies() {
-        Iterator<Sprite> it = enemies.iterator();
+        Iterator<NPC> it = enemies.iterator();
         Random random = new Random();
         Enemy e;
         Sprite s;
@@ -1199,12 +1216,17 @@ public class GamePane extends StackPane {
      */
     private void fillEnemies() {
         this.enemies.clear();
+        this.enemyHealthBars.clear();
+        this.removeAllEnemyHPBars();
         ArrayList<Sprite> temp = map.getMapItems();
         temp.forEach(s -> {
             if(s instanceof NPC) {
                 NPC np = (NPC) s;
                 if(np.getNPC() instanceof Enemy) {
-                    enemies.add(s);
+                    enemies.add((NPC) s);
+                    StatusPeekPane spp = new StatusPeekPane(this, StatusPeekPane.ENEMY, (NPC) s);
+                    enemyHealthBars.add(spp);
+                    this.getChildren().add(spp);
                 }
             }
         });
@@ -1231,7 +1253,7 @@ public class GamePane extends StackPane {
     void updatePlayer(GraphicsContext gc) {
         if(!engaged()) move(player);
         if(player.isVisible()) player.render(gc);
-        as.render(gc);
+        //as.render(gc);
     }
 
     void move(Sprite sprite) {
@@ -1509,7 +1531,18 @@ public class GamePane extends StackPane {
         bp.requestFocus();
     }
 
-    String getPlayerHealthAccentColor() {
+    public String getDefaultHealthAccentColor(Character chara) {
+        double diff = (chara.getCurrentHP()+0.0) / (chara.getMaxHP()+0.0);
+        if(diff > .75) {
+            return STYLE_HIGH_HP;
+        } else if (diff <= .75 && diff > .35) {
+            return STYLE_MEDIUM_HP;
+        } else {
+            return STYLE_LOW_HP;
+        }
+    }
+
+    public String getPlayerHealthAccentColor() {
         Player p = player.getPlayer();
         double diff = (p.getCurrentHP()+0.0) / (p.getMaxHP()+0.0);
         if(diff > .75) {

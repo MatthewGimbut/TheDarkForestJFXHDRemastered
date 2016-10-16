@@ -4,7 +4,6 @@ import quests.QuestHandler;
 import quests.trigger.Trigger;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.LinkedList;
 
 public class NPC extends Sprite {
@@ -37,7 +36,7 @@ public class NPC extends Sprite {
     	isObstacle = true;
         setImage(chara.getImage());
     }
- 
+
     public characters.Character getNPC() {
     	return chara;
     }

@@ -1,8 +1,10 @@
 package gui;
 
+import characters.Enemy;
 import characters.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -10,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.GameStage;
+import sprites.NPC;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,10 +32,23 @@ public class StatusPeekPane extends AnchorPane {
     public static final String MANA = "mana";
     public static final String XP = "xp";
     public static final String STAMINA = "stamina";
+    public static final String ENEMY = "enemy";
+    private NPC enemy;
 
     public StatusPeekPane(GamePane currentView, String display) {
         this.currentView = currentView;
+        this.display = display;
+        loadFXML();
+    }
 
+    public StatusPeekPane(GamePane currentView, String display, NPC enemy) {
+        this.currentView = currentView;
+        this.display = display;
+        this.enemy = enemy;
+        loadFXML();
+    }
+
+    private void loadFXML() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
                 "gui\\StatusPeekPane.fxml"));
         fxmlLoader.setController(this);
@@ -87,8 +103,22 @@ public class StatusPeekPane extends AnchorPane {
                 total.setText(p.getCurrentStamina() + "/" + p.getMaxStamina());
                 bar.setProgress((p.getCurrentStamina()+0.0)/(p.getMaxStamina()+0.0));
                 break;
+            case "enemy":
+                currentView.setMargin(this, new Insets(enemy.getY()-15,
+                        GameStage.WINDOW_WIDTH-enemy.getX()-100,
+                        GameStage.WINDOW_HEIGHT-enemy.getY()+15,
+                        enemy.getX()-50));
+                stat.setText("");
+                total.setText("");
+                bar.setProgress((enemy.getNPC().getCurrentHP()+0.0)/(enemy.getNPC().getMaxHP()+0.0));
+                bar.setStyle(currentView.getDefaultHealthAccentColor(enemy.getNPC()));
+                break;
         }
         this.setVisible(true);
         this.setOpacity(1.0);
+    }
+
+    public NPC getEnemy() {
+        return this.enemy;
     }
 }
