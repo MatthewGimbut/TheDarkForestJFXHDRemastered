@@ -84,9 +84,11 @@ public class GamePane extends StackPane {
     public static final String STYLE_STAMINA =  "-fx-accent: gold;";
     public static final String STYLE_XP = "-fx-accent: DeepSkyBlue;";
     public AnimatedSprite as;
+    public String saveLoc;
 
-    public GamePane(Stage primaryStage) {
+    public GamePane(Stage primaryStage, String saveLoc) {
 
+        this.saveLoc = saveLoc;
         menu = new MenuPane(this);
         input = new ArrayList<>();
         initFlags();
@@ -462,7 +464,7 @@ public class GamePane extends StackPane {
                 if (items.get(i) instanceof Lootable) {
                     displayLootPane(((Lootable) items.get(i)));
                 } else if (items.get(i) instanceof Save) {
-                    SaveManager.serialize(currentMapFile, player, this.getId());
+                    SaveManager.serialize(currentMapFile, player, this.getId(), this.saveLoc);
                     displayMessagePane("Save succeeded!");
                 } else if (items.get(i) instanceof NPC) {
                     npcInteraction(items.get(i));

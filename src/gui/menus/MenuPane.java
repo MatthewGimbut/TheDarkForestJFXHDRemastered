@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.AudioManager;
 import main.GameStage;
 import mapping.MapContainer;
 import main.SaveManager;
@@ -38,7 +39,7 @@ public class MenuPane extends VBox {
 
         load.setOnAction(event -> {
             currentView.toggleMenuPane();
-            ArrayList<Object> newMap = SaveManager.deserialize();
+            ArrayList<Object> newMap = SaveManager.deserialize(currentView.saveLoc);
             currentView.setCurrentMapFile((String) newMap.get(1));
             currentView.setPlayer((PlayerSprite) newMap.get(0));
             currentView.getMainPlayerSprite().setImage(currentView.getMainPlayerSprite().getImageLocation());
@@ -54,6 +55,7 @@ public class MenuPane extends VBox {
 
         quit.setOnAction(event -> {
             Stage stage = currentView.getPrimaryStage();
+            AudioManager.getInstance().stopAllAudio();
             MainMenuPane pane = new MainMenuPane(stage);
             Scene newScene = new GameScene(pane, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             stage.setScene(newScene);

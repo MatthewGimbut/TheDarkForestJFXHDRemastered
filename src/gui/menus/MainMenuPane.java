@@ -1,75 +1,182 @@
 package gui.menus;
 
-
+import characters.Player;
 import com.sun.xml.internal.ws.encoding.soap.SerializationException;
-import gui.GameButton;
 import gui.GamePane;
 import gui.GameScene;
 import javafx.animation.FadeTransition;
-import javafx.geometry.Pos;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
 import javafx.util.Duration;
 import main.GameStage;
-import mapping.MapContainer;
 import main.SaveManager;
+import mapping.MapContainer;
 import sprites.PlayerSprite;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MainMenuPane extends AnchorPane {
+public class MainMenuPane extends BorderPane {
+
+    public static final String SAVE_01 = "Saves\\save01.ser";
+    public static final String SAVE_02 = "Saves\\save02.ser";
+    public static final String SAVE_03 = "Saves\\save03.ser";
+    private Stage primaryStage;
+
+    @FXML private ResourceBundle resources;
+    @FXML private AnchorPane pane;
+    @FXML private URL location;
+    @FXML private Button continue1;
+    @FXML private Button continue2;
+    @FXML private Button continue3;
+    @FXML private Button newGame1;
+    @FXML private Button newGame2;
+    @FXML private Button newGame3;
+    @FXML private ImageView saveImage1;
+    @FXML private ImageView saveImage2;
+    @FXML private ImageView saveImage3;
+    @FXML private ImageView saveImage4;
+    @FXML private ImageView saveImage5;
+    @FXML private ImageView saveImage6;
+    @FXML private Label title1;
+    @FXML private Label title2;
+    @FXML private Label title3;
+    @FXML private Label info1;
+    @FXML private Label info2;
+    @FXML private Label info3;
+
 
     public MainMenuPane(Stage primaryStage) {
+        this.primaryStage = primaryStage;
 
-        VBox pane = new VBox(5);
-        pane.setAlignment(Pos.CENTER);
-        GameButton start = new GameButton("New Game");
-        GameButton load = new GameButton("Continue");
-        GameButton quit = new GameButton("Quit");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
+                "gui\\Menus\\MainMenu.fxml"));
+        fxmlLoader.setController(this);
 
-        start.setMinWidth(200);
-        load.setMinWidth(200);
-        quit.setMinWidth(200);
-        this.setId("mainmenu");
 
-        pane.getChildren().addAll(start, load, quit);
-        pane.setAlignment(Pos.CENTER);
+        try {
+            fxmlLoader.load();
+        } catch (Exception exception) {
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
+            GameStage.logger.error(exception.getStackTrace());
+        }
 
-        this.setBottomAnchor(pane, 50.0);
-        this.setLeftAnchor(pane, 425.0);
 
         Group g = new Group();
         Rectangle rekt = new Rectangle(GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
         rekt.setFill(Color.BLACK);
-        FadeTransition ft = new FadeTransition(Duration.millis(2000), g);
+        FadeTransition ft = new FadeTransition(Duration.millis(1500), g);
         ft.setFromValue(1.0);
         ft.setToValue(0);
-        ft.setAutoReverse(true);
+        ft.setOnFinished(event -> {
+            getChildren().remove(g);
+        });
         g.getChildren().addAll(rekt);
         this.getChildren().add(g);
         ft.play();
-        this.getChildren().addAll(pane);
+    }
 
+    @FXML void initialize() {
+        String saveLoc = "file:Images\\SaveArea.png";
+        saveImage1.setImage(new Image(saveLoc));
+        saveImage2.setImage(new Image(saveLoc));
+        saveImage3.setImage(new Image(saveLoc));
+        saveImage4.setImage(new Image(saveLoc));
+        saveImage5.setImage(new Image(saveLoc));
+        saveImage6.setImage(new Image(saveLoc));
+        title1.setText("Save Slot 1");
+        title2.setText("Save Slot 2");
+        title3.setText("Save Slot 3");
 
-        start.setOnAction(event -> {
-            GamePane gp = new GamePane(primaryStage);
+        newGame1.setOnAction(new NewHandler(SAVE_01));
+        continue1.setOnAction(new LoadHandler(SAVE_01));
+        newGame2.setOnAction(new NewHandler(SAVE_02));
+        continue2.setOnAction(new LoadHandler(SAVE_02));
+        newGame3.setOnAction(new NewHandler(SAVE_03));
+        continue3.setOnAction(new LoadHandler(SAVE_03));
+
+        try {
+            ArrayList<Object> save1 = SaveManager.deserialize(SAVE_01);
+            Player p = ((PlayerSprite) save1.get(0)).getPlayer();
+            info1.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (Exception e) {
+            info1.setText("Empty");
+            continue1.setDisable(true);
+        }
+
+        try {
+            ArrayList<Object> save2 = SaveManager.deserialize(SAVE_02);
+            Player p = ((PlayerSprite) save2.get(0)).getPlayer();
+            info2.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (Exception e) {
+            System.out.println("Save 2 set to empty.");
+            info2.setText("Empty");
+            continue2.setDisable(true);
+        }
+
+        try {
+            ArrayList<Object> save3 = SaveManager.deserialize(SAVE_03);
+            Player p = ((PlayerSprite) save3.get(0)).getPlayer();
+            info3.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (Exception e) {
+            System.out.println("Save 3 set to empty.");
+            info3.setText("Empty");
+            continue3.setDisable(true);
+        }
+
+        this.setCenter(pane);
+    }
+
+    private class NewHandler implements EventHandler<ActionEvent> {
+
+        private String file;
+
+        public NewHandler(String file) {
+            this.file = file;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            GamePane gp = new GamePane(primaryStage, file);
             GameStage.setGamePane(gp);
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
             primaryStage.setScene(scene);
-        });
+        }
+    }
 
-        load.setOnAction(event -> {
-            GamePane gp = new GamePane(primaryStage);
+    private class LoadHandler implements EventHandler<ActionEvent> {
+
+        private String file;
+
+        public LoadHandler(String file) {
+            this.file = file;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            GamePane gp = new GamePane(primaryStage, file);
             GameStage.setGamePane(gp);
             ArrayList<Object> newMap = null;
             try {
-                newMap = SaveManager.deserialize();
+                newMap = SaveManager.deserialize(file);
                 gp.setCurrentMapFile((String) newMap.get(1));
                 gp.setPlayer((PlayerSprite) newMap.get(0));
                 gp.getMainPlayerSprite().setImage(gp.getMainPlayerSprite().getImageLocation());
@@ -79,7 +186,7 @@ public class MainMenuPane extends AnchorPane {
             }
 
             try {
-               MapContainer map = new MapContainer(gp.getMainPlayerSprite(), (String) newMap.get(1));
+                MapContainer map = new MapContainer(gp.getMainPlayerSprite(), (String) newMap.get(1));
                 gp.setMapContainer(map);
             } catch (Exception e) {
                 GameStage.logger.error(e);
@@ -91,10 +198,6 @@ public class MainMenuPane extends AnchorPane {
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
             primaryStage.setScene(scene);
-        });
-
-        quit.setOnAction(event -> {
-            System.exit(0);
-        });
+        }
     }
 }

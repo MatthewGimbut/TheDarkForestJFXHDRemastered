@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet ../themes.css?>
+
+<AnchorPane id="mainmenu" fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1056.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <HBox alignment="CENTER" layoutX="14.0" layoutY="380.0" prefHeight="100.0" prefWidth="1028.0" spacing="100.0">
+      <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+          <children>
+            <BorderPane layoutX="14.0" layoutY="62.0" prefHeight="121.0" prefWidth="172.0">
+              <center>
+                <VBox alignment="CENTER" prefHeight="121.0" prefWidth="172.0" spacing="25.0" style="-fx-border-color: rgb(255, 255, 255&#10;);&#10;    -fx-border-radius: 5;">
+                  <children>
+                    <Label fx:id="info1" text="Info">
+                      <textFill>
+                        <Color blue="0.988" green="0.859" red="0.796" fx:id="x1" />
+                      </textFill>
+                    </Label>
+                    <Button fx:id="newGame1" mnemonicParsing="false" text="New Game" />
+                    <Button fx:id="continue1" mnemonicParsing="false" prefWidth="89.0" text="Continue" />
+                  </children>
+                  <padding>
+                    <Insets bottom="15.0" left="5.0" right="5.0" top="15.0" fx:id="x2" />
+                  </padding>
+                </VBox>
+              </center>
+            </BorderPane>
+            <ImageView fx:id="saveImage1" fitHeight="39.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="false" />
+            <Label id="mainmenutext" fx:id="title1" layoutX="70.0" layoutY="25.0" prefWidth="116.0" style="" text="Label" textFill="$x1" />
+            <ImageView id="saveImage1" fx:id="saveImage4" fitHeight="39.0" fitWidth="46.0" layoutX="140.0" layoutY="14.0" pickOnBounds="true" preserveRatio="false" />
+          </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+          <children>
+            <VBox alignment="CENTER" layoutX="14.0" layoutY="62.0" padding="$x2" prefHeight="121.0" prefWidth="172.0" spacing="25.0" style="-fx-border-color: rgb(255, 255, 255&#10;);&#10;    -fx-border-radius: 5;">
+              <children>
+                <Label id="info1" fx:id="info2" text="Info" textFill="$x1" />
+                <Button fx:id="newGame2" mnemonicParsing="false" text="New Game" />
+                <Button fx:id="continue2" mnemonicParsing="false" prefWidth="89.0" text="Continue" />
+              </children>
+            </VBox>
+            <ImageView fx:id="saveImage2" fitHeight="39.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="false" />
+            <Label id="mainmenutext" fx:id="title2" layoutX="70.0" layoutY="25.0" prefWidth="116.0" text="Label" textFill="$x1" />
+            <ImageView id="saveImage1" fx:id="saveImage5" fitHeight="39.0" fitWidth="46.0" layoutX="140.0" layoutY="14.0" pickOnBounds="true" preserveRatio="false" />
+          </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+          <children>
+            <VBox alignment="CENTER" layoutX="14.0" layoutY="65.0" padding="$x2" prefHeight="121.0" prefWidth="172.0" spacing="25.0" style="-fx-border-color: rgb(255, 255, 255&#10;);&#10;    -fx-border-radius: 5;">
+              <children>
+                <Label id="info1" fx:id="info3" text="Info" textFill="$x1" />
+                <Button fx:id="newGame3" mnemonicParsing="false" text="New Game" />
+                <Button fx:id="continue3" mnemonicParsing="false" prefWidth="89.0" text="Continue" />
+              </children>
+            </VBox>
+            <ImageView id="saveImage2" fx:id="saveImage3" fitHeight="39.0" fitWidth="46.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="false" />
+            <Label id="mainmenutext" fx:id="title3" layoutX="70.0" layoutY="28.0" prefWidth="116.0" text="Label" textFill="$x1" />
+            <ImageView id="saveImage1" fx:id="saveImage6" fitHeight="39.0" fitWidth="46.0" layoutX="140.0" layoutY="17.0" pickOnBounds="true" preserveRatio="false" />
+          </children>
+        </AnchorPane>
+      </children>
+      <padding>
+        <Insets left="50.0" right="50.0" />
+      </padding>
+    </HBox>
+  </children>
+</AnchorPane>
