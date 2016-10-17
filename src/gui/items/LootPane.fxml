@@ -18,7 +18,7 @@
         </HBox>
       </bottom>
       <center>
-        <FlowPane fx:id="itemPane" hgap="50.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0">
+        <FlowPane fx:id="itemPane" alignment="CENTER" hgap="50.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0">
           <padding>
             <Insets left="10.0" right="10.0" />
           </padding>

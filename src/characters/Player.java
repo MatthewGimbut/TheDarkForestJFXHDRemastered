@@ -260,6 +260,8 @@ public class Player extends Character {
                     unequipUpdateStats((Item) leftHand);
                     leftHand = (Shield) a;
                 }
+            } else if(a instanceof  Accessory) {
+                equip((Accessory) a);
             }
             equipUpdateStats(a);
         }
@@ -310,18 +312,12 @@ public class Player extends Character {
         } else {
             throw new RuntimeException("User tried to equip an accessory that has not been accounted for!");
         }
-        System.out.println(this.getManaRegen());
-        System.out.println(this.getHpRegen());
-        System.out.println(this.getSpeed());
         this.speed += a.getCooldownReduction();
         this.manaRegen += a.getManaRegenBoost();
         this.hpRegen += a.getHpRegenBoost();
         this.staminaRegen += a.getStaminaRegenBoost();
-        System.out.println(this.getManaRegen());
-        System.out.println(this.getHpRegen());
-        System.out.println(this.getSpeed());
 
-        equipUpdateStats(a);
+        //equipUpdateStats(a);
     }
 
     private void reverseAccessoryStatChange(Accessory a) {

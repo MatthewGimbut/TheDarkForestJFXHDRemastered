@@ -62,6 +62,7 @@ public class ItemPane extends BorderPane {
             //itemName.setTextFill(Color.MAGENTA);
         });
 
+        this.setId("itemPaneLabel");
     }
 
     /**

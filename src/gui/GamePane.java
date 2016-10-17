@@ -1241,7 +1241,6 @@ public class GamePane extends StackPane {
                 if(np.getNPC() instanceof Enemy) {
                     enemyFound = true;
                     if(!((Enemy) np.getNPC()).getCustomMusic().isEmpty()) {
-                        System.out.println(((Enemy) np.getNPC()).getCustomMusic());
                         AudioManager.getInstance().loopBackgroundMusic(((Enemy) np.getNPC()).getCustomMusic());
                     }
                     enemies.add((NPC) s);
@@ -1313,7 +1312,7 @@ public class GamePane extends StackPane {
      */
     private boolean collision() {
         for (Sprite obstacle : map.getCollisions()) {
-            if (player.getBounds().intersects(obstacle.getBounds())) {
+            if (player.intersects(obstacle)) {
                 if(obstacle instanceof Exit) {
                     player.setX(((Exit) obstacle).getNextX()); //Sets the player to the appropriate coordinates in the new area.
                     player.setY(((Exit) obstacle).getNextY());

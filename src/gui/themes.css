@@ -22,6 +22,26 @@
     -fx-font-weight: bold;
 }
 
+
+#itemPaneLabel {
+    -fx-font-family: "Cambria";
+    -fx-border-color: rgb(198, 153, 86);
+    -fx-font-size: 13;
+    -fx-border-radius: 5;
+    /*-fx-min-width: 400;
+    -fx-max-width: 400;*/
+    -fx-padding: 3;
+    -fx-background-radius: 5;
+}
+
+#itemPaneLabel:hover {
+    -fx-border-color: rgb(104, 72, 39);
+    -fx-background-color: rgb(251, 237, 191);
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+}
+
 #questTitle {
 -fx-font-family: "Cambria";
     -fx-border-color: rgb(198, 153, 86);

@@ -88,18 +88,33 @@ public class LootPane extends BorderPane {
                 VBox vb = new VBox();
                 ItemPane ip = new ItemPane(i, player);
                 vb.getChildren().add(ip);
-                ip.getImageView().addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-                    if(!player.addItem(i)) {
-                        currentView.displayMessagePane("You cannot carry that!");
-                    } else {
-                        itemPane.getChildren().remove(vb);
-                        lootContainer.getItems().remove(i);
-                        numItems.setText(lootContainer.getItems().size() + " Items");
-                    }
-                });
+                ip.addEventHandler(MouseEvent.MOUSE_CLICKED, new TakeHandler(i, vb));
+
                 vb.setAlignment(Pos.CENTER);
                 itemPane.getChildren().add(vb);
             });
+        }
+    }
+
+    private class TakeHandler implements EventHandler<MouseEvent> {
+
+        private Item i;
+        private VBox box;
+
+        public TakeHandler(Item i, VBox box) {
+            this.i = i;
+            this.box = box;
+        }
+
+        @Override
+        public void handle(MouseEvent event) {
+            if(!player.addItem(i)) {
+                currentView.displayMessagePane("You cannot carry that!");
+            } else {
+                itemPane.getChildren().remove(box);
+                lootContainer.getItems().remove(i);
+                numItems.setText(lootContainer.getItems().size() + " Items");
+            }
         }
     }
 }
