@@ -663,20 +663,25 @@ public class GamePane extends StackPane {
                             break;
                     }
 
-                    if(s.intersects(player)) {
+                    if(enemyCollision(s)) {
+                        Sprite collision = getCollisionObstacle(s);
+                        boolean noNewPath = s.intersects(player);
                         switch(direction) {
                             case North:
-                                s.modifyY(s.getDy()); // move up
+                                s.modifyY(s.getDy()); // move down
                                 break;
                             case South:
-                                s.modifyY(-s.getDy()); // move down
+                                s.modifyY(-s.getDy()); // move up
                                 break;
                             case East:
-                                s.modifyX(-s.getDx()); // move right
+                                s.modifyX(-s.getDx()); // move left
                                 break;
                             case West:
-                                s.modifyX(s.getDx()); // move left
+                                s.modifyX(s.getDx()); // move right
                                 break;
+                        }
+                        if(!noNewPath) {
+                            s.setPath(pathAroundSprite(s.clone(), s, collision, direction));
                         }
                     }
 
@@ -733,7 +738,9 @@ public class GamePane extends StackPane {
                             s.modifyX(0);
                         }
                         if(!intersectedPlayer) {
+                            System.out.println("Going in!");
                             s.setPath(pathAroundSprite(s.clone(), s, collision, direction));
+                            System.out.println("AND I'M GONE!");
                         }
                     }
                 }
@@ -938,6 +945,14 @@ public class GamePane extends StackPane {
                     s.modifyY(-s.getDy());
                 }
 
+                if(collision == null) {
+                    return result;
+                }
+
+                if(Math.abs(s.getX() - player.getX()) < 50 && Math.abs(s.getY() - player.getY()) < 50) { // TODO eh
+                    return new LinkedList<>();
+                }
+
                 result.addAll(pathAroundSprite(s, other, collision, direction));
                 return result;
 
@@ -991,6 +1006,14 @@ public class GamePane extends StackPane {
                     s.modifyX(-s.getDx());
                 } else {
                     s.modifyX(s.getDx());
+                }
+
+                if(collision == null) {
+                    return result;
+                }
+
+                if(Math.abs(s.getX() - player.getX()) < 50 && Math.abs(s.getY() - player.getY()) < 50) { // TODO eh
+                    return new LinkedList<>();
                 }
 
                 result.addAll(pathAroundSprite(s, other, collision, direction));
