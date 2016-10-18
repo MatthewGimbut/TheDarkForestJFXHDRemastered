@@ -25,7 +25,7 @@ public class StatsPane extends BorderPane {
 
     private GamePane currentView;
     private PlayerSprite playerSprite;
-    private final String BORDER = "file:Images\\border_long.png";
+    private final String BORDER = "file:Images\\UI\\border_long.png";
     @FXML private ResourceBundle resources;
     @FXML private URL location;
     @FXML private ImageView accessory1Image;

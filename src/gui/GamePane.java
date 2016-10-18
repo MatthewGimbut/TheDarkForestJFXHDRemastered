@@ -7,6 +7,7 @@ import characters.Neutral;
 import characters.Player;
 import gui.items.LootPane;
 import gui.items.ScrollingInventoryPane;
+import gui.menus.ConfirmQuitPane;
 import gui.menus.MenuPane;
 import gui.menus.OptionsPane;
 import gui.quests.JournalPane;
@@ -85,9 +86,10 @@ public class GamePane extends StackPane {
     public static final String STYLE_XP = "-fx-accent: DeepSkyBlue;";
     public AnimatedSprite as;
     public String saveLoc;
+    public String saveDir;
 
-    public GamePane(Stage primaryStage, String saveLoc) {
-
+    public GamePane(Stage primaryStage, String saveLoc, String saveDir) {
+        this.saveDir = saveDir;
         this.saveLoc = saveLoc;
         menu = new MenuPane(this);
         input = new ArrayList<>();
@@ -1223,11 +1225,9 @@ public class GamePane extends StackPane {
 
     private void initCollections() {
         try {
-            String mapLoc = "Saves\\Save01\\Maps\\Map1-1.json";
-            //String mapLoc = "Saves\\Save01\\Maps\\JSONTest.map";
+            String mapLoc = saveDir + "Maps\\Map1-1.json";
             map = new MapContainer(player, mapLoc);
             this.setId(map.getIdName());
-            //mapItems = mapParser.parseMap(map);
             setCurrentMapFile(mapLoc);
             fillEnemies();
         }
@@ -1609,6 +1609,19 @@ public class GamePane extends StackPane {
         } else {
             return STYLE_LOW_HP;
         }
+    }
+
+    public void showConfirmQuitPane() {
+        menuCurrentlyDisplayed = true;
+        ConfirmQuitPane cqp = new ConfirmQuitPane(this);
+        this.getChildren().add(cqp);
+        cqp.requestFocus();
+    }
+
+    public void removeConfirmQuitPane(ConfirmQuitPane cqp) {
+        this.getChildren().remove(cqp);
+        this.requestFocus();
+        menuCurrentlyDisplayed = false;
     }
 
     public PlayerSprite getMainPlayerSprite() {

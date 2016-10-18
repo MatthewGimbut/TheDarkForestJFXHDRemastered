@@ -4,15 +4,17 @@ import characters.Player;
 import com.sun.xml.internal.ws.encoding.soap.SerializationException;
 import gui.GamePane;
 import gui.GameScene;
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -27,6 +29,7 @@ import main.SaveManager;
 import mapping.MapContainer;
 import sprites.PlayerSprite;
 
+import javax.tools.Tool;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -53,6 +56,7 @@ public class MainMenuPane extends BorderPane {
     @FXML private ImageView saveImage4;
     @FXML private ImageView saveImage5;
     @FXML private ImageView saveImage6;
+    @FXML private ImageView optionsImage;
     @FXML private Label title1;
     @FXML private Label title2;
     @FXML private Label title3;
@@ -100,16 +104,30 @@ public class MainMenuPane extends BorderPane {
         saveImage4.setImage(new Image(saveLoc));
         saveImage5.setImage(new Image(saveLoc));
         saveImage6.setImage(new Image(saveLoc));
+        optionsImage.setImage(new Image("file:Images\\UI\\gears.png"));
+
+        RotateTransition rotation = new RotateTransition(Duration.seconds(0.5), optionsImage);
+        rotation.setCycleCount(Animation.INDEFINITE);
+        rotation.setByAngle(360);
+        optionsImage.setOnMouseEntered(mouse -> rotation.play());
+        optionsImage.setOnMouseExited(mouse -> rotation.pause());
+        Tooltip.install(optionsImage, new Tooltip("Options"));
+        optionsImage.setOnMouseClicked(mouse -> {
+
+        });
+
+
         title1.setText("Save Slot 1");
         title2.setText("Save Slot 2");
         title3.setText("Save Slot 3");
 
-        newGame1.setOnAction(new NewHandler(SAVE_01));
-        continue1.setOnAction(new LoadHandler(SAVE_01));
-        newGame2.setOnAction(new NewHandler(SAVE_02));
-        continue2.setOnAction(new LoadHandler(SAVE_02));
-        newGame3.setOnAction(new NewHandler(SAVE_03));
-        continue3.setOnAction(new LoadHandler(SAVE_03));
+        newGame1.setOnAction(new NewHandler(SAVE_01, "Saves\\Save01\\"));
+
+        continue1.setOnAction(new LoadHandler(SAVE_01, "Saves\\Save01\\"));
+        newGame2.setOnAction(new NewHandler(SAVE_02, "Saves\\Save02\\"));
+        continue2.setOnAction(new LoadHandler(SAVE_02, "Saves\\Save02\\"));
+        newGame3.setOnAction(new NewHandler(SAVE_03, "Saves\\Save03\\"));
+        continue3.setOnAction(new LoadHandler(SAVE_03, "Saves\\Save03\\"));
 
         try {
             ArrayList<Object> save1 = SaveManager.deserialize(SAVE_01);
@@ -145,15 +163,17 @@ public class MainMenuPane extends BorderPane {
 
     private class NewHandler implements EventHandler<ActionEvent> {
 
+        private String dir;
         private String file;
 
-        public NewHandler(String file) {
+        public NewHandler(String file, String dir) {
+            this.dir = dir;
             this.file = file;
         }
 
         @Override
         public void handle(ActionEvent event) {
-            GamePane gp = new GamePane(primaryStage, file);
+            GamePane gp = new GamePane(primaryStage, file, dir);
             GameStage.setGamePane(gp);
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();
@@ -165,14 +185,16 @@ public class MainMenuPane extends BorderPane {
     private class LoadHandler implements EventHandler<ActionEvent> {
 
         private String file;
+        private String dir;
 
-        public LoadHandler(String file) {
+        public LoadHandler(String file, String dir) {
+            this.dir = dir;
             this.file = file;
         }
 
         @Override
         public void handle(ActionEvent event) {
-            GamePane gp = new GamePane(primaryStage, file);
+            GamePane gp = new GamePane(primaryStage, file, dir);
             GameStage.setGamePane(gp);
             ArrayList<Object> newMap = null;
             try {

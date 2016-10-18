@@ -72,12 +72,13 @@
 #standardPane {
     -fx-text-fill: #000000;
     -fx-background-color: rgb(198, 153, 86);
+    -fx-background-image: url("file:Images/UI/paperbackground.png");
+
     -fx-border-radius: 9;
     -fx-border-color: rgb(104, 72, 39);
     -fx-background-radius: 11;
     -fx-border-width: 2;
     -fx-padding: 5;
-
 }
 
 #menu GameButton {
@@ -106,6 +107,10 @@
 #mainmenutext {
     -fx-font-color: rgb(203, 219, 252);
 }
+
+/*.button {
+    -fx-background-image: url("file:Images/UI/ButtonEnabled.png");
+}*/
 
 .tab-pane:focused {
     -fx-focus-color: rgb(104, 72, 39);

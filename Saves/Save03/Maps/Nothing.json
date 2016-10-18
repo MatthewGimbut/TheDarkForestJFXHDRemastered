@@ -1,0 +1,57 @@
+{
+  "id": "interior-black",
+  "fileLocation": "Nothing.json",
+  "genericObstacles": [],
+  "displayItems": [],
+  "exits": [],
+  "lootables": [],
+  "lowerLayers": [],
+  "npcs": [
+    {
+      "chara": {
+        "type": "characters.Neutral",
+        "data": {
+          "currentStatusEffects": [],
+          "lvl": 1,
+          "name": "^̸͍̍̃̅͌̏ͅ\u0026͚̳ͫͩ̑͋̓ͅ%̝͊ͭ͗͐ͮ͑̚$̩͖̫͔͓̤͎͡@͉̬̺̻͓͡#̩̪̈́̋͘%͔̻̞ͅ",
+          "currentHP": 100,
+          "maxHP": 100,
+          "currentMana": 100,
+          "maxMana": 100,
+          "atk": 1,
+          "magic": 1,
+          "def": 1,
+          "speed": 1,
+          "carryCap": 10.0,
+          "currentCarry": 0.0,
+          "isDead": false,
+          "image": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
+          "south": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "north": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
+          "east": "Images\\Characters\\GenericNeutral\\GenericNeutralEast.png",
+          "west": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 136,
+      "y": 232,
+      "dx": 0,
+      "dy": 0,
+      "width": 24,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "T̢͙͖̱̓ͤͅh̛̫͕͕̼̊̾̆͆̋̓ͬe̠ͪ͛ͭ͊ ͎͇̝͓͇̝̹͒̑v̹̘̣́o̳̩̥̯̙ͨͨ̅̋ͯi̖͉̦̻̝ḏ͠ ̷̻͉̭̪̐ͮb̢͍̲̤̘̲͗ͫ̌͑eͩ̏̔ͬĉ̣ͫ͛͌ͭ̓k̪̹ͩ͟oͦṇ͚̘̦̞̔ͫs̖͕̗̩ͪ̒̓̊.̳̩͚͎̖̻͇ͤ̆ͩ̈́̀",
+        "H̤̘͖̽̑͑̌̑̓e̵̳̱̫̠̝̦͚͗ ̴̼̳̺̝͚̜̘ͩͯ̌̀c̈́̏ͤ̾͏ͅà̴͍͚̲̅ͅl̜̠̩̼̻͔ͧ̇ͯͩͩ̽ͨl̻̱̹̖͇ͦͅs͓̙̗͊ ͖̥̞̲͎̮ͧͥ̀ͪ͆͊ͥͅm̮̳͍͚̭̳̲ͨ̄͒̆y͉̻ͦ ̖̯n̵ͪa͎m̛̯͊e̻̼̰ͯ̊̒͐ ̗͔͍͕̻̬̅̀f͙̙̮͚̼̪̲̈͋̊̈͋̆̅r̞͖̗ͬ̽̚ȯ̩̺̮͔̤͊̚͢ṃ͖̩̮̝͑̀ͬ̈ͨ̚ ̹̰̩̗̦̂̑ͫ͋t̪̜͔̣͖̣͙́ͪ̀́ͮ͂̚h̯̰̗͕e̤ ̼̩̉̒̆d̻͓̫̳͓͕͊̌ͧ̃̀ͬ͘e͚̼̱͋͡e͚̊ͥ͛̋ͭp̜̋̾ͦͦͨ.͔̣͙̬͐̾̎ͬ̐̕",
+        "M̪̝̻̯̗͚̐̍ͩ̿̐͒̏̀y̛̔ͬ̑̓ͨ ̥̱̼̺m͇̓͊̋ͧ͟á̓͋̐͌ṣ̷̣̣͔̻͖ͅt̫ͧ̿̓ͮ̉͐͞ê͓͉̮͖r̻̾͋ͬ̑ͭ ̤̅̎̌̃ͦ̕a̔ͦw͍̱͑ͤ̆̍̀ͫä̛͌i̥͆͊ͩ̉t̙̪̑s̖̪̾̋ ͇̬̾̐͆͞ͅm̸ͪ̚y͉̓̀̈ ̷ͭͥ̃̊̌̓̑r͎̗͚̄͆ͩ̋͌e̯̖͕̺ͮ̈́̅̈́͒̿t͕ͮ̽ͧͥ̂̔͒u̧͉̰̼͓̪ͨ̌̂r̛n̶̤̦͕̭͉̪͑͛ͪ,̟͍͖̖̜̤̹̉̔͗̈̈́̈̀ ͖̮̼͍̤̖̼ͦ͜a̖̩͎̗̘̲ͫͭ̀̋̈́̽̒s͓̭ͥ̈̀̑̅̅̃ ̭̞̒͠yͮ̃oùͅṛ͕͍̠͍̌̂͒s̷̭̗̙͇͚͚̘͛ͧ͗͌ͯ̓!̷̳͓̪̖̏͗ͪ̏̊̋",
+        "J̧̖̺͈̰ͦͬ̅ö̺͙̼̙̩̟́͑ͩ͘i̱̩̞͍̖̗͌ͦͫ̾͢ͅn̜̜͙̬͚̺̽̚ ͖͎͚̮̳̘̒̊̋̾ͮͦṷ͉͊̇ṣ͍ͧ̇͐̑͑͟!̍ͦͪͭ͒",
+        "J̛͕̼̽͗̌̚o͚͈͇͓͖iͩ͑ͨ̂n͙̜̤͕̦̋̊̑ ̪͍͉̣̓ͩ͟ù̲̝s̺͑́͂ ͖͙͇̪̹̘̑̄i̵̍n͓̖̯̫͉̮̤ ͇͔̟͈̪̾̅̿ͯ̕ͅț͇h̤̙̗̫͓͉̓͂͗e͐̌͊ͬ͂ͫ̐͏͔͔͖͈̬̯ͅ ̙̰̝̻͍̝͙ͮ͌͗vͫ̂͒͊͘oͪ̿ͯ͒͐͋ḯ̼̦̪͐̎͝ͅḏ͓ͩ!̪̭̺͉̬̈́ͭ̿͘"
+      ],
+      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png"
+    }
+  ],
+  "saves": [],
+  "upperLayers": []
+}

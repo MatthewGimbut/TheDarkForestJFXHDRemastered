@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet ../themes.css?>
+
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.9998779296875" prefWidth="442.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label fx:id="text" layoutX="26.0" layoutY="13.0" text="Are you sure you want to quit? Any unsaved progress will be lost." />
+    <HBox alignment="CENTER" layoutX="121.0" layoutY="37.0" prefHeight="23.0" prefWidth="200.0" spacing="20.0">
+      <children>
+        <Button fx:id="quit" mnemonicParsing="false" text="Quit" />
+        <Button fx:id="cancel" mnemonicParsing="false" text="Cancel" />
+      </children>
+    </HBox>
+  </children>
+</AnchorPane>

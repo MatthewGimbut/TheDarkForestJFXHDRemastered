@@ -21,9 +21,11 @@ public interface SaveManager {
 		} catch (IOException e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("IOException while serializing save.");
+			e.printStackTrace();
 		} catch (Exception e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("General while serializing save.");
+			e.printStackTrace();
 		}
 	}
 	
@@ -38,10 +40,11 @@ public interface SaveManager {
 		} catch (IOException e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("IOException while deserializing save.");
+			//e.printStackTrace();
 		} catch (Exception e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("General while deserializing save.");
-
+			//e.printStackTrace();
 		}
 		return null;
 	}

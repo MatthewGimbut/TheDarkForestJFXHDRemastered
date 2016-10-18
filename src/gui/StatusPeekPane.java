@@ -73,7 +73,7 @@ public class StatusPeekPane extends AnchorPane {
             bar.setStyle(GamePane.STYLE_STAMINA);
         }
 
-        borderImage.setImage(new Image("file:Images\\bordertest.png"));
+        borderImage.setImage(new Image("file:Images\\UI\\bordertest.png"));
 
         this.getChildren().add(anchor);
     }

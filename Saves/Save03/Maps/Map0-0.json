@@ -983,7 +983,7 @@
   ],
   "exits": [
     {
-      "nextMapLocation": "Saves\\\\Save02\\\\Maps\\\\Map0-1.map",
+      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.map",
       "nextX": 30,
       "nextY": 617,
       "placement": "West",

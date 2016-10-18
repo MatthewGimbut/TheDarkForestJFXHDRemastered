@@ -556,7 +556,7 @@
   "displayItems": [],
   "exits": [
     {
-      "nextMapLocation": "Saves\\\\Save02\\\\Maps\\\\Map0-1.map",
+      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.map",
       "nextX": 468,
       "nextY": 485,
       "placement": "South",

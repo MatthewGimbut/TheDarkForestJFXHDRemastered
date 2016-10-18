@@ -54,11 +54,8 @@ public class MenuPane extends VBox {
         });
 
         quit.setOnAction(event -> {
-            Stage stage = currentView.getPrimaryStage();
-            AudioManager.getInstance().stopAllAudio();
-            MainMenuPane pane = new MainMenuPane(stage);
-            Scene newScene = new GameScene(pane, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
-            stage.setScene(newScene);
+            currentView.toggleMenuPane();
+            currentView.showConfirmQuitPane();
         });
 
         options.setOnAction( event -> {
