@@ -1,37 +1,61 @@
 package gui.menus;
 
-
 import gui.GamePane;
 import gui.GameScene;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import main.AudioManager;
 import main.GameStage;
 import mapping.MapContainer;
 import main.SaveManager;
 import sprites.PlayerSprite;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MenuPane extends VBox {
+public class MenuPane extends BorderPane {
 
-    private Button options, stats, inventory, exit, quit, load, log;
+    private GamePane currentView;
     private MapContainer map;
+    @FXML private ResourceBundle resources;
+    @FXML private URL location;
+    @FXML private Button exit;
+    @FXML private Button inventory;
+    @FXML private Button load;
+    @FXML private Button log;
+    @FXML private Button options;
+    @FXML private Button quit;
+    @FXML private Button stats;
+    @FXML private AnchorPane anchor;
 
 
     public MenuPane(GamePane currentView) {
-        this.setId("standardPane");
-        this.setAlignment(Pos.CENTER);
-        options = new Button("Options");
-        stats = new Button("Stats");
-        inventory = new Button("Inventory");
-        load = new Button("Load");
-        quit = new Button("Quit");
-        exit = new Button("Exit");
-        log = new Button("Journal");
+        this.currentView = currentView;
 
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(
+                "gui\\menus\\Menu.fxml"));
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            GameStage.logger.error(exception.getMessage());
+            GameStage.logger.error(exception);
+        }
+    }
+
+    @FXML void initialize() {
 
         exit.setOnAction(event -> {
             currentView.toggleMenuPane();
@@ -78,10 +102,12 @@ public class MenuPane extends VBox {
             currentView.displayJournal();
         });
 
-        this.setSpacing(7.5);
-        this.setMaxWidth(125);
-        this.setMaxHeight(375);
-        this.getChildren().addAll(inventory, stats, log, options, load, exit,  quit);
+
+        this.setCenter(anchor);
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
         this.requestFocus();
     }
 }

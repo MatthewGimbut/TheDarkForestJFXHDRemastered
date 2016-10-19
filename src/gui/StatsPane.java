@@ -181,5 +181,10 @@ public class StatsPane extends BorderPane {
         playerImage.setImage(new Image(Player.FACING_SOUTH));
 
         this.setCenter(anchor);
+
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import main.GameStage;
 
 import java.io.IOException;
@@ -72,6 +73,11 @@ public class OptionsPane extends BorderPane {
         });
 
         this.setCenter(anchor);
+
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
     }
 
 }

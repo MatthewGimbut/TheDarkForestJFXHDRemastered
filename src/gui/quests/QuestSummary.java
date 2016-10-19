@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import main.GameStage;
 import quests.Quest;
 
@@ -40,10 +43,17 @@ public class QuestSummary extends AnchorPane {
 
     @FXML
     void initialize() {
+        title.setFont(Font.font("Cambria", FontWeight.BOLD, 12));
         title.setText("No quest currently selected.");
+        description.setFont(Font.font("Cambria", FontWeight.BOLD, 12));
         description.setText(" ¯\\_(ツ)_/¯");
 
         this.getChildren().add(anchor);
+
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
     }
 
     public void setQuest(Quest quest) {

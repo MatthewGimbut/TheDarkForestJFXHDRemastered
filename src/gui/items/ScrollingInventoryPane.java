@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import main.AudioManager;
 import main.GameStage;
@@ -144,6 +145,11 @@ public class ScrollingInventoryPane extends BorderPane {
         drawColors(miscLabels);
 
         this.setCenter(pane);
+
+        Rectangle rekt = new Rectangle(pane.getPrefWidth(), pane.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        pane.setClip(rekt);
     }
 
     private void sortItems() {

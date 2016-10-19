@@ -828,8 +828,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 599,
-      "y": 208,
+      "x": 318,
+      "y": 299,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -839,8 +839,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 439,
-      "y": 176,
+      "x": 158,
+      "y": 267,
       "dx": 0,
       "dy": 0,
       "width": 64,
@@ -850,8 +850,8 @@
       "location": "file:Images\\Objects\\Structures\\WoodWall64.png"
     },
     {
-      "x": 535,
-      "y": 176,
+      "x": 254,
+      "y": 267,
       "dx": 0,
       "dy": 0,
       "width": 64,
@@ -861,8 +861,8 @@
       "location": "file:Images\\Objects\\Structures\\WoodWall64.png"
     },
     {
-      "x": 439,
-      "y": 144,
+      "x": 158,
+      "y": 235,
       "dx": 0,
       "dy": 0,
       "width": 160,
@@ -872,40 +872,7 @@
       "location": "file:Images\\Objects\\Structures\\WoodWall32x160.png"
     },
     {
-      "x": 323,
-      "y": 283,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 40,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 712,
-      "y": 190,
-      "dx": 0,
-      "dy": 0,
-      "width": 50,
-      "height": 50,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree50x50.png"
-    },
-    {
-      "x": 665,
-      "y": 599,
-      "dx": 0,
-      "dy": 0,
-      "width": 44,
-      "height": 40,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Nature\\Tree.png"
-    },
-    {
-      "x": 199,
+      "x": 686,
       "y": 387,
       "dx": 0,
       "dy": 0,
@@ -916,8 +883,19 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 630,
-      "y": 290,
+      "x": 151,
+      "y": 334,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 79,
+      "y": 285,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -927,8 +905,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 394,
-      "y": 99,
+      "x": 548,
+      "y": 383,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -938,8 +916,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 125,
-      "y": 375,
+      "x": 96,
+      "y": 191,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -949,8 +927,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 535,
-      "y": 303,
+      "x": 857,
+      "y": 218,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -960,8 +938,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 550,
-      "y": 472,
+      "x": 678,
+      "y": 442,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -971,8 +949,19 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 611,
-      "y": 501,
+      "x": 828,
+      "y": 152,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 325,
+      "y": 451,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -982,8 +971,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 265,
-      "y": 457,
+      "x": 758,
+      "y": 392,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -993,8 +982,8 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 365,
-      "y": 586,
+      "x": 833,
+      "y": 112,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1004,8 +993,19 @@
       "location": "file:Images\\Nature\\Tree.png"
     },
     {
-      "x": 808,
-      "y": 62,
+      "x": 123,
+      "y": 51,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 422,
+      "y": 167,
       "dx": 0,
       "dy": 0,
       "width": 44,
@@ -1018,82 +1018,48 @@
   "displayItems": [
     {
       "item": {
-        "type": "items.Armor.Shield",
+        "type": "items.ammunition.Bolt",
         "data": {
-          "armorType": "cloth",
-          "atk": 1,
-          "magic": 0,
-          "def": 3,
-          "imageLocation": "Images\\Armors\\cloth\\Shield.png",
-          "value": 50,
-          "howRare": "COMMON",
-          "r": {
-            "seed": 36467393887802,
-            "nextNextGaussian": 0.0,
-            "haveNextNextGaussian": false
-          },
-          "random": 0,
-          "cooldown": 2,
-          "weight": 2.0,
-          "hpBoost": 0,
-          "manaBoost": 0,
-          "simpleName": "cloth shield",
-          "toolTipText": "A cloth shield",
-          "isCurrentlyEquipped": false,
-          "isFavorite": false
-        }
-      },
-      "x": 470,
-      "y": 452,
-      "dx": 0,
-      "dy": 0,
-      "width": 32,
-      "height": 32,
-      "visible": true,
-      "isObstacle": true,
-      "location": "file:Images\\Armors\\cloth\\Shield.png"
-    },
-    {
-      "item": {
-        "type": "items.Armor.ChestPiece",
-        "data": {
-          "armorType": "cloth",
+          "ammoCount": 46,
+          "damage": 6,
+          "individualWeight": 0.1,
+          "weaponType": "stone",
           "atk": 0,
           "magic": 0,
-          "def": 4,
-          "imageLocation": "Images\\Armors\\cloth\\Chest.png",
-          "value": 75,
+          "def": 0,
+          "imageLocation": "file:Images\\Weapons\\Bolt.png",
+          "value": 13,
           "howRare": "COMMON",
           "r": {
-            "seed": 174023235088423,
+            "seed": 145777105993087,
             "nextNextGaussian": 0.0,
             "haveNextNextGaussian": false
           },
           "random": 1,
-          "cooldown": 0,
-          "weight": 5.0,
+          "cooldown": 60,
+          "weight": 0.0,
           "hpBoost": 0,
           "manaBoost": 0,
-          "simpleName": "cloth Armor",
-          "toolTipText": "A cloth chest",
+          "simpleName": "stone bolts (46)",
+          "toolTipText": "stone bolts (46)",
           "isCurrentlyEquipped": false,
           "isFavorite": false
         }
       },
-      "x": 282,
-      "y": 206,
+      "x": 276,
+      "y": 612,
       "dx": 0,
       "dy": 0,
       "width": 32,
       "height": 32,
       "visible": true,
       "isObstacle": true,
-      "location": "file:Images\\Armors\\cloth\\Chest.png"
+      "location": "file:Images\\Weapons\\Bolt.png"
     }
   ],
   "exits": [
     {
-      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.json",
+      "nextMapLocation": "Saves\\\\Save01\\\\Maps\\\\Map0-1.map",
       "nextX": 512,
       "nextY": 50,
       "placement": "South",
@@ -1112,8 +1078,8 @@
       "nextX": 468,
       "nextY": 421,
       "placement": "North",
-      "x": 506,
-      "y": 186,
+      "x": 225,
+      "y": 277,
       "dx": 0,
       "dy": 0,
       "width": 16,
@@ -1127,59 +1093,53 @@
     {
       "items": [
         {
-          "type": "items.accessories.Necklace",
+          "type": "items.Weapons.Spear",
           "data": {
-            "cooldownReduction": -50.0,
-            "manaRegenBoost": -100,
-            "hpRegenBoost": -450,
-            "staminaRegenBoost": -200,
-            "armorType": "leather",
-            "atk": 0,
+            "weaponType": "iron",
+            "atk": 21,
             "magic": 0,
             "def": 0,
-            "imageLocation": "file:Images\\Accessories\\necklace.png",
-            "value": 100,
+            "imageLocation": "Images\\Weapons\\iron\\Spear.png",
+            "value": 300,
             "howRare": "UNCOMMON",
             "r": {
-              "seed": 276458946066750,
+              "seed": 88427954550569,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
-            "random": 1,
-            "cooldown": 0,
-            "weight": 6.0,
-            "hpBoost": 30,
-            "manaBoost": 30,
-            "simpleName": "leather necklace",
-            "toolTipText": "A leather necklace",
+            "random": 0,
+            "cooldown": 5,
+            "weight": 12.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "iron spear",
+            "toolTipText": "A iron spear",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         },
         {
-          "type": "items.Weapons.SpellTome",
+          "type": "items.Weapons.Spear",
           "data": {
-            "spellType": "Lightning001",
-            "projectileSpeed": 8,
-            "manaCost": 6,
-            "atk": 0,
-            "magic": 5,
+            "weaponType": "stone",
+            "atk": 7,
+            "magic": 0,
             "def": 0,
-            "imageLocation": "file:Images\\Weapons\\bookbase.png",
+            "imageLocation": "Images\\Weapons\\stone\\Spear.png",
             "value": 100,
             "howRare": "COMMON",
             "r": {
-              "seed": 161424451511951,
+              "seed": 136632874187086,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
-            "random": 1,
-            "cooldown": 150,
-            "weight": 5.0,
+            "random": 0,
+            "cooldown": 5,
+            "weight": 4.0,
             "hpBoost": 0,
-            "manaBoost": 10,
-            "simpleName": "Lightning tome",
-            "toolTipText": "A Lightning spell tome",
+            "manaBoost": 0,
+            "simpleName": "stone spear",
+            "toolTipText": "A stone spear",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
@@ -1187,7 +1147,7 @@
         {
           "type": "items.ammunition.Bolt",
           "data": {
-            "ammoCount": 5,
+            "ammoCount": 12,
             "damage": 6,
             "individualWeight": 0.1,
             "weaponType": "stone",
@@ -1198,7 +1158,7 @@
             "value": 13,
             "howRare": "COMMON",
             "r": {
-              "seed": 264029864152819,
+              "seed": 261332784359058,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
@@ -1207,60 +1167,64 @@
             "weight": 0.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "stone bolts (5)",
-            "toolTipText": "stone bolts (5)",
+            "simpleName": "stone bolts (12)",
+            "toolTipText": "stone bolts (12)",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         },
         {
-          "type": "items.Weapons.Bow",
+          "type": "items.Armor.Shield",
           "data": {
-            "weaponType": "stone",
-            "atk": 4,
+            "armorType": "leather",
+            "atk": 2,
             "magic": 0,
-            "def": 0,
-            "imageLocation": "file:Images\\Weapons\\Bow.png",
-            "value": 127,
-            "howRare": "COMMON",
+            "def": 6,
+            "imageLocation": "Images\\Armors\\leather\\Shield.png",
+            "value": 100,
+            "howRare": "JUNK",
             "r": {
-              "seed": 26770564391903,
-              "nextNextGaussian": 0.0,
-              "haveNextNextGaussian": false
-            },
-            "random": 0,
-            "cooldown": 750,
-            "weight": 4.0,
-            "hpBoost": 0,
-            "manaBoost": 0,
-            "simpleName": "stone bow",
-            "toolTipText": "A stone bow",
-            "isCurrentlyEquipped": false,
-            "isFavorite": false
-          }
-        },
-        {
-          "type": "items.Weapons.Crossbow",
-          "data": {
-            "weaponType": "stone",
-            "atk": 5,
-            "magic": 0,
-            "def": 0,
-            "imageLocation": "file:Images\\Weapons\\Crossbow.png",
-            "value": 125,
-            "howRare": "COMMON",
-            "r": {
-              "seed": 224703462987551,
+              "seed": 244158004092668,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 1,
-            "cooldown": 1000,
-            "weight": 7.0,
+            "cooldown": 2,
+            "weight": 4.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "stone crossbow",
-            "toolTipText": "A stone crossbow",
+            "simpleName": "leather shield",
+            "toolTipText": "A leather shield",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Necklace",
+          "data": {
+            "cooldownReduction": -50.0,
+            "manaRegenBoost": -100,
+            "hpRegenBoost": -450,
+            "staminaRegenBoost": -200,
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\necklace.png",
+            "value": 75,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 265891043032083,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 4.0,
+            "hpBoost": 30,
+            "manaBoost": 30,
+            "simpleName": "wood necklace",
+            "toolTipText": "A wood necklace",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
@@ -1280,7 +1244,592 @@
             "value": 75,
             "howRare": "UNCOMMON",
             "r": {
-              "seed": 30217215254666,
+              "seed": 190494270677150,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 2.0,
+            "hpBoost": 15,
+            "manaBoost": 15,
+            "simpleName": "wood ring",
+            "toolTipText": "A wood ring",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Bolt",
+          "data": {
+            "ammoCount": 28,
+            "damage": 6,
+            "individualWeight": 0.1,
+            "weaponType": "stone",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Bolt.png",
+            "value": 13,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 230473654712910,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 60,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone bolts (28)",
+            "toolTipText": "stone bolts (28)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Ice001",
+            "projectileSpeed": 6,
+            "manaCost": 9,
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 8,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
+            "value": 150,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 269888389128712,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 425,
+            "weight": 5.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Ice staff",
+            "toolTipText": "A Ice staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Arrow",
+          "data": {
+            "ammoCount": 31,
+            "damage": 5,
+            "individualWeight": 0.15,
+            "weaponType": "iron",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Arrow.png",
+            "value": 30,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 227856910720972,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 20,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "iron arrows (31)",
+            "toolTipText": "iron arrows (31)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        }
+      ],
+      "x": 682,
+      "y": 329,
+      "dx": 0,
+      "dy": 0,
+      "width": 34,
+      "height": 33,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Lootables\\ChestArea.png"
+    },
+    {
+      "items": [
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Lightning001",
+            "projectileSpeed": 8,
+            "manaCost": 10,
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 8,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
+            "value": 150,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 167698101891357,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 375,
+            "weight": 5.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Lightning staff",
+            "toolTipText": "A Lightning staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.SpellTome",
+          "data": {
+            "spellType": "Lightning001",
+            "projectileSpeed": 8,
+            "manaCost": 9,
+            "atk": 0,
+            "magic": 5,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\bookbase.png",
+            "value": 100,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 29760345582089,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 150,
+            "weight": 5.0,
+            "hpBoost": 0,
+            "manaBoost": 10,
+            "simpleName": "Lightning tome",
+            "toolTipText": "A Lightning spell tome",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Arrow",
+          "data": {
+            "ammoCount": 16,
+            "damage": 5,
+            "individualWeight": 0.15,
+            "weaponType": "stone",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Arrow.png",
+            "value": 10,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 93261761001155,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 20,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone arrows (16)",
+            "toolTipText": "stone arrows (16)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Necklace",
+          "data": {
+            "cooldownReduction": -50.0,
+            "manaRegenBoost": -100,
+            "hpRegenBoost": -450,
+            "staminaRegenBoost": -200,
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\necklace.png",
+            "value": 75,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 157875284121292,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 4.0,
+            "hpBoost": 30,
+            "manaBoost": 30,
+            "simpleName": "wood necklace",
+            "toolTipText": "A wood necklace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Staff",
+          "data": {
+            "spellType": "Earth001",
+            "projectileSpeed": 4,
+            "manaCost": 13,
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 8,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
+            "value": 150,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 201427403469655,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 625,
+            "weight": 5.0,
+            "hpBoost": 0,
+            "manaBoost": 40,
+            "simpleName": "Earth staff",
+            "toolTipText": "A Earth staff",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Mace",
+          "data": {
+            "weaponType": "stone",
+            "atk": 6,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Mace.png",
+            "value": 89,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 255312890007368,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 4,
+            "weight": 3.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone mace",
+            "toolTipText": "A stone mace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Mace",
+          "data": {
+            "weaponType": "bronze",
+            "atk": 12,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\bronze\\Mace.png",
+            "value": 178,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 209402997011395,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 4,
+            "weight": 7.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "bronze mace",
+            "toolTipText": "A bronze mace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Arrow",
+          "data": {
+            "ammoCount": 16,
+            "damage": 5,
+            "individualWeight": 0.15,
+            "weaponType": "stone",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Arrow.png",
+            "value": 10,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 271935331925501,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 20,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone arrows (16)",
+            "toolTipText": "stone arrows (16)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Ring",
+          "data": {
+            "cooldownReduction": -25.0,
+            "manaRegenBoost": -50,
+            "hpRegenBoost": -225,
+            "staminaRegenBoost": -100,
+            "armorType": "bronze",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\ring.png",
+            "value": 125,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 13242585370344,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 3.0,
+            "hpBoost": 15,
+            "manaBoost": 15,
+            "simpleName": "bronze ring",
+            "toolTipText": "A bronze ring",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        }
+      ],
+      "x": 524,
+      "y": 171,
+      "dx": 0,
+      "dy": 0,
+      "width": 34,
+      "height": 33,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Lootables\\ChestArea.png"
+    },
+    {
+      "items": [
+        {
+          "type": "items.Armor.ChestPiece",
+          "data": {
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 6,
+            "imageLocation": "Images\\Armors\\wood\\Chest.png",
+            "value": 113,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 38841116569794,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 7.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood Armor",
+            "toolTipText": "A wood chest",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Crossbow",
+          "data": {
+            "weaponType": "wood",
+            "atk": 3,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+            "value": 75,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 211235780270988,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 1000,
+            "weight": 4.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood crossbow",
+            "toolTipText": "A wood crossbow",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Axe",
+          "data": {
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Axe.png",
+            "value": 90,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 92014550548054,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 3,
+            "weight": 3.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone axe",
+            "toolTipText": "A stone axe",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Axe",
+          "data": {
+            "weaponType": "bronze",
+            "atk": 10,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\bronze\\Axe.png",
+            "value": 180,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 271619268571512,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 3,
+            "weight": 6.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "bronze axe",
+            "toolTipText": "A bronze axe",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Armor.Shield",
+          "data": {
+            "armorType": "wood",
+            "atk": 2,
+            "magic": 0,
+            "def": 5,
+            "imageLocation": "Images\\Armors\\wood\\Shield.png",
+            "value": 75,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 111545260455155,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 2,
+            "weight": 3.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood shield",
+            "toolTipText": "A wood shield",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.ammunition.Bolt",
+          "data": {
+            "ammoCount": 23,
+            "damage": 6,
+            "individualWeight": 0.1,
+            "weaponType": "stone",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Bolt.png",
+            "value": 13,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 27356257058278,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 60,
+            "weight": 0.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone bolts (23)",
+            "toolTipText": "stone bolts (23)",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Consumables.Potion",
+          "data": {
+            "type": "Health",
+            "amount": 80,
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Consumables\\Potions\\Health Potion.png",
+            "value": 100,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 190950573059592,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 0.1,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "Health Potion",
+            "toolTipText": "A(n) Health Potion",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Ring",
+          "data": {
+            "cooldownReduction": -25.0,
+            "manaRegenBoost": -50,
+            "hpRegenBoost": -225,
+            "staminaRegenBoost": -100,
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\ring.png",
+            "value": 75,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 9262507907975,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
@@ -1296,92 +1845,34 @@
           }
         },
         {
-          "type": "items.Weapons.SpellTome",
+          "type": "items.Weapons.Axe",
           "data": {
-            "spellType": "Water001",
-            "projectileSpeed": 7,
-            "manaCost": 13,
-            "atk": 0,
-            "magic": 5,
+            "weaponType": "stone",
+            "atk": 5,
+            "magic": 0,
             "def": 0,
-            "imageLocation": "file:Images\\Weapons\\bookbase.png",
-            "value": 100,
-            "howRare": "COMMON",
+            "imageLocation": "Images\\Weapons\\stone\\Axe.png",
+            "value": 90,
+            "howRare": "JUNK",
             "r": {
-              "seed": 44680582117076,
+              "seed": 32452913144450,
               "nextNextGaussian": 0.0,
               "haveNextNextGaussian": false
             },
             "random": 0,
-            "cooldown": 180,
-            "weight": 5.0,
-            "hpBoost": 0,
-            "manaBoost": 10,
-            "simpleName": "Water tome",
-            "toolTipText": "A Water spell tome",
-            "isCurrentlyEquipped": false,
-            "isFavorite": false
-          }
-        },
-        {
-          "type": "items.Armor.ChestPiece",
-          "data": {
-            "armorType": "leather",
-            "atk": 0,
-            "magic": 0,
-            "def": 8,
-            "imageLocation": "Images\\Armors\\leather\\Chest.png",
-            "value": 150,
-            "howRare": "COMMON",
-            "r": {
-              "seed": 245549287190639,
-              "nextNextGaussian": 0.0,
-              "haveNextNextGaussian": false
-            },
-            "random": 1,
-            "cooldown": 0,
-            "weight": 9.0,
+            "cooldown": 3,
+            "weight": 3.0,
             "hpBoost": 0,
             "manaBoost": 0,
-            "simpleName": "leather Armor",
-            "toolTipText": "A leather chest",
-            "isCurrentlyEquipped": false,
-            "isFavorite": false
-          }
-        },
-        {
-          "type": "items.accessories.Necklace",
-          "data": {
-            "cooldownReduction": -50.0,
-            "manaRegenBoost": -100,
-            "hpRegenBoost": -450,
-            "staminaRegenBoost": -200,
-            "armorType": "cloth",
-            "atk": 0,
-            "magic": 0,
-            "def": 0,
-            "imageLocation": "file:Images\\Accessories\\necklace.png",
-            "value": 50,
-            "howRare": "UNCOMMON",
-            "r": {
-              "seed": 59107372906734,
-              "nextNextGaussian": 0.0,
-              "haveNextNextGaussian": false
-            },
-            "random": 0,
-            "cooldown": 0,
-            "weight": 3.0,
-            "hpBoost": 30,
-            "manaBoost": 30,
-            "simpleName": "cloth necklace",
-            "toolTipText": "A cloth necklace",
+            "simpleName": "stone axe",
+            "toolTipText": "A stone axe",
             "isCurrentlyEquipped": false,
             "isFavorite": false
           }
         }
       ],
-      "x": 420,
-      "y": 261,
+      "x": 454,
+      "y": 84,
       "dx": 0,
       "dy": 0,
       "width": 34,
@@ -1393,8 +1884,8 @@
   ],
   "lowerLayers": [
     {
-      "x": 503,
-      "y": 176,
+      "x": 222,
+      "y": 267,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1409,6 +1900,53 @@
       "chara": {
         "type": "characters.Enemy",
         "data": {
+          "customMusic": "file:Music\\InLightOfDarkness.mp3",
+          "isActive": true,
+          "isSelected": false,
+          "type": "TestEnemy",
+          "currentStatusEffects": [],
+          "isAttacking": false,
+          "lvl": 10,
+          "name": "El Rato",
+          "currentHP": 200,
+          "maxHP": 200,
+          "currentMana": 100,
+          "maxMana": 100,
+          "atk": 20,
+          "magic": 20,
+          "def": 20,
+          "speed": 20,
+          "carryCap": 100.0,
+          "currentCarry": 0.0,
+          "isDead": false,
+          "image": "file:Images\\Characters\\ElRato.png",
+          "south": "file:Images\\Characters\\ElRato.png",
+          "north": "file:Images\\Characters\\ElRato.png",
+          "east": "file:Images\\Characters\\ElRato.png",
+          "west": "file:Images\\Characters\\ElRato.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 350,
+      "y": 350,
+      "dx": 0,
+      "dy": 0,
+      "width": 64,
+      "height": 71,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "This is the balding rat!",
+        "You will bald prematurely if you don\u0027t say: ",
+        "hello rato"
+      ],
+      "location": "file:Images\\Characters\\ElRato.png"
+    },
+    {
+      "chara": {
+        "type": "characters.Enemy",
+        "data": {
           "customMusic": "",
           "isActive": true,
           "isSelected": false,
@@ -1416,7 +1954,7 @@
           "currentStatusEffects": [],
           "isAttacking": false,
           "lvl": 1,
-          "name": "John Jones",
+          "name": "Gary Clark",
           "currentHP": 100,
           "maxHP": 100,
           "currentMana": 100,
@@ -1428,17 +1966,17 @@
           "carryCap": 10.0,
           "currentCarry": 0.0,
           "isDead": false,
-          "image": "Images\\Enemies\\Enemy3.png",
-          "south": "Images\\Enemies\\Enemy3.png",
-          "north": "Images\\Enemies\\Enemy3.png",
-          "east": "Images\\Enemies\\Enemy3.png",
-          "west": "Images\\Enemies\\Enemy3.png"
+          "image": "Images\\Enemies\\Enemy2.png",
+          "south": "Images\\Enemies\\Enemy2.png",
+          "north": "Images\\Enemies\\Enemy2.png",
+          "east": "Images\\Enemies\\Enemy2.png",
+          "west": "Images\\Enemies\\Enemy2.png"
         }
       },
       "questActivationTriggers": [],
       "questTriggers": [],
-      "x": 105,
-      "y": 484,
+      "x": 724,
+      "y": 54,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1446,9 +1984,11 @@
       "visible": true,
       "isObstacle": true,
       "message": [
-        "how the fuck did i get here???"
+        "Give me some fucking coffee.",
+        "If you don\u0027t give me a coffee, I\u0027m going to fuck you up.",
+        "....Alright, that\u0027s how its going to be."
       ],
-      "location": "file:Images\\Enemies\\Enemy3.png"
+      "location": "file:Images\\Enemies\\Enemy2.png"
     },
     {
       "chara": {
@@ -1457,48 +1997,7 @@
           "currentStatusEffects": [],
           "isAttacking": false,
           "lvl": 1,
-          "name": "Paul Baker",
-          "currentHP": 100,
-          "maxHP": 100,
-          "currentMana": 100,
-          "maxMana": 100,
-          "atk": 1,
-          "magic": 1,
-          "def": 1,
-          "speed": 1,
-          "carryCap": 10.0,
-          "currentCarry": 0.0,
-          "isDead": false,
-          "image": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
-          "south": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
-          "north": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
-          "east": "Images\\Characters\\GenericNeutral\\GenericNeutralEast.png",
-          "west": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
-        }
-      },
-      "questActivationTriggers": [],
-      "questTriggers": [],
-      "x": 138,
-      "y": 201,
-      "dx": 0,
-      "dy": 0,
-      "width": 24,
-      "height": 39,
-      "visible": true,
-      "isObstacle": true,
-      "message": [
-        "how the fuck did i get here???"
-      ],
-      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png"
-    },
-    {
-      "chara": {
-        "type": "characters.Neutral",
-        "data": {
-          "currentStatusEffects": [],
-          "isAttacking": false,
-          "lvl": 1,
-          "name": "Steve Baker",
+          "name": "Jerry Martin",
           "currentHP": 100,
           "maxHP": 100,
           "currentMana": 100,
@@ -1519,8 +2018,8 @@
       },
       "questActivationTriggers": [],
       "questTriggers": [],
-      "x": 424,
-      "y": 465,
+      "x": 128,
+      "y": 270,
       "dx": 0,
       "dy": 0,
       "width": 24,
@@ -1528,16 +2027,63 @@
       "visible": true,
       "isObstacle": true,
       "message": [
-        "how the fuck did i get here???"
+        "This message is being read from the second line.",
+        "This is a test of the generic dialogue system.",
+        "Hello, how are you?"
       ],
       "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png"
+    },
+    {
+      "chara": {
+        "type": "characters.Enemy",
+        "data": {
+          "customMusic": "",
+          "isActive": true,
+          "isSelected": false,
+          "type": "TestEnemy",
+          "currentStatusEffects": [],
+          "isAttacking": false,
+          "lvl": 1,
+          "name": "Justin Johnson",
+          "currentHP": 100,
+          "maxHP": 100,
+          "currentMana": 100,
+          "maxMana": 100,
+          "atk": 4,
+          "magic": 4,
+          "def": 4,
+          "speed": 200,
+          "carryCap": 10.0,
+          "currentCarry": 0.0,
+          "isDead": false,
+          "image": "Images\\Enemies\\Enemy1.png",
+          "south": "Images\\Enemies\\Enemy1.png",
+          "north": "Images\\Enemies\\Enemy1.png",
+          "east": "Images\\Enemies\\Enemy1.png",
+          "west": "Images\\Enemies\\Enemy1.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 373,
+      "y": 113,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 32,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "how the fuck did i get here???"
+      ],
+      "location": "file:Images\\Enemies\\Enemy1.png"
     }
   ],
   "saves": [],
   "upperLayers": [
     {
-      "x": 439,
-      "y": 112,
+      "x": 158,
+      "y": 203,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1547,8 +2093,8 @@
       "location": "file:Images\\Buildings\\WoodRoofLeft32.png"
     },
     {
-      "x": 567,
-      "y": 112,
+      "x": 286,
+      "y": 203,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1558,8 +2104,8 @@
       "location": "file:Images\\Buildings\\WoodRoofRight32.png"
     },
     {
-      "x": 471,
-      "y": 112,
+      "x": 190,
+      "y": 203,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1569,8 +2115,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 503,
-      "y": 112,
+      "x": 222,
+      "y": 203,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1580,8 +2126,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 535,
-      "y": 112,
+      "x": 254,
+      "y": 203,
       "dx": 0,
       "dy": 0,
       "width": 32,
@@ -1591,8 +2137,8 @@
       "location": "file:Images\\Buildings\\WoodWall32.png"
     },
     {
-      "x": 599,
-      "y": 176,
+      "x": 318,
+      "y": 267,
       "dx": 0,
       "dy": 0,
       "width": 32,

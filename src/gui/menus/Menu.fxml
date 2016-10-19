@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?scenebuilder-stylesheet ../themes.css?>
+
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <VBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="325.0" prefWidth="100.0" spacing="17.5">
+      <children>
+        <Button fx:id="inventory" mnemonicParsing="false" prefWidth="-1.0" text="Inventory" />
+        <Button fx:id="stats" mnemonicParsing="false" prefWidth="-1.0" text="Stats" />
+        <Button fx:id="log" mnemonicParsing="false" prefWidth="-1.0" text="Journal" />
+        <Button fx:id="options" mnemonicParsing="false" prefWidth="-1.0" text="Options" />
+        <Button fx:id="load" mnemonicParsing="false" prefWidth="-1.0" text="Load" />
+        <Button fx:id="quit" mnemonicParsing="false" prefWidth="-1.0" text="Quit Game" />
+        <Button fx:id="exit" mnemonicParsing="false" prefWidth="-1.0" text="Exit Menu" />
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

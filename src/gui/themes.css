@@ -5,7 +5,7 @@
 
 #inventoryItem {
     -fx-font-family: "Cambria";
-    -fx-border-color: rgb(198, 153, 86);
+    -fx-border-color: transparent;
     -fx-font-size: 20;
     -fx-border-radius: 5;
     -fx-min-width: 400;
@@ -25,9 +25,9 @@
 
 #itemPaneLabel {
     -fx-font-family: "Cambria";
-    -fx-border-color: rgb(198, 153, 86);
+    /*-fx-border-color: rgb(198, 153, 86);
+    -fx-border-radius: 5;*/
     -fx-font-size: 13;
-    -fx-border-radius: 5;
     /*-fx-min-width: 400;
     -fx-max-width: 400;*/
     -fx-padding: 3;
@@ -35,9 +35,9 @@
 }
 
 #itemPaneLabel:hover {
-    -fx-border-color: rgb(104, 72, 39);
+    /*-fx-border-color: rgb(104, 72, 39);
+    -fx-border-radius: 5;*/
     -fx-background-color: rgb(251, 237, 191);
-    -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-font-weight: bold;
 }
@@ -74,11 +74,17 @@
     -fx-background-color: rgb(198, 153, 86);
     -fx-background-image: url("file:Images/UI/paperbackground.png");
 
-    -fx-border-radius: 9;
     -fx-border-color: rgb(104, 72, 39);
+
+    -fx-border-radius: 9;
     -fx-background-radius: 11;
-    -fx-border-width: 2;
+    -fx-border-width: 3;
+
     -fx-padding: 5;
+
+    /*-fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-width:5;*/
 }
 
 #menu GameButton {
@@ -117,19 +123,32 @@
 }
 
 .tab-pane *.tab-header-background {
- -fx-background-color:  rgb(198, 153, 86);
+ -fx-background-color:  transparent;
 }
 
 .tab:selected {
     -fx-tab-border-color:  rgb(198, 153, 86);
 }
 
-/*.tab-pane {
-    -fx-background-color:  rgb(198, 153, 86);
-}*/
+.tab-pane {
+    -fx-background-color:  transparent;
+}
 
 .tab .tab-label {
     -fx-font-size: 12px;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
 }
 
 #enemyHealth {

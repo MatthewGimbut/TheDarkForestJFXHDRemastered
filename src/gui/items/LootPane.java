@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import main.GameStage;
 import sprites.Lootable;
 
@@ -79,6 +80,11 @@ public class LootPane extends BorderPane {
         drawItems();
         anchor.setMinHeight((lootContainer.getItems().size()+0.0)/4);
         this.setCenter(anchor);
+
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
     }
 
     private void drawItems() {

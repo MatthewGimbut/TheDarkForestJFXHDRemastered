@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 import sprites.NPC;
@@ -76,6 +77,11 @@ public class MessagePane extends BorderPane {
         this.setMaxHeight(50);
 
         this.setOnKeyReleased(event -> keyHasBeenReleased = true );
+
+        Rectangle rekt = new Rectangle(1000, 100);
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        this.setClip(rekt);
     }
 
     public MessagePane(String message, Player player, GamePane currentView) {

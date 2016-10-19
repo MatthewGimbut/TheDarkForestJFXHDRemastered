@@ -87,6 +87,7 @@ public class GamePane extends StackPane {
     public AnimatedSprite as;
     public String saveLoc;
     public String saveDir;
+    public static final int ARC_SIZE = 22;
 
     public GamePane(Stage primaryStage, String saveLoc, String saveDir) {
         this.saveDir = saveDir;
@@ -1425,7 +1426,7 @@ public class GamePane extends StackPane {
     public void toggleMenuPane() {
         if(!menuCurrentlyDisplayed) {
             this.getChildren().add(menu);
-            this.setMargin(menu, new Insets(10, 940, 470, 10));
+            this.setMargin(menu, new Insets(60, 940, 460, 5));
             menuCurrentlyDisplayed = true;
 
             menu.requestFocus();

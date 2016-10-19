@@ -3,6 +3,7 @@ package gui.quests;
 import gui.GamePane;
 import gui.items.ItemPane;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
 import main.GameStage;
 import quests.Quest;
 
@@ -79,5 +80,10 @@ public class QuestSuccess extends BorderPane {
 
 
         this.setCenter(anchor);
+
+        Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        anchor.setClip(rekt);
     }
 }
