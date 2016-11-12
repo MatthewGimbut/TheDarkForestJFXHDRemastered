@@ -13,7 +13,7 @@ import java.lang.*;
 public class Enemy extends Character {
 
 	private String customMusic;
-	private boolean isActive = true; //for testing
+	private boolean isActive = true; //for testing, change this to a state pattern
 	private boolean isSelected;
 	private EnemyTypes type = EnemyTypes.TestEnemy; //placeholder for now
 	//TODO have all constructors take an EnemyTypes

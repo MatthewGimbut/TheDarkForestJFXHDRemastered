@@ -504,7 +504,7 @@ public class GamePane extends StackPane {
                 if(items.get(i) instanceof  NPC && ((NPC)items.get(i)).getNPC() instanceof Enemy) {
                     Enemy e = ((Enemy)(((NPC)items.get(i))).getNPC());
                     if(e.isActive()) { //if the enemy is not active then do nothing
-                        BattleHandler.attack(player.getPlayer(), e);
+                        BattleHandler.physicalAttack(player.getPlayer(), e);
                     }
                 }
             }
@@ -573,19 +573,13 @@ public class GamePane extends StackPane {
                 NPC np = (NPC) collision;
                 Enemy e = (Enemy) np.getNPC();
 
+                it.remove();
+
                 if(e.isActive()) {
-                    BattleHandler.attack(player.getPlayer(), e);
+                    BattleHandler.physicalAttack(player.getPlayer(), e);
                 }
 
-                it.remove();
                 System.out.println("Test: Collision with enemy success");
-                //TODO Remove this, just for testing fun
-                e.modifyCurrentHP(-25);
-                if(e.getCurrentHP() <= 0) {
-                    AudioManager.getInstance().playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20) + ".mp3");
-                    map.removeSprite(np);
-                    fillEnemies();
-                }
             } else if(collision != null && !(collision instanceof LowerLayer || collision instanceof Exit)) {
                 it.remove();
                 System.out.println("Test: Collision with non-enemy success");
@@ -656,15 +650,19 @@ public class GamePane extends StackPane {
                     switch(direction) {
                         case North:
                             s.modifyY(-s.getDy()); // move up
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_NORTH);
                             break;
                         case South:
                             s.modifyY(s.getDy()); // move down
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_SOUTH);
                             break;
                         case East:
                             s.modifyX(s.getDx()); // move right
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_EAST);
                             break;
                         case West:
                             s.modifyX(-s.getDx()); // move left
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_WEST);
                             break;
                     }
 
@@ -701,15 +699,19 @@ public class GamePane extends StackPane {
                     if(num <= ratio) { // move in x direction
                         if(deltaX > 0) { // move left
                             s.modifyX(-s.getDx());
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_WEST);
                         } else { // move right
                             s.modifyX(s.getDx());
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_EAST);
                         }
                         s.modifyY(0);
                     } else { // move in y direction
                         if(deltaY > 0) { // move up
                             s.modifyY(-s.getDy());
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_NORTH);
                         } else { // move down
                             s.modifyY(s.getDy());
+                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_SOUTH);
                         }
                         s.modifyX(0);
                     }
@@ -743,7 +745,7 @@ public class GamePane extends StackPane {
                             s.modifyX(0);
                         }
                         if(!intersectedPlayer) {
-                            System.out.println("Going in!");
+                            System.out.println("Going in!"); // TODO remove this stupid shit
                             s.setPath(pathAroundSprite(s.clone(), s, collision, direction));
                             System.out.println("AND I'M GONE!");
                         }
@@ -752,7 +754,7 @@ public class GamePane extends StackPane {
 
                 deltaX = s.getX() - playerX;
                 deltaY = s.getY() - playerY;
-                if(Math.abs(deltaX) < 32 && Math.abs(deltaY) < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely
+                if(Math.abs(deltaX) < 32 && Math.abs(deltaY) < 32 && !e.getAttacking()) { // TODO do enemy attacking, also make it timer based so enemies cannot attack infinitely fast
                     System.out.println("Enemy attack");
                 }
             }
@@ -1160,17 +1162,6 @@ public class GamePane extends StackPane {
     }
 
     /**
-     * Method for controlling the enemy AI.
-     * Enemies will walk towards the player.
-     * Enemies will attack randomly when in range and when facing the player.
-     * Applies on the list of all enemies on screen.
-     */
-    private void enemyAI() {
-        //TODO lots of shit
-
-    }
-
-    /**
      * Method for a player interacting with an item on the ground.
      * Right now, the only action is to allow them to pick it up and add it to their inventory.
      * @param item The Sprite of the item to be added to the inventory.
@@ -1285,12 +1276,24 @@ public class GamePane extends StackPane {
 
     /**
      * Removes the enemy from the current enemies when it is killed.
-     * @param s The killed enemy
+     * @param e The killed enemy
      */
-    public void enemyKilled(Sprite s) {
-        enemies.remove(s);
-        // TODO drop items and shit
-        drawLayers(gc);
+    public void enemyKilled(Enemy e) { // TODO REMOVE ENEMY HEALTH BARS ON DEATH
+        Iterator<NPC> it = enemies.iterator();
+        Enemy enemy;
+        Sprite s;
+        while(it.hasNext()) {
+            s = it.next();
+            enemy = ((Enemy) ((NPC)s).getNPC());
+            if(e.equals(enemy)) {
+                it.remove(); // remove the enemy, it is dead
+                // TODO play death animation then drop items
+                AudioManager.getInstance().playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20) + ".mp3");
+                map.removeSprite((NPC)s);
+                drawLayers(gc);
+                return; // break the method
+            }
+        }
     }
 
     private void drawLayers(GraphicsContext gc) {
