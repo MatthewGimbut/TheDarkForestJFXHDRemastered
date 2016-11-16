@@ -54,7 +54,7 @@ public class LootPane extends BorderPane {
     @FXML
     void initialize() {
 
-        exit.setOnAction(event -> currentView.removeLootPane(this));
+        exit.setOnAction(event -> currentView.uiManager.removeLootPane(this));
 
         this.setOnKeyReleased((KeyEvent key) -> {
             String code = key.getCode().toString();
@@ -71,7 +71,7 @@ public class LootPane extends BorderPane {
             if((player.getCarryCap() - player.getCurrentCarry() > totalWeight)) {
                 lootContainer.getItems().forEach(player::addItem);
                 lootContainer.getItems().removeAll(lootContainer.getItems());
-                currentView.removeLootPane(this);
+                currentView.uiManager.removeLootPane(this);
             } else {
                 numItems.setText("Not enough space!");
             }
@@ -115,7 +115,7 @@ public class LootPane extends BorderPane {
         @Override
         public void handle(MouseEvent event) {
             if(!player.addItem(i)) {
-                currentView.displayMessagePane("You cannot carry that!");
+                currentView.uiManager.displayMessagePane("You cannot carry that!");
             } else {
                 itemPane.getChildren().remove(box);
                 lootContainer.getItems().remove(i);

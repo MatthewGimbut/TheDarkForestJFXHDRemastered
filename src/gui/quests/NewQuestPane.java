@@ -68,14 +68,14 @@ public class NewQuestPane extends BorderPane {
             }
 
             currentView.getQuestSummaryPane().setQuest(quest);
-            currentView.removeNewQuestPane(this);
-            currentView.resetMessagePaneFocus();
+            currentView.uiManager.removeNewQuestPane(this);
+            currentView.uiManager.resetMessagePaneFocus();
         });
 
         decline.setOnAction(event -> {
             //Nothing happens, decline quest
-            currentView.removeNewQuestPane(this);
-            currentView.resetMessagePaneFocus();
+            currentView.uiManager.removeNewQuestPane(this);
+            currentView.uiManager.resetMessagePaneFocus();
         });
 
         if(quest.isStory()) {

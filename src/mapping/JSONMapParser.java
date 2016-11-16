@@ -36,6 +36,7 @@ public class JSONMapParser {
     private final String DELIMITER_STRING = "|";
     public String background;
     private PlayerSprite player;
+    private int numIterations;
 
     /**
      * Constructor for the JSONMapParser class.
@@ -44,6 +45,7 @@ public class JSONMapParser {
     public JSONMapParser(PlayerSprite player) {
         this.player = player;
         rand = new Random();
+        numIterations = 0;
     }
 
     /**
@@ -287,6 +289,9 @@ public class JSONMapParser {
 
         //Writes the new randomly generated map to a temp map file.
         writeMap(newFileLocation, mapItems, "grass");
+
+        printMap(getSkeleton(25, 25, 50));
+
         return new JSONMapTemplate(mapItems, "grass", newFileLocation);
     }
 
@@ -442,4 +447,134 @@ public class JSONMapParser {
         return false;
     }
 
+    public String[][] getSkeleton(int maxWidth, int maxHeight, int maxNumCells) {
+        String[][] map = new String[maxHeight][maxWidth];
+        int startingY = maxHeight-1;
+        int startingX = maxWidth/2;
+
+        /*
+                                                    --KEY--
+
+            S       - Dungeon starting point, the first location of the dungeon that the player arrives in.
+            [0-9]*  - Dungeon cell, given a number depending on when in the sequence they were generated.
+            More to come!
+
+         */
+
+        /**
+         * Initializes the dungeon to be an empty array.
+         * Sets the bottom middle location to be the starting point of the dungeon, labeled S.
+         */
+        for(int i = 0; i < maxHeight; i++) {
+            for(int j = 0; j < maxWidth; j++) {
+                map[i][j] = " ";
+            }
+        }
+        map[startingY][startingX] = "S";
+
+        addArea(startingY, startingX, map, maxNumCells);
+
+        numIterations = 0;
+        return map;
+    }
+
+    /**
+     * Shitty recursive dungeon generating algorithm I wrote while half asleep.
+     * Change this for future dungeons, only makes a cool one half of the time.
+     * Also could be more efficient, choice of using strings was completely arbitrary
+     * and since order doesn't really matter it may not be a bad idea to use ints.
+     * But who cares, this is just a PoC for now to see that I can get exits to link up and an actual dungeon chain working.
+     * @param y The currently observed Y coordinate
+     * @param x The currently observed X coordinate
+     * @param map The current map array
+     * @param maxNumCells The max number of cells allowed in the skeleton
+     */
+    private void addArea(int y, int x, String[][] map, int maxNumCells) {
+        int newX;
+        int newY;
+        numIterations++;
+        boolean successful = false;
+        int combinationY = 0;
+        int combinationX = 0;
+
+        while(!successful) {
+            String testX0, testX1, testY0, testY1;
+            try {
+                testY0 = map[y+1][x];
+            } catch(ArrayIndexOutOfBoundsException e) {
+                testY0 = "NA";
+            }
+
+            try {
+                testY1 = map[y-1][x];
+            } catch(ArrayIndexOutOfBoundsException e) {
+                testY1 = "NA";
+            }
+
+            try {
+                testX0 = map[y][x+1];
+            } catch(ArrayIndexOutOfBoundsException e) {
+                testX0 = "NA";
+            }
+
+            try {
+                testX1 = map[y][x-1];
+            } catch(ArrayIndexOutOfBoundsException e) {
+                testX1 = "NA";
+            }
+
+            if(!(testY0.equals(" ")) && !(testY1.equals(" ")) && !(testX0.equals(" ")) && !(testX1.equals(" "))) { //If there are no more possible movements
+                System.out.println(numIterations);
+                numIterations = maxNumCells;
+                successful = true;
+            } else {
+                newX = 0;
+                newY = 0;
+                int random = rand.nextInt(10);
+                switch(random) { //Up and right have two possibilities in order to skew the graph. can be modified for different results
+                    case 0:
+                    case 1:
+                        newX = 1;
+                        break;
+                    case 3:
+                    case 5:
+                        newX = -1;
+                        break;
+                    case 4:
+                    case 2:
+                        newY = 1;
+                        break;
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                        newY = -1;
+                        break;
+                }
+
+                combinationX = x + newX;
+                combinationY = y + newY;
+                try {
+                    String test = map[combinationY][combinationX];
+                    if(test.equals(" ")) {
+                        map[combinationY][combinationX] = numIterations + "";
+                        successful = true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) { }
+            }
+        }
+
+        if(numIterations < maxNumCells) {
+            addArea(combinationY, combinationX, map, maxNumCells);
+        }
+    }
+
+    public void printMap(String[][] map) {
+        for(String[] outer : map) {
+            for(String string : outer) {
+                System.out.print(string + "\t");
+            }
+            System.out.println();
+        }
+    }
 }

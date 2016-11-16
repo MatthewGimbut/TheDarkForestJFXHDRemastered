@@ -60,7 +60,7 @@ public class JournalPane extends BorderPane {
     @FXML void initialize() {
 
         brexit.setOnAction(event -> {
-            currentView.removeJournalPane(this);
+            currentView.uiManager.removeJournalPane(this);
         });
 
         this.setOnKeyReleased((KeyEvent key) -> {

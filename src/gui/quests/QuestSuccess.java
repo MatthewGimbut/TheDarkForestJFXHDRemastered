@@ -56,8 +56,8 @@ public class QuestSuccess extends BorderPane {
     void initialize() {
 
         exit.setOnAction(event -> {
-            GameStage.gamePane.removeQuestSuccessPane(this);
-            currentView.resetMessagePaneFocus();
+            GameStage.gamePane.uiManager.removeQuestSuccessPane(this);
+            currentView.uiManager.resetMessagePaneFocus();
         });
 
         this.setOnKeyReleased((KeyEvent key) -> {

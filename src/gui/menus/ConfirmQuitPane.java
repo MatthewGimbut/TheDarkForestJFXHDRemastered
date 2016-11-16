@@ -46,7 +46,7 @@ public class ConfirmQuitPane extends BorderPane {
     @FXML void initialize() {
 
         cancel.setOnAction(action -> {
-            currentView.removeConfirmQuitPane(this);
+            currentView.uiManager.removeConfirmQuitPane(this);
         });
 
         quit.setOnAction(action -> {

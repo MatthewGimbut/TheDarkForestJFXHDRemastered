@@ -52,17 +52,17 @@ public class MessagePane extends BorderPane {
                         try {
                             if(messages[messageCounter] == null) {
                                 checkForBattle();
-                                currentView.removeMessagePane(this);
+                                currentView.uiManager.removeMessagePane(this);
                             } else {
                                 scrollMessage(messages[messageCounter]);
                             }
                         } catch (ArrayIndexOutOfBoundsException e) {
                             checkForBattle();
-                            currentView.removeMessagePane(this);
+                            currentView.uiManager.removeMessagePane(this);
                         }
                     } else {
                         checkForBattle();
-                        currentView.removeMessagePane(this);
+                        currentView.uiManager.removeMessagePane(this);
                     }
                 } else {
                     if(messages != null)

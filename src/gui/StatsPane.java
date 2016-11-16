@@ -84,7 +84,7 @@ public class StatsPane extends BorderPane {
     @FXML
     void initialize() {
 
-        exit.setOnAction(event -> currentView.removeStatsPane(this));
+        exit.setOnAction(event -> currentView.uiManager.removeStatsPane(this));
 
         this.setOnKeyReleased((KeyEvent key) -> {
             String code = key.getCode().toString();

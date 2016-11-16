@@ -52,7 +52,7 @@ public class OptionsPane extends BorderPane {
     @FXML
     void initialize() {
 
-        exit.setOnAction(event -> currentView.removeOptionsPane(this));
+        exit.setOnAction(event -> currentView.uiManager.removeOptionsPane(this));
 
         this.setOnKeyReleased((KeyEvent key) -> {
             String code = key.getCode().toString();
@@ -61,7 +61,7 @@ public class OptionsPane extends BorderPane {
 
         save.setOnAction(event -> {
             player.setTextScrollingSpeed((int) textSpeedSlider.getValue());
-            currentView.removeOptionsPane(this);
+            currentView.uiManager.removeOptionsPane(this);
         });
 
         textSpeedSlider.setValue(player.getTextScrollingSpeed());

@@ -127,7 +127,7 @@ public class ScrollingInventoryPane extends BorderPane {
         weight.setFont(new Font("Cambria", 18));
 
         exit.setOnAction(event -> {
-            currentView.removeInventoryPane(this);
+            currentView.uiManager.removeInventoryPane(this);
         });
 
         sortItems();

@@ -2,9 +2,7 @@ package battle;
 
 import characters.Character;
 import characters.Enemy;
-
 import main.GameStage;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

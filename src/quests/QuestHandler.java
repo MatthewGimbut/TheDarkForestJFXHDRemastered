@@ -35,7 +35,7 @@ public class QuestHandler {
      */
     public static void acceptQuest(Quest q) {
         if(q.isAcceptable()) {
-            GameStage.gamePane.displayNewQuestPane(q);
+            GameStage.gamePane.uiManager.displayNewQuestPane(q);
         }
     }
 
@@ -126,7 +126,7 @@ public class QuestHandler {
             q.setActive(false);
             activeQuests.remove(q);
             completeQuests.add(q);
-            GameStage.gamePane.displayQuestSuccessPane(q); //gives out rewards for quest completion
+            GameStage.gamePane.uiManager.displayQuestSuccessPane(q); //gives out rewards for quest completion
             if(q.getPriority()) {
                 Quest next = nextActiveStoryQuest();
                 if(next != null) {

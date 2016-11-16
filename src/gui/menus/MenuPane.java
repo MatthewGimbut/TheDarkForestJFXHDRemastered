@@ -58,11 +58,11 @@ public class MenuPane extends BorderPane {
     @FXML void initialize() {
 
         exit.setOnAction(event -> {
-            currentView.toggleMenuPane();
+            currentView.uiManager.toggleMenuPane();
         });
 
         load.setOnAction(event -> {
-            currentView.toggleMenuPane();
+            currentView.uiManager.toggleMenuPane();
             ArrayList<Object> newMap = SaveManager.deserialize(currentView.saveLoc);
             currentView.setCurrentMapFile((String) newMap.get(1));
             currentView.setPlayer((PlayerSprite) newMap.get(0));
@@ -78,28 +78,28 @@ public class MenuPane extends BorderPane {
         });
 
         quit.setOnAction(event -> {
-            currentView.toggleMenuPane();
-            currentView.showConfirmQuitPane();
+            currentView.uiManager.toggleMenuPane();
+            currentView.uiManager.showConfirmQuitPane();
         });
 
         options.setOnAction( event -> {
-            currentView.toggleMenuPane();
-            currentView.displayOptionsPane();
+            currentView.uiManager.toggleMenuPane();
+            currentView.uiManager.displayOptionsPane();
         });
 
         inventory.setOnAction(event -> {
-            currentView.toggleMenuPane();
-            currentView.displayInventoryPane();
+            currentView.uiManager.toggleMenuPane();
+            currentView.uiManager.displayInventoryPane();
         });
 
         stats.setOnAction(event -> {
-            currentView.toggleMenuPane();
-            currentView.displayStatsPane();
+            currentView.uiManager.toggleMenuPane();
+            currentView.uiManager.displayStatsPane();
         });
 
         log.setOnAction(event -> {
-            currentView.toggleMenuPane();
-            currentView.displayJournal();
+            currentView.uiManager.toggleMenuPane();
+            currentView.uiManager.displayJournal();
         });
 
 

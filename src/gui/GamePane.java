@@ -5,14 +5,6 @@ import characters.Character;
 import characters.Enemy;
 import characters.Neutral;
 import characters.Player;
-import gui.items.LootPane;
-import gui.items.ScrollingInventoryPane;
-import gui.menus.ConfirmQuitPane;
-import gui.menus.MenuPane;
-import gui.menus.OptionsPane;
-import gui.quests.JournalPane;
-import gui.quests.NewQuestPane;
-import gui.quests.QuestSuccess;
 import gui.quests.QuestSummary;
 import items.Weapons.Bow;
 import items.Weapons.Crossbow;
@@ -24,14 +16,11 @@ import items.ammunition.Arrow;
 import items.ammunition.Bolt;
 import items.ammunition.OutOfAmmoException;
 import javafx.animation.*;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -39,40 +28,25 @@ import main.AudioManager;
 import main.GameStage;
 import mapping.MapContainer;
 import main.SaveManager;
-import quests.Quest;
 import sprites.*;
 import java.util.Random;
-
-import java.lang.reflect.Array;
-import java.util.Queue;
-import java.util.List;
 import java.util.LinkedList;
-import javafx.scene.layout.BorderPane;
-import sun.awt.image.ImageWatched;
-
 import java.util.Iterator;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class GamePane extends StackPane {
 
     private Stage primaryStage;
-    private boolean menuCurrentlyDisplayed, statsCurrentlyDisplayed,
-            inventoryCurrentlyDisplayed, lootCurrentlyDisplayed, settingsCurrentlyDisplayed,
-            messageCurrentlyDisplayed, equipmentCurrentlyDisplayed, questCurrentlyDisplayed;
     private PlayerSprite player;
     private ArrayList<String> input;
     private MapContainer map;
     private String currentMapFile;
     private boolean hostile;
     private boolean projectileOnCooldown;
-    private MenuPane menu;
     private GraphicsContext gc;
-    private Timeline t;
     private QuestSummary qs;
     public StatusPeekPane sppHealth, sppMana, sppStamina;
-    private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private LinkedList<Sprite> playerProjectiles = new LinkedList<Sprite>();
     private ArrayList<NPC> enemies = new ArrayList<>();
     private ArrayList<StatusPeekPane> enemyHealthBars = new ArrayList<>();
@@ -88,18 +62,19 @@ public class GamePane extends StackPane {
     public String saveLoc;
     public String saveDir;
     public static final int ARC_SIZE = 22;
+    public main.UIManager uiManager;
 
     public GamePane(Stage primaryStage, String saveLoc, String saveDir) {
         this.saveDir = saveDir;
         this.saveLoc = saveLoc;
-        menu = new MenuPane(this);
         input = new ArrayList<>();
-        initFlags();
+        //initFlags();
         this.primaryStage = primaryStage;
         Canvas canvas = new Canvas(GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
         this.getChildren().add(canvas);
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
+        this.uiManager = new main.UIManager(this);
 
         /*String[] portal = new String[11];
         for(int i = 0; i < portal.length; i++) {
@@ -114,7 +89,7 @@ public class GamePane extends StackPane {
 
         this.setOnKeyPressed(event -> {
             String code = event.getCode().toString();
-            if(!engagedMinusMenu()) {
+            if(!uiManager.engagedMinusMenu()) {
                 switch(code) {
                     case "E":
                         switch (player.getImageLocation()) {
@@ -260,12 +235,12 @@ public class GamePane extends StackPane {
                         }
                         break;
                     case "ESCAPE":
-                        if(!engagedMinusMenu()) {
-                            toggleMenuPane();
+                        if(!uiManager.engagedMinusMenu()) {
+                            uiManager.toggleMenuPane();
                         }
                         break;
                     case "I":
-                        if(!inventoryCurrentlyDisplayed) displayInventoryPane();
+                        if(!uiManager.isInventoryCurrentlyDisplayed()) uiManager.displayInventoryPane();
                         break;
                 }
             }
@@ -295,7 +270,7 @@ public class GamePane extends StackPane {
         initCollections();
 
         qs = new QuestSummary(this);
-        this.setMargin(qs, new Insets(5, 5, 0, 795));
+        setMargin(qs, new Insets(5, 5, 0, 795));
 
         HBox box = new HBox(50);
         sppHealth = new StatusPeekPane(this, StatusPeekPane.HEALTH);
@@ -305,7 +280,7 @@ public class GamePane extends StackPane {
         sppMana.setVisible(false);
         sppStamina.setVisible(false);
         box.getChildren().addAll(sppHealth, sppMana, sppStamina);
-        this.setMargin(box, new Insets(0, 5, 5, 10));
+        setMargin(box, new Insets(0, 5, 5, 10));
 
         this.getChildren().addAll(box, qs);
 
@@ -314,7 +289,7 @@ public class GamePane extends StackPane {
         /* Timer that is responsible for HP regen. */
         hpRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getHpRegen()), event -> {
             Player p = player.getPlayer();
-            if(!engaged()) {
+            if(!uiManager.engaged()) {
                 if(p.getCurrentHP() < p.getMaxHP()) {
                     p.modifyCurrentHP(1);
                     sppHealth.update();
@@ -332,7 +307,7 @@ public class GamePane extends StackPane {
         /* Timer that is responsible for mana regen. */
         manaRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getManaRegen()), event -> {
             Player p = player.getPlayer();
-            if(!engaged()) {
+            if(!uiManager.engaged()) {
                 if(p.getCurrentMana() < p.getMaxMana()) {
                     p.modifyCurrentMana(1);
                     sppMana.update();
@@ -350,7 +325,7 @@ public class GamePane extends StackPane {
         /* Timer that is responsible for stamina regen. */
         staminaRegen = new Timeline(new KeyFrame(Duration.millis(player.getPlayer().getStaminaRegen()), event -> {
             Player p = player.getPlayer();
-            if(!engaged()) {
+            if(!uiManager.engaged()) {
                 if(p.getCurrentStamina() < p.getMaxStamina()) {
                     p.modifyCurrentStamina(1);
                     sppStamina.update();
@@ -378,7 +353,7 @@ public class GamePane extends StackPane {
 
 
                 //Triggers UI updates, but only if needed.
-                if(enemies.size() > 0 && !engaged()) enemyHealthBars.forEach(StatusPeekPane::update);
+                if(enemies.size() > 0 && !uiManager.engaged()) enemyHealthBars.forEach(StatusPeekPane::update);
                 Player p = player.getPlayer();
                 if(p.getCurrentMana() < p.getMaxMana()) manaRegen.play();
                 if(p.getCurrentHP() < p.getMaxHP()) hpRegen.play();
@@ -420,26 +395,6 @@ public class GamePane extends StackPane {
         delay.play();
     }
 
-    public void displayQuestSuccessPane(quests.Quest quest) {
-        QuestSuccess qs = new QuestSuccess(player, this, quest);
-        if(!questCurrentlyDisplayed) {
-            questCurrentlyDisplayed = true;
-            this.getChildren().add(qs);
-            qs.requestFocus();
-        } else {
-            questPanelStack.add(qs);
-        }
-    }
-
-    public void removeQuestSuccessPane(QuestSuccess qs) {
-        this.getChildren().remove(qs);
-        questCurrentlyDisplayed = false;
-        this.requestFocus();
-        if(questPanelStack.size() != 0) {
-            popQuestPanelStack();
-        }
-    }
-
     /**
      * Method for determining interactions.
      * Creates an invisible Rectangle2D in the direction the player is facing.
@@ -465,10 +420,10 @@ public class GamePane extends StackPane {
             if (interact.getBounds().intersects(items.get(i).getBounds()) && !(items.get(i) instanceof GenericObstacle)) {
                 found = true;
                 if (items.get(i) instanceof Lootable) {
-                    displayLootPane(((Lootable) items.get(i)));
+                    uiManager.displayLootPane(((Lootable) items.get(i)));
                 } else if (items.get(i) instanceof Save) {
                     SaveManager.serialize(currentMapFile, player, this.getId(), this.saveLoc);
-                    displayMessagePane("Save succeeded!");
+                    uiManager.displayMessagePane("Save succeeded!");
                 } else if (items.get(i) instanceof NPC) {
                     npcInteraction(items.get(i));
                 } else if (items.get(i) instanceof DisplayItem) {
@@ -540,7 +495,7 @@ public class GamePane extends StackPane {
      * Method which calls move and then renders every projectile on screen.
      */
     private void updateProjectiles(GraphicsContext gc) {
-        if(!engaged()) {
+        if(!uiManager.engaged()) {
             moveProjectiles();
         }
         playerProjectiles.forEach(s -> s.render(gc));
@@ -612,7 +567,7 @@ public class GamePane extends StackPane {
     }
 
     private void updateEnemies(GraphicsContext gc) {
-        if(!engaged()) {
+        if(!uiManager.engaged()) {
             moveEnemies(); // in future use enemyAI to determine individual AI
         }
         enemies.forEach(s -> s.render(gc));
@@ -1170,10 +1125,10 @@ public class GamePane extends StackPane {
         player.setDx(0); //Sets the player's x and y movement to 0 so that they don't begin moving on their own after finished with dialogue.
         player.setDy(0);
         if(player.getPlayer().addItem(item.getItem())) {
-            displayMessagePane("You have picked up a " + item.getItem().getSimpleName() + ".");
+            uiManager.displayMessagePane("You have picked up a " + item.getItem().getSimpleName() + ".");
             return true;
         } else {
-            displayMessagePane("You don't currently have the inventory space to carry that!");
+            uiManager.displayMessagePane("You don't currently have the inventory space to carry that!");
             return false;
         }
     }
@@ -1202,7 +1157,7 @@ public class GamePane extends StackPane {
 
         if(((NPC) obstacle).getNPC() instanceof Enemy) {
             if(obstacle.getMessage() != null) {
-                displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
+                uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
             } else {
                 //TODO inefficient/pointless, find better way to do this
                 ArrayList<Enemy> enemy = new ArrayList<>();
@@ -1210,7 +1165,7 @@ public class GamePane extends StackPane {
             }
         } else if (((NPC) obstacle).getNPC() instanceof Neutral) {
             ((NPC) obstacle).questInteraction();
-            displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
+            uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
         }
 
     }
@@ -1274,6 +1229,15 @@ public class GamePane extends StackPane {
         }
     }
 
+    public void drawHealth() {
+        this.removeAllEnemyHPBars();
+        enemies.forEach(enemy -> {
+            StatusPeekPane pane = new StatusPeekPane(this, StatusPeekPane.ENEMY, enemy);
+            enemyHealthBars.add(pane);
+            this.getChildren().add(pane);
+        });
+    }
+
     /**
      * Removes the enemy from the current enemies when it is killed.
      * @param e The killed enemy
@@ -1289,8 +1253,9 @@ public class GamePane extends StackPane {
                 it.remove(); // remove the enemy, it is dead
                 // TODO play death animation then drop items
                 AudioManager.getInstance().playSound("Sounds\\Death\\Scream " + GameStage.getRandom(20) + ".mp3");
-                map.removeSprite((NPC)s);
+                map.removeSprite(s);
                 drawLayers(gc);
+                drawHealth();
                 return; // break the method
             }
         }
@@ -1305,7 +1270,7 @@ public class GamePane extends StackPane {
     }
 
     void updatePlayer(GraphicsContext gc) {
-        if(!engaged()) move(player);
+        if(!uiManager.engaged()) move(player);
         if(player.isVisible()) player.render(gc);
         //as.render(gc);
     }
@@ -1357,6 +1322,8 @@ public class GamePane extends StackPane {
                             GameStage.logger.error(e);
                             e.printStackTrace();
                         }
+                    } else if(((Exit) obstacle).getNextMapLocation().equals("dungeon")) {
+                        //TODO dungeon stuff
                     } else {
                         updateMapItems((Exit) obstacle);	//Moves the player to the next area if they move on an exit.
                     }
@@ -1366,36 +1333,6 @@ public class GamePane extends StackPane {
             }
         }
         return false;
-    }
-
-    private void initFlags() {
-        menuCurrentlyDisplayed = false;
-        statsCurrentlyDisplayed = false;
-        inventoryCurrentlyDisplayed = false;
-        lootCurrentlyDisplayed = false;
-        settingsCurrentlyDisplayed = false;
-        messageCurrentlyDisplayed = false;
-        equipmentCurrentlyDisplayed = false;
-        questCurrentlyDisplayed = false;
-    }
-
-    /**
-     * Checks to see if the player is currently engaged in some menu.
-     * @return Whether or not the player is engaged.
-     */
-    public boolean engaged() {
-        return (menuCurrentlyDisplayed
-                || statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
-                || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
-                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
-                || questCurrentlyDisplayed);
-    }
-
-    public boolean engagedMinusMenu() {
-        return (statsCurrentlyDisplayed || inventoryCurrentlyDisplayed
-                || lootCurrentlyDisplayed || settingsCurrentlyDisplayed
-                || messageCurrentlyDisplayed || equipmentCurrentlyDisplayed
-                || questCurrentlyDisplayed);
     }
 
     public String getCurrentMapFile() {
@@ -1425,173 +1362,6 @@ public class GamePane extends StackPane {
         this.setId(map.getIdName());
     }
 
-
-    public void toggleMenuPane() {
-        if(!menuCurrentlyDisplayed) {
-            this.getChildren().add(menu);
-            this.setMargin(menu, new Insets(60, 940, 460, 5));
-            menuCurrentlyDisplayed = true;
-
-            menu.requestFocus();
-        } else {
-            this.getChildren().remove(menu);
-            menuCurrentlyDisplayed = false;
-            this.requestFocus();
-        }
-    }
-
-    public void displayInventoryPane() {
-        if(!inventoryCurrentlyDisplayed) {
-            ScrollingInventoryPane pane = new ScrollingInventoryPane(this,  player.getPlayer());
-            this.getChildren().add(pane);
-            inventoryCurrentlyDisplayed = true;
-            pane.requestFocus();
-        }
-    }
-
-    public void removeInventoryPane(ScrollingInventoryPane pane) {
-        this.getChildren().remove(pane);
-        inventoryCurrentlyDisplayed = false;
-        this.requestFocus();
-    }
-
-    public void displayLootPane(Lootable loot) {
-        if(!lootCurrentlyDisplayed) {
-            LootPane lp = new LootPane(this, loot, player.getPlayer());
-            this.getChildren().add(lp);
-            lootCurrentlyDisplayed = true;
-            lp.requestFocus();
-        }
-    }
-
-    public void removeLootPane(LootPane pane) {
-        this.getChildren().remove(pane);
-        lootCurrentlyDisplayed = false;
-        this.requestFocus();
-    }
-
-    public void displayOptionsPane() {
-        if(!settingsCurrentlyDisplayed) {
-            OptionsPane op = new OptionsPane(this, player.getPlayer());
-            this.getChildren().add(op);
-            settingsCurrentlyDisplayed = true;
-            op.requestFocus();
-        }
-    }
-
-    public void removeOptionsPane(OptionsPane pane) {
-        this.getChildren().remove(pane);
-        settingsCurrentlyDisplayed = false;
-        this.requestFocus();
-    }
-
-    public void displayMessagePane(String message) {
-        MessagePane mp = new MessagePane(message, player.getPlayer(), this);
-        messageInfo(mp);
-
-    }
-
-    public void displayMessagePane(String[] message, NPC npc) {
-        MessagePane mp = new MessagePane(message, player.getPlayer(), this, npc);
-        messageInfo(mp);
-    }
-
-    private void messageInfo(MessagePane message) {
-        if(!messageCurrentlyDisplayed) {
-            messageCurrentlyDisplayed = true;
-            if (player.getY() < GameStage.WINDOW_HEIGHT / 2) {
-                this.setMargin(message, new Insets(GameStage.WINDOW_HEIGHT - message.getMaxHeight() - 80, 0, 0, 0));
-            } else {
-                this.setMargin(message, new Insets(0, 0, GameStage.WINDOW_HEIGHT - message.getMaxHeight() - 35, 0));
-            }
-
-            this.getChildren().add(message);
-            message.requestFocus();
-        }
-    }
-
-    public void removeMessagePane(MessagePane pane) {
-        t = new Timeline(new KeyFrame(Duration.millis(150), event -> {}));
-        t.setOnFinished(event -> messageCurrentlyDisplayed = false);
-        t.play();
-
-        this.getChildren().remove(pane);
-        this.requestFocus();
-    }
-
-    public void displayStatsPane() {
-        if(!statsCurrentlyDisplayed) {
-            statsCurrentlyDisplayed = true;
-            StatsPane pane = new StatsPane(this, player);
-            this.getChildren().add(pane);
-            pane.requestFocus();
-        }
-    }
-
-    public void removeStatsPane(StatsPane pane) {
-        this.getChildren().remove(pane);
-        statsCurrentlyDisplayed = false;
-        this.requestFocus();
-    }
-
-    public void displayNewQuestPane(Quest quest) {
-        NewQuestPane nqp = new NewQuestPane(this, quest);
-        if(!questCurrentlyDisplayed) {
-            questCurrentlyDisplayed = true;
-            this.getChildren().add(nqp);
-            nqp.requestFocus();
-        } else {
-            questPanelStack.add(nqp);
-        }
-    }
-
-    public void removeNewQuestPane(NewQuestPane pane) {
-        this.getChildren().remove(pane);
-        questCurrentlyDisplayed = false;
-        this.requestFocus();
-        if(questPanelStack.size() != 0) {
-            popQuestPanelStack();
-        }
-    }
-
-    public void displayJournal() {
-        if(!questCurrentlyDisplayed) {
-            questCurrentlyDisplayed = true;
-            JournalPane journal = new JournalPane(this);
-            this.getChildren().add(journal);
-            journal.requestFocus();
-        }
-    }
-
-    public void removeJournalPane(JournalPane journal) {
-        this.getChildren().remove(journal);
-        questCurrentlyDisplayed = false;
-        this.requestFocus();
-    }
-
-    public void resetMessagePaneFocus() {
-        MessagePane pane = null;
-
-        for(Object o : this.getChildren()) {
-            if(o instanceof MessagePane) {
-                pane = (MessagePane) o;
-            }
-        }
-
-        if(pane != null) {
-            pane.requestFocus();
-        } else {
-            this.requestFocus();
-        }
-    }
-
-    public void popQuestPanelStack() {
-        BorderPane bp = questPanelStack.remove();
-        questCurrentlyDisplayed = true;
-        this.getChildren().add(bp);
-        bp.requestFocus();
-    }
-
     public String getDefaultHealthAccentColor(Character chara) {
         double diff = (chara.getCurrentHP()+0.0) / (chara.getMaxHP()+0.0);
         if(diff > .75) {
@@ -1613,19 +1383,6 @@ public class GamePane extends StackPane {
         } else {
             return STYLE_LOW_HP;
         }
-    }
-
-    public void showConfirmQuitPane() {
-        menuCurrentlyDisplayed = true;
-        ConfirmQuitPane cqp = new ConfirmQuitPane(this);
-        this.getChildren().add(cqp);
-        cqp.requestFocus();
-    }
-
-    public void removeConfirmQuitPane(ConfirmQuitPane cqp) {
-        this.getChildren().remove(cqp);
-        this.requestFocus();
-        menuCurrentlyDisplayed = false;
     }
 
     public PlayerSprite getMainPlayerSprite() {
