@@ -33,10 +33,7 @@ public class JSONMapParser {
 
     private int currentHouses = 0;
     private Random rand;
-    private final int MAX_NPC_MESSAGE_SIZE = 20;
     private final int NUM_GENERIC_DIALOGUE = 4;
-    private final String DELIMITER_STRING = "|";
-    public String background;
     private PlayerSprite player;
     private int numIterations;
     private final boolean NO_ENEMIES = false;
@@ -401,10 +398,22 @@ public class JSONMapParser {
         return false;
     }
 
-    public JSONMapTemplate generateDungeonChain(String startCellLoc, String prevFile, Exit sourceExit, String saveDir) throws IOException {
-        String[][] chain = getSkeleton(25, 25, 50);
+    /**
+     * Generates a random dungeon, which consists of a chain of map areas linked together, each its own separate file.
+     * @param startCellLoc The file location of the starting cell for the dungeon.
+     * @param prevFile The previous file before the player entered the dungeon, used to return the player when they leave.
+     * @param sourceExit The exit from the previous map that the player entered to get to the dungeon.
+     * @param saveDir The directory used to store the new map files.
+     * @param maxHeight The max height of the 2D array used to store the dungeon skeleton.
+     * @param maxWidth The max width of the 2D array used to store the dungeon skeleton.
+     * @param numCells The max number of cells to be created in the skeleton.
+     * @return Returns the JSONMapTemplate for the starting area, where the player is placed.
+     * @throws IOException
+     */
+    public JSONMapTemplate generateDungeonChain(String startCellLoc, String prevFile, Exit sourceExit, String saveDir,
+                                                int maxHeight, int maxWidth, int numCells) throws IOException {
+        String[][] chain = getSkeleton(maxHeight, maxWidth, numCells);
         printMap(chain);
-
         for(int i = 0; i < chain.length; i++) { //Rows
             for(int j = 0; j < chain.length; j++) { //Columns
                 if(!chain[i][j].equals(" ")) {
@@ -434,10 +443,18 @@ public class JSONMapParser {
                 }
             }
         }
-
         return null;
     }
 
+    /**
+     * Checks all areas surrounding the currently generating cell to see if there are other cells that it should be connected to.
+     * Generates exits accordingly.
+     * @param chain The skeleton of the dungeon.
+     * @param i The current row.
+     * @param j The current column.
+     * @param saveDir The save directory being used for the dungeon.
+     * @return An ArrayList containing exits for all adjacent cells.
+     */
     private ArrayList<Sprite> checkForSurroundingExits(String[][] chain, int i, int j, String saveDir) {
         ArrayList<Sprite> exits = new ArrayList<>();
 
@@ -542,6 +559,14 @@ public class JSONMapParser {
         }
     }
 
+    /**
+     * Generates a return exit. Used situationally, normally exit can be deduced without.
+     * Used with initial entry of a dungeon chain/single random map generation.
+     * @param newPlacement The new direction the player is facing.
+     * @param sourceExit The exit that the player entered to get to the new area.
+     * @param oldFileLocation The file location of the old map.
+     * @return
+     */
     private Exit getReturnExit(Cardinal newPlacement, Exit sourceExit, String oldFileLocation) {
         Exit returnExit = null;
         if(newPlacement.equals(Cardinal.South))
@@ -556,6 +581,13 @@ public class JSONMapParser {
         return returnExit;
     }
 
+    /**
+     * Gets the skeleton for the dungeon.
+     * @param maxWidth The max width of the dungeon.
+     * @param maxHeight The max height of the dungeon.
+     * @param maxNumCells The max number of cells in the dungeon.
+     * @return A 2D String array that contains characters/numbers depending on the type of cell.
+     */
     public String[][] getSkeleton(int maxWidth, int maxHeight, int maxNumCells) {
         String[][] map = new String[maxHeight][maxWidth];
         int startingY = maxHeight-1;

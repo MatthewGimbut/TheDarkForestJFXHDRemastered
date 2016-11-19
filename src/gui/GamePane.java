@@ -605,19 +605,19 @@ public class GamePane extends StackPane {
                     switch(direction) {
                         case North:
                             s.modifyY(-s.getDy()); // move up
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_NORTH);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getNorthImage());
                             break;
                         case South:
                             s.modifyY(s.getDy()); // move down
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_SOUTH);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getSouthImage());
                             break;
                         case East:
                             s.modifyX(s.getDx()); // move right
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_EAST);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getEastImage());
                             break;
                         case West:
                             s.modifyX(-s.getDx()); // move left
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_WEST);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getWestImage());
                             break;
                     }
 
@@ -654,19 +654,19 @@ public class GamePane extends StackPane {
                     if(num <= ratio) { // move in x direction
                         if(deltaX > 0) { // move left
                             s.modifyX(-s.getDx());
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_WEST);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getWestImage());
                         } else { // move right
                             s.modifyX(s.getDx());
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_EAST);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getEastImage());
                         }
                         s.modifyY(0);
                     } else { // move in y direction
                         if(deltaY > 0) { // move up
                             s.modifyY(-s.getDy());
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_NORTH);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getNorthImage());
                         } else { // move down
                             s.modifyY(s.getDy());
-                            ((NPC) s).setCurrentImage(Character.GENERIC_NEUTRAL_SOUTH);
+                            ((NPC) s).setCurrentImage(((NPC) s).getNPC().getSouthImage());
                         }
                         s.modifyX(0);
                     }

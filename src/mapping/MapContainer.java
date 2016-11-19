@@ -89,14 +89,14 @@ public class MapContainer {
 
     public void startDungeon(String startCellLoc, String currentFile, Exit prevExit, String saveDir) {
         try {
-            map.generateDungeonChain(startCellLoc, currentFile, prevExit, saveDir);
+            map.generateDungeonChain(startCellLoc, currentFile, prevExit, saveDir, 25, 25, 50); //25x25 with 50 cells is default for testing. This will be changed as time goes on.
             template = map.parseMap(startCellLoc);
             idName = template.getId();
             location = startCellLoc;
             mapItems = template.getMapItems();
             updateLayers();
         } catch(IOException e) {
-            GameStage.logger.error("Error in creating random file!");
+            GameStage.logger.error("Error in creating dungeon file!");
             GameStage.logger.error(e);
             System.out.println(e.getMessage());
         }
