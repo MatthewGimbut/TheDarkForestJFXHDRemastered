@@ -1,5 +1,6 @@
 package mapping;
 
+import main.GameStage;
 import sprites.Exit;
 import sprites.LowerLayer;
 import sprites.PlayerSprite;
@@ -78,7 +79,25 @@ public class MapContainer {
             mapItems = template.getMapItems();
             updateLayers();
         } catch (IOException e) {
-            System.out.println("Error in creating random file!");
+            GameStage.logger.error("Error in creating random file!");
+            GameStage.logger.error(e);
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //TODO Maybe combine these methods? I'll do it later I guess
+
+    public void startDungeon(String startCellLoc, String currentFile, Exit prevExit, String saveDir) {
+        try {
+            map.generateDungeonChain(startCellLoc, currentFile, prevExit, saveDir);
+            template = map.parseMap(startCellLoc);
+            idName = template.getId();
+            location = startCellLoc;
+            mapItems = template.getMapItems();
+            updateLayers();
+        } catch(IOException e) {
+            GameStage.logger.error("Error in creating random file!");
+            GameStage.logger.error(e);
             System.out.println(e.getMessage());
         }
     }

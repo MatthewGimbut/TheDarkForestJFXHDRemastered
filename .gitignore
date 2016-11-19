@@ -57,3 +57,4 @@ Temporary Items
 *.class
 *.class
 .idea/workspace.xml
+*.class

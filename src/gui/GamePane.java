@@ -74,7 +74,7 @@ public class GamePane extends StackPane {
         this.getChildren().add(canvas);
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
-        this.uiManager = new main.UIManager(this);
+        this.uiManager = new main.UIManager(this, player);
 
         /*String[] portal = new String[11];
         for(int i = 0; i < portal.length; i++) {
@@ -1185,19 +1185,6 @@ public class GamePane extends StackPane {
     }
 
     /**
-     * Updates map items when the player moves to the next region of the map.
-     * @param exit The invisible Exit sprite that contains the next map and next player coordinates.
-     */
-    private void updateMapItems(Exit exit) {
-        String nextMap = exit.getNextMapLocation();
-        this.despawnPlayerProjectiles();
-        map.loadNewFile(nextMap);
-        setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
-        this.setId(map.getIdName());
-        fillEnemies();
-    }
-
-    /**
      * Fills the enemies list with all the enemies in the current map.
      */
     public void fillEnemies() {
@@ -1308,25 +1295,7 @@ public class GamePane extends StackPane {
         for (Sprite obstacle : map.getCollisions()) {
             if (player.intersects(obstacle)) {
                 if(obstacle instanceof Exit) {
-                    player.setX(((Exit) obstacle).getNextX()); //Sets the player to the appropriate coordinates in the new area.
-                    player.setY(((Exit) obstacle).getNextY());
-                    if(((Exit) obstacle).getNextMapLocation().equals("random")) {
-                        try {
-                            this.despawnPlayerProjectiles();
-                            map.randomize("Saves\\Default Maps\\Maps\\tempMap.json", currentMapFile,
-                                    (Exit) obstacle);
-                            ((Exit) obstacle).setNextMapLocation("Saves\\Default Maps\\Maps\\tempMap.json");
-                            fillEnemies();
-                        } catch (Exception e) {
-                            System.out.println("Failed to generate random map.");
-                            GameStage.logger.error(e);
-                            e.printStackTrace();
-                        }
-                    } else if(((Exit) obstacle).getNextMapLocation().equals("dungeon")) {
-                        //TODO dungeon stuff
-                    } else {
-                        updateMapItems((Exit) obstacle);	//Moves the player to the next area if they move on an exit.
-                    }
+                    exitHandle((Exit) obstacle);
                 } else {
                     return true;
                 }
@@ -1334,6 +1303,48 @@ public class GamePane extends StackPane {
         }
         return false;
     }
+
+    /**
+     * Updates map items when the player moves to the next region of the map.
+     * @param exit The invisible Exit sprite that contains the next map and next player coordinates.
+     */
+    private void exitHandle(Exit exit) {
+        player.setX(exit.getNextX()); //Sets the player to the appropriate coordinates in the new area.
+        player.setY(exit.getNextY());
+        if(exit.getNextMapLocation().equals("random")) {
+            try {
+                this.despawnPlayerProjectiles();
+                String defaultDir = saveDir + "tempMap.json";
+                map.randomize(defaultDir, currentMapFile, exit);
+                exit.setNextMapLocation(defaultDir);
+                fillEnemies();
+            } catch (Exception e) {
+                System.out.println("Failed to generate dungeon.");
+                GameStage.logger.error(e);
+                e.printStackTrace();
+            }
+        } else if(exit.getNextMapLocation().equals("dungeon")) {
+            try {
+                this.despawnPlayerProjectiles();
+                String defaultDungeonStart = saveDir + "CurrentDungeon\\cell_S.json";
+                map.startDungeon(defaultDungeonStart, currentMapFile, exit, saveDir);
+                exit.setNextMapLocation(defaultDungeonStart);
+                fillEnemies();
+            } catch (Exception e) {
+                System.out.println("Failed to generate random map.");
+                GameStage.logger.error(e);
+                e.printStackTrace();
+            }
+        } else {
+            String nextMap = exit.getNextMapLocation();
+            this.despawnPlayerProjectiles();
+            map.loadNewFile(nextMap);
+            setCurrentMapFile(nextMap); //Sets the current map file and map items to the new map.
+            this.setId(map.getIdName());
+            fillEnemies();
+        }
+    }
+
 
     public String getCurrentMapFile() {
         return currentMapFile;

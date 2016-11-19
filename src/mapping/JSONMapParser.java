@@ -6,12 +6,14 @@ import characters.Neutral;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import items.Item;
+import items.SpellType;
 import javafx.geometry.Rectangle2D;
 import main.GameStage;
 import quests.master.MasterQuests;
 import quests.trigger.Trigger;
 import sprites.*;
 
+import javax.smartcardio.Card;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -37,6 +39,8 @@ public class JSONMapParser {
     public String background;
     private PlayerSprite player;
     private int numIterations;
+    private final boolean NO_ENEMIES = false;
+    private final boolean YES_ENEMIES = true;
 
     /**
      * Constructor for the JSONMapParser class.
@@ -209,41 +213,12 @@ public class JSONMapParser {
         //Each random map must have at least this one exit
 
         Cardinal newPlacement = determineNewPlacement(sourceExit.getPlacement());
-        Exit returnExit;
 
-        if(newPlacement.equals(Cardinal.South))
-            returnExit = new Exit((int) sourceExit.getX(), 665, (int) sourceExit.getX(), 50, newPlacement, oldFileLocation);
-        else if(newPlacement.equals(Cardinal.North))
-            returnExit = new Exit((int) sourceExit.getX(), 50, (int) sourceExit.getX(), 665, newPlacement, oldFileLocation);
-        else if(newPlacement.equals(Cardinal.East))
-            returnExit = new Exit(1020, (int) sourceExit.getY(), 5, (int) sourceExit.getY(), newPlacement, oldFileLocation);
-        else  //West
-            returnExit = new Exit(5, (int) sourceExit.getY(),  5, (int) sourceExit.getY(), newPlacement, oldFileLocation);
+        mapItems.add(getReturnExit(newPlacement, sourceExit, oldFileLocation));
 
-        mapItems.add(returnExit);
+        addTreeBorder(mapItems);
 
-
-
-        //Temporary ArrayList that contains default tree border to be loaded into the new map.
-        //Checks to see which trees intersect the exits and only places the ones that don't.
-        ArrayList<Sprite> temp = parseMap("MapFragments\\TreeBorder.json").getMapItems();
-        temp.forEach(sprite -> {
-            if(!(intersectsObstacle(mapItems, sprite))) {
-                mapItems.add(sprite);
-            }
-        });
-
-        //Does the actual work to randomly place objects on the map.
-        //First loop places random structures.
-        //AKA High priority map items
-        for(int i = 0; i < 1; i++) {
-            ArrayList<Sprite> sprite = getRandomStructures();
-            sprite.forEach(currentSprite -> {
-                if(!(intersectsObstacle(mapItems, currentSprite)) || currentSprite instanceof Exit) {
-                    mapItems.add(currentSprite);
-                }
-            });
-        }
+        addStructures(mapItems);
 
         //Places El Rato on the map
         if(rand.nextInt(10) < 2) {
@@ -257,40 +232,14 @@ public class JSONMapParser {
             }
         }
 
-        //Adds random obstacles
-        for(int i = 0; i < 20; i++) {
-            ArrayList<Sprite> sprite = getRandomObstacles();
-            sprite.forEach(currentSprite -> {
-                if(!(intersectsObstacle(mapItems, currentSprite))) {
-                    mapItems.add(currentSprite);
-                }
-            });
-        }
+        addRandomObstacles(mapItems, 20);
 
-        //Adds random loot chests
-        for(int i = 0; i < 4; i++) {
-            ArrayList<Sprite> sprite = getRandomLoot();
-            sprite.forEach(currentSprite -> {
-                if(!(intersectsObstacle(mapItems, currentSprite))) {
-                    mapItems.add(currentSprite);
-                }
-            });
-        }
+        addRandomLoot(mapItems, 4);
 
-        //Adds random generic npcs
-        for(int i = 0; i < 4; i++) {
-            ArrayList<Sprite> sprite = getRandomNPCS();
-            sprite.forEach(currentSprite -> {
-                if(!(intersectsObstacle(mapItems, currentSprite))) {
-                    mapItems.add(currentSprite);
-                }
-            });
-        }
+        addRandomNPCs(mapItems, YES_ENEMIES, 4);
 
         //Writes the new randomly generated map to a temp map file.
         writeMap(newFileLocation, mapItems, "grass");
-
-        printMap(getSkeleton(25, 25, 50));
 
         return new JSONMapTemplate(mapItems, "grass", newFileLocation);
     }
@@ -338,7 +287,7 @@ public class JSONMapParser {
      * @return An ArrayList of type Sprite that contains the random NPCs
      * @throws IOException
      */
-    private  ArrayList<Sprite> getRandomNPCS() throws IOException {
+    private ArrayList<Sprite> getRandomNPCS(boolean addEnemies) throws IOException {
         String randomDialogue = "Dialogue\\GenericNeutralDialogue\\Generic" + rand.nextInt(NUM_GENERIC_DIALOGUE) + ".dialogue";
         ArrayList<Sprite> npcs = new ArrayList<>();
         switch (rand.nextInt(3)) {
@@ -348,8 +297,10 @@ public class JSONMapParser {
                 break;
             case 1:
             case 2:
-                npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), new Enemy(GameStage.getRandomName()),
-                        parseDialogueArray(randomDialogue)));
+                if(addEnemies) {
+                    npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), new Enemy(GameStage.getRandomName()),
+                            parseDialogueArray(randomDialogue)));
+                }
                 break;
         }
         return npcs;
@@ -363,7 +314,7 @@ public class JSONMapParser {
      */
     private  ArrayList<Sprite> getRandomObstacles() throws IOException {
         ArrayList<Sprite> temp = new ArrayList<>();
-        switch(rand.nextInt(10)) {
+        switch(rand.nextInt(20)) {
             case 1:
                 LinkedList<Item> items = Item.generateRandomItem(1);
                 DisplayItem di = new DisplayItem(rand.nextInt(980), rand.nextInt(650), items.get(0));
@@ -371,6 +322,9 @@ public class JSONMapParser {
                 break;
 
             case 2:
+            case 3:
+            case 4:
+            case 5:
                 temp.add(new GenericObstacle(rand.nextInt(980), rand.nextInt(650), "file:Images\\Nature\\Tree50x50.png"));
 
             default:
@@ -445,6 +399,156 @@ public class JSONMapParser {
             }
         }
         return false;
+    }
+
+    public JSONMapTemplate generateDungeonChain(String startCellLoc, String prevFile, Exit sourceExit, String saveDir) throws IOException {
+        String[][] chain = getSkeleton(25, 25, 50);
+        printMap(chain);
+
+        for(int i = 0; i < chain.length; i++) { //Rows
+            for(int j = 0; j < chain.length; j++) { //Columns
+                if(!chain[i][j].equals(" ")) {
+                    if(chain[i][j].equals("S")) { //For start of dungeon chain. No enemies in first one!
+                        ArrayList<Sprite> mapItems = new ArrayList<>();
+                        Cardinal newPlacement = determineNewPlacement(sourceExit.getPlacement());
+                        mapItems.add(getReturnExit(newPlacement, sourceExit, prevFile)); //Adds exit to previous file
+                        mapItems.addAll(checkForSurroundingExits(chain, i, j, saveDir));
+
+                        addTreeBorder(mapItems);
+                        addRandomObstacles(mapItems, 40);
+                        addRandomLoot(mapItems, 1);
+                        addRandomNPCs(mapItems, NO_ENEMIES, 2);
+
+                        writeMap(startCellLoc, mapItems, "grass");
+                    } else {
+                        ArrayList<Sprite> mapItems = new ArrayList<>();
+                        mapItems.addAll(checkForSurroundingExits(chain, i, j, saveDir));
+                        addTreeBorder(mapItems);
+                        addStructures(mapItems);
+                        addRandomObstacles(mapItems, 20);
+                        addRandomLoot(mapItems, 2);
+                        addRandomNPCs(mapItems, YES_ENEMIES, 2);
+
+                        writeMap(saveDir+"CurrentDungeon\\cell_"+chain[i][j]+".json", mapItems, "grass");
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private ArrayList<Sprite> checkForSurroundingExits(String[][] chain, int i, int j, String saveDir) {
+        ArrayList<Sprite> exits = new ArrayList<>();
+
+        try {
+            String test = chain[i+1][j];
+            if(!test.equals(" ")) { //Place south exit
+                exits.add(new Exit(550, 665, 550, 65, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
+                        "file:Images\\NotBlank32x32.png"));
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {}
+
+        try {
+            String test = chain[i-1][j];
+            if(!test.equals(" ")) { //Place north exit
+                exits.add(new Exit(550, 5, 550, 625, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
+                        "file:Images\\NotBlank32x32.png"));
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {}
+
+        try {
+            String test = chain[i][j+1];
+            if(!test.equals(" ")) { //Place east exit
+                exits.add(new Exit(1020, 373, 50, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
+                        "file:Images\\NotBlank32x32.png"));
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {}
+
+        try {
+            String test = chain[i][j-1];
+            if(!test.equals(" ")) { //Place west exit
+                exits.add(new Exit(5, 373, 970, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
+                        "file:Images\\NotBlank32x32.png"));
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {}
+
+        return exits;
+    }
+
+    private void addTreeBorder(ArrayList<Sprite> mapItems) {
+        //Temporary ArrayList that contains default tree border to be loaded into the new map.
+        //Checks to see which trees intersect the exits and only places the ones that don't.
+        ArrayList<Sprite> temp = parseMap("MapFragments\\TreeBorder.json").getMapItems();
+        temp.forEach(sprite -> {
+            if(!(intersectsObstacle(mapItems, sprite))) {
+                mapItems.add(sprite);
+            }
+        });
+    }
+
+    private void addStructures(ArrayList<Sprite> mapItems) throws IOException {
+        //Does the actual work to randomly place objects on the map.
+        //First loop places random structures.
+        //AKA High priority map items
+        for(int i = 0; i < 1; i++) {
+            ArrayList<Sprite> sprite = getRandomStructures();
+            sprite.forEach(currentSprite -> {
+                if(!(intersectsObstacle(mapItems, currentSprite)) || currentSprite instanceof Exit) {
+                    mapItems.add(currentSprite);
+                }
+            });
+        }
+    }
+
+    private void addRandomObstacles(ArrayList<Sprite> mapItems, int num) throws IOException {
+        //Adds random obstacles
+        for(int i = 0; i < num; i++) {
+            ArrayList<Sprite> sprite = getRandomObstacles();
+            sprite.forEach(currentSprite -> {
+                if(!(intersectsObstacle(mapItems, currentSprite))) {
+                    mapItems.add(currentSprite);
+                }
+            });
+        }
+    }
+
+    private void addRandomLoot(ArrayList<Sprite> mapItems, int num) throws IOException {
+        //Adds random loot chests
+        for(int i = 0; i < num; i++) {
+            ArrayList<Sprite> sprite = getRandomLoot();
+            sprite.forEach(currentSprite -> {
+                if(!(intersectsObstacle(mapItems, currentSprite))) {
+                    mapItems.add(currentSprite);
+                }
+            });
+        }
+    }
+
+    private void addRandomNPCs(ArrayList<Sprite> mapItems, boolean addEnemies, int num) throws IOException {
+        //Adds random generic npcs
+        for(int i = 0; i < num; i++) {
+            ArrayList<Sprite> sprite = getRandomNPCS(addEnemies);
+            sprite.forEach(currentSprite -> {
+                if(!(intersectsObstacle(mapItems, currentSprite))) {
+                    mapItems.add(currentSprite);
+                }
+            });
+        }
+    }
+
+    private Exit getReturnExit(Cardinal newPlacement, Exit sourceExit, String oldFileLocation) {
+        Exit returnExit = null;
+        if(newPlacement.equals(Cardinal.South))
+            returnExit = new Exit((int) sourceExit.getX(), 665, (int) sourceExit.getX(), 50, newPlacement, oldFileLocation);
+        else if(newPlacement.equals(Cardinal.North))
+            returnExit = new Exit((int) sourceExit.getX(), 50, (int) sourceExit.getX(), 665, newPlacement, oldFileLocation);
+        else if(newPlacement.equals(Cardinal.East))
+            returnExit = new Exit(1020, (int) sourceExit.getY(), 5, (int) sourceExit.getY(), newPlacement, oldFileLocation);
+        else  //West
+            returnExit = new Exit(5, (int) sourceExit.getY(),  5, (int) sourceExit.getY(), newPlacement, oldFileLocation);
+
+        return returnExit;
     }
 
     public String[][] getSkeleton(int maxWidth, int maxHeight, int maxNumCells) {

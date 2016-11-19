@@ -20,6 +20,8 @@ import javafx.util.Duration;
 import quests.Quest;
 import sprites.Lootable;
 import sprites.NPC;
+import sprites.PlayerSprite;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -39,9 +41,9 @@ public class UIManager {
     private MenuPane menu;
 
 
-    public UIManager(GamePane currentView) {
+    public UIManager(GamePane currentView, PlayerSprite playerSprite) {
         this.currentView = currentView;
-        this.player = currentView.getMainPlayerSprite().getPlayer();
+        this.player = playerSprite.getPlayer();
         menu = new MenuPane(currentView);
         initFlags();
     }
