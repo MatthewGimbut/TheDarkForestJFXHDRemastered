@@ -90,6 +90,12 @@ public class MessagePane extends BorderPane {
         this.currentView = currentView;
         this.displayedMessage.setOpacity(100);
         this.setLeft(this.displayedMessage);
+
+        Rectangle rekt = new Rectangle(1000, 57);
+
+        rekt.setArcHeight(GamePane.ARC_SIZE);
+        rekt.setArcWidth(GamePane.ARC_SIZE);
+        this.setClip(rekt);
         scrollMessage(message);
     }
 

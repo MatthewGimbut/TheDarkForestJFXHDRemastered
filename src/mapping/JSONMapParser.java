@@ -445,7 +445,8 @@ public class JSONMapParser {
             String test = chain[i+1][j];
             if(!test.equals(" ")) { //Place south exit
                 exits.add(new Exit(550, 665, 550, 65, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
-                        "file:Images\\NotBlank32x32.png"));
+                        "file:Images\\Blank32x48.png"));
+                exits.add(new Sprite(550, 620, "file:Images\\Blank32x32.png")); //Adds a blank sprite above south exit to prevent anything else from being placed there
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
@@ -453,7 +454,8 @@ public class JSONMapParser {
             String test = chain[i-1][j];
             if(!test.equals(" ")) { //Place north exit
                 exits.add(new Exit(550, 5, 550, 625, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
-                        "file:Images\\NotBlank32x32.png"));
+                        "file:Images\\Blank32x48.png"));
+                exits.add(new Sprite(550, 50, "file:Images\\Blank32x32.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
@@ -461,7 +463,9 @@ public class JSONMapParser {
             String test = chain[i][j+1];
             if(!test.equals(" ")) { //Place east exit
                 exits.add(new Exit(1020, 373, 50, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
-                        "file:Images\\NotBlank32x32.png"));
+                        "file:Images\\Blank32x48.png"));
+                exits.add(new Sprite(990, 373, "file:Images\\Blank32x32.png"));
+
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
@@ -469,7 +473,8 @@ public class JSONMapParser {
             String test = chain[i][j-1];
             if(!test.equals(" ")) { //Place west exit
                 exits.add(new Exit(5, 373, 970, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
-                        "file:Images\\NotBlank32x32.png"));
+                        "file:Images\\Blank32x48.png"));
+                exits.add(new Sprite(50, 373, "file:Images\\Blank32x32.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
