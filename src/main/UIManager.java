@@ -36,14 +36,12 @@ public class UIManager {
 
     private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
     private GamePane currentView;
-    private Player player;
     private Timeline t;
     private MenuPane menu;
 
 
-    public UIManager(GamePane currentView, PlayerSprite playerSprite) {
+    public UIManager(GamePane currentView) {
         this.currentView = currentView;
-        this.player = playerSprite.getPlayer();
         menu = new MenuPane(currentView);
         initFlags();
     }
@@ -114,7 +112,7 @@ public class UIManager {
 
     public void displayInventoryPane() {
         if(!inventoryCurrentlyDisplayed) {
-            ScrollingInventoryPane pane = new ScrollingInventoryPane(currentView,  player);
+            ScrollingInventoryPane pane = new ScrollingInventoryPane(currentView,  currentView.getMainPlayerSprite().getPlayer());
             currentView.getChildren().add(pane);
             inventoryCurrentlyDisplayed = true;
             pane.requestFocus();
@@ -129,7 +127,7 @@ public class UIManager {
 
     public void displayLootPane(Lootable loot) {
         if(!lootCurrentlyDisplayed) {
-            LootPane lp = new LootPane(currentView, loot, player);
+            LootPane lp = new LootPane(currentView, loot, currentView.getMainPlayerSprite().getPlayer());
             currentView.getChildren().add(lp);
             lootCurrentlyDisplayed = true;
             lp.requestFocus();
@@ -144,7 +142,7 @@ public class UIManager {
 
     public void displayOptionsPane() {
         if(!settingsCurrentlyDisplayed) {
-            OptionsPane op = new OptionsPane(currentView, player);
+            OptionsPane op = new OptionsPane(currentView, currentView.getMainPlayerSprite().getPlayer());
             currentView.getChildren().add(op);
             settingsCurrentlyDisplayed = true;
             op.requestFocus();
@@ -158,13 +156,13 @@ public class UIManager {
     }
 
     public void displayMessagePane(String message) {
-        MessagePane mp = new MessagePane(message, player, currentView);
+        MessagePane mp = new MessagePane(message, currentView.getMainPlayerSprite().getPlayer(), currentView);
         messageInfo(mp);
 
     }
 
     public void displayMessagePane(String[] message, NPC npc) {
-        MessagePane mp = new MessagePane(message, player, currentView, npc);
+        MessagePane mp = new MessagePane(message, currentView.getMainPlayerSprite().getPlayer(), currentView, npc);
         messageInfo(mp);
     }
 

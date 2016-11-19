@@ -63,6 +63,7 @@ public class MenuPane extends BorderPane {
 
         load.setOnAction(event -> {
             currentView.uiManager.toggleMenuPane();
+            System.out.println(currentView.saveLoc);
             ArrayList<Object> newMap = SaveManager.deserialize(currentView.saveLoc);
             currentView.setCurrentMapFile((String) newMap.get(1));
             currentView.setPlayer((PlayerSprite) newMap.get(0));

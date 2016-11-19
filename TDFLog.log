@@ -870,3 +870,27 @@
 2016-11-18 19:10:48.322 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
 2016-11-18 19:10:48.322 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
 2016-11-18 19:10:48.322 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:15:52.976 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:15:52.978 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:15:52.978 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:15:52.978 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:16:06.607 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:16:06.607 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:16:06.607 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:16:06.607 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:18:35.722 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:18:35.724 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:18:35.724 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:18:35.724 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:19:33.891 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:19:33.895 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:19:33.895 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:19:33.895 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:20:28.439 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:20:28.441 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:20:28.441 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:20:28.441 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:17:37.823 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save02.ser (The system cannot find the file specified)
+2016-11-18 19:17:37.825 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-18 19:17:37.825 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-18 19:17:37.825 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.

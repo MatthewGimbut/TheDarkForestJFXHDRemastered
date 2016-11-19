@@ -74,7 +74,7 @@ public class GamePane extends StackPane {
         this.getChildren().add(canvas);
 
         player = new PlayerSprite(200, 100, new Player("Matthew Gimbut"));
-        this.uiManager = new main.UIManager(this, player);
+        this.uiManager = new main.UIManager(this);
 
         /*String[] portal = new String[11];
         for(int i = 0; i < portal.length; i++) {
