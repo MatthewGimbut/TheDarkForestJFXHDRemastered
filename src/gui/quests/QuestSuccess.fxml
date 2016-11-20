@@ -9,7 +9,7 @@
 <?import javafx.scene.text.*?>
 <?scenebuilder-stylesheet ../themes.css?>
 
-<AnchorPane id="AnchorPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.9999000000025" prefWidth="537.0" style="    -fx-text-fill: #000000;&#10;    -fx-background-color: rgb(198, 153, 86);&#10;    -fx-border-radius: 9;&#10;    -fx-border-color: rgb(104, 72, 39);&#10;    -fx-background-radius: 11;&#10;    -fx-border-width: 2;&#10;    -fx-padding: 5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.9999000000025" prefWidth="537.0" style="    -fx-text-fill: #000000;&#10;    -fx-background-color: rgb(198, 153, 86);&#10;    -fx-border-radius: 9;&#10;    -fx-border-color: rgb(104, 72, 39);&#10;    -fx-background-radius: 11;&#10;    -fx-border-width: 2;&#10;    -fx-padding: 5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
     <BorderPane layoutX="14.0" layoutY="52.0" prefHeight="372.0" prefWidth="240.0" style="-fx-border-color: rgb(104, 72, 39);&#10;-fx-border-width: 1.5;&#10;">
       <center>
