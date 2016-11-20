@@ -63,5 +63,7 @@ public class ConfirmQuitPane extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
+
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 }

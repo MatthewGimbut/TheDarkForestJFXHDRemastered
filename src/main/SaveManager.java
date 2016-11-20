@@ -34,17 +34,14 @@ public interface SaveManager {
 		try(FileInputStream fs = new FileInputStream(file);
 			ObjectInputStream os = new ObjectInputStream(fs)) {
 			ArrayList<Object> mapstuff = (ArrayList<Object>) os.readObject();
-			((PlayerSprite) mapstuff.get(0)).getPlayer().deserializeQuests(); //deserialize the quests
 
 			return mapstuff;
 		} catch (IOException e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("IOException while deserializing save.");
-			//e.printStackTrace();
 		} catch (Exception e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("General while deserializing save.");
-			//e.printStackTrace();
 		}
 		return null;
 	}

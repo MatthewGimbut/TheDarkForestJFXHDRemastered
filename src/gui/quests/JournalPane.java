@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
+import main.AudioManager;
 import main.GameStage;
 import quests.Quest;
 import quests.QuestHandler;
@@ -83,6 +84,7 @@ public class JournalPane extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 
     private void drawQuests() {

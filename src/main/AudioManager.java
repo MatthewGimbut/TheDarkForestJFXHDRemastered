@@ -11,6 +11,9 @@ public class AudioManager {
     private Media sound;
     private MediaPlayer soundPlayer;
     private String previousTrack;
+    public static final String MENU_OPEN    =   "Sounds\\Inventory\\open_0.mp3";
+    public static final String LEVEL_UP     =   "Sounds\\levelup_0.mp3";
+
 
     public static AudioManager getInstance() {
         return ourInstance;

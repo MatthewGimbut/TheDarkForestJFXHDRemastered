@@ -150,6 +150,8 @@ public class ScrollingInventoryPane extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         pane.setClip(rekt);
+
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 
     private void sortItems() {

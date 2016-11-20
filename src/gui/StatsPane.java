@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
+import main.AudioManager;
 import main.GameStage;
 import sprites.PlayerSprite;
 import java.io.IOException;
@@ -186,5 +187,6 @@ public class StatsPane extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 }

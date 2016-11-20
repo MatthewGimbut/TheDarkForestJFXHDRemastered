@@ -1223,6 +1223,9 @@ public class GamePane extends StackPane {
             enemyHealthBars.add(pane);
             this.getChildren().add(pane);
         });
+        if(enemies.size() == 0) {
+            AudioManager.getInstance().stopAllAudio();
+        }
     }
 
     /**

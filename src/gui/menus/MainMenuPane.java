@@ -176,6 +176,7 @@ public class MainMenuPane extends BorderPane {
             GamePane gp = new GamePane(primaryStage, file, dir);
             GameStage.setGamePane(gp);
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
+            gp.fillEnemies();
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
             primaryStage.setScene(scene);
@@ -219,6 +220,7 @@ public class MainMenuPane extends BorderPane {
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
+            gp.getMainPlayerSprite().getPlayer().deserializeQuests();
             primaryStage.setScene(scene);
         }
     }

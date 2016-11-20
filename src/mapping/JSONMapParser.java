@@ -414,6 +414,7 @@ public class JSONMapParser {
                                                 int maxHeight, int maxWidth, int numCells) throws IOException {
         String[][] chain = getSkeleton(maxHeight, maxWidth, numCells);
         printMap(chain);
+        String halfWay = numCells/2 + "";
         for(int i = 0; i < chain.length; i++) { //Rows
             for(int j = 0; j < chain.length; j++) { //Columns
                 if(!chain[i][j].equals(" ")) {
@@ -433,7 +434,15 @@ public class JSONMapParser {
                         ArrayList<Sprite> mapItems = new ArrayList<>();
                         mapItems.addAll(checkForSurroundingExits(chain, i, j, saveDir));
                         addTreeBorder(mapItems);
-                        addStructures(mapItems);
+
+                        if(chain[i][j].equals(halfWay)) {
+                            mapItems.add(new Save(rand.nextInt(980), rand.nextInt(650)));
+                        }
+
+                        String numCellsToString = "" + numCells;
+                        if(chain[i][j].equals(numCellsToString)) { //Final cell of a dungeon has link to shrek house for now to get out
+                            addStructures(mapItems);
+                        }
                         addRandomObstacles(mapItems, 20);
                         addRandomLoot(mapItems, 2);
                         addRandomNPCs(mapItems, YES_ENEMIES, 2);
@@ -463,16 +472,24 @@ public class JSONMapParser {
             if(!test.equals(" ")) { //Place south exit
                 exits.add(new Exit(550, 665, 550, 65, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
                         "file:Images\\Blank32x48.png"));
-                exits.add(new Sprite(550, 620, "file:Images\\Blank32x32.png")); //Adds a blank sprite above south exit to prevent anything else from being placed there
+                GenericObstacle go = new GenericObstacle(545, 585, "file:Images\\Space48x48.png");
+                go.setObstacle(false);
+                exits.add(go); //Adds a blank sprite above south exit to prevent anything else from being placed there
+                //exits.add(new Sprite(550, 620, "file:Images\\Blank32x48.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
         try {
             String test = chain[i-1][j];
             if(!test.equals(" ")) { //Place north exit
-                exits.add(new Exit(550, 5, 550, 625, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
+                exits.add(new Exit(550, 5, 550, 620, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
                         "file:Images\\Blank32x48.png"));
-                exits.add(new Sprite(550, 50, "file:Images\\Blank32x32.png"));
+
+                GenericObstacle go = new GenericObstacle(545, 60, "file:Images\\Space48x48.png");
+                go.setObstacle(false);
+                exits.add(go); //Adds a blank sprite above south exit to prevent anything else from being placed there
+
+                //exits.add(new Sprite(550, 50, "file:Images\\Blank32x48.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
@@ -481,8 +498,12 @@ public class JSONMapParser {
             if(!test.equals(" ")) { //Place east exit
                 exits.add(new Exit(1020, 373, 50, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
                         "file:Images\\Blank32x48.png"));
-                exits.add(new Sprite(990, 373, "file:Images\\Blank32x32.png"));
 
+                GenericObstacle go = new GenericObstacle(965, 373, "file:Images\\Space48x48.png");
+                go.setObstacle(false);
+                exits.add(go); //Adds a blank sprite above south exit to prevent anything else from being placed there
+
+                //exits.add(new Sprite(990, 373, "file:Images\\Blank32x48.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 
@@ -491,7 +512,12 @@ public class JSONMapParser {
             if(!test.equals(" ")) { //Place west exit
                 exits.add(new Exit(5, 373, 970, 373, Cardinal.South, saveDir + "CurrentDungeon\\cell_"+test+".json",
                         "file:Images\\Blank32x48.png"));
-                exits.add(new Sprite(50, 373, "file:Images\\Blank32x32.png"));
+
+                GenericObstacle go = new GenericObstacle(50, 373, "file:Images\\Space48x48.png");
+                go.setObstacle(false);
+                exits.add(go); //Adds a blank sprite above south exit to prevent anything else from being placed there
+
+                //exits.add(new Sprite(50, 373, "file:Images\\Blank32x48.png"));
             }
         } catch (ArrayIndexOutOfBoundsException e) {}
 

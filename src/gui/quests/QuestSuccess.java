@@ -4,6 +4,7 @@ import gui.GamePane;
 import gui.items.ItemPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
+import main.AudioManager;
 import main.GameStage;
 import quests.Quest;
 
@@ -85,5 +86,7 @@ public class QuestSuccess extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
+
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 }

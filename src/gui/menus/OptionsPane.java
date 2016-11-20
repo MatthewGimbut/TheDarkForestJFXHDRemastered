@@ -13,6 +13,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
+import main.AudioManager;
 import main.GameStage;
 
 import java.io.IOException;
@@ -78,6 +79,7 @@ public class OptionsPane extends BorderPane {
         rekt.setArcHeight(GamePane.ARC_SIZE);
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
+        AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
 
 }
