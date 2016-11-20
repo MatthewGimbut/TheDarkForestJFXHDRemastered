@@ -20,6 +20,7 @@ import main.SaveManager;
 import sprites.PlayerSprite;
 
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -64,7 +65,12 @@ public class MenuPane extends BorderPane {
         load.setOnAction(event -> {
             currentView.uiManager.toggleMenuPane();
             System.out.println(currentView.saveLoc);
-            ArrayList<Object> newMap = SaveManager.deserialize(currentView.saveLoc);
+            ArrayList<Object> newMap = new ArrayList<>();
+            try {
+                newMap = SaveManager.deserialize(currentView.saveLoc);
+            } catch (InvalidClassException e) {
+                System.out.println("Unable to load save, invalid version.");
+            }
             currentView.setCurrentMapFile((String) newMap.get(1));
             currentView.setPlayer((PlayerSprite) newMap.get(0));
             currentView.getMainPlayerSprite().setImage(currentView.getMainPlayerSprite().getImageLocation());

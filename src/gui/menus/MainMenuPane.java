@@ -31,6 +31,7 @@ import quests.QuestHandler;
 import sprites.PlayerSprite;
 
 import javax.tools.Tool;
+import java.io.InvalidClassException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -134,6 +135,10 @@ public class MainMenuPane extends BorderPane {
             ArrayList<Object> save1 = SaveManager.deserialize(SAVE_01);
             Player p = ((PlayerSprite) save1.get(0)).getPlayer();
             info1.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (InvalidClassException e) {
+            System.out.println("Save 1 old version. Ignoring.");
+            info1.setText("Old version");
+            continue1.setDisable(true);
         } catch (Exception e) {
             info1.setText("Empty");
             continue1.setDisable(true);
@@ -143,6 +148,10 @@ public class MainMenuPane extends BorderPane {
             ArrayList<Object> save2 = SaveManager.deserialize(SAVE_02);
             Player p = ((PlayerSprite) save2.get(0)).getPlayer();
             info2.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (InvalidClassException e) {
+            System.out.println("Save 2 old version. Ignoring.");
+            info2.setText("Old version");
+            continue2.setDisable(true);
         } catch (Exception e) {
             System.out.println("Save 2 set to empty.");
             info2.setText("Empty");
@@ -153,6 +162,10 @@ public class MainMenuPane extends BorderPane {
             ArrayList<Object> save3 = SaveManager.deserialize(SAVE_03);
             Player p = ((PlayerSprite) save3.get(0)).getPlayer();
             info3.setText(p.getName() + " - Lvl " + p.getLvl());
+        } catch (InvalidClassException e) {
+            System.out.println("Save 3 old version. Ignoring.");
+            info3.setText("Old version");
+            continue3.setDisable(true);
         } catch (Exception e) {
             System.out.println("Save 3 set to empty.");
             info3.setText("Empty");
@@ -208,6 +221,8 @@ public class MainMenuPane extends BorderPane {
                 gp.setId((String) newMap.get(2));
             } catch (SerializationException | NullPointerException e) {
                 GameStage.logger.error(e);
+            } catch (InvalidClassException e) {
+                System.out.println("Should never happen");
             }
 
             try {

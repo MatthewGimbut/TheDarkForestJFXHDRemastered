@@ -19,6 +19,7 @@ import main.Records;
 import quests.Quest;
 import quests.QuestHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Random;
@@ -37,7 +38,7 @@ public class Player extends Character {
     private final static int STARTING_SPD = 30;
     private final static int STARTING_MAX_CARRY = 150;
     public final static int MAX_XP = 100;
-    private LinkedList<Item> inventory;
+    private ArrayList<Item> inventory;
     private int xp;
     private int gold;
     private int hpRegen; //hpRegen, manaRegen, staminaRegen are in milliseconds
@@ -78,7 +79,7 @@ public class Player extends Character {
         currentStamina = 150;
         maxStamina = 150;
         textScrollingSpeed = 45; //Milliseconds
-        inventory = new LinkedList<Item>();
+        inventory = new ArrayList<>();
         records = new Records();
     }
 
@@ -332,7 +333,7 @@ public class Player extends Character {
         modifyCurrentHP(((Potion) p).getAmount());
     }
 
-    public LinkedList<Item> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 

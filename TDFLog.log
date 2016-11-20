@@ -1120,3 +1120,71 @@
 2016-11-20 01:14:53.536 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
 2016-11-20 01:15:17.150 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
 2016-11-20 01:15:17.150 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 01:35:44.369 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 01:35:44.372 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 01:35:50.507 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 01:35:50.507 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 01:35:53.858 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 01:35:53.859 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 01:36:18.418 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 01:36:18.419 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 01:36:26.291 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 01:36:26.291 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 12:40:56.313 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 12:40:56.315 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:03:09.218 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:03:09.220 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:03:09.221 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:03:09.221 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:03:09.222 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:03:09.222 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:05:59.218 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:05:59.220 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:05:59.221 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:05:59.221 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:05:59.221 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:05:59.222 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:06:15.767 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:06:15.767 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:06:15.767 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:06:15.767 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:13:43.517 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:13:43.541 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:13:43.543 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:13:43.559 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:01.178 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:17:01.180 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:01.180 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:17:01.181 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:15.543 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:17:15.544 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:15.545 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:17:15.545 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:14:16.825 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:14:16.827 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:14:16.827 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:14:16.827 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:28.846 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:17:28.848 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:17:28.849 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:17:28.849 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:20:23.295 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:20:23.297 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:20:23.298 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:20:23.298 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:19:44.076 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:19:44.080 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:19:44.083 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:19:44.084 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:21:35.980 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:21:35.981 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
+2016-11-20 13:21:35.982 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:21:35.982 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:21:51.817 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:21:51.819 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:21:51.819 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:21:51.819 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-20 13:22:30.701 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = -6447754080201772740
+2016-11-20 13:22:30.703 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
+2016-11-20 13:22:30.704 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-20 13:22:30.704 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.

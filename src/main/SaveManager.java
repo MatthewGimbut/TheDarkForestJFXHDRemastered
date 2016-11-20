@@ -30,18 +30,22 @@ public interface SaveManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static ArrayList<Object> deserialize(String file) {
+	public static ArrayList<Object> deserialize(String file) throws InvalidClassException {
 		try(FileInputStream fs = new FileInputStream(file);
 			ObjectInputStream os = new ObjectInputStream(fs)) {
 			ArrayList<Object> mapstuff = (ArrayList<Object>) os.readObject();
 
 			return mapstuff;
+		} catch (InvalidClassException e) {
+			GameStage.logger.error(e);
+			GameStage.logger.error("InvalidClassException while deserializing save.");
+			throw e;
 		} catch (IOException e) {
 			GameStage.logger.error(e);
 			GameStage.logger.error("IOException while deserializing save.");
-		} catch (Exception e) {
+		} catch (ClassNotFoundException e) {
 			GameStage.logger.error(e);
-			GameStage.logger.error("General while deserializing save.");
+			GameStage.logger.error("ClassNotFoundException while deserializing save.");
 		}
 		return null;
 	}

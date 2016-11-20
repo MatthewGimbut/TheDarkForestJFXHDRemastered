@@ -39,7 +39,6 @@ public class ConfirmQuitPane extends BorderPane {
         } catch (Exception exception) {
             GameStage.logger.error(exception.getMessage());
             GameStage.logger.error(exception);
-            GameStage.logger.error(exception.getStackTrace());
         }
     }
 
