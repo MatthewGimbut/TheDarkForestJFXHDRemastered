@@ -27,6 +27,7 @@ import javafx.util.Duration;
 import main.GameStage;
 import main.SaveManager;
 import mapping.MapContainer;
+import quests.QuestHandler;
 import sprites.PlayerSprite;
 
 import javax.tools.Tool;
@@ -177,6 +178,7 @@ public class MainMenuPane extends BorderPane {
             GameStage.setGamePane(gp);
             GameScene scene = new GameScene(gp, GameStage.WINDOW_WIDTH, GameStage.WINDOW_HEIGHT);
             gp.fillEnemies();
+            QuestHandler.resetQuests();
             gp.requestFocus();
             scene.getStylesheets().add(GameStage.STYLESHEET);
             primaryStage.setScene(scene);
