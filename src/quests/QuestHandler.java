@@ -241,4 +241,13 @@ public class QuestHandler {
 
         return result;
     }
+
+    /**
+     * Resets the status of the Quests.
+     */
+    public static void resetQuests() {
+        activeQuests = new LinkedList<Quest>();
+        completeQuests = new LinkedList<Quest>();
+        inActiveQuests = QuestHandler.fillQuests();
+    }
 }
