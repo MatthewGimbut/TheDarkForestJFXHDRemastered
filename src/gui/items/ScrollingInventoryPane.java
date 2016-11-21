@@ -277,7 +277,7 @@ public class ScrollingInventoryPane extends BorderPane {
         });
     }
 
-    private Color determineNameColor(Item i) {
+    public static Color determineNameColor(Item i) {
         switch(i.getHowRare()) {
             case JUNK:
                 return Color.GRAY;
@@ -308,7 +308,9 @@ public class ScrollingInventoryPane extends BorderPane {
         @Override
         public void handle(Event event) {
             itemName.setText(label.getItem().getSimpleName());
+
             itemImage.setImage(label.getItemImage());
+
             itemName.setTextFill(determineNameColor(label.getItem()));
             stat1.setText("Atk: " + label.getItem().getAtk());
             stat3.setText("CD: " + label.getItem().getCooldown());

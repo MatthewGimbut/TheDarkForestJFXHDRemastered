@@ -1,11 +1,12 @@
 package main;
 
-import characters.Player;
+import characters.Merchant;
 import gui.GamePane;
 import gui.MessagePane;
 import gui.StatsPane;
 import gui.items.LootPane;
 import gui.items.ScrollingInventoryPane;
+import gui.items.ShopPane;
 import gui.menus.ConfirmQuitPane;
 import gui.menus.MenuPane;
 import gui.menus.OptionsPane;
@@ -20,7 +21,6 @@ import javafx.util.Duration;
 import quests.Quest;
 import sprites.Lootable;
 import sprites.NPC;
-import sprites.PlayerSprite;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -34,7 +34,7 @@ public class UIManager {
             inventoryCurrentlyDisplayed, lootCurrentlyDisplayed, settingsCurrentlyDisplayed,
             messageCurrentlyDisplayed, equipmentCurrentlyDisplayed, questCurrentlyDisplayed;
 
-    private Queue<BorderPane> questPanelStack = new LinkedList<BorderPane>();
+    private Queue<BorderPane> panelStack = new LinkedList<BorderPane>();
     private GamePane currentView;
     private Timeline t;
     private MenuPane menu;
@@ -65,6 +65,10 @@ public class UIManager {
                 || questCurrentlyDisplayed);
     }
 
+    public Queue<BorderPane> getPanelStack() {
+        return panelStack;
+    }
+
     private void initFlags() {
         menuCurrentlyDisplayed = false;
         statsCurrentlyDisplayed = false;
@@ -83,7 +87,7 @@ public class UIManager {
             currentView.getChildren().add(qs);
             qs.requestFocus();
         } else {
-            questPanelStack.add(qs);
+            panelStack.add(qs);
         }
     }
 
@@ -91,7 +95,7 @@ public class UIManager {
         currentView.getChildren().remove(qs);
         questCurrentlyDisplayed = false;
         currentView.requestFocus();
-        if(questPanelStack.size() != 0) {
+        if(panelStack.size() != 0) {
             popQuestPanelStack();
         }
     }
@@ -211,7 +215,7 @@ public class UIManager {
             currentView.getChildren().add(nqp);
             nqp.requestFocus();
         } else {
-            questPanelStack.add(nqp);
+            panelStack.add(nqp);
         }
     }
 
@@ -219,7 +223,7 @@ public class UIManager {
         currentView.getChildren().remove(pane);
         questCurrentlyDisplayed = false;
         currentView.requestFocus();
-        if(questPanelStack.size() != 0) {
+        if(panelStack.size() != 0) {
             popQuestPanelStack();
         }
     }
@@ -256,11 +260,18 @@ public class UIManager {
     }
 
     public void popQuestPanelStack() {
-        BorderPane bp = questPanelStack.remove();
+        BorderPane bp = panelStack.remove();
         questCurrentlyDisplayed = true;
         currentView.getChildren().add(bp);
         bp.requestFocus();
     }
+
+    /*public void popMerchantPanelStack() {
+        BorderPane bp = panelStack.remove();
+        menuCurrentlyDisplayed = true;
+        currentView.getChildren().add(bp);
+        bp.requestFocus();
+    }*/
 
     public void showConfirmQuitPane() {
         menuCurrentlyDisplayed = true;
@@ -271,6 +282,22 @@ public class UIManager {
 
     public void removeConfirmQuitPane(ConfirmQuitPane cqp) {
         currentView.getChildren().remove(cqp);
+        currentView.requestFocus();
+        menuCurrentlyDisplayed = false;
+    }
+
+    public void displayShopPane(NPC npc) {
+        if(!menuCurrentlyDisplayed) {
+            Merchant merchant = (Merchant) npc.getNPC();
+            ShopPane pane = new ShopPane(currentView, merchant);
+            menuCurrentlyDisplayed = true;
+            currentView.getChildren().add(pane);
+            pane.requestFocus();
+        }
+    }
+
+    public void removeShopPane(ShopPane pane) {
+        currentView.getChildren().remove(pane);
         currentView.requestFocus();
         menuCurrentlyDisplayed = false;
     }

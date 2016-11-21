@@ -38,9 +38,7 @@ public class Player extends Character {
     private final static int STARTING_SPD = 30;
     private final static int STARTING_MAX_CARRY = 150;
     public final static int MAX_XP = 100;
-    private ArrayList<Item> inventory;
     private int xp;
-    private int gold;
     private int hpRegen; //hpRegen, manaRegen, staminaRegen are in milliseconds
     private int manaRegen;
     private int currentStamina, maxStamina, staminaRegen;
@@ -79,7 +77,6 @@ public class Player extends Character {
         currentStamina = 150;
         maxStamina = 150;
         textScrollingSpeed = 45; //Milliseconds
-        inventory = new ArrayList<>();
         records = new Records();
     }
 
@@ -333,9 +330,7 @@ public class Player extends Character {
         modifyCurrentHP(((Potion) p).getAmount());
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
+
 
     /**
      * Adds a single item to the inventory
@@ -409,15 +404,6 @@ public class Player extends Character {
         this.xp = leftoverXP;
     }
 
-    public int getGold() {
-        return gold;
-    }
-
-    public void modifyGold(int gold) {
-        records.increaseTotalGold(gold);
-        this.gold += gold;
-    }
-
     public void prepareSerializeQuests() {
         this.activeQuestsSer = QuestHandler.activeQuests;
         this.completeQuestsSer = QuestHandler.completeQuests;
@@ -471,6 +457,13 @@ public class Player extends Character {
             this.currentStamina = currentStamina;
         } else {
             this.currentStamina = this.maxStamina;
+        }
+    }
+
+    public void modifyGold(int gold) {
+        super.modifyGold(gold);
+        if(gold > 0) {
+            records.increaseTotalGold(gold);
         }
     }
 

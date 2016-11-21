@@ -1,22 +1,43 @@
 package gui.items;
 
+import characters.Merchant;
+import characters.Player;
 import gui.GamePane;
+import items.Armor.Armor;
+import items.Armor.Shield;
+import items.Consumables.Consumable;
+import items.Consumables.Potion;
+import items.Item;
+import items.Weapons.Magic;
+import items.Weapons.Weapon;
+import items.accessories.Accessory;
+import items.ammunition.Ammunition;
+import items.ammunition.Arrow;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import main.AudioManager;
 import main.GameStage;
+import sprites.DisplayItem;
 import sprites.NPC;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ShopPane extends BorderPane {
@@ -39,12 +60,14 @@ public class ShopPane extends BorderPane {
     @FXML private Label stat11;
     @FXML private Label stat20;
     @FXML private Label stat21;
+    @FXML private Label stat30;
+    @FXML private Label stat31;
     @FXML private GridPane statGrid;
 
     private GamePane currentView;
-    private NPC shopkeeper;
+    private Merchant shopkeeper;
 
-    public ShopPane(GamePane currentView, NPC shopkeeper) {
+    public ShopPane(GamePane currentView, Merchant shopkeeper) {
         this.currentView = currentView;
         this.shopkeeper = shopkeeper;
 
@@ -62,8 +85,13 @@ public class ShopPane extends BorderPane {
 
     @FXML
     void initialize() {
-        playerLabel.setText(currentView.getMainPlayerSprite().getPlayer().getName());
-        shopkeeperLabel.setText(shopkeeper.getNPC().getName());
+        playerLabel.setText(currentView.getMainPlayerSprite().getPlayer().getName() + "'s Items");
+        shopkeeperLabel.setText(shopkeeper.getName() + "'s items");
+
+        exit.setOnAction(event -> currentView.uiManager.removeShopPane(this));
+
+        playerScroll.setContent(fillPlayerTab());
+        shopkeeperPane.setContent(fillShopTab());
 
         this.setCenter(anchor);
 
@@ -72,6 +100,128 @@ public class ShopPane extends BorderPane {
         rekt.setArcWidth(GamePane.ARC_SIZE);
         anchor.setClip(rekt);
 
+        message.setFont(new Font("Cambria", 18));
+
         AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
+    }
+
+    private VBox fillPlayerTab() {
+        playerScroll.setContent(null);
+        VBox playerBox = new VBox(5);
+        Player p = currentView.getMainPlayerSprite().getPlayer();
+
+        for(Item i : p.getInventory()) {
+            TextItemPane label = new TextItemPane(i,p); //lol
+            label.setId("inventoryItem");
+            label.setOnMouseClicked(new SellHandler(label));
+            label.setOnMouseEntered(new DisplayHandler(label));
+            playerBox.setMargin(label, new Insets(2, 0, 2, 5));
+            playerBox.getChildren().add(label);
+        }
+
+        return  playerBox;
+    }
+
+    private VBox fillShopTab() {
+        shopkeeperPane.setContent(null);
+        VBox shopBox = new VBox(5);
+
+        for(Item i : shopkeeper.getInventory()) {
+            TextItemPane label = new TextItemPane(i, shopkeeper);
+            label.setId("inventoryItem");
+            label.setOnMouseClicked(new BuyHandler(label));
+            label.setOnMouseEntered(new DisplayHandler(label));
+            shopBox.setMargin(label, new Insets(2, 0, 2, 5));
+            shopBox.getChildren().add(label);
+        }
+
+        return shopBox;
+    }
+
+    private class BuyHandler implements EventHandler<MouseEvent> {
+
+        private TextItemPane label;
+
+        BuyHandler(TextItemPane label) { this.label = label; }
+
+        @Override
+        public void handle(MouseEvent event) {
+
+        }
+    }
+
+    private class SellHandler implements EventHandler<MouseEvent> {
+
+        private TextItemPane label;
+
+        SellHandler(TextItemPane label) { this.label = label; }
+
+        @Override
+        public void handle(MouseEvent event) {
+
+        }
+    }
+
+    private class DisplayHandler implements EventHandler {
+
+        private TextItemPane pane;
+
+        DisplayHandler(TextItemPane pane) { this.pane = pane; }
+
+        @Override
+        public void handle(Event event) {
+            Item i = pane.getItem();
+            if (i instanceof Magic) {
+                stat00.setText("Attack: " + i.getAtk());
+                stat01.setText("Magic: " + i.getMagic());
+                stat10.setText("Mana boost: " + i.getManaBoost());
+                stat11.setText("Mana cost: " + ((Magic) i).getManaCost());
+                stat20.setText("Cooldown: " + i.getCooldown());
+                stat21.setText("Element: " + ((Magic) i).getSpellType());
+            } else if (i instanceof Ammunition) {
+                stat00.setText("Damage: " + ((Ammunition) i).getDamage());
+                stat01.setText("Indiv. Weight: " + ((Ammunition) i).getIndividualWeight());
+                stat10.setText("Indiv. Value: " + ((Ammunition) i).getIndividualValue());
+                stat11.setText("Amount: " + ((Ammunition) i).getCount());
+                stat20.setText("");
+                stat21.setText("");
+            } else if (i instanceof Accessory) {
+                stat00.setText("CD Reduction: " + -((Accessory) i).getCooldownReduction());
+                stat01.setText("Mana Regen: " + -((Accessory) i).getManaRegenBoost());
+                stat10.setText("HP Regen: " + -((Accessory) i).getHpRegenBoost());
+                stat11.setText("Stamina Regen: " + -((Accessory) i).getStaminaRegenBoost());
+                stat20.setText("HP Boost: " + i.getHpBoost());
+                stat21.setText("Mana Boost: " + i.getManaBoost());
+            } else if (i instanceof Weapon || i instanceof Shield) {
+                stat00.setText("Attack: " + i.getAtk());
+                stat01.setText("Defense: " + i.getDef());
+                stat10.setText("Magic: " + i.getMagic());
+                stat11.setText("Cooldown: " + i.getCooldown());
+                stat20.setText("");
+                stat21.setText("");
+            } else if (i instanceof Armor) {
+                stat00.setText("Attack: " + i.getAtk());
+                stat01.setText("Defense: " + i.getDef());
+                stat10.setText("Magic: " + i.getMagic());
+                stat11.setText("");
+                stat20.setText("");
+                stat21.setText("");
+                //TODO Maybe add more details? idk
+            } else if (i instanceof Potion) {
+                stat00.setText("Type: " + ((Potion) i).getType());
+                stat01.setText("Amount: " + ((Potion) i).getAmount());
+                stat10.setText("");
+                stat11.setText("");
+                stat20.setText("");
+                stat21.setText("");
+            }
+
+            itemImage.setImage(pane.getItemImage());
+            itemName.setText(pane.getItem().getSimpleName());
+            itemName.setTextFill(ScrollingInventoryPane.determineNameColor(i));
+            stat30.setText("Weight: " + i.getWeight());
+            stat31.setText(i.getValue() + " gold");
+            description.setText(i.getItemToolTipText());
+        }
     }
 }

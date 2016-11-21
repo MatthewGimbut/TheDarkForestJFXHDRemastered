@@ -60,9 +60,17 @@ public abstract class Ammunition extends Weapon implements Stackable {
         return Double.parseDouble(GameStage.df.format(this.individualWeight * this.ammoCount));
     }
 
+    public double getIndividualWeight() {
+        return individualWeight;
+    }
+
     @Override
     public int getValue() {
         return this.value * ammoCount;
+    }
+
+    public int getIndividualValue() {
+        return value;
     }
 
     @Override

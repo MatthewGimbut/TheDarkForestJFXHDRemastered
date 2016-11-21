@@ -1,10 +1,8 @@
 package gui;
 
 import battle.BattleHandler;
+import characters.*;
 import characters.Character;
-import characters.Enemy;
-import characters.Neutral;
-import characters.Player;
 import gui.quests.QuestSummary;
 import items.Weapons.Bow;
 import items.Weapons.Crossbow;
@@ -1158,16 +1156,14 @@ public class GamePane extends StackPane {
         if(((NPC) obstacle).getNPC() instanceof Enemy) {
             if(obstacle.getMessage() != null) {
                 uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
-            } else {
-                //TODO inefficient/pointless, find better way to do this
-                ArrayList<Enemy> enemy = new ArrayList<>();
-                enemy.add((Enemy) ((NPC) obstacle).getNPC());
             }
         } else if (((NPC) obstacle).getNPC() instanceof Neutral) {
             ((NPC) obstacle).questInteraction();
             uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
+        } else if (((NPC) obstacle).getNPC() instanceof Merchant) {
+            uiManager.displayShopPane((NPC) obstacle);
+            uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
         }
-
     }
 
     private void initCollections() {
