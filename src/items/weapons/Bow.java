@@ -29,7 +29,7 @@ public class Bow extends Weapon implements Projectile, TwoHanded {
     }
 
     @Override
-    public int getStaminaCost() { return 10; }
+    public int getStaminaCost() { return 25; }
 
     private void setInfo(String imgLoc, String name, String tooltip) {
         if(imgLoc == null) {

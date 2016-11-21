@@ -38,9 +38,7 @@ public class Player extends Character {
     private final static int STARTING_SPD = 30;
     private final static int STARTING_MAX_CARRY = 150;
     public final static int MAX_XP = 100;
-    private ArrayList<Item> inventory;
     private int xp;
-    private int gold;
     private int hpRegen; //hpRegen, manaRegen, staminaRegen are in milliseconds
     private int manaRegen;
     private int currentStamina, maxStamina, staminaRegen;
@@ -79,7 +77,6 @@ public class Player extends Character {
         currentStamina = 150;
         maxStamina = 150;
         textScrollingSpeed = 45; //Milliseconds
-        inventory = new ArrayList<>();
         records = new Records();
     }
 
@@ -333,56 +330,6 @@ public class Player extends Character {
         modifyCurrentHP(((Potion) p).getAmount());
     }
 
-    public ArrayList<Item> getInventory() {
-        return inventory;
-    }
-
-    /**
-     * Adds a single item to the inventory
-     * @param i The item to be added
-     */
-    public boolean addItem(Item i) {
-        if (i.getWeight() <= (getCarryCap() - getCurrentCarry())) {
-            if(i instanceof Stackable) {
-                boolean stacked = false;
-                for(int k = 0; k < inventory.size() && !stacked; k++) {
-                    Item current = inventory.get(k);
-                    if(current instanceof Stackable) {
-                        if(current instanceof Ammunition && i instanceof Ammunition
-                                && current.getClass().equals(i.getClass())
-                                && current.getHowRare().equals(i.getHowRare())
-                                && ((Ammunition) current).getWeaponType().equals(((Ammunition) i).getWeaponType())) {
-                            System.out.println("Previous: " + ((Ammunition) current).getCount());
-                            ((Ammunition) current).combine((Stackable) i);
-                            System.out.println("After: " + ((Ammunition) current).getCount());
-                            stacked = true;
-                        }
-                    }
-
-                }
-                if(!stacked) {
-                    this.inventory.add(i);
-                }
-            } else {
-                this.inventory.add(i);
-            }
-            this.modifyCurrentCarry(i.getWeight());
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    /**
-     * Removes a single item from the inventory
-     * @param i The item to be removed
-     */
-    public void removeSingleItem(Item i) {
-        this.inventory.remove(i);
-        this.modifyCurrentCarry(-i.getWeight());
-    }
-
     public int getXp() {
         return xp;
     }
@@ -407,15 +354,6 @@ public class Player extends Character {
         this.currentStamina += staminaBoost;
         this.maxStamina += staminaBoost;
         this.xp = leftoverXP;
-    }
-
-    public int getGold() {
-        return gold;
-    }
-
-    public void modifyGold(int gold) {
-        records.increaseTotalGold(gold);
-        this.gold += gold;
     }
 
     public void prepareSerializeQuests() {
@@ -471,6 +409,13 @@ public class Player extends Character {
             this.currentStamina = currentStamina;
         } else {
             this.currentStamina = this.maxStamina;
+        }
+    }
+
+    public void modifyGold(int gold) {
+        super.modifyGold(gold);
+        if(gold > 0) {
+            records.increaseTotalGold(gold);
         }
     }
 

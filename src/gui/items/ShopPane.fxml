@@ -8,18 +8,18 @@
 <?import javafx.scene.paint.*?>
 <?scenebuilder-stylesheet ../themes.css?>
 
-<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="660.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="standardPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="842.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <children>
-    <Button id="" fx:id="exit" cancelButton="false" defaultButton="false" disable="false" layoutX="614.0" layoutY="14.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" textFill="#990000" underline="false" />
-    <TabPane layoutX="14.0" layoutY="13.0" prefHeight="473.0" prefWidth="316.0" tabClosingPolicy="UNAVAILABLE">
+    <Button id="" fx:id="exit" cancelButton="false" defaultButton="false" disable="false" layoutX="792.0" layoutY="14.0" minHeight="17.999908447265625" mnemonicParsing="false" prefHeight="25.0" text="X" textAlignment="LEFT" textFill="#990000" underline="false" />
+    <TabPane layoutX="14.0" layoutY="13.0" prefHeight="473.0" prefWidth="450.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
         <Tab fx:id="playerLabel" text="Player Inventory">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="435.0" prefWidth="443.0">
               <children>
-                <ScrollPane fx:id="playerScroll" layoutX="0.0" layoutY="0.0" prefHeight="425.0" prefWidth="316.0">
+                <ScrollPane fx:id="playerScroll" layoutX="0.0" layoutY="0.0" prefHeight="425.0" prefWidth="434.0">
                   <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="308.0" />
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="432.0" />
                   </content>
                 </ScrollPane>
               </children>
@@ -28,11 +28,11 @@
         </Tab>
         <Tab fx:id="shopkeeperLabel" text="Shopkeeper Inventory">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="435.0" prefWidth="451.0">
               <children>
-                <ScrollPane id="shopkeeperPanne" fx:id="shopkeeperPane" layoutX="0.0" layoutY="0.0" prefHeight="435.0" prefWidth="308.0">
+                <ScrollPane id="shopkeeperPanne" fx:id="shopkeeperPane" layoutX="0.0" layoutY="0.0" prefHeight="435.0" prefWidth="433.0">
                   <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="301.0" />
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="427.0" prefWidth="431.0" />
                   </content>
                 </ScrollPane>
               </children>
@@ -41,26 +41,24 @@
         </Tab>
       </tabs>
     </TabPane>
-    <HBox alignment="CENTER" layoutX="330.0" layoutY="108.0" prefHeight="32.0" prefWidth="316.0">
+    <HBox alignment="CENTER" layoutX="508.0" layoutY="108.0" prefHeight="32.0" prefWidth="316.0">
       <children>
-        <ImageView fx:id="itemImage" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-          <image>
-            <Image url="@../../../Images/Accessories/ring.png" />
-          </image>
-        </ImageView>
+        <ImageView fx:id="itemImage" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </HBox>
-    <Label fx:id="itemName" alignment="CENTER" layoutX="388.0" layoutY="63.0" prefHeight="25.0" prefWidth="200.0" text="" />
-    <Label id="itemMessage" fx:id="description" alignment="TOP_CENTER" layoutX="361.0" layoutY="282.0" prefHeight="112.0" prefWidth="269.0" text="" textAlignment="LEFT" wrapText="true" />
-    <Label fx:id="message" alignment="CENTER" layoutX="352.0" layoutY="424.0" prefHeight="62.0" prefWidth="271.0" text="Change this font size." />
-    <GridPane fx:id="statGrid" alignment="TOP_LEFT" layoutX="330.0" layoutY="160.0" prefWidth="316.0">
+    <Label fx:id="itemName" alignment="CENTER" layoutX="566.0" layoutY="63.0" prefHeight="25.0" prefWidth="200.0" text="" />
+    <Label id="itemMessage" fx:id="description" alignment="TOP_CENTER" layoutX="531.0" layoutY="282.0" prefHeight="70.0" prefWidth="269.0" text="" textAlignment="LEFT" wrapText="true" />
+    <Label fx:id="message" alignment="CENTER" layoutX="485.0" layoutY="454.0" prefHeight="32.0" prefWidth="340.0" text="" />
+    <GridPane fx:id="statGrid" alignment="TOP_LEFT" layoutX="508.0" layoutY="160.0" prefWidth="316.0">
       <children>
-        <Label id="stat1" fx:id="stat00" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Label fx:id="stat01" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Label fx:id="stat10" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Label fx:id="stat11" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label fx:id="stat20" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Label fx:id="stat21" alignment="CENTER" prefWidth="156.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label id="stat1" fx:id="stat00" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="stat01" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label fx:id="stat10" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="stat11" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="stat20" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="stat21" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label fx:id="stat30" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label fx:id="stat31" alignment="CENTER" prefWidth="156.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,7 +68,14 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
+    <HBox alignment="CENTER" layoutX="484.0" layoutY="400.0" prefHeight="32.0" prefWidth="340.0" spacing="30.0">
+      <children>
+        <Label fx:id="playerGold" text="" />
+        <Label fx:id="shopGold" text="" />
+      </children>
+    </HBox>
   </children>
 </AnchorPane>

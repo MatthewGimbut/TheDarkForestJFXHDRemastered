@@ -3,6 +3,8 @@ package characters;
 import attacks.Other.StatChange;
 import items.Item;
 import items.accessories.Accessory;
+import items.ammunition.Ammunition;
+import items.ammunition.Stackable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,8 +25,10 @@ public abstract class Character implements Serializable {
 	public static final String GENERIC_NEUTRAL_WEST = "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png";
 	private static final long serialVersionUID = -7026591060236208199L;
 	private List<StatChange> currentStatusEffects; //buffs and debuffs
+	protected ArrayList<Item> inventory;
 	private boolean isAttacking = false;
 	protected int lvl;
+	protected int gold;
 	protected String name;
 	protected int currentHP;
 	protected int maxHP;
@@ -58,7 +62,27 @@ public abstract class Character implements Serializable {
 		this.currentCarry = currentCarry;
 		this.carryCap = carryCap;
 		this.isDead = false;
+		inventory = new ArrayList<>();
+		this.gold = 0;
+	}
 
+	public Character(String name, int lvl, int currentHP, int maxHP, int currentMana, int maxMana, int atk, int magic, int def, int speed, int currentCarry, int carryCap, int gold, ArrayList<Item> inventory) {
+		currentStatusEffects = new ArrayList<StatChange>();
+		this.lvl = lvl;
+		this.name = name;
+		this.currentHP = currentHP;
+		this.maxHP = maxHP;
+		this.currentMana = currentMana;
+		this.maxMana = maxMana;
+		this.atk = atk;
+		this.magic = magic;
+		this.def = def;
+		this.speed = speed;
+		this.currentCarry = currentCarry;
+		this.carryCap = carryCap;
+		this.isDead = false;
+		this.inventory = inventory;
+		this.gold = gold;
 	}
 
 	public Character(String name, int lvl, int currentHP, int maxHP, int currentMana, int maxMana, int atk, int magic, int def, int speed,
@@ -126,7 +150,53 @@ public abstract class Character implements Serializable {
 			this.currentHP = maxHP;
 		}
 	}
-	
+
+	/**
+	 * Adds a single item to the inventory
+	 * @param i The item to be added
+	 */
+	public boolean addItem(Item i) {
+		if (i.getWeight() <= (getCarryCap() - getCurrentCarry())) {
+			if(i instanceof Stackable) {
+				boolean stacked = false;
+				for(int k = 0; k < inventory.size() && !stacked; k++) {
+					Item current = inventory.get(k);
+					if(current instanceof Stackable) {
+						if(current instanceof Ammunition && i instanceof Ammunition
+								&& current.getClass().equals(i.getClass())
+								&& current.getHowRare().equals(i.getHowRare())
+								&& ((Ammunition) current).getWeaponType().equals(((Ammunition) i).getWeaponType())) {
+							System.out.println("Previous: " + ((Ammunition) current).getCount());
+							((Ammunition) current).combine((Stackable) i);
+							System.out.println("After: " + ((Ammunition) current).getCount());
+							stacked = true;
+						}
+					}
+
+				}
+				if(!stacked) {
+					this.inventory.add(i);
+				}
+			} else {
+				this.inventory.add(i);
+			}
+			this.modifyCurrentCarry(i.getWeight());
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	/**
+	 * Removes a single item from the inventory
+	 * @param i The item to be removed
+	 */
+	public void removeSingleItem(Item i) {
+		this.inventory.remove(i);
+		this.modifyCurrentCarry(-i.getWeight());
+	}
+
 	public void modifyCurrentCarry(double currentCarry) {
 		this.currentCarry += currentCarry;
 	}
@@ -202,10 +272,21 @@ public abstract class Character implements Serializable {
 	public boolean getAttacking() {
 		return this.isAttacking;
 	}
-	
-	
+
+	public ArrayList<Item> getInventory() {
+		return inventory;
+	}
+
 	public int getCurrentHP() {
 		return currentHP;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void modifyGold(int gold) {
+		this.gold += gold;
 	}
 
 	public void modifyCurrentHP(int hpMod) {

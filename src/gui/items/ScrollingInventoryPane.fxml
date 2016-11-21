@@ -107,5 +107,6 @@
     <Label fx:id="weight" alignment="CENTER_RIGHT" layoutX="583.0" layoutY="19.0" prefWidth="200.0" text="" />
     <Label id="stat2" fx:id="stat7" alignment="CENTER_LEFT" layoutX="530.0" layoutY="334.0" text="" wrapText="true" />
     <Label id="stat5" fx:id="stat8" alignment="CENTER_LEFT" layoutX="612.0" layoutY="334.0" prefWidth="115.0" text="" wrapText="true" />
+    <Label id="weight" fx:id="gold" alignment="CENTER_RIGHT" layoutX="582.0" layoutY="44.0" prefWidth="200.0" text="" />
   </children>
 </AnchorPane>

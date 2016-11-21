@@ -2,6 +2,7 @@ package mapping;
 
 import characters.Character;
 import characters.Enemy;
+import characters.Merchant;
 import characters.Neutral;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -287,7 +288,7 @@ public class JSONMapParser {
     private ArrayList<Sprite> getRandomNPCS(boolean addEnemies) throws IOException {
         String randomDialogue = "Dialogue\\GenericNeutralDialogue\\Generic" + rand.nextInt(NUM_GENERIC_DIALOGUE) + ".dialogue";
         ArrayList<Sprite> npcs = new ArrayList<>();
-        switch (rand.nextInt(3)) {
+        switch (rand.nextInt(4)) {
             case 0:
                 npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), new Neutral(GameStage.getRandomName()),
                         parseDialogueArray(randomDialogue)));
@@ -299,6 +300,9 @@ public class JSONMapParser {
                             parseDialogueArray(randomDialogue)));
                 }
                 break;
+            case 3:
+                Merchant merchant = new Merchant();
+                npcs.add(new NPC(rand.nextInt(980), rand.nextInt(650), merchant, merchant.getMerchantType().getGenericDialog()));
         }
         return npcs;
     }

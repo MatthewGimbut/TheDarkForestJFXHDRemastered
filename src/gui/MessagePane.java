@@ -1,6 +1,7 @@
 package gui;
 
 import characters.Enemy;
+import characters.Merchant;
 import characters.Player;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

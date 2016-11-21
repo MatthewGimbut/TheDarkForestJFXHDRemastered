@@ -1,7 +1,8 @@
 package gui.items;
 
-import characters.Player;
+import characters.Character;
 import items.Item;
+import items.TwoHanded;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -15,12 +16,12 @@ public class TextItemPane extends HBox {
     private Image itemImage;
     private ImageView imageView;
     private Item i;
-    private Player player;
+    private Character Character;
     private Color color;
 
-    public TextItemPane(Item i, Player player) {
+    public TextItemPane(Item i, Character Character) {
         this.i = i;
-        this.player = player;
+        this.Character = Character;
         this.color = Color.BLACK;
 
         itemImage = new Image(i.getImageLocation());
@@ -31,7 +32,7 @@ public class TextItemPane extends HBox {
         if(i.isFavorite()) {
             name += " ★";
         }
-        itemName = new Label(name);
+        itemName = new Label(name  + (i instanceof TwoHanded ? " (2H)" : ""));
         itemName.setTextFill(color);
 
         this.getChildren().add(itemName);
