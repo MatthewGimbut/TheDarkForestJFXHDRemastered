@@ -266,13 +266,6 @@ public class UIManager {
         bp.requestFocus();
     }
 
-    /*public void popMerchantPanelStack() {
-        BorderPane bp = panelStack.remove();
-        menuCurrentlyDisplayed = true;
-        currentView.getChildren().add(bp);
-        bp.requestFocus();
-    }*/
-
     public void showConfirmQuitPane() {
         menuCurrentlyDisplayed = true;
         ConfirmQuitPane cqp = new ConfirmQuitPane(currentView);

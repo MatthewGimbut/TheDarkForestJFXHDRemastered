@@ -1162,7 +1162,6 @@ public class GamePane extends StackPane {
             uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
         } else if (((NPC) obstacle).getNPC() instanceof Merchant) {
             uiManager.displayShopPane((NPC) obstacle);
-            uiManager.displayMessagePane(obstacle.getMessage(), (NPC) obstacle);
         }
     }
 

@@ -78,6 +78,7 @@ public class ScrollingInventoryPane extends BorderPane {
     @FXML private Label weight;
     @FXML private ScrollPane allScroll;
     @FXML private Tab allTab;
+    @FXML private Label gold;
 
 
 
@@ -131,6 +132,8 @@ public class ScrollingInventoryPane extends BorderPane {
         });
 
         sortItems();
+
+        gold.setText(player.getGold() + " gold");
 
         allScroll.setContent(drawAll());
         drawColors(allLabels);

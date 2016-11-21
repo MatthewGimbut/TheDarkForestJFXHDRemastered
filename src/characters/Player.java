@@ -330,54 +330,6 @@ public class Player extends Character {
         modifyCurrentHP(((Potion) p).getAmount());
     }
 
-
-
-    /**
-     * Adds a single item to the inventory
-     * @param i The item to be added
-     */
-    public boolean addItem(Item i) {
-        if (i.getWeight() <= (getCarryCap() - getCurrentCarry())) {
-            if(i instanceof Stackable) {
-                boolean stacked = false;
-                for(int k = 0; k < inventory.size() && !stacked; k++) {
-                    Item current = inventory.get(k);
-                    if(current instanceof Stackable) {
-                        if(current instanceof Ammunition && i instanceof Ammunition
-                                && current.getClass().equals(i.getClass())
-                                && current.getHowRare().equals(i.getHowRare())
-                                && ((Ammunition) current).getWeaponType().equals(((Ammunition) i).getWeaponType())) {
-                            System.out.println("Previous: " + ((Ammunition) current).getCount());
-                            ((Ammunition) current).combine((Stackable) i);
-                            System.out.println("After: " + ((Ammunition) current).getCount());
-                            stacked = true;
-                        }
-                    }
-
-                }
-                if(!stacked) {
-                    this.inventory.add(i);
-                }
-            } else {
-                this.inventory.add(i);
-            }
-            this.modifyCurrentCarry(i.getWeight());
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    /**
-     * Removes a single item from the inventory
-     * @param i The item to be removed
-     */
-    public void removeSingleItem(Item i) {
-        this.inventory.remove(i);
-        this.modifyCurrentCarry(-i.getWeight());
-    }
-
     public int getXp() {
         return xp;
     }

@@ -63,6 +63,8 @@ public class ShopPane extends BorderPane {
     @FXML private Label stat30;
     @FXML private Label stat31;
     @FXML private GridPane statGrid;
+    @FXML private Label playerGold;
+    @FXML private Label shopGold;
 
     private GamePane currentView;
     private Merchant shopkeeper;
@@ -93,6 +95,8 @@ public class ShopPane extends BorderPane {
         playerScroll.setContent(fillPlayerTab());
         shopkeeperPane.setContent(fillShopTab());
 
+        resetMoneyLabels();
+
         this.setCenter(anchor);
 
         Rectangle rekt = new Rectangle(anchor.getPrefWidth(), anchor.getPrefHeight());
@@ -101,6 +105,7 @@ public class ShopPane extends BorderPane {
         anchor.setClip(rekt);
 
         message.setFont(new Font("Cambria", 18));
+        message.setText(shopkeeper.getMerchantType().toString() + " wares");
 
         AudioManager.getInstance().playSound(AudioManager.MENU_OPEN);
     }
@@ -138,6 +143,12 @@ public class ShopPane extends BorderPane {
         return shopBox;
     }
 
+    void resetMoneyLabels() {
+        shopGold.setText(shopkeeper.getName() + ": " + shopkeeper.getGold() + " gold");
+        playerGold.setText(currentView.getMainPlayerSprite().getPlayer().getName() + ": " +
+                currentView.getMainPlayerSprite().getPlayer().getGold() + " gold");
+    }
+
     private class BuyHandler implements EventHandler<MouseEvent> {
 
         private TextItemPane label;
@@ -146,7 +157,24 @@ public class ShopPane extends BorderPane {
 
         @Override
         public void handle(MouseEvent event) {
-
+            Player p = currentView.getMainPlayerSprite().getPlayer();
+            if(label.getItem().getValue() <= p.getGold()) {
+                if(label.getItem().getWeight() <= (p.getCarryCap() - p.getCurrentCarry())) {
+                    p.addItem(label.getItem());
+                    p.modifyGold(-label.getItem().getValue());
+                    shopkeeper.modifyGold(label.getItem().getValue());
+                    shopkeeper.removeSingleItem(label.getItem());
+                    playerScroll.setContent(fillPlayerTab());
+                    shopkeeperPane.setContent(fillShopTab());
+                    resetMoneyLabels();
+                    message.setText("You have purchased " + label.getItem().getSimpleName()
+                            + " for " + label.getItem().getValue() + " gold.");
+                } else {
+                    message.setText("You don't have enough inventory space!");
+                }
+            } else {
+                message.setText("You don't have enough gold!");
+            }
         }
     }
 
@@ -158,6 +186,19 @@ public class ShopPane extends BorderPane {
 
         @Override
         public void handle(MouseEvent event) {
+            if(shopkeeper.getGold() >= label.getItem().getValue()) {
+                Player p = currentView.getMainPlayerSprite().getPlayer();
+                shopkeeper.addItem(label.getItem());
+                shopkeeper.modifyGold(-label.getItem().getValue());
+                p.modifyGold(label.getItem().getValue());
+                p.removeSingleItem(label.getItem());
+                playerScroll.setContent(fillPlayerTab());
+                shopkeeperPane.setContent(fillShopTab());
+                resetMoneyLabels();
+                message.setText("You have sold " + label.getItem().getSimpleName() + " for " + label.getItem().getValue() + " gold.");
+            } else {
+                message.setText("Shopkeeper doesn't have enough money!");
+            }
 
         }
     }
