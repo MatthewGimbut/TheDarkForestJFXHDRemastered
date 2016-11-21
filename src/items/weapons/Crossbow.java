@@ -32,7 +32,7 @@ public class Crossbow extends Weapon implements Projectile, TwoHanded {
 
     @Override
     public int getStaminaCost() {
-        return 13;
+        return 40;
     }
 
     private void setInfo(String imgLoc, String name, String tooltip) {

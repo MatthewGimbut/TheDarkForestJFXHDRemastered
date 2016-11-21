@@ -1330,3 +1330,15 @@
 2016-11-21 01:29:19.262 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
 2016-11-21 01:29:19.263 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
 2016-11-21 01:29:19.263 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-21 01:37:57.721 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = 6017591010074060564
+2016-11-21 01:37:57.739 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
+2016-11-21 01:37:57.740 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-21 01:37:57.740 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-21 01:42:06.998 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = 6017591010074060564
+2016-11-21 01:42:07.000 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
+2016-11-21 01:42:07.000 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-21 01:42:07.000 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
+2016-11-21 01:42:17.137 [JavaFX Application Thread] ERROR main.GameStage - java.io.InvalidClassException: characters.Player; local class incompatible: stream classdesc serialVersionUID = -502843859007234303, local class serialVersionUID = 6017591010074060564
+2016-11-21 01:42:17.137 [JavaFX Application Thread] ERROR main.GameStage - InvalidClassException while deserializing save.
+2016-11-21 01:42:17.137 [JavaFX Application Thread] ERROR main.GameStage - java.io.FileNotFoundException: Saves\save03.ser (The system cannot find the file specified)
+2016-11-21 01:42:17.137 [JavaFX Application Thread] ERROR main.GameStage - IOException while deserializing save.
