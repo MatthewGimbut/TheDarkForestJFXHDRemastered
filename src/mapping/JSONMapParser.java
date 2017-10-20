@@ -274,7 +274,7 @@ public class JSONMapParser {
         String line = br.readLine();
         String[] temp = line.split("\\|");
         String[] dialogue = new String[temp.length];
-        for(int i = 0; i < temp.length; i++) {
+        for(int i = 0; i < temp.length; i++) { //TODO Try and figure out why I did this. Something this stupid has to be here for a reason. - Matt
             dialogue[i] = temp[i];
         }
         return dialogue;

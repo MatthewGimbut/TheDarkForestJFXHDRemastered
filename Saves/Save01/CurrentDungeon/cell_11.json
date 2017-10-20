@@ -1,0 +1,2027 @@
+{
+  "id": "grass",
+  "fileLocation": "Saves\\Save01\\CurrentDungeon\\cell_11.json",
+  "genericObstacles": [
+    {
+      "x": 545,
+      "y": 585,
+      "dx": 0,
+      "dy": 0,
+      "width": 48,
+      "height": 48,
+      "visible": true,
+      "isObstacle": false,
+      "location": "file:Images\\Space48x48.png"
+    },
+    {
+      "x": 965,
+      "y": 373,
+      "dx": 0,
+      "dy": 0,
+      "width": 48,
+      "height": 48,
+      "visible": true,
+      "isObstacle": false,
+      "location": "file:Images\\Space48x48.png"
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 50,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 50,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 95,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 95,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 140,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 140,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 185,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 185,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 230,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 230,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 275,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 275,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 320,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 320,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 365,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 365,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 410,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 410,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 455,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 455,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 500,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 500,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 545,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 590,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 590,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 635,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 635,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 680,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 680,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 725,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 725,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 770,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 770,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 815,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 815,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 860,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 860,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 905,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 905,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 950,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 950,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 5,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 656,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 47,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 87,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 127,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 167,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 207,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 247,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 287,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 327,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 367,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 407,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 447,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 487,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 527,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 567,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 5,
+      "y": 607,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 47,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 87,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 127,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 167,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 207,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 247,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 287,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 327,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 447,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 487,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 527,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 567,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 995,
+      "y": 614,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 62,
+      "y": 238,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 142,
+      "y": 531,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 362,
+      "y": 221,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 282,
+      "y": 612,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 49,
+      "y": 516,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 188,
+      "y": 591,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 300,
+      "y": 123,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 545,
+      "y": 521,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 808,
+      "y": 260,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 296,
+      "y": 570,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 855,
+      "y": 569,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 419,
+      "y": 420,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 199,
+      "y": 282,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 83,
+      "y": 351,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 52,
+      "y": 154,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 732,
+      "y": 396,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    },
+    {
+      "x": 689,
+      "y": 196,
+      "dx": 0,
+      "dy": 0,
+      "width": 50,
+      "height": 50,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree50x50.png"
+    },
+    {
+      "x": 942,
+      "y": 125,
+      "dx": 0,
+      "dy": 0,
+      "width": 44,
+      "height": 40,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Nature\\Tree.png"
+    }
+  ],
+  "displayItems": [
+    {
+      "item": {
+        "type": "items.Armor.Shield",
+        "data": {
+          "armorType": "steel",
+          "atk": 4,
+          "magic": 0,
+          "def": 12,
+          "imageLocation": "Images\\Armors\\steel\\Shield.png",
+          "value": 200,
+          "howRare": "JUNK",
+          "r": {
+            "seed": 121825047434968,
+            "nextNextGaussian": 0.0,
+            "haveNextNextGaussian": false
+          },
+          "random": 0,
+          "cooldown": 2,
+          "weight": 8.0,
+          "hpBoost": 0,
+          "manaBoost": 0,
+          "simpleName": "steel shield",
+          "toolTipText": "A steel shield",
+          "isCurrentlyEquipped": false,
+          "isFavorite": false
+        }
+      },
+      "x": 778,
+      "y": 180,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 32,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Armors\\steel\\Shield.png"
+    },
+    {
+      "item": {
+        "type": "items.ammunition.Bolt",
+        "data": {
+          "ammoCount": 14,
+          "damage": 6,
+          "individualWeight": 0.1,
+          "weaponType": "stone",
+          "atk": 0,
+          "magic": 0,
+          "def": 0,
+          "imageLocation": "file:Images\\Weapons\\Bolt.png",
+          "value": 13,
+          "howRare": "COMMON",
+          "r": {
+            "seed": 135164352594536,
+            "nextNextGaussian": 0.0,
+            "haveNextNextGaussian": false
+          },
+          "random": 0,
+          "cooldown": 60,
+          "weight": 0.0,
+          "hpBoost": 0,
+          "manaBoost": 0,
+          "simpleName": "stone bolts (14)",
+          "toolTipText": "stone bolts (14)",
+          "isCurrentlyEquipped": false,
+          "isFavorite": false
+        }
+      },
+      "x": 699,
+      "y": 405,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 32,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Weapons\\Bolt.png"
+    },
+    {
+      "item": {
+        "type": "items.Armor.Legs",
+        "data": {
+          "armorType": "iron",
+          "atk": 0,
+          "magic": 0,
+          "def": 8,
+          "imageLocation": "Images\\Armors\\iron\\Legs.png",
+          "value": 113,
+          "howRare": "JUNK",
+          "r": {
+            "seed": 61620398717819,
+            "nextNextGaussian": 0.0,
+            "haveNextNextGaussian": false
+          },
+          "random": 0,
+          "cooldown": 0,
+          "weight": 8.0,
+          "hpBoost": 0,
+          "manaBoost": 0,
+          "simpleName": "iron legs",
+          "toolTipText": "A pair of iron leggings",
+          "isCurrentlyEquipped": false,
+          "isFavorite": false
+        }
+      },
+      "x": 542,
+      "y": 124,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 32,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Armors\\iron\\Legs.png"
+    }
+  ],
+  "exits": [
+    {
+      "nextMapLocation": "Saves\\Save01\\CurrentDungeon\\cell_12.json",
+      "nextX": 550,
+      "nextY": 65,
+      "placement": "South",
+      "x": 550,
+      "y": 665,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 48,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Blank32x48.png"
+    },
+    {
+      "nextMapLocation": "Saves\\Save01\\CurrentDungeon\\cell_10.json",
+      "nextX": 50,
+      "nextY": 373,
+      "placement": "South",
+      "x": 1020,
+      "y": 373,
+      "dx": 0,
+      "dy": 0,
+      "width": 32,
+      "height": 48,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Blank32x48.png"
+    }
+  ],
+  "lootables": [
+    {
+      "items": [
+        {
+          "type": "items.Weapons.Spear",
+          "data": {
+            "weaponType": "stone",
+            "atk": 7,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Spear.png",
+            "value": 100,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 203607079495766,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 5,
+            "weight": 4.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone spear",
+            "toolTipText": "A stone spear",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Armor.Boots",
+          "data": {
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 2,
+            "imageLocation": "Images\\Armors\\wood\\Boots.png",
+            "value": 49,
+            "howRare": "JUNK",
+            "r": {
+              "seed": 87871240728869,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 2.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood boots",
+            "toolTipText": "A pair of wood boots",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Armor.ChestPiece",
+          "data": {
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 6,
+            "imageLocation": "Images\\Armors\\wood\\Chest.png",
+            "value": 113,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 110154951422208,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 7.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood Armor",
+            "toolTipText": "A wood chest",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Dagger",
+          "data": {
+            "weaponType": "stone",
+            "atk": 3,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Weapons\\stone\\Dagger.png",
+            "value": 38,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 63265958194853,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 1,
+            "weight": 1.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "stone dagger",
+            "toolTipText": "A stone dagger",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Ring",
+          "data": {
+            "cooldownReduction": -25.0,
+            "manaRegenBoost": -50,
+            "hpRegenBoost": -225,
+            "staminaRegenBoost": -100,
+            "armorType": "leather",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\ring.png",
+            "value": 100,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 241937044774005,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 2.0,
+            "hpBoost": 15,
+            "manaBoost": 15,
+            "simpleName": "leather ring",
+            "toolTipText": "A leather ring",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Consumables.Potion",
+          "data": {
+            "type": "Health",
+            "amount": 80,
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "Images\\Consumables\\Potions\\Health Potion.png",
+            "value": 100,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 33161772933296,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 0.1,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "Health Potion",
+            "toolTipText": "A(n) Health Potion",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Necklace",
+          "data": {
+            "cooldownReduction": -50.0,
+            "manaRegenBoost": -100,
+            "hpRegenBoost": -450,
+            "staminaRegenBoost": -200,
+            "armorType": "cloth",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\necklace.png",
+            "value": 50,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 41691013918887,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 0,
+            "cooldown": 0,
+            "weight": 3.0,
+            "hpBoost": 30,
+            "manaBoost": 30,
+            "simpleName": "cloth necklace",
+            "toolTipText": "A cloth necklace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.Weapons.Bow",
+          "data": {
+            "weaponType": "wood",
+            "atk": 2,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Weapons\\Bow.png",
+            "value": 76,
+            "howRare": "COMMON",
+            "r": {
+              "seed": 222137480378880,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 750,
+            "weight": 2.0,
+            "hpBoost": 0,
+            "manaBoost": 0,
+            "simpleName": "wood bow",
+            "toolTipText": "A wood bow",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        },
+        {
+          "type": "items.accessories.Necklace",
+          "data": {
+            "cooldownReduction": -50.0,
+            "manaRegenBoost": -100,
+            "hpRegenBoost": -450,
+            "staminaRegenBoost": -200,
+            "armorType": "wood",
+            "atk": 0,
+            "magic": 0,
+            "def": 0,
+            "imageLocation": "file:Images\\Accessories\\necklace.png",
+            "value": 75,
+            "howRare": "UNCOMMON",
+            "r": {
+              "seed": 254503931658039,
+              "nextNextGaussian": 0.0,
+              "haveNextNextGaussian": false
+            },
+            "random": 1,
+            "cooldown": 0,
+            "weight": 4.0,
+            "hpBoost": 30,
+            "manaBoost": 30,
+            "simpleName": "wood necklace",
+            "toolTipText": "A wood necklace",
+            "isCurrentlyEquipped": false,
+            "isFavorite": false
+          }
+        }
+      ],
+      "x": 508,
+      "y": 503,
+      "dx": 0,
+      "dy": 0,
+      "width": 34,
+      "height": 33,
+      "visible": true,
+      "isObstacle": true,
+      "location": "file:Images\\Lootables\\ChestArea.png"
+    }
+  ],
+  "lowerLayers": [],
+  "npcs": [
+    {
+      "chara": {
+        "type": "characters.Merchant",
+        "data": {
+          "merchantType": "Weapons",
+          "currentStatusEffects": [],
+          "inventory": [
+            {
+              "type": "items.Consumables.Potion",
+              "data": {
+                "type": "Health",
+                "amount": 75,
+                "atk": 0,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Consumables\\Potions\\Health Potion.png",
+                "value": 100,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 90446399871564,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 0,
+                "weight": 0.1,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "Health Potion",
+                "toolTipText": "A(n) Health Potion",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Crossbow",
+              "data": {
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+                "value": 125,
+                "howRare": "JUNK",
+                "r": {
+                  "seed": 18177529935756,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 1000,
+                "weight": 7.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone crossbow",
+                "toolTipText": "A stone crossbow",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Sword",
+              "data": {
+                "weaponType": "stone",
+                "atk": 4,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\stone\\Sword.png",
+                "value": 88,
+                "howRare": "JUNK",
+                "r": {
+                  "seed": 132991332169440,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 2,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone sword",
+                "toolTipText": "A stone sword",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.accessories.Necklace",
+              "data": {
+                "cooldownReduction": -50.0,
+                "manaRegenBoost": -100,
+                "hpRegenBoost": -450,
+                "staminaRegenBoost": -200,
+                "armorType": "wood",
+                "atk": 0,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Accessories\\necklace.png",
+                "value": 75,
+                "howRare": "UNCOMMON",
+                "r": {
+                  "seed": 77054534359580,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 0,
+                "weight": 4.0,
+                "hpBoost": 30,
+                "manaBoost": 30,
+                "simpleName": "wood necklace",
+                "toolTipText": "A wood necklace",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Staff",
+              "data": {
+                "spellType": "Fire001",
+                "projectileSpeed": 6,
+                "manaCost": 14,
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 8,
+                "def": 0,
+                "imageLocation": "file:Images\\Weapons\\stone\\Staff.png",
+                "value": 150,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 217291965825356,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 550,
+                "weight": 5.0,
+                "hpBoost": 0,
+                "manaBoost": 40,
+                "simpleName": "Fire staff",
+                "toolTipText": "A Fire staff",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Armor.Shield",
+              "data": {
+                "armorType": "bronze",
+                "atk": 3,
+                "magic": 0,
+                "def": 8,
+                "imageLocation": "Images\\Armors\\bronze\\Shield.png",
+                "value": 125,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 64871849404044,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 2,
+                "weight": 5.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "bronze shield",
+                "toolTipText": "A bronze shield",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Axe",
+              "data": {
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\stone\\Axe.png",
+                "value": 90,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 78831394394247,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 3,
+                "weight": 3.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone axe",
+                "toolTipText": "A stone axe",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.accessories.Necklace",
+              "data": {
+                "cooldownReduction": -50.0,
+                "manaRegenBoost": -100,
+                "hpRegenBoost": -450,
+                "staminaRegenBoost": -200,
+                "armorType": "wood",
+                "atk": 0,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Accessories\\necklace.png",
+                "value": 75,
+                "howRare": "UNCOMMON",
+                "r": {
+                  "seed": 99464823467105,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 0,
+                "weight": 4.0,
+                "hpBoost": 30,
+                "manaBoost": 30,
+                "simpleName": "wood necklace",
+                "toolTipText": "A wood necklace",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Armor.Gloves",
+              "data": {
+                "armorType": "wood",
+                "atk": 0,
+                "magic": 0,
+                "def": 2,
+                "imageLocation": "Images\\Armors\\wood\\Gloves.png",
+                "value": 38,
+                "howRare": "JUNK",
+                "r": {
+                  "seed": 265981143550950,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 0,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "wood gauntlets",
+                "toolTipText": "A pair of wood gauntlets",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Armor.Boots",
+              "data": {
+                "armorType": "wood",
+                "atk": 0,
+                "magic": 0,
+                "def": 2,
+                "imageLocation": "Images\\Armors\\wood\\Boots.png",
+                "value": 49,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 138918156911585,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 0,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "wood boots",
+                "toolTipText": "A pair of wood boots",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Consumables.Potion",
+              "data": {
+                "type": "Health",
+                "amount": 75,
+                "atk": 0,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Consumables\\Potions\\Health Potion.png",
+                "value": 100,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 238222022903915,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 0,
+                "weight": 0.1,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "Health Potion",
+                "toolTipText": "A(n) Health Potion",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.accessories.Necklace",
+              "data": {
+                "cooldownReduction": -50.0,
+                "manaRegenBoost": -100,
+                "hpRegenBoost": -450,
+                "staminaRegenBoost": -200,
+                "armorType": "iron",
+                "atk": 0,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Accessories\\necklace.png",
+                "value": 150,
+                "howRare": "UNCOMMON",
+                "r": {
+                  "seed": 233833135682784,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 0,
+                "weight": 8.0,
+                "hpBoost": 30,
+                "manaBoost": 30,
+                "simpleName": "iron necklace",
+                "toolTipText": "A iron necklace",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Armor.Gloves",
+              "data": {
+                "armorType": "wood",
+                "atk": 0,
+                "magic": 0,
+                "def": 2,
+                "imageLocation": "Images\\Armors\\wood\\Gloves.png",
+                "value": 38,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 199568961192157,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 0,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "wood gauntlets",
+                "toolTipText": "A pair of wood gauntlets",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Crossbow",
+              "data": {
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+                "value": 125,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 103211331589403,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 1000,
+                "weight": 7.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone crossbow",
+                "toolTipText": "A stone crossbow",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Mace",
+              "data": {
+                "weaponType": "stone",
+                "atk": 6,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\stone\\Mace.png",
+                "value": 89,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 128741181938375,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 4,
+                "weight": 3.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone mace",
+                "toolTipText": "A stone mace",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Crossbow",
+              "data": {
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "file:Images\\Weapons\\Crossbow.png",
+                "value": 125,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 175003096700108,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 1,
+                "cooldown": 1000,
+                "weight": 7.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone crossbow",
+                "toolTipText": "A stone crossbow",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Axe",
+              "data": {
+                "weaponType": "stone",
+                "atk": 5,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\stone\\Axe.png",
+                "value": 90,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 125955242164534,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 3,
+                "weight": 3.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone axe",
+                "toolTipText": "A stone axe",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Sword",
+              "data": {
+                "weaponType": "stone",
+                "atk": 4,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\stone\\Sword.png",
+                "value": 88,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 111139923018080,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 2,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "stone sword",
+                "toolTipText": "A stone sword",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Weapons.Sword",
+              "data": {
+                "weaponType": "bronze",
+                "atk": 8,
+                "magic": 0,
+                "def": 0,
+                "imageLocation": "Images\\Weapons\\bronze\\Sword.png",
+                "value": 175,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 82622949531741,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 2,
+                "weight": 4.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "bronze sword",
+                "toolTipText": "A bronze sword",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            },
+            {
+              "type": "items.Armor.Helmet",
+              "data": {
+                "armorType": "cloth",
+                "atk": 0,
+                "magic": 0,
+                "def": 3,
+                "imageLocation": "Images\\Armors\\cloth\\Helmet.png",
+                "value": 40,
+                "howRare": "COMMON",
+                "r": {
+                  "seed": 30786418367734,
+                  "nextNextGaussian": 0.0,
+                  "haveNextNextGaussian": false
+                },
+                "random": 0,
+                "cooldown": 0,
+                "weight": 2.0,
+                "hpBoost": 0,
+                "manaBoost": 0,
+                "simpleName": "cloth hood",
+                "toolTipText": "A cloth hood",
+                "isCurrentlyEquipped": false,
+                "isFavorite": false
+              }
+            }
+          ],
+          "isAttacking": false,
+          "lvl": 1,
+          "gold": 3,
+          "name": "Gary Trump",
+          "currentHP": 100,
+          "maxHP": 100,
+          "currentMana": 125,
+          "maxMana": 125,
+          "atk": 1,
+          "magic": 1,
+          "def": 1,
+          "speed": 1,
+          "carryCap": 1000.0,
+          "currentCarry": 1000.0,
+          "isDead": false,
+          "image": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "south": "Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png",
+          "north": "Images\\Characters\\GenericNeutral\\GenericNeutralNorth.png",
+          "east": "Images\\Characters\\GenericNeutral\\GenericNeutralEast.png",
+          "west": "Images\\Characters\\GenericNeutral\\GenericNeutralWest.png"
+        }
+      },
+      "questActivationTriggers": [],
+      "questTriggers": [],
+      "x": 822,
+      "y": 591,
+      "dx": 0,
+      "dy": 0,
+      "width": 24,
+      "height": 39,
+      "visible": true,
+      "isObstacle": true,
+      "message": [
+        "I sell weapons!",
+        "Would you like to see my wares?"
+      ],
+      "location": "file:Images\\Characters\\GenericNeutral\\GenericNeutralSouth.png"
+    }
+  ],
+  "saves": [],
+  "upperLayers": []
+}

@@ -16,12 +16,12 @@ public class TextItemPane extends HBox {
     private Image itemImage;
     private ImageView imageView;
     private Item i;
-    private Character Character;
+    private Character character;
     private Color color;
 
-    public TextItemPane(Item i, Character Character) {
+    public TextItemPane(Item i, Character character) {
         this.i = i;
-        this.Character = Character;
+        this.character = character;
         this.color = Color.BLACK;
 
         itemImage = new Image(i.getImageLocation());

@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="TheDarkForestJFXHDRemastered:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/TheDarkForestJFXHDRemastered_jar</output-path>
-    <root id="archive" name="TheDarkForestJFXHDRemastered.jar">
-      <element id="module-output" name="TheDarkForestJFXHDRemastered" />
-      <element id="library" level="project" name="gson-2.7" />
-    </root>
-  </artifact>
-</component>
